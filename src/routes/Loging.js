@@ -6,7 +6,7 @@ export default class Loging extends Component {
     render() {
         return (
             <Layout>
-                <div>123</div>
+                <div>123456</div>
             </Layout>
         );
     }
