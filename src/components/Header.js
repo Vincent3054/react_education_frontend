@@ -7,6 +7,9 @@ export default class Menu extends Component {
     return (
       <div className='header'>
         <div className='Navbar'>
+        <div className='Navbar-logo'>
+        <span>logo</span>
+        </div>
           <div className='Navbar-login'>
             <div> 登入/註冊</div>
           </div>

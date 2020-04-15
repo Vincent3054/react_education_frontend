@@ -1,23 +1,36 @@
-.footer{
- background-color: #cccccc;
- color: #666666; 
- /* 設定footer的高度 */
- height: 60px;
- box-sizing: border-box;
- /* 設定footer絕對位置在底部 */
- position: absolute;
- bottom: 0;
- /* 展開footer寬度 */
- width: 100%;
- text-align: center;
+.footer {
+
+  color: #384661;
+  /* 設定footer的高度 */
+
+  box-sizing: border-box;
+  /* 設定footer絕對位置在底部 */
+  position: absolute;
+  bottom  : 0;
+  /* 展開footer寬度 */
+  width  : 150px;
+  padding: 10px 14px;
+
 }
-li{
-  display: inline-block;
-  padding-left: 10px;
-  line-height: 30px;
-  
+
+.footer-list {
+  display     : inline-block;
+  width: 100%;
+  line-height : 18px;
+  list-style: none;
+  font-size: 9pt;
+
 }
-img{
+
+.footer-font {
+  font-size: 6pt;
+  list-style: none;
+}
+
+img {
   vertical-align: middle;
-  margin-right:5px ;
+  margin-right  : 5px;
 }
+hr{
+  border:solid 0.5px #384661;
+ }

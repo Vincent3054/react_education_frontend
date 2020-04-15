@@ -2,15 +2,16 @@
 .header{
     position: absolute;
     padding: 0 auto;
-    margin-left: 150px;
+    
 }
 .Navbar {
     position: fixed;
-    width : 90vw;
-    height: 30px;
-    background-color   : #05050542;
+    width : 100vw;
+    height: 40px;
+    background-color   :  #384661;
+    color: #dde1eb;
     display            : flex;
-    justify-content    : flex-end;
+    justify-content    : space-between;
     border: none;
     /* padding-top     : auto;*/
   }
@@ -18,20 +19,25 @@
   .Navbar-logo {
     margin-left: 3%;
     font-size  : 18pt;
-    line-height: 30px;
+    line-height: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
   
   .Navbar-login {
     height      : 100%;
     margin-right: 3%;
     font-size   : 12pt;
-    line-height: 30px;
+    line-height: 40px;
   }
   
   /* hover */
   .Navbar-login :hover {
-    background-color: #dee2d1;
-    border: none;
-  
+    background-color: #6abe83;
+    color: #384661;
+    padding-left: 10px;
+    padding-right: 10px;
+   
+  cursor: pointer;
   }
 
