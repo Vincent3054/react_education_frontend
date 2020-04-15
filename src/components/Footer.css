@@ -1,0 +1,23 @@
+.footer{
+ background-color: #cccccc;
+ color: #666666; 
+ /* 設定footer的高度 */
+ height: 60px;
+ box-sizing: border-box;
+ /* 設定footer絕對位置在底部 */
+ position: absolute;
+ bottom: 0;
+ /* 展開footer寬度 */
+ width: 100%;
+ text-align: center;
+}
+li{
+  display: inline-block;
+  padding-left: 10px;
+  line-height: 30px;
+  
+}
+img{
+  vertical-align: middle;
+  margin-right:5px ;
+}

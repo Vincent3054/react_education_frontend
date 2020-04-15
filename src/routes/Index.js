@@ -6,7 +6,6 @@ export default class Index extends Component {
   render() {
     return (
       <Layout>
-123
       </Layout>
     );
   }

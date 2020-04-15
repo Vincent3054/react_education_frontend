@@ -1,0 +1,37 @@
+/* header */
+.header{
+    position: absolute;
+    padding: 0 auto;
+    margin-left: 150px;
+}
+.Navbar {
+    position: fixed;
+    width : 90vw;
+    height: 30px;
+    background-color   : #05050542;
+    display            : flex;
+    justify-content    : flex-end;
+    border: none;
+    /* padding-top     : auto;*/
+  }
+  
+  .Navbar-logo {
+    margin-left: 3%;
+    font-size  : 18pt;
+    line-height: 30px;
+  }
+  
+  .Navbar-login {
+    height      : 100%;
+    margin-right: 3%;
+    font-size   : 12pt;
+    line-height: 30px;
+  }
+  
+  /* hover */
+  .Navbar-login :hover {
+    background-color: #dee2d1;
+    border: none;
+  
+  }
+
