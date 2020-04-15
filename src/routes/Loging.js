@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Layout from '../layouts/Layout';
 import '../mixin/main.css';
 import '../routes/Loging.css';
+import {Link} from 'react-router-dom';
 export default class Loging extends Component {
     render() {
         return ( 
@@ -23,9 +24,11 @@ export default class Loging extends Component {
                                     <span className="Loging txt1">
                                         忘記
                                     </span>
-                                    <a href="#" className="Loging txt2">
-                                        帳號 / 密碼?
-                                    </a>
+                                    <Link to="/Getpassword">
+                                        <a href="#" className="Loging txt2">
+                                            帳號 / 密碼?
+                                        </a>
+                                    </Link>
                                 </div>
             
                                 <button className="Loging btn">
@@ -36,9 +39,11 @@ export default class Loging extends Component {
                                     <span className="Loging txt1">
                                         還沒有帳號嗎?
                                     </span>
-                                    <a href="#" className="Loging txt2">
+                                    <Link to="/Register">
+                                        <a href="#" className="Loging txt2">
                                         註冊
-                                    </a>
+                                        </a>
+                                    </Link>
                                 </div>
 
                             </form>
