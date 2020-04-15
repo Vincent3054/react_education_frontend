@@ -1,42 +1,42 @@
 import React, { Component } from 'react';
 import Layout from '../layouts/Layout';
-import './Index.css';
-import '../routes/Loging.css';
 import '../mixin/main.css';
+import '../routes/Loging.css';
 export default class Loging extends Component {
     render() {
         return ( 
             <Layout >
-                <div className="limiter">
-                    <div className="container">
-                        <div className="wrap">
-                            <form className="form">
+            <div className="Loging">
+                <div className="Loging limiter">
+                    <div className="Loging container">
+                        <div className="Loging wrap">
+                            <form className="Loging form">
 
-                                <span className="title">
+                                <span className="Loging title">
                                     Sign In
                                 </span>
 
-                                <input className="input" type="text" name="username" placeholder="Username"/>
-                                <input className="input" type="password" name="pass" placeholder="Password"/>
+                                <input className="Loging input" type="text" name="username" placeholder="Username"/>
+                                <input className="Loging input" type="password" name="pass" placeholder="Password"/>
                                 
-                                <div className="text-right">
-                                    <span className="txt1">
+                                <div className="Loging text-right">
+                                    <span className="Loging txt1">
                                         忘記
                                     </span>
-                                    <a href="#" className="txt2">
+                                    <a href="#" className="Loging txt2">
                                         帳號 / 密碼?
                                     </a>
                                 </div>
             
-                                <button className="login-btn">
+                                <button className="Loging btn">
                                     登入
                                 </button>
             
-                                <div className="text-bottom">
-                                    <span className="txt1">
+                                <div className="Loging text-bottom">
+                                    <span className="Loging txt1">
                                         還沒有帳號嗎?
                                     </span>
-                                    <a href="#" className="txt2">
+                                    <a href="#" className="Loging txt2">
                                         註冊
                                     </a>
                                 </div>
@@ -45,6 +45,7 @@ export default class Loging extends Component {
                         </div>
                     </div>
                 </div>
+            </div>    
             </Layout>
         );
     }
