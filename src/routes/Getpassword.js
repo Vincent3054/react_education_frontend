@@ -20,12 +20,12 @@ export default class Getpassword extends Component {
                                     <div className="Register list">
                                         <span className="Register red-dot">*</span>
                                         <span className="Register list-text">帳號</span>
-                                        <input className="Register input" type="text" name="user_id" />
+                                        <input className="Register input" type="text"  />
                                     </div>
                                     <div className="Register list">
                                         <span className="Register red-dot">*</span>
                                         <span className="Register list-text">電子信箱</span>
-                                        <input className="Register input" type="text" name="user_email" />
+                                        <input className="Register input" type="text"  />
                                     </div>
                                     <div className="Register list">
                                         <button className="Register login-btn">

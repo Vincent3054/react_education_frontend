@@ -17,9 +17,9 @@ export default class Loging extends Component {
                                     Sign In
                                 </span>
 
-                                <input className="Loging input" type="text" name="username" placeholder="Username"/>
-                                <input className="Loging input" type="password" name="pass" placeholder="Password"/>
-                                
+                                <input className="Loging input" type="text"  placeholder="Username"/>
+                                <input className="Loging input" type="password"  placeholder="Password"/>
+
                                 <div className="Loging text-right">
                                     <span className="Loging txt1">
                                         忘記
@@ -40,7 +40,7 @@ export default class Loging extends Component {
                                         還沒有帳號嗎?
                                     </span>
                                     <Link to="/Register">
-                                        <a href="#" className="Loging txt2">
+                                        <a href="" className="Loging txt2">
                                         註冊
                                         </a>
                                     </Link>
