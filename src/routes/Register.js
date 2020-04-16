@@ -17,22 +17,22 @@ export default class Register extends Component {
                                     <div className="Register list">
                                         <span className="Register red-dot">*</span>
                                         <span className="Register list-text">真實姓名</span>
-                                        <input className="Register input" type="text"  />
+                                        <input className="Register input" type="text" />
                                     </div>
                                     <div className="Register list">
                                         <span className="Register red-dot">*</span>
                                         <span className="Register list-text">帳號</span>
-                                        <input className="Register input" type="text"  />
+                                        <input className="Register input" type="text" />
                                     </div>
                                     <div className="Register list">
                                         <span className="Register red-dot">*</span>
                                         <span className="Register list-text">密碼</span>
-                                        <input className="Register input" type="password"  />
+                                        <input className="Register input" type="password" />
                                     </div>
                                     <div className="Register list">
                                         <span className="Register red-dot">*</span>
                                         <span className="Register list-text">電子信箱</span>
-                                        <input className="Register input" type="text"  />
+                                        <input className="Register input" type="text" />
                                     </div>
                                     <div className="Register list">
                                         <span className="Register red-dot">*</span>
@@ -42,7 +42,7 @@ export default class Register extends Component {
                                     <div className="Register list">
                                         <button className="Register login-btn">
                                             註冊
-                                    </button>
+                                        </button>
                                     </div>
                                 </form>
                             </div>

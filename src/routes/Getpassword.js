@@ -9,7 +9,7 @@ export default class Getpassword extends Component {
                 <div className="Register">
                     <div className="Register limiter">
                         <div className="Register container">
-                            <div className="Register wrap" style={{ width:"600px"}}>
+                            <div className="Register wrap" style={{ width: "600px" }}>
                                 <form className="Register form">
                                     <span className="Register title">
                                         找回密碼
@@ -20,12 +20,12 @@ export default class Getpassword extends Component {
                                     <div className="Register list">
                                         <span className="Register red-dot">*</span>
                                         <span className="Register list-text">帳號</span>
-                                        <input className="Register input" type="text"  />
+                                        <input className="Register input" type="text" />
                                     </div>
                                     <div className="Register list">
                                         <span className="Register red-dot">*</span>
                                         <span className="Register list-text">電子信箱</span>
-                                        <input className="Register input" type="text"  />
+                                        <input className="Register input" type="text" />
                                     </div>
                                     <div className="Register list">
                                         <button className="Register login-btn">
@@ -33,7 +33,7 @@ export default class Getpassword extends Component {
                                         </button>
                                     </div>
                                     <hr></hr>
-                                    <div style={{marginTop: "40px",marginBottom: "40px"}}>
+                                    <div style={{ marginTop: "40px", marginBottom: "40px" }}>
                                         <span>
                                             查詢結果會將您的帳號與密碼，寄至你填寫的Email信箱，請在15分鐘內，點擊Email中的網址來找回密碼。
                                         </span>
