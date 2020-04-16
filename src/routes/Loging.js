@@ -14,11 +14,11 @@ export default class Loging extends Component {
                             <form className="Loging form">
 
                                 <span className="Loging title">
-                                    Sign In
+                                    登入
                                 </span>
 
-                                <input className="Loging input" type="text"  placeholder="Username"/>
-                                <input className="Loging input" type="password"  placeholder="Password"/>
+                                <input className="Loging input" type="text"  placeholder="帳號"/>
+                                <input className="Loging input" type="password"  placeholder="密碼"/>
 
                                 <div className="Loging text-right">
                                     <span className="Loging txt1">

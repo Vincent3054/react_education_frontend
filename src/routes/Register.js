@@ -12,7 +12,7 @@ export default class Register extends Component {
                             <div className="Register wrap">
                                 <form className="Register form">
                                     <span className="Register title">
-                                        Sign Up
+                                        註冊
                                     </span>
                                     <div className="Register list">
                                         <span className="Register red-dot">*</span>
