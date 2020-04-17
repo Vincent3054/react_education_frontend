@@ -1,0 +1,9 @@
+.Studentdata-body{
+    position: absolute;
+    top:70px;
+    left:210px;
+    width: 84vw;
+    height:91vh;
+    background-color: antiquewhite;
+    z-index: -1;
+}

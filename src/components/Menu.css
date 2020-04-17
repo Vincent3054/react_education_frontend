@@ -5,15 +5,15 @@
     float              : left;
     height             : 100vh;
     font-size          : 15px;
-    color              : #384661;
+    color              : #ffffff;
     font-weight        : bold;
-    /* background-color: #f29f8f; */
+    background-color: #384661;
     box-shadow         : 0px 3px 5px 0px #4b4b42ab;
     padding            : 10px 15px;
     margin-top         : 40px;
     top                : 0;
     left               : 0;
-    transition: all 0.5s;
+    transition: 0.8s;
 }
 
 .active {
@@ -59,7 +59,7 @@
 }
 
 .Menu-buger{
-position: absolute;
+position: fixed;
 top: 0vw;
 left: 0vh;
 line-height: 40px;
@@ -70,6 +70,8 @@ box-shadow         : 2px 0px 5px 0px #4b4b42ab;
 text-align: center;
 z-index:inherit auto;
 outline: none;
+border: none;
+
 
 }
 .Menu-buger-img { 
@@ -83,7 +85,7 @@ outline: none;
 }
 @media (max-width: 768px) {
     .Sidebar {
-        left: -180px;
+        left: -250px;
     }
     .active {
         left:0px
@@ -95,7 +97,7 @@ outline: none;
 
   
   /* 設定footer的高度 */
-  color: rgb(91, 100, 97);
+  color: rgb(255, 255, 255);
   box-sizing: border-box;
   /* 設定footer絕對位置在底部 */
   position: absolute;
@@ -122,7 +124,7 @@ outline: none;
   
 }
 
-img {
+.Menu-img {
   vertical-align: middle;
   margin-right  : 5px;
 }
