@@ -1,43 +1,43 @@
 /* header */
-.header{
-    position: absolute;
-    padding: 0 auto;
-    
-}
-.Navbar {
-    position: fixed;
-    width : 100vw;
-    height: 40px;
-    background-color   :  #384661;
-    color: #dde1eb;
-    display            : flex;
-    justify-content    : space-between;
-    border: none;
-    /* padding-top     : auto;*/
-  }
-  
-  .Navbar-logo {
-    margin-left: 3%;
-    font-size  : 18pt;
-    line-height: 40px;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-  
-  .Navbar-login {
-    height      : 100%;
-    margin-right: 3%;
-    font-size   : 12pt;
-    line-height: 40px;
-  }
-  
-  /* hover */
-  .Navbar-login :hover {
-    background-color: #6abe83;
-    color: #384661;
-    padding-left: 10px;
-    padding-right: 10px;
-   
-  cursor: pointer;
-  }
+.header {
+  position: absolute;
+  padding : 0 auto;
 
+}
+
+.Navbar {
+  position           : fixed;
+  width              : 100vw;
+  height             : 40px;
+  background-color   : #6abe83;
+  color              : #dde1eb;
+  display            : flex;
+  justify-content    : space-between;
+  border             : none;
+  /* padding-top     : auto;*/
+}
+
+.Navbar-logo {
+  margin-left  : 83px;
+  font-size    : 18pt;
+  line-height  : 40px;
+  padding-left : 10px;
+  padding-right: 10px;
+}
+
+.Navbar-login {
+  height      : 100%;
+  margin-right: 3%;
+  font-size   : 12pt;
+  line-height : 40px;
+}
+
+/* hover */
+.Navbar-login :hover {
+  background-color: #6abe83;
+  color           : #384661;
+  padding-left    : 10px;
+  padding-right   : 10px;
+
+  cursor: pointer;
+}
