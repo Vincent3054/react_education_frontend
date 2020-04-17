@@ -1,10 +1,10 @@
-* {
+/* * {
     box-sizing: border-box;
-}
+} */
 
-body {
+/* body {
     font-family: Arial, Helvetica, sans-serif;
-}
+} */
 
 /* Float four columns side by side */
 .Card.column {
@@ -19,21 +19,21 @@ body {
 }
 
 /* Clear floats after the columns */
-.Card.row:after {
+/* .Card.row:after {
     content: "";
     display: table;
     clear  : both;
-}
+} */
 
 @media screen and (max-width: 1024px) {
-    .column {
+    .Card.column {
         width        : 33%;
         display      : block;
         margin-bottom: 10px;
     }
 }
 @media screen and (max-width: 850px) {
-    .column {
+    .Card.column {
         width        : 50%;
         display      : block;
         margin-bottom: 10px;
@@ -42,7 +42,7 @@ body {
 
 /* Responsive columns */
 @media screen and (max-width: 500px) {
-    .column {
+    .Card.column {
         width        : 100%;
         display      : block;
         margin-bottom: 20px;

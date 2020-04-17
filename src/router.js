@@ -1,7 +1,6 @@
 import React from "react";
 import { HashRouter, Switch, Route } from "react-router-dom";
 import Index from "./routes/Index";
-import Card from "./routes/Card";
 import ClassList from "./routes/ClassList";
 import Loging from "./routes/Loging";
 import Register from "./routes/Register";
@@ -13,7 +12,6 @@ export default (
   <HashRouter>
     <Switch>
       <Route path="/" exact component={Index} />
-      <Route path="/Card" exact component={Card} />
       <Route path="/ClassList" exact component={ClassList} />
       <Route path="/Loging" exact component={Loging} />
       <Route path="/Register" exact component={Register} />
