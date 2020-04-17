@@ -7,22 +7,22 @@ body {
 }
 
 /* Float four columns side by side */
-.column {
+.Card.column {
     float  : left;
     width  : 25%;
     padding: 10px 10px;
 }
 
 /* Remove extra left and right margins, due to padding */
-.row {
+.Card.row {
     margin: 0 -5px;
 }
 
 /* Clear floats after the columns */
-.row:after {
+.Card.row:after {
     content: "";
     display: table;
-    /* clear  : both; */
+    clear  : both;
 }
 
 @media screen and (max-width: 1024px) {
@@ -50,7 +50,7 @@ body {
 }
 
 /* Style the counter cards */
-.card {
+.Card.card {
     box-shadow      : 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     padding         : 16px;
     text-align      : center;
