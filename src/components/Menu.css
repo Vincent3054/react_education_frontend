@@ -13,10 +13,11 @@
     margin-top         : 40px;
     top                : 0;
     left               : 0;
+    transition: all 0.5s;
 }
 
 .active {
-    left: -150px;
+    left: -180px;
 }
 
 .Menu-list {
@@ -92,9 +93,9 @@ outline: none;
 /**/
 .footer {
 
-  color: #384661;
+  
   /* 設定footer的高度 */
-
+  color: rgb(91, 100, 97);
   box-sizing: border-box;
   /* 設定footer絕對位置在底部 */
   position: absolute;
@@ -111,12 +112,14 @@ outline: none;
   line-height : 18px;
   list-style: none;
   font-size: 9pt;
+  
 
 }
 
 .footer-font {
   font-size: 6pt;
   list-style: none;
+  
 }
 
 img {

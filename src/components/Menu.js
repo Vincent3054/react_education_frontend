@@ -49,14 +49,9 @@ export default class Menu extends Component {
               <li className='footer-font'>開發人員</li>
               <li className='footer-font'>條款隱私權政策與安全性</li>
               <li className='footer-font'>測試新功能</li>
-
             </ul>
-
-
           </div>
-
         </div>
-
       </div>
     );
   }
