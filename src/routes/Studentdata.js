@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import Layout from '../layouts/Layout';
 import './Studentdata.css';

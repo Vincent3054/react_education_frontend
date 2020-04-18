@@ -1,0 +1,58 @@
+* {
+  padding: 0 auto;
+  margin : 0 auto;
+  font-family:Microsoft JhengHei;
+}
+
+
+
+.title {
+  width     : 100%;
+  text-align: center;
+}
+.body {
+  width: 50%;
+}
+
+.input {
+  width        : 100%;
+  border-radius: 10px;
+  margin       : 5px auto;
+}
+
+p {
+  font-size       : 40pt;
+  background-color: #007bff;
+  color           : #ffffff;
+}
+
+ul {
+  width          : 100%;
+  padding-left   : 0%;
+  display        : flex;
+  justify-content: space-between;
+}
+
+span {
+  width: 50%;
+}
+
+li {
+  margin    : auto;
+  list-style: none;
+  display   : inline-block;
+}
+
+.btn {
+  margin: 10px auto;
+}
+
+.add {
+  width     : 80%;
+  text-align: center;
+}
+
+.list {
+  width      : 50%;
+  line-height: 50px;
+}
