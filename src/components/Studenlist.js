@@ -1,92 +1,81 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import './Studenlist.css';
 
 export default class Studenlist extends Component {
-  constructor(props) {
-    super(props);
-  }
   state = {
-    text: "請填寫內容...",
-    i: "",
-    showme: [],
+    lab: [
+      {
+        name: "AAA",
+        gender: "男",
+        phone: "0988295638"
+      },
+      {
 
+        name: "AAA",
+        gender: "女",
+        phone: "0988295638"
+      },
+      {
+        name: "ADA",
+        gender: "女",
+        phone: "0988295638"
+      },
+      {
+        name: "EAA",
+        gender: "男",
+        phone: "0988295638"
+      },
+      {
+        name: "AMA",
+        gender: "男",
+        phone: "0988295638"
+      },
+      {
+        name: "AWA",
+        gender: "女",
+        phone: "0988295638"
+      },
+      {
+        name: "BBA",
+        gender: "女",
+        phone: "0988295638"
+      },
+      {
+        name: "CA",
+        gender: "男",
+        phone: "0988295638"
+      },
 
+    ]
   }
-
-  componentDidMount() {
-    this.setState({
-      showme: JSON.parse(localStorage.getItem("userinfo"))
-    }) //
-
-  }
-  handleChange = (e) => {
-    this.setState({
-      text: e.target.value
-    })
-
-  }
-  handelDel = (e) => {
-    console.log(e, 28)
-    const {showme}=this.state;
-    const data=showme.filter((item,index,array)=>{
-      
-      return index !== e ;
-  })
-
-  localStorage.setItem("userinfo",JSON.stringify(data))
-  this.setState({
-    showme:data
-  })
-  }
-  //handSet = () => {
-  // const { content } = this.state;
-  // const { text } = this.state;
-  // const { id } = this.state
-  // this.setState({
-  //   content: text
-  //  })
-
-  //}
-
-
   render() {
-    const { showme } = this.state;
-    const labeltext = showme.map((item, index, array) => {
-      return <ul key={index}>
-        <li>{index}</li>
-        <li><input type="checkbox" aria-label="Checkbox for following text input" /></li>
-        <li className="content"><span>{item}</span></li>
-        <li>
-          <div className="btn-group" role="group" aria-label="Basic example">
-            <button type="button" className="btn btn-outline-primary"><Link to={`/Edit/${index}`}>編輯</Link></button>
-            <button type="button" className="btn btn-outline-primary" onClick={() => this.handelDel(index)}>刪除</button>
-          </div>
-        </li>
-      </ul>
+
+
+    const { lab } = this.state;
+
+    const textlab = lab.map((item, index, array) => {
+      return <tr className="studen-list" key={index}>{`<td> ${item.name}</td><td> ${item.gender}</td><td> ${item.phone}</td>`}</tr>
 
     })
+    console.log(lab);
     return (
-      <div>
 
-        <div className="title">
-          <strong><p>To-Do List</p></strong>
-        </div>
-        <div className="body">
+      <div className="studen-title">
+        <table style="width:100%">
+          <thead>
+            <tr className="studen-list">
+              <th>姓名</th>
+              <th>性別</th>
+              <th>電話</th>
+            </tr>
+          </thead>
+          <tbody>
+            {textlab}
+          </tbody>
+        </table>
 
-
-          <div className="add">
-
-
-            <Link to={``}><button type="button" className="btn btn-primary btn-lg btn-block btn-width" >新增</button></Link>
-          </div>
-
-          <div className="list">
-            {labeltext}
-          </div>
-        </div>
       </div>
     );
-  }
-}
 
+  }
+};

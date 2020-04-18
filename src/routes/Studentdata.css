@@ -1,9 +1,9 @@
 .Studentdata-body{
     position: absolute;
-    top:70px;
-    left:210px;
-    width: 84vw;
-    height:91vh;
-    background-color: antiquewhite;
+    top:40px;
+    left:180px;
+    width: 100vw;
+    height:94.9vh;
+    background-color: rgb(255, 255, 255);
     z-index: -1;
 }
