@@ -7,7 +7,7 @@ export default (
   <HashRouter>
     <Switch>
       <Route path="/" exact component={Index} />
-      <Route path="/Studentdata/" exact component={Studentdata} />
+      <Route path="/Studentdata/:id" exact component={Studentdata} />
     </Switch>
   </HashRouter>
 );

@@ -1,7 +1,7 @@
 .Studentdata-body{
     position: absolute;
-    top:40px;
-    left:180px;
+    top:35px;
+    left:175px;
     width: 100vw;
     height:94.9vh;
     background-color: rgb(255, 255, 255);
@@ -10,3 +10,75 @@
 .studentdata-title{
     margin: 100px 100px;
 }
+/**/
+.studen-title {
+    position        : absolute;
+    top             : 0px;
+    left            : 1px;
+    width           : 88vw;
+    height          : auto;
+    text-align      : center;
+    background-color: #fff;
+    color           : #384661;
+    border          : none;
+  
+  }
+  
+  .studen-table {
+    width: 100%;
+  
+  }
+  
+  .studen-list {
+    line-height: 32px;
+    height     : 32px;
+  
+  }
+  
+  .studen-td {
+    width: 30%;
+  
+  }
+  
+  .studen-btn {
+    border-radius   : 27px;
+    border          : none;
+    width           : 50px;
+    height          : 20px;
+    background-color: #fae9b0;
+    font-size       : 12pt;
+    margin-right    : 8px;
+    outline         : none;
+  }
+  
+  .studen-td-btn {
+    width: 20%;
+  }
+  
+  .list-title {
+    border-bottom: solid 2px oldlace;
+  }
+  
+  /**/
+  .studen-btn:hover {
+    cursor: pointer;
+  }
+  
+  .index-img {
+    width : 100%;
+    height: 10%;
+  
+  }
+  
+  th {
+    height                 : 30px;
+    background-color       : #6abe83;
+    color                  : #384661;
+    font-size              : 18px;
+    border-top-left-radius : 27px;
+    border-top-right-radius: 27px;
+  }
+  
+  
+  
+  
