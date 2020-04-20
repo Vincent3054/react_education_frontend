@@ -20,7 +20,7 @@ export default class ClassList extends Component {
     ))
     return (
       <Layout>
-        <div className="ClassList>">
+        <div className="ClassList">
           {Cardlist}
         </div>
       </Layout>
