@@ -7,7 +7,7 @@ export default class ClassList extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+      data: ["班級一", "班級二", "班級三", "班級四", "班級五", "班級六", "班級七", "班級八", "班級九", "班級十"],
     }
   }
   render() {

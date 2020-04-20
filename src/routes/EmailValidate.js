@@ -17,7 +17,7 @@ export default class EmailValidate extends Component {
                                         註冊成功
                                     </span>
                                     <div style={{ textAlign: "center", display: "block" }}>
-                                        <img src={Correctfrom} alt="錯誤" title="Error" style={{ width: "140px" }} />;
+                                        <img src={Correctfrom} alt="錯誤" title="Error" style={{ width: "140px" }} />
                                     </div>
                                     <div style={{ marginTop: "30px", textAlign: "center" }}>
                                         <span>
