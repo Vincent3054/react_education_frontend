@@ -1,9 +1,9 @@
 .studen-title {
   position: absolute;
   top:10vh;
-  left:25vw ;
-  width           : 40vw;
-  padding-top: 10px;
+  left:10vw ;
+  width           : 70vw;
+  padding: 10px 10px;
   height          : auto;
   text-align: center;
   background-color: #384661;
@@ -12,9 +12,40 @@
   
 
 }
+.studen-table{
+width: 100%;
+
+}
 
 .studen-list {
  line-height: 28px;
  height: 28px;
 }
+
+.studen-td{
+width: 30%;
+}
+.studen-btn{
+  border-radius: 27px;
+  border: none;
+  width: 50px;
+  height: 30px;
+  background-color: #6abe83;
+  font-size: 12pt;
+  margin-right: 5px;
+  outline: none;
+}
+.studen-td-btn{
+  width: 20%;
+}
+th{
+  height: 30px;
+}
+.list-title{
+  border-bottom:solid 2px oldlace;
+}
+
 /**/
+.studen-btn:hover{
+  cursor: pointer;
+}
