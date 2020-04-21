@@ -1,6 +1,7 @@
 import React from "react";
 import { HashRouter, Switch, Route } from "react-router-dom";
 import Index from "./routes/Index";
+import StudentReservation from"./routes/StudentReservation";
 import ClassList from "./routes/ClassList";
 import Loging from "./routes/Loging";
 import StudentRegister from "./routes/StudentRegister";
@@ -14,7 +15,6 @@ export default (
   <HashRouter>
     <Switch>
       <Route path="/" exact component={Index} />
-      <Route path="/ClassList" exact component={ClassList} />
       <Route path="/Loging" exact component={Loging} />
       <Route path="/StudentRegister" exact component={StudentRegister} />
       <Route path="/ClassTeacherRegister" exact component={ClassTeacherRegister} />
@@ -23,6 +23,8 @@ export default (
       <Route path="/ChangePassword" exact component={ChangePassword} />
       <Route path="/EmailValidate" exact component={EmailValidate} />
       <Route path="/EmailValidateError" exact component={EmailValidateError} />
+      <Route path="/ClassList" exact component={ClassList} />
+      <Route path="/StudentReservation" exact component={StudentReservation}/>
     </Switch>
   </HashRouter>
 );
