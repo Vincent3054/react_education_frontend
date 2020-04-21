@@ -3,7 +3,9 @@ import { HashRouter, Switch, Route } from "react-router-dom";
 import Index from "./routes/Index";
 import ClassList from "./routes/ClassList";
 import Loging from "./routes/Loging";
-import Register from "./routes/Register";
+import StudentRegister from "./routes/StudentRegister";
+import ClassTeacherRegister from"./routes/ClassTeacherRegister";
+import CounselorTeacherRegister from"./routes/CounselorTeacherRegister";
 import Getpassword from "./routes/Getpassword";
 import ChangePassword from "./routes/ChangePassword";
 import EmailValidate from "./routes/EmailValidate";
@@ -14,7 +16,9 @@ export default (
       <Route path="/" exact component={Index} />
       <Route path="/ClassList" exact component={ClassList} />
       <Route path="/Loging" exact component={Loging} />
-      <Route path="/Register" exact component={Register} />
+      <Route path="/StudentRegister" exact component={StudentRegister} />
+      <Route path="/ClassTeacherRegister" exact component={ClassTeacherRegister} />
+      <Route path="/CounselorTeacherRegister" exact component={CounselorTeacherRegister} />
       <Route path="/Getpassword" exact component={Getpassword} />
       <Route path="/ChangePassword" exact component={ChangePassword} />
       <Route path="/EmailValidate" exact component={EmailValidate} />

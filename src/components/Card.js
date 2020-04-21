@@ -13,11 +13,9 @@ export default class Card extends Component {
                             <div className="Card card card--big">
                                 <div className="card__image" ><img src={ClassCard} alt="錯誤" title="Error" style={{ width: "100%", height: "100%" }} /></div>
                                 <h2 className="card__title">{data}</h2>
-                                <p className="card__text">班級代號<br/>0/10人</p>
+                                <p className="card__text">班級代號<br />0/10人</p>
                                 <div className="card__action-bar">
-                                    <div class="ph-float">
-                                        <a href='#' class='ph-button ph-btn-green'>進入</a>
-                                    </div>
+                                    <a href='#' className='ph-button ph-btn-green'>進入</a>
                                 </div>
                             </div>
                         </div>
