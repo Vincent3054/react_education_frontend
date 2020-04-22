@@ -29,7 +29,7 @@ export default class Studentdata extends Component {
             name: "EAA",
             gender: "男",
             phone: "0988295638",
-            class:201
+            class:202
           },
           {
             name: "AMA",
@@ -41,19 +41,19 @@ export default class Studentdata extends Component {
             name: "AWA",
             gender: "女",
             phone: "0988295638",
-            class:203
+            class:202
           },
           {
             name: "BBA",
             gender: "女",
             phone: "0988295638",
-            class:204
+            class:202
           },
           {
             name: "CA",
             gender: "男",
             phone: "0988295638",
-            class:205
+            class:202
           },
     
         ]
@@ -87,10 +87,10 @@ export default class Studentdata extends Component {
                 <div className="Studentdata-body">
                     
                 <div className="studen-title">
+                <div className='index-img '><img src={indeximg} className='index-img' width='100%'  /></div>
                 <table className="studen-table">
                   <thead>
-                    <tr><td colSpan="4"><img src={indeximg} className='index-img' /></td></tr>
-                    <tr className="studen-list">
+                    <tr className="studen-list" >
                       <th>姓名</th>
                       <th>性別</th>
                       <th>電話</th>

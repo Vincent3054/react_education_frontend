@@ -15,7 +15,8 @@ body {
   padding   : 0;
   overflow-x: hidden;
 }
-.content{
+content{
+  width: 100%;
   float: left;
 }
 /* 在這支檔案裡定義global的樣式，譬如說button之類的 */
