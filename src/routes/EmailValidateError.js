@@ -24,10 +24,10 @@ export default class EmailValidateError extends Component {
                                             驗證錯誤，請重新確認或再註冊!
                                         </span>
                                     </div>
-                                    <Link to="/Register">
+                                    <Link to="/ShigeyoriEmailValidate">
                                         <div className="Register list">
                                             <button className="Register login-btn">
-                                                去註冊
+                                                重寄驗證信
                                             </button>
                                         </div>
                                     </Link>
