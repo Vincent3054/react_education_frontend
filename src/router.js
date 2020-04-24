@@ -13,7 +13,7 @@ import ChangePassword from "./routes/ChangePassword";
 import ChangePasswordComplete from "./routes/ChangePasswordComplete";
 import EmailValidate from "./routes/EmailValidate";
 import ResendiEmailValidate from "./routes/ResendiEmailValidate";
-import Studentdata from "./routes/Student/Studentdata";
+import Studentdata from "./routes/Studentdata";
 import Personal from "./routes/Personal";
 export default (
   <HashRouter>
@@ -31,7 +31,7 @@ export default (
       <Route path="/ClassList" exact component={ClassList} />
       <Route path="/StudentReservation" exact component={StudentReservation} />
       <Route path="/StudentReservationComplete" exact component={StudentReservationComplete} />
-      <Route path="/Student/Studentdata/:id" exact component={Studentdata} />
+      <Route path="/Studentdata/:id" exact component={Studentdata} />
       <Route path="/Personal" exact component={Personal} />
     </Switch>
   </HashRouter>
