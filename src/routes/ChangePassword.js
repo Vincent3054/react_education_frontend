@@ -6,31 +6,31 @@ export default class ChangePassword extends Component {
     render() {
         return (
             <div className="Register">
-                <div className="Register limiter">
-                    <div className="Register container">
-                        <div className="Register wrap" style={{ width: "600px" }}>
-                            <form className="Register form">
-                                <span className="Register title">
+                <div className="limiter">
+                    <div className="container">
+                        <div className="wrap" style={{ width: "600px" }}>
+                            <form className="form">
+                                <span className="title">
                                     修改密碼
                                     </span>
                                 <span>
                                     請填寫你目前的密碼和驗證碼，以修改密碼：
                                     </span>
-                                <div className="Register list">
-                                    <span className="Register list-text">新密碼</span>
-                                    <input className="Register input" type="text" />
+                                <div className="list">
+                                    <span className="list-text">新密碼</span>
+                                    <input className="input" type="text" />
                                 </div>
-                                <div className="Register list">
-                                    <span className="Register list-text">新密碼確認</span>
-                                    <input className="Register input" type="text" />
+                                <div className="list">
+                                    <span className="list-text">新密碼確認</span>
+                                    <input className="input" type="text" />
                                 </div>
-                                <div className="Register list">
-                                    <span className="Register list-text">驗證碼</span>
-                                    <input className="Register input" type="text" />
+                                <div className="list">
+                                    <span className="list-text">驗證碼</span>
+                                    <input className="input" type="text" />
                                 </div>
                                 <Link to="/ChangePasswordComplete">
-                                    <div className="Register list">
-                                        <button className="Register login-btn">
+                                    <div className="list">
+                                        <button className="login-btn">
                                             修改密碼
                                         </button>
                                     </div>

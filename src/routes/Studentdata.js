@@ -70,13 +70,13 @@ export default class Studentdata extends Component {
     })
 
     const textlab = data.map((item, index, array) => {
-      return <tr className="Studentdata-list" key={index}>
+      return <tr className="list" key={index}>
         <td> {item.name}</td>
         <td> {item.gender}</td>
         <td> {item.phone}</td>
-        <td className="Studentdata td-btn">
-          <button type="Studentdata button" className="Studentdata btn">編輯</button>
-          <button type="Studentdata button" className="Studentdata btn">刪除</button>
+        <td className="td-btn">
+          <button type="button" className="btn">編輯</button>
+          <button type="button" className="btn">刪除</button>
         </td></tr>
 
     })
@@ -84,17 +84,16 @@ export default class Studentdata extends Component {
 
     return (
       <Layout>
-        <div className="Studentdata body">
-
-          <div className="Studentdata title">
-            <div className='Studentdata index-img '><img src={indeximg} className='Studentdata index-img' width='100%' /></div>
-            <table className="Studentdata table">
+        <div className="Studentdata">
+          <div className="title">
+            <div className='index-img'><img src={indeximg} /></div>
+            <table className="table">
               <thead>
-                <tr className="Studentdata list ttt">
+                <tr className="list">
                   <th>姓名</th>
                   <th>性別</th>
                   <th>電話</th>
-                  <th className="Studentdata td-btn">管理</th>
+                  <th className="td-btn">管理</th>
                 </tr>
               </thead>
               <tbody>

@@ -7,11 +7,11 @@ export default class EmailValidateError extends Component {
     render() {
         return (
             <div className="Register">
-                <div className="Register limiter">
-                    <div className="Register container">
-                        <div className="Register wrap" style={{ width: "600px" }}>
-                            <form className="Register form">
-                                <span className="Register title">
+                <div className="limiter">
+                    <div className="container">
+                        <div className="wrap" style={{ width: "600px" }}>
+                            <form className="form">
+                                <span className="title">
                                     驗證失敗
                                     </span>
                                 <div style={{ textAlign: "center", display: "block" }}>
@@ -23,8 +23,8 @@ export default class EmailValidateError extends Component {
                                         </span>
                                 </div>
                                 <Link to="/ShigeyoriEmailValidate">
-                                    <div className="Register list">
-                                        <button className="Register login-btn">
+                                    <div className="list">
+                                        <button className="login-btn">
                                             重寄驗證信
                                             </button>
                                     </div>

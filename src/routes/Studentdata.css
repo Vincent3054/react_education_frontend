@@ -1,74 +1,66 @@
-.Studentdata.body{
-    position: absolute;
-    top:40px;
-    left:180px;
-    width: 100%;
-    height:94.9vh;
-    background-color: rgb(255, 255, 255);
-    z-index: 1;
+.Studentdata .title {
+  /* position: absolute;
+  top: 0px;
+  left: 1px; */
+  width: 100%;
+  height: auto;
+  text-align: center;
+  background-color: #fff;
+  color: #384661;
+  border: none;
 }
-.studentdata-title{
-    margin: 100px 100px;
-}
-/**/
-.Studentdata.title {
-    position        : absolute;
-    top             : 0px;
-    left            : 1px;
-    width           : 100%;
-    height          : auto;
-    text-align      : center;
-    background-color: #fff;
-    color           : #384661;
-    border          : none;
-  
-  }
-  
-  .Studentdata.table {
-    width: 100%;
-  
-  }
-  
-  .Studentdata.list {
-    line-height: 32px;
-    height     : 32px;
-  
-  }
-  
-  .Studentdata.td {
-    width: 30%;
-  
-  }
-  
-  .Studentdata.btn {
-    border          : none;
-    width           : 50px;
-    height          : 20px;
-    /* background-color: #fae9b0; */
-    font-size       : 12pt;
-    margin-right    : 8px;
-    outline         : none;
-  }
-  
-  .Studentdata.td-btn {
-    width: 20%;
-  }
 
-  
-  /**/
-  .Studentdata.btn:hover {
-    cursor: pointer;
-  }
-  
-  .Studentdata.index-img {
-    width : 100%;
-    height: 350px;
-  
-  }
-  
-.ttt{
-    border-bottom:solid 0.3px #959cac;
+.Studentdata .table {
+  width: 100%;
 }
-@media (max-width:580px), print{
+.Studentdata .table thead {
+  background-color: #6abe83;
+  color: #384661;
+}
+.Studentdata .table tbody tr {
+  transition: all 0.5s;
+}
+.Studentdata .table tbody tr:hover {
+  background-color: #d1e4d7;
+  cursor: pointer;
+}
 
+.Studentdata .list {
+  line-height: 45px;
+  height: 45px;
+}
+
+.Studentdata .btn {
+  border: none;
+  width: 50px;
+  height: 20px;
+  /* background-color: #fae9b0; */
+  font-size: 12pt;
+  margin-right: 8px;
+  outline: none;
+}
+
+.Studentdata .td-btn {
+  width: 20%;
+}
+
+.Studentdata .btn {
+  width: 50px;
+  height: 25px;
+  border-radius: 25px;
+  background-color: #384661;
+  color: #fff;
+}
+
+.Studentdata .btn:hover {
+  cursor: pointer;
+}
+
+.Studentdata .index-img {
+  width: 100%;
+  height: 350px;
+}
+.Studentdata img {
+  width: 100%;
+  height: 100%;
 }

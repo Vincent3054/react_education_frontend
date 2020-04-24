@@ -6,34 +6,34 @@ export default class Loging extends Component {
     render() {
         return (
             <div className="Loging">
-                <div className="Loging limiter">
-                    <div className="Loging container">
-                        <div className="Loging wrap">
-                            <form className="Loging form">
-                                <span className="Loging title">
+                <div className="limiter">
+                    <div className="container">
+                        <div className="wrap">
+                            <form className="form">
+                                <span className="title">
                                     登入
                                     </span>
-                                <input className="Loging input" type="text" placeholder="帳號" />
-                                <input className="Loging input" type="password" placeholder="密碼" />
-                                <div className="Loging text-right">
-                                    <span className="Loging txt1">
+                                <input className="input" type="text" placeholder="帳號" />
+                                <input className="input" type="password" placeholder="密碼" />
+                                <div className="text-right">
+                                    <span className="txt1">
                                         忘記
                                         </span>
                                     <Link to="/Getpassword">
-                                        <a href="#" className="Loging txt2">
+                                        <a href="#" className="txt2">
                                             帳號 / 密碼?
                                             </a>
                                     </Link>
                                 </div>
-                                <button className="Loging btn">
+                                <button className="btn">
                                     登入
                                     </button>
-                                <div className="Loging text-bottom">
-                                    <span className="Loging txt1">
+                                <div className="text-bottom">
+                                    <span className="txt1">
                                         還沒有帳號嗎?
                                         </span>
                                     <Link to="/StudentRegister">
-                                        <a href="" className="Loging txt2">
+                                        <a href="" className="txt2">
                                             註冊
                                             </a>
                                     </Link>

@@ -10,17 +10,16 @@ export default class Personal extends Component {
 
         return (
             <Layout>
-                <div className="personal body">
-                    <h1>個人資訊</h1>
-                    <span>您在 Google 服務使用的基本資訊 (例如姓名和相片</span>
+                <div className="personal">
+                    <div className="body">
+                        <h1>個人資訊</h1>
+                        <span>您在 Google 服務使用的基本資訊 (例如姓名和相片</span>
 
+                    </div>
+                    <div className="main">
+
+                    </div>
                 </div>
-                <div className="personal main">
-
-                </div>
-
-
-
             </Layout>
         );
     }

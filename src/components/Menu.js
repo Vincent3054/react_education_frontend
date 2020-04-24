@@ -26,16 +26,16 @@ export default class Menu extends Component {
     return (
       <div className="Menu">
 
-        <button onClick={this.handelActive} className="Menu buger" ><img src={menu} width="20px" className="Menu buger-img" /></button>
+        <button onClick={this.handelActive} className="buger" ><img src={menu} width="20px" className="buger-img" /></button>
 
         <div className={ac ? `Sidebar active` : `Sidebar`}>
-          
-            <ul className="Menu ul">
-              <li className="Menu list"><img src={home} width="20px" className="Menu img" />首頁</li>
-              <li className="Menu list"><img src={user} width="20px" className="Menu img" />基本資料</li>
-              <li className="Menu list"><img src={edit} width="20px" className="Menu img" />編輯資料</li>
-              <li className="Menu list"><img src={set} width="20px" className="Menu img" />設定</li>
-            </ul>
+
+          <ul className="ul">
+            <li className="list"><img src={home} className="img" />首頁</li>
+            <li className="list"><img src={user} className="img" />基本資料</li>
+            <li className="list"><img src={edit} className="img" />編輯資料</li>
+            <li className="list"><img src={set} className="img" />設定</li>
+          </ul>
         </div>
       </div>
     );

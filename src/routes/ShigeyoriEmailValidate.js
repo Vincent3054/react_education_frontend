@@ -5,22 +5,22 @@ export default class ShigeyoriEmailValidate extends Component {
     render() {
         return (
             <div className="Register">
-                <div className="Register limiter">
-                    <div className="Register container">
-                        <div className="Register wrap" style={{ width: "600px" }}>
-                            <form className="Register form">
-                                <span className="Register title">
+                <div className="limiter">
+                    <div className="container">
+                        <div className="wrap" style={{ width: "600px" }}>
+                            <form className="form">
+                                <span className="title">
                                     重寄驗證信
                                     </span>
                                 <span>
                                     請重新填寫您的Email，以重寄認證信：
                                     </span>
-                                <div className="Register list">
-                                    <span className="Register list-text">電子信箱</span>
-                                    <input className="Register input" type="mail" />
+                                <div className="list">
+                                    <span className="list-text">電子信箱</span>
+                                    <input className="input" type="mail" />
                                 </div>
-                                <div className="Register list">
-                                    <button className="Register login-btn">
+                                <div className="list">
+                                    <button className="login-btn">
                                         送出
                                         </button>
                                 </div>

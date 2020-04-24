@@ -5,28 +5,28 @@ export default class Getpassword extends Component {
     render() {
         return (
             <div className="Register">
-                <div className="Register limiter">
-                    <div className="Register container">
-                        <div className="Register wrap" style={{ width: "600px" }}>
-                            <form className="Register form">
-                                <span className="Register title">
+                <div className="limiter">
+                    <div className="container">
+                        <div className="wrap" style={{ width: "600px" }}>
+                            <form className="form">
+                                <span className="title">
                                     找回密碼
                                     </span>
                                 <span>
                                     請填寫你註冊時所認證的Email和帳號，以查詢密碼：
                                     </span>
-                                <div className="Register list">
-                                    <span className="Register red-dot">*</span>
-                                    <span className="Register list-text">帳號</span>
-                                    <input className="Register input" type="text" />
+                                <div className="list">
+                                    <span className="red-dot">*</span>
+                                    <span className="list-text">帳號</span>
+                                    <input className="input" type="text" />
                                 </div>
-                                <div className="Register list">
-                                    <span className="Register red-dot">*</span>
-                                    <span className="Register list-text">電子信箱</span>
-                                    <input className="Register input" type="text" />
+                                <div className="list">
+                                    <span className="red-dot">*</span>
+                                    <span className="list-text">電子信箱</span>
+                                    <input className="input" type="text" />
                                 </div>
-                                <div className="Register list">
-                                    <button className="Register login-btn">
+                                <div className="list">
+                                    <button className="login-btn">
                                         查詢
                                         </button>
                                 </div>
