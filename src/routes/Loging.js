@@ -12,30 +12,30 @@ export default class Loging extends Component {
                             <form className="form">
                                 <span className="title">
                                     登入
-                                    </span>
+                                </span>
                                 <input className="input" type="text" placeholder="帳號" />
                                 <input className="input" type="password" placeholder="密碼" />
                                 <div className="text-right">
                                     <span className="txt1">
                                         忘記
-                                        </span>
-                                    <Link to="/Getpassword">
+                                    </span>
+                                    <Link to="/Loging/Getpassword">
                                         <a href="#" className="txt2">
                                             帳號 / 密碼?
-                                            </a>
+                                        </a>
                                     </Link>
                                 </div>
                                 <button className="btn">
                                     登入
-                                    </button>
+                                </button>
                                 <div className="text-bottom">
                                     <span className="txt1">
                                         還沒有帳號嗎?
-                                        </span>
-                                    <Link to="/StudentRegister">
+                                    </span>
+                                    <Link to="/Loging/Register/StudentRegister">
                                         <a href="" className="txt2">
                                             註冊
-                                            </a>
+                                        </a>
                                     </Link>
                                 </div>
                             </form>

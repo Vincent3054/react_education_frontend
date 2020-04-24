@@ -64,23 +64,22 @@ export default class Studentdata extends Component {
     const { params } = match;
     const { lab } = this.state;
     const data = lab.filter((item, index, array) => {
-      console.log(typeof (params.id), 67);
-      console.log((params.id), 67);
       return item.class === parseInt(params.id);
     })
 
     const textlab = data.map((item, index, array) => {
-      return <tr className="list" key={index}>
-        <td> {item.name}</td>
-        <td> {item.gender}</td>
-        <td> {item.phone}</td>
-        <td className="td-btn">
-          <button type="button" className="btn">編輯</button>
-          <button type="button" className="btn">刪除</button>
-        </td></tr>
-
+      return (
+        <tr className="list" key={index}>
+          <td>{item.name}</td>
+          <td>{item.gender}</td>
+          <td>{item.phone}</td>
+          <td className="td-btn">
+            <button type="button" className="btn">編輯</button>
+            <button type="button" className="btn">刪除</button>
+          </td>
+        </tr>
+      );
     })
-    console.log(textlab, 82);
 
     return (
       <Layout>
@@ -100,7 +99,6 @@ export default class Studentdata extends Component {
                 {textlab}
               </tbody>
             </table>
-
           </div>
         </div>
       </Layout>

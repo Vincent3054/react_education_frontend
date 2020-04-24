@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../mixin/main.css';
 import '../routes/Register.css';
-export default class ShigeyoriEmailValidate extends Component {
+export default class ResendiEmailValidate extends Component {
     render() {
         return (
             <div className="Register">
