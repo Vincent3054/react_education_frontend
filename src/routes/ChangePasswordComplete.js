@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Layout from '../layouts/Layout';
 import '../mixin/main.css';
 import '../routes/Register.css';
 import { Link } from 'react-router-dom';
@@ -7,7 +6,6 @@ import Correctfrom from '../Assets/EmailValidate_check.png';
 export default class ChangePasswordComplete extends Component {
     render() {
         return (
-            <Layout >
                 <div className="Register">
                     <div className="Register limiter">
                         <div className="Register container">
@@ -36,7 +34,6 @@ export default class ChangePasswordComplete extends Component {
                         </div>
                     </div>
                 </div>
-            </Layout>
         );
     }
 }

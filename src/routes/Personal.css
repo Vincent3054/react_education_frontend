@@ -1,0 +1,15 @@
+.personal .body {
+    position  : absolute;
+    top       : 60px;
+    left      : 40%;
+    text-align: center;
+}
+
+.personal .main {
+    position: absolute;
+    top     : 70px;
+    left    : 23%;
+    border  : solid 2px rgb(126, 123, 123);
+    width   : 500px;
+    height  : 100px;
+}
