@@ -67,7 +67,7 @@
   
   }
   
-tr,td{
+.ttt{
     border-bottom:solid 0.3px #959cac;
 }
 @media (max-width:580px), print{

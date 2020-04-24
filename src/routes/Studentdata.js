@@ -90,7 +90,7 @@ export default class Studentdata extends Component {
                 <div className='index-img '><img src={indeximg} className='index-img' width='100%'  /></div>
                 <table className="studen-table">
                   <thead>
-                    <tr className="studen-list" >
+                    <tr className="studen-list ttt">
                       <th>姓名</th>
                       <th>性別</th>
                       <th>電話</th>
