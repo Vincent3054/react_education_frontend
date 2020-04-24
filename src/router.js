@@ -16,6 +16,7 @@ import EmailValidateError from "./routes/EmailValidateError";
 import ShigeyoriEmailValidate from "./routes/ShigeyoriEmailValidate";
 import Studentdata from "./routes/Studentdata";
 import Personal from "./routes/Personal";
+import TeacherManagement from "./routes/TeacherManagement"
 export default (
   <HashRouter>
     <Switch>
@@ -35,6 +36,7 @@ export default (
       <Route path="/StudentReservationComplete" exact component={StudentReservationComplete} />
       <Route path="/Studentdata/:id" exact component={Studentdata} />
       <Route path="/Personal" exact component={Personal} />
+      <Route path="/TeacherManagement" exact component={TeacherManagement}/>
     </Switch>
   </HashRouter>
 )
