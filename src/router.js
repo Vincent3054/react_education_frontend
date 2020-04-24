@@ -12,8 +12,7 @@ import Getpassword from "./routes/Getpassword";
 import ChangePassword from "./routes/ChangePassword";
 import ChangePasswordComplete from "./routes/ChangePasswordComplete";
 import EmailValidate from "./routes/EmailValidate";
-import EmailValidateError from "./routes/EmailValidateError";
-import ShigeyoriEmailValidate from "./routes/ShigeyoriEmailValidate";
+import ResendiEmailValidate from "./routes/ResendiEmailValidate";
 import Studentdata from "./routes/Studentdata";
 import Personal from "./routes/Personal";
 export default (
@@ -21,15 +20,14 @@ export default (
     <Switch>
       <Route path="/" exact component={Index} />
       <Route path="/Loging" exact component={Loging} />
-      <Route path="/StudentRegister" exact component={StudentRegister} />
-      <Route path="/ClassTeacherRegister" exact component={ClassTeacherRegister} />
-      <Route path="/CounselorTeacherRegister" exact component={CounselorTeacherRegister} />
-      <Route path="/Getpassword" exact component={Getpassword} />
-      <Route path="/ChangePassword" exact component={ChangePassword} />
-      <Route path="/ChangePasswordComplete" exact component={ChangePasswordComplete} />
-      <Route path="/EmailValidate" exact component={EmailValidate} />
-      <Route path="/EmailValidateError" exact component={EmailValidateError} />
-      <Route path="/ShigeyoriEmailValidate" exact component={ShigeyoriEmailValidate} />
+      <Route path="/Loging/Register/Student" exact component={StudentRegister} />
+      <Route path="/Loging/Register/ClassTeacher" exact component={ClassTeacherRegister} />
+      <Route path="/Loging/Register/CounselorTeacher" exact component={CounselorTeacherRegister} />
+      <Route path="/Loging/Getpassword" exact component={Getpassword} />
+      <Route path="/Loging/ChangePassword" exact component={ChangePassword} />
+      <Route path="/Loging/ChangePasswordComplete" exact component={ChangePasswordComplete} />
+      <Route path="/Loging/EmailValidate" exact component={EmailValidate} />
+      <Route path="/Loging/ResendiEmailValidate" exact component={ResendiEmailValidate} />
       <Route path="/ClassList" exact component={ClassList} />
       <Route path="/StudentReservation" exact component={StudentReservation} />
       <Route path="/StudentReservationComplete" exact component={StudentReservationComplete} />

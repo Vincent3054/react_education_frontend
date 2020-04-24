@@ -15,7 +15,7 @@ export default class ChangePasswordComplete extends Component {
                                     修改成功
                                     </span>
                                 <div style={{ textAlign: "center", display: "block" }}>
-                                    <img src={Correctfrom} alt="錯誤" title="Error" style={{ width: "140px" }} />
+                                    <img src={Correctfrom} alt="成功" title="Success" style={{ width: "140px" }} />
                                 </div>
                                 <div style={{ marginTop: "30px", textAlign: "center" }}>
                                     <span>

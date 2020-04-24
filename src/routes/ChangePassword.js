@@ -28,7 +28,7 @@ export default class ChangePassword extends Component {
                                     <span className="list-text">驗證碼</span>
                                     <input className="input" type="text" />
                                 </div>
-                                <Link to="/ChangePasswordComplete">
+                                <Link to="/Loging/ChangePasswordComplete">
                                     <div className="list">
                                         <button className="login-btn">
                                             修改密碼
