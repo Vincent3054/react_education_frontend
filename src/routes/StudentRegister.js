@@ -12,6 +12,14 @@ export default class StudentRegister extends Component {
                                 <span className="title">
                                     學生註冊
                                     </span>
+                                <div className="list" >
+                                    <span className="red-dot">*</span>
+                                    <span className="list-text">性別</span>
+                                    <input type="radio" id="male" name="gender" value="male" />
+                                    <label for="male">男</label>
+                                    <input type="radio" id="female" name="gender" value="female" />
+                                    <label for="female">女</label>
+                                </div>
                                 <div className="list">
                                     <span className="red-dot">*</span>
                                     <span className="list-text">真實姓名</span>
@@ -31,6 +39,11 @@ export default class StudentRegister extends Component {
                                     <span className="red-dot">*</span>
                                     <span className="list-text">電子信箱</span>
                                     <input className="input" type="email" />
+                                </div>
+                                <div className="list">
+                                    <span className="red-dot">*</span>
+                                    <span className="list-text">連絡電話</span>
+                                    <input className="input" type="tel" />
                                 </div>
                                 <div className="list">
                                     <span className="red-dot">*</span>
@@ -59,7 +72,7 @@ export default class StudentRegister extends Component {
                                 <div className="list">
                                     <button className="login-btn">
                                         註冊
-                                        </button>
+                                    </button>
                                 </div>
                             </form>
                         </div>

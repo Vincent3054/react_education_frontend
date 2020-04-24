@@ -24,10 +24,6 @@ export default class ChangePassword extends Component {
                                     <span className="list-text">新密碼確認</span>
                                     <input className="input" type="text" />
                                 </div>
-                                <div className="list">
-                                    <span className="list-text">驗證碼</span>
-                                    <input className="input" type="text" />
-                                </div>
                                 <Link to="/ChangePasswordComplete">
                                     <div className="list">
                                         <button className="login-btn">
@@ -43,3 +39,5 @@ export default class ChangePassword extends Component {
         );
     }
 }
+
+//把網址帶給我的參數存起來，把帳號跟驗證碼在帶給後端

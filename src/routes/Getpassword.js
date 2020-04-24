@@ -13,17 +13,12 @@ export default class Getpassword extends Component {
                                     找回密碼
                                     </span>
                                 <span>
-                                    請填寫你註冊時所認證的Email和帳號，以查詢密碼：
-                                    </span>
-                                <div className="list">
-                                    <span className="red-dot">*</span>
-                                    <span className="list-text">帳號</span>
-                                    <input className="input" type="text" />
-                                </div>
+                                    請填寫你註冊時所認證的Email，以查詢密碼：
+                                </span>
                                 <div className="list">
                                     <span className="red-dot">*</span>
                                     <span className="list-text">電子信箱</span>
-                                    <input className="input" type="text" />
+                                    <input className="input" type="mail" />
                                 </div>
                                 <div className="list">
                                     <button className="login-btn">

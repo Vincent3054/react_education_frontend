@@ -33,32 +33,34 @@ export default class StudentReservation extends Component {
                                 </div>
                                 <div className="list">
                                     <span className="list-text">性別：</span>
-                                    <input type="radio" id="male" name="gender" value="male" />
-                                    <label for="male">男</label>
-                                    <input type="radio" id="female" name="gender" value="female" />
-                                    <label for="female">女</label>
+                                    <span>男</span>
                                 </div>
                                 <div className="list">
                                     <span className="list-text">連絡電話：</span>
-                                    <input className="input" type="text" />
+                                    <span>0921730662</span>
                                 </div>
 
                                 <div className="list">
-                                    <span className="list-text">預約日期</span>
+                                    <span className="list-text">＊預約日期：</span>
                                     <input className="input" type="date"></input>
                                 </div>
                                 <div className="list">
-                                    <span className="list-text">預約時間</span>
+                                    <span className="list-text">＊預約時段：</span>
+                                    <select className="input">
+                                        <option></option>
+                                        <option value="早上">早上</option><option value="中午">中午</option><option value="下午">下午</option><option value="晚上">晚上</option>
+                                    </select>
+                                </div>
+                                <div className="list">
+                                    <span className="list-text">預約時間：</span>
                                     <input className="input" type="time"></input>
                                 </div>
                                 <div className="list">
-                                    <span className="list-text">諮詢類別</span>
-                                    <select className="input">
-                                        <option></option>
-                                        <option value="學業">學業</option><option value="家庭">家庭</option><option value="感情">感情</option><option value="其他">其他</option>     </select>
+                                    <span className="list-text">諮詢類別：</span>
+                                    <input className="input" type="text" />
                                 </div>
                                 <div className="list">
-                                    <span className="list-text">諮詢內容</span>
+                                    <span className="list-text">＊諮詢內容：</span>
                                     <textarea className="input" style={{ height: "100px" }}></textarea>
                                 </div>
                                 <div className="list">
@@ -76,3 +78,12 @@ export default class StudentReservation extends Component {
         );
     }
 }
+
+
+/*
+
+                                    <input type="radio" id="male" name="gender" value="male" />
+                                    <label for="male">男</label>
+                                    <input type="radio" id="female" name="gender" value="female" />
+                                    <label for="female">女</label>
+ */

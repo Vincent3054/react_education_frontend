@@ -11,7 +11,15 @@ export default class CounselorTeacherRegister extends Component {
                             <form className="form">
                                 <span className="title">
                                     輔導老師註冊
-                                    </span>
+                                </span>
+                                <div className="list" >
+                                    <span className="red-dot">*</span>
+                                    <span className="list-text">性別</span>
+                                    <input type="radio" id="male" name="gender" value="male" />
+                                    <label for="male">男</label>
+                                    <input type="radio" id="female" name="gender" value="female" />
+                                    <label for="female">女</label>
+                                </div>
                                 <div className="list">
                                     <span className="red-dot">*</span>
                                     <span className="list-text">真實姓名</span>
@@ -31,6 +39,11 @@ export default class CounselorTeacherRegister extends Component {
                                     <span className="red-dot">*</span>
                                     <span className="list-text">電子信箱</span>
                                     <input className="input" type="email" />
+                                </div>
+                                <div className="list">
+                                    <span className="red-dot">*</span>
+                                    <span className="list-text">連絡電話</span>
+                                    <input className="input" type="tel" />
                                 </div>
                                 <div className="list">
                                     <span className="red-dot">*</span>
