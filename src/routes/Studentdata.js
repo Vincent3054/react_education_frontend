@@ -12,56 +12,56 @@ export default class Studentdata extends Component {
         gender: "男",
         phone: "0988295638",
         class: 101,
-        remarks:"高關懷"
+        remarks: "高關懷"
       },
       {
         name: "AAA",
         gender: "女",
         phone: "0988295638",
         class: 102,
-        remarks:"弱勢"
+        remarks: "弱勢"
       },
       {
         name: "ADA",
         gender: "女",
         phone: "0988295638",
         class: 103,
-        remarks:"低收"
+        remarks: "低收"
       },
       {
         name: "EAA",
         gender: "男",
         phone: "0988295638",
         class: 202,
-        remarks:"單親"
+        remarks: "單親"
       },
       {
         name: "AMA",
         gender: "男",
         phone: "0988295638",
         class: 202,
-        remarks:"高關懷"
+        remarks: "高關懷"
       },
       {
         name: "AWA",
         gender: "女",
         phone: "0988295638",
         class: 202,
-        remarks:"低收"
+        remarks: "低收"
       },
       {
         name: "BBA",
         gender: "女",
         phone: "0988295638",
         class: 202,
-        remarks:"高關懷"
+        remarks: "高關懷"
       },
       {
         name: "CA",
         gender: "男",
         phone: "0988295638",
         class: 202,
-        remarks:""
+        remarks: ""
       },
 
     ]
@@ -72,25 +72,24 @@ export default class Studentdata extends Component {
     const { params } = match;
     const { lab } = this.state;
     const data = lab.filter((item, index, array) => {
-      console.log(typeof (params.id), 67);
-      console.log((params.id), 67);
       return item.class === parseInt(params.id);
     })
 
     const textlab = data.map((item, index, array) => {
-      return <tr className="list" key={index}>
-        <td> {index} </td>
-        <td> {item.class} </td>
-        <td> {item.name}</td>
-        <td> {item.gender}</td>
-        <td> {item.remarks}</td>
-        <td className="td-btn">
-          <button type="button" className="btn">編輯</button>
-          <button type="button" className="btn">刪除</button>
-        </td></tr>
-
+      return (
+        <tr className="list" key={index}>
+          <td> {index} </td>
+          <td> {item.class} </td>
+          <td> {item.name}</td>
+          <td> {item.gender}</td>
+          <td> {item.remarks}</td>
+          <td className="td-btn">
+            <button type="button" className="btn">編輯</button>
+            <button type="button" className="btn">刪除</button>
+          </td>
+        </tr>
+      );
     })
-    console.log(textlab, 82);
 
     return (
       <Layout>
@@ -112,7 +111,6 @@ export default class Studentdata extends Component {
                 {textlab}
               </tbody>
             </table>
-
           </div>
         </div>
       </Layout>
