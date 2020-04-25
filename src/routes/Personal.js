@@ -6,6 +6,11 @@ import './Personal.css';
 // import Personal from '../components/Studenlist';
 
 export default class Personal extends Component {
+    static = {
+        nane: "",
+
+
+    }
     render() {
 
         return (
@@ -13,11 +18,35 @@ export default class Personal extends Component {
                 <div className="personal">
                     <div className="body">
                         <h1>個人資訊</h1>
-                        <span>您在 Google 服務使用的基本資訊 (例如姓名和相片</span>
 
                     </div>
                     <div className="main">
-
+                        <div className="boxone">
+                            <label>
+                                <span className="font">姓名</span>
+                            </label>
+                            <input className="input" type="text"  />
+                        </div>
+                        <div className="boxtwo">
+                            <span className="font">聯絡電話</span>
+                            <input className="input" type="text"  />
+                        </div>
+                        <div className="boxthree">
+                            <span className="font">電子郵件</span>
+                            <input className="input" type="text"  />
+                        </div>
+                        <div className="boxfour">
+                            <span className="font">班級</span>
+                            <input className="input" type="text"  />
+                        </div>
+                        <div className="boxfive">
+                            <span className="font">班級代號</span>
+                            <input className="input" type="text"  />
+                        </div>
+                        <div className="boxsix">
+                            <span className="font">性別</span>
+                            <input className="input" type="text"  />
+                        </div>
                     </div>
                 </div>
             </Layout>

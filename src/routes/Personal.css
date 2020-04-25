@@ -1,15 +1,109 @@
 .personal .body {
     position  : absolute;
     top       : 60px;
-    left      : 40%;
+    left      : 25%;
     text-align: center;
 }
 
 .personal .main {
-    position: absolute;
-    top     : 70px;
-    left    : 23%;
-    border  : solid 2px rgb(126, 123, 123);
-    width   : 500px;
-    height  : 100px;
+    position     : absolute;
+    top          : 120px;
+    left         : 25%;
+    border       : solid 0.5px rgba(49, 41, 41, 0.342);
+    width        : 70.5vw;
+    height       : 50vh;
+    border-radius: 5px;
+    display: flex;
+    justify-self: space-between;
+}
+
+.personal .boxone {
+    position     : absolute;
+    top          : 10%;
+    left         : 5%;
+    border-bottom: solid 0.5px rgba(49, 41, 41, 0.548);
+    width        : 95%;
+    height       : 15%;
+}
+
+.personal .boxtwo {
+    position     : absolute;
+    top          : 25%;
+    left         : 5%;
+    border-bottom: solid 0.5px rgba(49, 41, 41, 0.548);
+    width        : 95%;
+    height       : 15%;
+}
+
+.personal .boxthree {
+    position     : absolute;
+    top          : 40%;
+    left         : 5%;
+    border-bottom: solid 0.5px rgba(49, 41, 41, 0.548);
+    width        : 95%;
+    height       : 15%;
+}
+
+.personal .boxfour {
+    position     : absolute;
+    top          : 55%;
+    left         : 5%;
+    border-bottom: solid 0.5px rgba(49, 41, 41, 0.548);
+    width        : 95%;
+    height       : 15%;
+}
+
+.personal .boxfive {
+    position     : absolute;
+    top          : 70%;
+    left         : 5%;
+    border-bottom: solid 0.5px rgba(49, 41, 41, 0.548);
+    width        : 95%;
+    height       : 15%;
+}
+
+.personal .boxsix {
+    position     : absolute;
+    top          : 85%;
+    left         : 5%;
+    width        : 95%;
+    height       : 15%;
+
+}
+
+.personal .boxone:hover,
+.personal .boxtwo:hover,
+.personal .boxthree:hover,
+.personal .boxfour:hover,
+.personal .boxfive:hover,
+.personal .boxsix:hover {
+
+    left            : 0%;
+    width           : 100%;
+    background-color: rgba(0, 0, 0, 0.062);
+    cursor          : pointer;
+    padding-left    : 5%;
+    background-color: #00000025;
+
+
+}
+
+.personal .font {
+    height     : 60px;
+    text-align : center;
+    line-height: 60px;
+}
+.personal .huhubox{
+    height     : 40px;
+    width: 40px;
+    background-color: burlywood;
+}
+.personal .input{
+    width: 90%;
+    height:50px;
+    font-size: 14pt;
+    color: #000000b7;
+    margin:5px 15px;
+    padding-left: 25px;
+    border-radius: 27px;
 }
