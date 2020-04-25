@@ -13,8 +13,8 @@
     width        : 70.5vw;
     height       : 50vh;
     border-radius: 5px;
-    display: flex;
-    justify-self: space-between;
+    display      : flex;
+    justify-self : space-between;
 }
 
 .personal .boxone {
@@ -63,11 +63,11 @@
 }
 
 .personal .boxsix {
-    position     : absolute;
-    top          : 85%;
-    left         : 5%;
-    width        : 95%;
-    height       : 15%;
+    position: absolute;
+    top     : 85%;
+    left    : 5%;
+    width   : 95%;
+    height  : 15%;
 
 }
 
@@ -93,17 +93,43 @@
     text-align : center;
     line-height: 60px;
 }
-.personal .huhubox{
-    height     : 40px;
-    width: 40px;
+
+.personal .huhubox {
+    height          : 40px;
+    width           : 40px;
     background-color: burlywood;
 }
-.personal .input{
-    width: 90%;
-    height:50px;
-    font-size: 14pt;
-    color: #000000b7;
-    margin:5px 15px;
-    padding-left: 25px;
+
+.personal .input {
+    width        : 90%;
+    height       : 50px;
+    font-size    : 14pt;
+    color        : #000000b7;
+    margin       : 5px 15px;
+    padding-left : 25px;
     border-radius: 27px;
+}
+
+.personal .radio {
+    margin  :auto 10px;
+    border-radius: 100%;
+    border       : 1px solid darken(color1, 25%);
+}
+
+.personal .btnsend {
+    position        : absolute;
+    top             : 68vh;
+    left            : 88vw;
+    width           : 250px;
+    height          : 50px;
+}
+.personal button{
+background-color: #384661; /* Green */
+border: none;
+color: white;
+padding: 15px 15px;
+text-align: center;
+font-size: 14px;
+cursor: pointer;
+border-radius: 5px;
 }
