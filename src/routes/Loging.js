@@ -32,7 +32,7 @@ export default class Loging extends Component {
                                     <span className="txt1">
                                         還沒有帳號嗎?
                                     </span>
-                                    <Link to="/Loging/Register/StudentRegister">
+                                    <Link to="/Loging/Register/Student">
                                         <a href="" className="txt2">
                                             註冊
                                         </a>

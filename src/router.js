@@ -15,7 +15,8 @@ import EmailValidate from "./routes/EmailValidate";
 import ResendiEmailValidate from "./routes/ResendiEmailValidate";
 import Studentdata from "./routes/Studentdata";
 import Personal from "./routes/Personal";
-import TeacherManagement from "./routes/TeacherManagement"
+import TeacherManagement from "./routes/TeacherManagement";
+import TeacherAuthority from "./routes/TeacherAuthority";
 export default (
   <HashRouter>
     <Switch>
@@ -34,7 +35,8 @@ export default (
       <Route path="/StudentReservationComplete" exact component={StudentReservationComplete} />
       <Route path="/Studentdata/:id" exact component={Studentdata} />
       <Route path="/Personal" exact component={Personal} />
-      <Route path="/TeacherManagement" exact component={TeacherManagement}/>
+      <Route path="/TeacherManagement/:id" exact component={TeacherManagement}/>
+      <Route path="/TeacherAuthority/:id" exact component={TeacherAuthority}/>
     </Switch>
   </HashRouter>
 )

@@ -22,7 +22,7 @@ export default class ResendiEmailValidate extends Component {
                                 <div className="list">
                                     <button className="login-btn">
                                         送出
-                                        </button>
+                                    </button>
                                 </div>
                             </form>
                         </div>

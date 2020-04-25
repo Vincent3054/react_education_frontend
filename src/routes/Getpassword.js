@@ -29,7 +29,7 @@ export default class Getpassword extends Component {
                                 <div style={{ marginTop: "40px", marginBottom: "40px" }}>
                                     <span>
                                         查詢結果會將您的帳號與密碼，寄至你填寫的Email信箱，請在5分鐘內，點擊Email中的網址來找回密碼。
-                                        </span>
+                                    </span>
                                 </div>
                             </form>
                         </div>

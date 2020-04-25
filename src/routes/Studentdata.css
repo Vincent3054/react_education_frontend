@@ -2,42 +2,45 @@
   /* position: absolute;
   top: 0px;
   left: 1px; */
-  width: 100%;
-  height: 400px;
-  text-align: center;
+  width           : 100%;
+  height          : 400px;
+  text-align      : center;
   background-color: #fff;
-  color: #384661;
-  border: none;
+  color           : #384661;
+  border          : none;
 }
 
 .Studentdata .table {
   width: 100%;
 }
+
 .Studentdata .table thead {
   background-color: #6abe83;
-  color: #384661;
+  color           : #384661;
 }
+
 .Studentdata .table tbody tr {
   transition: all 0.5s;
 }
+
 .Studentdata .table tbody tr:hover {
   background-color: #d1e4d7;
-  cursor: pointer;
+  cursor          : pointer;
 }
 
 .Studentdata .list {
   line-height: 45px;
-  height: 45px;
+  height     : 45px;
 }
 
 .Studentdata .btn {
-  border: none;
-  width: 50px;
-  height: 20px;
+  border             : none;
+  width              : 50px;
+  height             : 20px;
   /* background-color: #fae9b0; */
-  font-size: 12pt;
-  margin-right: 8px;
-  outline: none;
+  font-size          : 12pt;
+  margin-right       : 8px;
+  outline            : none;
 }
 
 .Studentdata .td-btn {
@@ -45,11 +48,11 @@
 }
 
 .Studentdata .btn {
-  width: 50px;
-  height: 25px;
-  border-radius: 25px;
+  width           : 50px;
+  height          : 25px;
+  border-radius   : 25px;
   background-color: #384661;
-  color: #fff;
+  color           : #fff;
 }
 
 .Studentdata .btn:hover {
@@ -57,11 +60,65 @@
 }
 
 .Studentdata .index-img {
-  width: 100%;
+  width : 100%;
   height: 350px;
 }
+
 .Studentdata img {
-  width: 100%;
-  height: 100%;
+  width     : 100%;
+  height    : 100%;
   object-fit: cover;
+}
+
+/*TeacherManagement*/
+
+.Studentdata .tabletitle {
+  line-height     : 60px;
+  height          : 60px;
+  background-color: #fff;
+  text-align      : left;
+  letter-spacing  : 3px;
+  padding-left    : 2%;
+}
+
+.Studentdata .tablecursor {
+  line-height     : 60px;
+  height          : 60px;
+  background-color: #fff;
+  text-align      : right;
+  padding-right   : 2%;
+  font-size       : 16px;
+}
+
+.Studentdata .submit {
+  padding              : 5px 15px;
+  background           : #384661;
+  color                : #fff;
+  border               : 0 none;
+  cursor               : pointer;
+  -webkit-border-radius: 5px;
+  border-radius        : 5px;
+}
+
+.Studentdata .text {
+  padding              : 5px 15px;
+  border               : 2px #6abe83 solid;
+  cursor               : pointer;
+  -webkit-border-radius: 5px;
+  border-radius        : 5px;
+  margin-right         : 5px;
+}
+
+.Studentdata .input {
+  border            : 1px solid #c4c4c4;
+  width             : 100%;
+  height            : 40px;
+  line-height       : 40px;
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+  box-shadow        : inset 0 1px 3px rgba(0, 0, 0, 0.3);
+  overflow          : hidden;
+  font-size         : 15px;
+  letter-spacing    : 1px;
+  background        : #ffffff;
+  color             : #999999;
 }

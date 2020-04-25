@@ -20,13 +20,13 @@ export default class ChangePasswordComplete extends Component {
                                 <div style={{ marginTop: "30px", textAlign: "center" }}>
                                     <span>
                                         恭喜您修改成功!
-                                        </span>
+                                    </span>
                                 </div>
                                 <Link to="/Loging">
                                     <div className="list">
                                         <button className="login-btn">
                                             去登入
-                                            </button>
+                                        </button>
                                     </div>
                                 </Link>
                             </form>

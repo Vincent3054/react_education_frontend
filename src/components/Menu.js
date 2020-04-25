@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../mixin/main.css';
 import './Menu.css';
-import {user} from '../Assets/user (1).png';
+import user from '../Assets/user (1).png';
 import home from '../Assets/home.png';
 import edit from '../Assets/edit.png';
 import set from '../Assets/settings.png';
