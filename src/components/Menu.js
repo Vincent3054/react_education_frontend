@@ -6,6 +6,7 @@ import home from '../Assets/home.png';
 import edit from '../Assets/edit.png';
 import set from '../Assets/settings.png';
 import menu from '../Assets/open-menu (1).png';
+import { Link } from 'react-router-dom';
 
 
 export default class Menu extends Component {
@@ -32,9 +33,10 @@ export default class Menu extends Component {
 
           <ul className="ul">
             <li className="list"><img src={home} className="img" />首頁</li>
-            <li className="list"><img src={user} className="img" />基本資料</li>
-            <li className="list"><img src={edit} className="img" />編輯資料</li>
-            <li className="list"><img src={set} className="img" />設定</li>
+            <li className="list"><img src={user} className="img" /><Link to="/Personal" className="linkstyle">基本資料</Link></li>
+            <li className="list"><img src={edit} className="img" /><Link to="/ClassList" className="linkstyle">班級列表</Link></li>
+            <li className="list"><img src={edit} className="img" /><Link to="/Studentdoc/101" className="linkstyle">輔導記錄</Link></li>
+            <li className="list"><img src={set} className="img" /><Link to="/SetAll/101" className="linkstyle">人員設定</Link></li>
           </ul>
         </div>
       </div>

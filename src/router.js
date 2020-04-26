@@ -14,7 +14,10 @@ import ChangePasswordComplete from "./routes/ChangePasswordComplete";
 import EmailValidate from "./routes/EmailValidate";
 import ResendiEmailValidate from "./routes/ResendiEmailValidate";
 import Studentdata from "./routes/Studentdata";
+import Studentdoc from "./routes/Studentdoc";
 import Personal from "./routes/Personal";
+import SetAll from "./routes/SetAll";
+
 export default (
   <HashRouter>
     <Switch>
@@ -32,7 +35,9 @@ export default (
       <Route path="/StudentReservation" exact component={StudentReservation} />
       <Route path="/StudentReservationComplete" exact component={StudentReservationComplete} />
       <Route path="/Studentdata/:id" exact component={Studentdata} />
+      <Route path="/Studentdoc/:id" exact component={Studentdoc} />
       <Route path="/Personal" exact component={Personal} />
+      <Route path="/SetAll/:id" exact component={SetAll} />
     </Switch>
   </HashRouter>
 )

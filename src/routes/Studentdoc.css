@@ -1,0 +1,67 @@
+.Studentdoc .title {
+  /* position: absolute;
+  top: 0px;
+  left: 1px; */
+  width: 100%;
+  height: 400px;
+  text-align: center;
+  background-color: #fff;
+  color: #384661;
+  border: none;
+}
+
+.Studentdoc .table {
+  width: 100%;
+}
+.Studentdoc .table thead {
+  background-color: #6abe83;
+  color: #384661;
+}
+.Studentdoc .table tbody tr {
+  transition: all 0.5s;
+}
+.Studentdoc .table tbody tr:hover {
+  background-color: #d1e4d7;
+  cursor: pointer;
+}
+
+.Studentdoc .list {
+  line-height: 45px;
+  height: 45px;
+}
+
+.Studentdoc .btn {
+  border: none;
+  width: 50px;
+  height: 20px;
+  /* background-color: #fae9b0; */
+  font-size: 12pt;
+  margin-right: 8px;
+  outline: none;
+}
+
+.Studentdoc .td-btn {
+  width: 20%;
+}
+
+.Studentdoc .btn {
+  width: 50px;
+  height: 25px;
+  border-radius: 25px;
+  background-color: #384661;
+  color: #fff;
+}
+
+.Studentdoc .btn:hover {
+  cursor: pointer;
+}
+
+.Studentdoc .index-img {
+  width: 100%;
+  height: 350px;
+}
+.Studentdoc img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

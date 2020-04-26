@@ -87,6 +87,10 @@
 .Menu .buger:active > .Menu.buger-img {
     width: 22px;
 }
+.Menu .linkstyle{
+    text-decoration:none;
+    color:#fff;
+}
 
 @media screen and (max-width: 768px) {
     .Sidebar {
