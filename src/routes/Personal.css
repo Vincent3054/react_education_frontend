@@ -111,36 +111,45 @@
 }
 
 .personal .radio {
-    margin  :auto 10px;
+    margin       : auto 10px;
     border-radius: 100%;
     border       : 1px solid darken(color1, 25%);
 }
 
-.personal .btnsend {
-    position        : absolute;
-    top             : 68vh;
-    left            : 88vw;
-    width           : 250px;
-    height          : 50px;
-}
-.personal button{
-background-color: #384661; /* Green */
-border: none;
-color: white;
-padding: 15px 15px;
-text-align: center;
-font-size: 14px;
-cursor: pointer;
-border-radius: 5px;
+/* .personal .btnsend {
+    position: absolute;
+    top     : 68vh;
+    left    : 88vw;
+    width   : 250px;
+    height  : 50px;
+} */
+
+.personal button {
+    background-color: #384661;
+    /* Green */
+    border          : none;
+    color           : white;
+    padding         : 15px 15px;
+    text-align      : center;
+    font-size       : 14px;
+    cursor          : pointer;
+    border-radius   : 5px;
 }
 
 @media screen and (max-width: 768px) {
     .content {
-      width: 100%;
-      font-size: 15px;
-    }
-    .input{
+        width    : 100%;
         font-size: 15px;
     }
-  }
-  
+
+    .personal{
+        /* font-size: 15px; */
+        display: inline-block;
+    }
+}
+
+@media screen and (max-width: 525px) {
+    .personal .main {
+        height: 90vh;
+    }
+}

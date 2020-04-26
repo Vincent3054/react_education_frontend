@@ -52,11 +52,12 @@ export default class Personal extends Component {
                         </div>
 
                     </div>
-                    <div className="btnsend">
-                    <button className="button button5">儲存變更</button>
-                    </div>
+                 
                 </div>
             </Layout>
         );
     }
 }
+//    <div className="btnsend">
+//                     <button className="button button5">儲存變更</button>
+//                     </div>
