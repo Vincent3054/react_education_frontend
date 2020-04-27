@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../mixin/main.css';
 import '../routes/Register.css';
+import { Link } from 'react-router-dom';
 export default class Getpassword extends Component {
     render() {
         return (
@@ -21,9 +22,11 @@ export default class Getpassword extends Component {
                                     <input className="input" type="mail" />
                                 </div>
                                 <div className="list">
-                                    <button className="login-btn">
-                                        查詢
+                                    <Link to="/Loging/Register/Complete">
+                                        <button className="login-btn">
+                                            查詢
                                         </button>
+                                    </Link>
                                 </div>
                                 <hr></hr>
                                 <div style={{ marginTop: "40px", marginBottom: "40px" }}>

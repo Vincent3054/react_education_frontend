@@ -25,9 +25,11 @@ export default class Loging extends Component {
                                         </a>
                                     </Link>
                                 </div>
-                                <button className="btn">
-                                    登入
-                                </button>
+                                <Link to="/">
+                                    <button className="btn">
+                                        登入
+                                    </button>
+                                </Link>
                                 <div className="text-bottom">
                                     <span className="txt1">
                                         還沒有帳號嗎?

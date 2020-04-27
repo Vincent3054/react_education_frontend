@@ -33,6 +33,7 @@ export default (
       <Route path="/Loging/ChangePasswordComplete" exact component={ChangePasswordComplete} />
       <Route path="/Loging/EmailValidate" exact component={EmailValidate} />
       <Route path="/Loging/ResendiEmailValidate" exact component={ResendiEmailValidate} />
+      
       <Route path="/ClassList" exact component={ClassList} />
       <Route path="/StudentReservation" exact component={StudentReservation} />
       <Route path="/StudentReservationComplete" exact component={StudentReservationComplete} />

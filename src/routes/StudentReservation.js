@@ -70,7 +70,7 @@ export default class StudentReservation extends Component {
                                         <Link to="/StudentReservationComplete">
                                             <button className="login-btn">
                                                 預約
-                                        </button>
+                                            </button>
                                         </Link>
                                     </div>
                                 </form>
