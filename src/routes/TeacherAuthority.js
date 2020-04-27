@@ -12,6 +12,7 @@ export default class TeacherAuthority extends Component {
         name: "AAA",
         email: "a1234@gmail.com",
         Roles: "輔導老師",
+        phone: "0912345678",
       },
       {
         number: 2,
@@ -19,6 +20,7 @@ export default class TeacherAuthority extends Component {
         name: "BBB",
         email: "b1234@gmail.com",
         Roles: "班級老師",
+        phone: "0912345678",
       },
     ]
   }
@@ -34,14 +36,41 @@ export default class TeacherAuthority extends Component {
     const textteacher = data.map((item, index, array) => {
       return (
         <tr className="list" key={index}>
-          <td>{item.account}</td>
-          <td>{item.name}</td>
-          <select className="input">
-            <option></option>
-            <option value="最高管理員">最高管理員</option><option value="輔導老師">輔導老師</option><option value="班級老師">班級老師</option><option value="學生">學生</option>
-          </select>
+          <td>
+            <div className="list" style={{ lineHeight: "0px" }}>
+              <input className="input" type="text" value={item.number}></input>
+            </div>
+          </td>
+          <td>
+            <div className="list" style={{ lineHeight: "0px" }}>
+              <input className="input" type="text" value={item.account} ></input>
+            </div>
+          </td>
+          <td>
+            <div className="list" style={{ lineHeight: "0px" }}>
+              <input className="input" type="text" value={item.name} ></input>
+            </div>
+          </td>
+          <td>
+            <div className="list" style={{ lineHeight: "0px" }}>
+              <input className="input" type="text" value={item.email} ></input>
+            </div>
+          </td>
+          <td>
+            <div className="list" style={{ lineHeight: "0px" }}>
+              <input className="input" type="text" value={item.phone} ></input>
+            </div>
+          </td>
+          <td>
+            <div className="list" style={{ lineHeight: "0px" }}>
+              <select className="input">
+                <option>目前角色:{item.Roles}</option>
+                <option value="最高管理員">最高管理員</option><option value="輔導老師">輔導老師</option><option value="班級老師">班級老師</option><option value="學生">學生</option>
+              </select>
+            </div>
+          </td>
           <td className="td-btn">
-            <button type="button" className="btn" style={{ width: "100px" }}>修改角色</button>
+            <button type="button" className="btn" style={{ width: "100px" }}>修改資料</button>
             <button type="button" className="btn" style={{ width: "100px" }}>修改權限</button>
           </td>
         </tr>
@@ -57,8 +86,11 @@ export default class TeacherAuthority extends Component {
               <thead>
                 <th className="tabletitle" colspan="3"><h2>修改角色</h2></th>
                 <tr className="list">
+                  <th>序號</th>
                   <th>帳號</th>
                   <th>姓名</th>
+                  <th>電子信箱</th>
+                  <th>電話</th>
                   <th>角色</th>
                   <th>管理</th>
                 </tr>
@@ -203,9 +235,9 @@ export default class TeacherAuthority extends Component {
                   </th>
                   <th></th>
                 </tr>
-                <tr className="list" style={{height:"100px"}}>
-                  <td colspan="6" style={{textAlign:"right"}}>
-                    <button type="button" className="btn" style={{ width: "15%" ,height:"50px"}}>確認修改</button>
+                <tr className="list" style={{ height: "100px" }}>
+                  <td colspan="6" style={{ textAlign: "right" }}>
+                    <button type="button" className="btn" style={{ width: "10%", height: "50px" }}>確認修改</button>
                   </td>
                 </tr>
               </tbody>

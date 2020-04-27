@@ -8,6 +8,7 @@ import Loging from "./routes/Loging";
 import StudentRegister from "./routes/StudentRegister";
 import ClassTeacherRegister from "./routes/ClassTeacherRegister";
 import CounselorTeacherRegister from "./routes/CounselorTeacherRegister";
+import RegisterComplete from"./routes/RegisterComplete";
 import Getpassword from "./routes/Getpassword";
 import ChangePassword from "./routes/ChangePassword";
 import ChangePasswordComplete from "./routes/ChangePasswordComplete";
@@ -17,6 +18,7 @@ import Studentdata from "./routes/Studentdata";
 import Personal from "./routes/Personal";
 import TeacherManagement from "./routes/TeacherManagement";
 import TeacherAuthority from "./routes/TeacherAuthority";
+import StudentManagement from "./routes/StudentManagement";
 export default (
   <HashRouter>
     <Switch>
@@ -25,6 +27,7 @@ export default (
       <Route path="/Loging/Register/Student" exact component={StudentRegister} />
       <Route path="/Loging/Register/ClassTeacher" exact component={ClassTeacherRegister} />
       <Route path="/Loging/Register/CounselorTeacher" exact component={CounselorTeacherRegister} />
+      <Route path="/Loging/Register/Complete" exact component={RegisterComplete} />
       <Route path="/Loging/Getpassword" exact component={Getpassword} />
       <Route path="/Loging/ChangePassword" exact component={ChangePassword} />
       <Route path="/Loging/ChangePasswordComplete" exact component={ChangePasswordComplete} />
@@ -35,8 +38,9 @@ export default (
       <Route path="/StudentReservationComplete" exact component={StudentReservationComplete} />
       <Route path="/Studentdata/:id" exact component={Studentdata} />
       <Route path="/Personal" exact component={Personal} />
-      <Route path="/TeacherManagement/:id" exact component={TeacherManagement}/>
-      <Route path="/TeacherAuthority/:id" exact component={TeacherAuthority}/>
+      <Route path="/TeacherManagement/:id" exact component={TeacherManagement} />
+      <Route path="/TeacherAuthority/:id" exact component={TeacherAuthority} />
+      <Route path="/StudentManagement/:id" exact component={StudentManagement} />
     </Switch>
   </HashRouter>
 )
