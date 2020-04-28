@@ -40,7 +40,7 @@ export default class EmailValidate extends Component {
                                         {validate ? "恭喜您註冊成功!" : "驗證錯誤，請重新確認或再註冊!"}
                                     </span>
                                 </div>
-                                <Link to={validate ? "/Loging/ChangePassword" : "/Loging/ShigeyoriEmailValidate"}>
+                                <Link to={validate ? "/Loging/ChangePassword" : "/Loging/ResendiEmailValidate"}>
                                     <div className="list">
                                         <button className="login-btn">
                                             {validate ? "去修改密碼!" : "重寄驗證信"}

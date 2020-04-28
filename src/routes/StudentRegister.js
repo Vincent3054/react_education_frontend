@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../mixin/main.css';
 import '../routes/Register.css';
+import { Link } from 'react-router-dom';
 export default class StudentRegister extends Component {
     render() {
         return (
@@ -12,6 +13,14 @@ export default class StudentRegister extends Component {
                                 <span className="title">
                                     學生註冊
                                     </span>
+                                <div className="list" >
+                                    <span className="red-dot">*</span>
+                                    <span className="list-text">性別</span>
+                                    <input type="radio" id="male" name="gender" value="male" />
+                                    <label for="male">男</label>
+                                    <input type="radio" id="female" name="gender" value="female" />
+                                    <label for="female">女</label>
+                                </div>
                                 <div className="list">
                                     <span className="red-dot">*</span>
                                     <span className="list-text">真實姓名</span>
@@ -31,6 +40,11 @@ export default class StudentRegister extends Component {
                                     <span className="red-dot">*</span>
                                     <span className="list-text">電子信箱</span>
                                     <input className="input" type="email" />
+                                </div>
+                                <div className="list">
+                                    <span className="red-dot">*</span>
+                                    <span className="list-text">連絡電話</span>
+                                    <input className="input" type="tel" />
                                 </div>
                                 <div className="list">
                                     <span className="red-dot">*</span>
@@ -56,11 +70,13 @@ export default class StudentRegister extends Component {
                                         <option value="資訊班">資訊班</option><option value="藝術班">資訊班</option><option value="普通班">普通班</option><option value="A班">A班</option><option value="B班">B班</option><option value="C班">C班</option><option value="D班">D班</option>
                                     </select>
                                 </div>
-                                <div className="list">
-                                    <button className="login-btn">
-                                        註冊
+                                <Link to="/Loging/Register/Complete">
+                                    <div className="list">
+                                        <button className="login-btn">
+                                            註冊
                                         </button>
-                                </div>
+                                    </div>
+                                </Link>
                             </form>
                         </div>
                     </div>

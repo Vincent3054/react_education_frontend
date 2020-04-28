@@ -25,14 +25,16 @@ export default class Loging extends Component {
                                         </a>
                                     </Link>
                                 </div>
-                                <button className="btn">
-                                    登入
-                                </button>
+                                <Link to="/">
+                                    <button className="btn">
+                                        登入
+                                    </button>
+                                </Link>
                                 <div className="text-bottom">
                                     <span className="txt1">
                                         還沒有帳號嗎?
                                     </span>
-                                    <Link to="/Loging/Register/StudentRegister">
+                                    <Link to="/Loging/Register/Student">
                                         <a href="" className="txt2">
                                             註冊
                                         </a>

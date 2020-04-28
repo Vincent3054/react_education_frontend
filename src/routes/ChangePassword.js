@@ -43,3 +43,5 @@ export default class ChangePassword extends Component {
         );
     }
 }
+
+//把網址帶給我的參數存起來，把帳號跟驗證碼在帶給後端
