@@ -4,15 +4,15 @@ import '../routes/Register.css';
 import { Link } from 'react-router-dom';
 import Correctfrom from '../Assets/EmailValidate_check.png';
 import Errorimg from '../Assets/EmailValidateError_check.png';
-export default class EmailValidate extends Component {
+export default class RegisterEmailValidate extends Component {
 
     state = {
         validate: undefined,
     }
 
     componentDidMount() {
-        const msg = "驗證成功";
-        const status = msg === "驗證成功";
+        const msg = "註冊成功";
+        const status = msg === "註冊成功";
         this.setState({ validate: status });
     }
 
@@ -25,7 +25,7 @@ export default class EmailValidate extends Component {
                         <div className="wrap" style={{ width: "600px" }}>
                             <form className="form">
                                 <span className="title">
-                                    {validate ? "驗證成功" : "驗證失敗"}
+                                    {validate ? "註冊成功" : "註冊失敗"}
                                 </span>
                                 <div style={{ textAlign: "center", display: "block" }}>
                                     {
@@ -37,13 +37,13 @@ export default class EmailValidate extends Component {
                                 </div>
                                 <div style={{ marginTop: "30px", textAlign: "center" }}>
                                     <span>
-                                        {validate ? "恭喜您驗證成功!" : "驗證失敗，請重新確認或再註冊!"}
+                                        {validate ? "恭喜您註冊成功!" : "註冊失敗，請重新確認或再註冊!"}
                                     </span>
                                 </div>
-                                <Link to={validate ? "/Loging/ChangePassword" : "/Loging/ResendiEmailValidate"}>
+                                <Link to={validate ? "/Loging" : "/Loging/ResendiRegisterEmailValidate"}>
                                     <div className="list">
                                         <button className="login-btn">
-                                            {validate ? "去修改密碼!" : "重寄驗證信"}
+                                            {validate ? "回登入" : "重寄驗證信"}
                                         </button>
                                     </div>
                                 </Link>
