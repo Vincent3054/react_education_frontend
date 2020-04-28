@@ -11,64 +11,47 @@
     left         : 25%;
     border       : solid 0.5px rgba(49, 41, 41, 0.342);
     width        : 70.5vw;
-    height       : 50vh;
+    height       : 25vh;
     border-radius: 5px;
+    display: block;
     display      : flex;
     justify-self : space-between;
+    font-size: 10pt;
 }
 
 .personal .boxone {
-    position     : absolute;
-    top          : 10%;
-    left         : 5%;
     border-bottom: solid 0.5px rgba(49, 41, 41, 0.548);
-    width        : 95%;
+    width        : 70%;
     height       : 15%;
 }
 
 .personal .boxtwo {
-    position     : absolute;
-    top          : 25%;
-    left         : 5%;
     border-bottom: solid 0.5px rgba(49, 41, 41, 0.548);
-    width        : 95%;
+    width        : 70%;
     height       : 15%;
 }
 
 .personal .boxthree {
-    position     : absolute;
-    top          : 40%;
-    left         : 5%;
     border-bottom: solid 0.5px rgba(49, 41, 41, 0.548);
-    width        : 95%;
+    width        : 70%;
     height       : 15%;
 }
 
 .personal .boxfour {
-    position     : absolute;
-    top          : 55%;
-    left         : 5%;
     border-bottom: solid 0.5px rgba(49, 41, 41, 0.548);
-    width        : 95%;
+    width        : 70%;
     height       : 15%;
 }
 
 .personal .boxfive {
-    position     : absolute;
-    top          : 70%;
-    left         : 5%;
     border-bottom: solid 0.5px rgba(49, 41, 41, 0.548);
-    width        : 95%;
+    width        : 70%;
     height       : 15%;
 }
 
 .personal .boxsix {
-    position: absolute;
-    top     : 85%;
-    left    : 5%;
-    width   : 95%;
+    width   : 70%;
     height  : 15%;
-
 }
 
 .personal .boxone:hover,
@@ -77,37 +60,18 @@
 .personal .boxfour:hover,
 .personal .boxfive:hover,
 .personal .boxsix:hover {
-
-    left            : 0%;
-    width           : 100%;
+    left            : 20%;
     background-color: rgba(0, 0, 0, 0.062);
     cursor          : pointer;
     padding-left    : 5%;
     background-color: #00000025;
 
-
 }
 
 .personal .font {
-    height     : 60px;
+    height     : 30px;
     text-align : center;
-    line-height: 60px;
-}
-
-/* .personal .huhubox {
-    height          : 40px;
-    width           : 20px;
-    background-color: burlywood;
-} */
-
-.personal .input {
-    width        : 50vw;
-    height       : 5vh;
-    font-size    : 14pt;
-    color        : #000000b7;
-    margin       : 5px 15px;
-    padding-left : 25px;
-    border-radius: 27px;
+    line-height: 30px;
 }
 
 .personal .radio {
@@ -115,14 +79,6 @@
     border-radius: 100%;
     border       : 1px solid darken(color1, 25%);
 }
-
-/* .personal .btnsend {
-    position: absolute;
-    top     : 68vh;
-    left    : 88vw;
-    width   : 250px;
-    height  : 50px;
-} */
 
 .personal button {
     background-color: #384661;
@@ -142,7 +98,7 @@
         font-size: 15px;
     }
 
-    .personal{
+    .personal {
         /* font-size: 15px; */
         display: inline-block;
     }
@@ -152,4 +108,21 @@
     .personal .main {
         height: 90vh;
     }
+}
+
+.personal .user {
+    width:60%;
+    height: 25vh;
+
+}
+.personal .userimg{
+    width: 125px;
+    height: 125px;
+    margin: 11%  30%;
+}
+
+.personal .content {
+    height: 25vh;
+    padding-top: 2vh;
+    float: left;
 }
