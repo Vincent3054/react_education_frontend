@@ -95,9 +95,14 @@ export default class Studentdata extends Component {
       <Layout>
         <div className="Studentdata">
           <div className="title">
-            <div className='index-img'><img src={indeximg} /></div>
+          <span className="titlename">學生列表</span>
             <table className="table">
               <thead>
+              <tr>
+              <td colSpan="6" className="theadstart">
+              <label>search：</label><input type="text" />
+              </td>
+              </tr>
                 <tr className="list">
                   <th>序號</th>
                   <th>班級</th>
@@ -110,6 +115,19 @@ export default class Studentdata extends Component {
               <tbody>
                 {textlab}
               </tbody>
+              <tfoot>
+              <tr >
+              <td colspan="6" className="foot">
+              <span  className="footmain">上一頁</span>
+              <button type="button" className="btn footmain">1</button>
+              <button type="button" className="btn footmain">2</button>
+              <button type="button" className="btn footmain">3</button>
+              <span className="footmain">下一頁</span>
+              </td>
+              </tr>
+
+              </tfoot>
+
             </table>
           </div>
         </div>
