@@ -100,11 +100,11 @@
 }
 
 .Loging .btn {
-    display: -webkit-box;
+    /* display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
-    display: -ms-flexbox;
-    display: flex;
+    display: -ms-flexbox; */
+    /* display: flex; */
     justify-content: center;
     align-items: center;
     padding: 0 20px;

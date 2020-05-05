@@ -54,7 +54,6 @@ export default class TeacherManagement extends Component {
       <Layout>
         <div className="Studentdata">
           <div className="title">
-            <div className='index-img'><img src={indeximg} /></div>
             <table className="table">
               <thead>
                 <th className="tabletitle" colspan="4"><h2>老師管理系統</h2></th>

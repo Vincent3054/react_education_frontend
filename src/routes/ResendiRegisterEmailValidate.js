@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../mixin/main.css';
 import '../routes/Register.css';
+import { Link } from 'react-router-dom';
 export default class ResendiRegisterEmailValidate extends Component {
     render() {
         return (
@@ -19,11 +20,13 @@ export default class ResendiRegisterEmailValidate extends Component {
                                     <span className="list-text">電子信箱</span>
                                     <input className="input" type="mail" />
                                 </div>
-                                <div className="list">
-                                    <button className="login-btn">
-                                        送出
-                                    </button>
-                                </div>
+                                <Link to="/Loging/RegisterEmailValidate">
+                                    <div className="list">
+                                        <button className="login-btn">
+                                            送出
+                                        </button>
+                                    </div>
+                                </Link>
                             </form>
                         </div>
                     </div>

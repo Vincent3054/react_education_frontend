@@ -41,44 +41,28 @@ export default class StudentManagement extends Component {
       return (
         <tr className="list" key={index}>
           <td>
-            <div className="list" style={{ lineHeight: "0px" }}>
-              <input className="input" type="text" value={item.number}></input>
-            </div>
+            {item.number}>
           </td>
           <td>
-            <div className="list" style={{ lineHeight: "0px" }}>
-              <input className="input" type="text" value={item.account} ></input>
-            </div>
+            {item.account}
           </td>
           <td>
-            <div className="list" style={{ lineHeight: "0px" }}>
-              <input className="input" type="text" value={item.name} ></input>
-            </div>
+            {item.name}
           </td>
           <td>
-            <div className="list" style={{ lineHeight: "0px" }}>
-              <input className="input" type="text" value={item.email} ></input>
-            </div>
+            {item.email}
           </td>
           <td>
-            <div className="list" style={{ lineHeight: "0px" }}>
-              <input className="input" type="text" value={item.phone} ></input>
-            </div>
+            {item.phone}
           </td>
           <td>
-            <div className="list" style={{ lineHeight: "0px" }}>
-              <input className="input" type="text" value={item.year} ></input>
-            </div>
+            {item.year}
           </td>
           <td>
-            <div className="list" style={{ lineHeight: "0px" }}>
-              <input className="input" type="text" value={item.classnumber} ></input>
-            </div>
+            {item.classnumber}
           </td>
           <td>
-            <div className="list" style={{ lineHeight: "0px" }}>
-              <input className="input" type="text" value={item.class} ></input>
-            </div>
+            {item.class}
           </td>
           <td className="td-btn">
             <button type="button" className="btn" style={{ width: "100px" }}>修改</button>
@@ -92,11 +76,10 @@ export default class StudentManagement extends Component {
       <Layout>
         <div className="Studentdata">
           <div className="title">
-            <div className='index-img'><img src={indeximg} /></div>
             <table className="table">
               <thead>
-                <th className="tabletitle" colspan="8"><h2>學生管理系統</h2></th>
-                <th className="tablecursor" colspan="1">
+                <th className="tabletitle" colspan="7"><h2>學生管理系統</h2></th>
+                <th className="tablecursor" colspan="2">
                   <div class="demo">
                     <span>搜尋：</span>
                     <input className="text" type="text" placeholder="輸入文字" />
