@@ -25,7 +25,9 @@ import AdminReservation3 from "./routes/AdminReservation3";
 import ClassTeacherReservation1 from "./routes/ClassTeacherReservation1";
 import ClassTeacherReservation2 from "./routes/ClassTeacherReservation2";
 import ClassTeacherReservation3 from "./routes/ClassTeacherReservation3";
-
+import CounselorTeacherReservation2 from "./routes/CounselorTeacherReservation2";
+import CounselorTeacherReservation3 from "./routes/CounselorTeacherReservation3";
+import StudentReservationStatus from "./routes/StudentReservationStatus";
 import TeacherManagement from "./routes/TeacherManagement";
 import TeacherAuthority from "./routes/TeacherAuthority";
 import StudentManagement from "./routes/StudentManagement";
@@ -59,6 +61,9 @@ export default (
       <Route path="/ClassTeacherReservation1/:id" exact component={ClassTeacherReservation1} />
       <Route path="/ClassTeacherReservation2/:id" exact component={ClassTeacherReservation2} />
       <Route path="/ClassTeacherReservation3/:id" exact component={ClassTeacherReservation3} />
+      <Route path="/CounselorTeacherReservation2/:id" exact component={CounselorTeacherReservation2} />
+      <Route path="/CounselorTeacherReservation3/:id" exact component={CounselorTeacherReservation3} />
+      <Route path="/StudentReservationStatus/:id" exact component={StudentReservationStatus} />
       <Route path="/TeacherManagement/:id" exact component={TeacherManagement} />
       <Route path="/TeacherAuthority/:id" exact component={TeacherAuthority} />
       <Route path="/StudentManagement/:id" exact component={StudentManagement} />
