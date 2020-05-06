@@ -41,7 +41,7 @@ export default class StudentManagement extends Component {
       return (
         <tr className="list" key={index}>
           <td>
-            {item.number}>
+            {item.number}
           </td>
           <td>
             {item.account}
@@ -65,7 +65,6 @@ export default class StudentManagement extends Component {
             {item.class}
           </td>
           <td className="td-btn">
-            <button type="button" className="btn" style={{ width: "100px" }}>修改</button>
             <button type="button" className="btn" style={{ width: "100px" }}>刪除</button>
           </td>
         </tr>

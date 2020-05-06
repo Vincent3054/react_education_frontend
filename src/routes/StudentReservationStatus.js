@@ -2,9 +2,63 @@ import React, { Component } from 'react';
 import Layout from '../layouts/Layout';
 import '../mixin/main.css';
 import './Studentdata.css';
+import '../routes/Register.css';
+import '../routes/StudentReservation.css';
 import { Link } from 'react-router-dom';
+
+class Model extends Component {
+  render() {
+    return (
+      <div className="wrap">
+        <form className="form">
+          <span className="title">
+            預約
+                  </span>
+          <div className="cancel">
+            <button onClick={this.alterData}>123</button>
+          </div>
+          <div className="list">
+            <span className="list-text">預約日期：</span>
+            <input className="input" type="date"></input>
+          </div>
+          <div className="list">
+            <span className="list-text">預約時段：</span>
+            <select className="input">
+              <option></option>
+              <option value="早上">早上</option><option value="中午">中午</option><option value="下午">下午</option><option value="晚上">晚上</option>
+            </select>
+          </div>
+          <div className="list">
+            <span className="list-text">預約時間：</span>
+            <input className="input" type="time"></input>
+          </div>
+          <div className="list">
+            <span className="list-text">諮詢類別</span>
+            <select className="input">
+              <option></option>
+              <option value="學業">學業</option><option value="家庭">家庭</option><option value="感情">感情</option><option value="其他">其他</option>
+            </select>
+          </div>
+          <div className="list">
+            <span className="list-text">諮詢內容：</span>
+            <textarea className="input" style={{ height: "100px" }}></textarea>
+          </div>
+          <div className="list">
+            <Link to="/StudentReservationComplete">
+              <button className="login-btn" onClick={this.alterData}  >
+                預約
+                      </button>
+            </Link>
+          </div>
+        </form>
+      </div>
+    )
+  }
+}
+
 export default class StudentReservationStatus extends Component {
   state = {
+    ac: false,
     student: [
       {
         number: 1,
@@ -32,8 +86,16 @@ export default class StudentReservationStatus extends Component {
       },
     ]
   }
+  alterData = () => {
+    const { ac } = this.state;
+    if (ac == false) {
+      this.setState({ ac: true });
+    } else {
+      this.setState({ ac: false });
+    }
+  }
   render() {
-
+    const { ac } = this.state;
     const { match } = this.props;
     const { params } = match;
     const { student } = this.state;
@@ -74,6 +136,13 @@ export default class StudentReservationStatus extends Component {
 
     return (
       <Layout>
+        <div className="StudentReservation" >
+          <div className={ac ? `limiter` : `limiter-mone`}>
+            <div className="container">
+              <Model />
+            </div>
+          </div>
+        </div>
         <div className="Studentdata">
           <div className="title">
             <table className="table">
@@ -100,9 +169,13 @@ export default class StudentReservationStatus extends Component {
                 {textstudent}
               </tbody>
             </table>
+            <div>
+              <button onClick={this.alterData} className="btn" style={{ width: "100px" }}>預約</button>
+            </div>
           </div>
         </div>
       </Layout>
     );
   }
 }
+//可否呼叫預約之後 把layout變成漢堡條 不然會跑版
