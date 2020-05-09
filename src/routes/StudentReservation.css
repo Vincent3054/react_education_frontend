@@ -12,7 +12,7 @@
     position        : absolute;
     left            : 0px;
     background-color: rgba(0, 0, 0, 0.3);
-    z-index         : 100;
+    z-index         : 50;
     width           : 100%;
     height          : 100%;
 }
@@ -36,6 +36,21 @@
     -o-box-shadow     : 0 3px 20px 0 rgba(0, 0, 0, 0.3);
     -ms-box-shadow    : 0 3px 20px 0 rgba(0, 0, 0, 0.3);
 }
+.StudentReservation .wrap-comp {
+    top               : 10%;
+    margin            : 0 auto;
+    width             : 70%;
+    height            : 100%;
+    background        : #fff;
+    border-radius     : 20px;
+    overflow          : hidden;
+    box-shadow        : 0 3px 20px 0 rgba(0, 0, 0, 0.3);
+    -moz-box-shadow   : 0 3px 20px 0 rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.3);
+    -o-box-shadow     : 0 3px 20px 0 rgba(0, 0, 0, 0.3);
+    -ms-box-shadow    : 0 3px 20px 0 rgba(0, 0, 0, 0.3);
+}
+
 
 .StudentReservation .form {
     width        : 100%;
@@ -154,21 +169,37 @@ button {
     border  : none;
     overflow: visible;
 }
+
 @media screen and (min-width: 1200px) {
     .StudentReservation .wrap {
         width: 50%;
         transition: 0.8s;
     }
+    .StudentReservation .wrap-comp {
+        width: 35%;
+        transition: 0.8s;
+    }
+}
+@media screen and (max-width: 1500px) {
+    .StudentReservation .wrap {
+        width: 50%;
+        transition: 0.8s;
+    }
+  
 }
 @media screen and (max-width: 1024px) {
     .StudentReservation .wrap {
         width: 80%;
         transition: 0.8s;
     }
+  
 }
-
 @media screen and (max-width: 768px) {
     .StudentReservation .wrap {
+        width: 90%;
+        transition: 0.8s;
+    }
+    .StudentReservation .wrap-comp {
         width: 90%;
         transition: 0.8s;
     }

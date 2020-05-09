@@ -4,11 +4,13 @@ import '../mixin/main.css';
 import './Studentdata.css';
 import '../routes/Register.css';
 import '../routes/StudentReservation.css';
+import Correctfrom from '../Assets/EmailValidate_check.png';
 import { Link } from 'react-router-dom';
 
 export default class StudentReservationStatus extends Component {
   state = {
     ac: false,
+    comp: false,
     student: [
       {
         number: 1,
@@ -40,12 +42,27 @@ export default class StudentReservationStatus extends Component {
     const { ac } = this.state;
     if (ac == false) {
       this.setState({ ac: true });
-    } else {
+    }
+    else {
       this.setState({ ac: false });
     }
   }
+  comp = () => {
+    const { comp, ac } = this.state;
+    if (comp == false) {
+      this.setState({ comp: true });
+      this.setState({ ac: false });
+    }
+    else {
+      this.setState({ comp: false });
+    }
+  }
+  //目前有bug 待研究
+  stopPropagation(e) {
+    e.nativeEvent.stopImmediatePropagation();
+  }
   render() {
-    const { ac } = this.state;
+    const { ac, comp } = this.state;
     const { match } = this.props;
     const { params } = match;
     const { student } = this.state;
@@ -86,12 +103,41 @@ export default class StudentReservationStatus extends Component {
 
     return (
       <Layout>
+        <div className="StudentReservation"  >
+          <div className={comp ? `limiter` : `limiter-mone`}>
+            <div className="background" >
+              <div className="container" >
+                <div className="wrap-comp">
+                  <form className="form">
+                    <span className="title">
+                      預約成功
+                </span>
+                    <div style={{ textAlign: "center", display: "block" }}>
+                      <img src={Correctfrom} alt="錯誤" title="Error" style={{ width: "140px" }} />
+                    </div>
+                    <div style={{ marginTop: "30px", textAlign: "center" }}>
+                      <span>
+                        恭喜您預約成功!
+                  </span>
+                    </div>
+                    <div className="list">
+                      <button className="login-btn" onClick={this.comp}>
+                        回去查看
+                    </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="StudentReservation" >
           <div className={ac ? `limiter` : `limiter-mone`}>
-            <div className="background" onClick={this.alterData}>
-              <div className="container">
-                <div className="wrap">
-                  <form className="form">
+            <div className="background"  >
+              <div className="container" >
+                <div className="wrap" >
+                  <form className="form"  >
                     <span className="title">
                       預約
                     </span>
@@ -125,11 +171,9 @@ export default class StudentReservationStatus extends Component {
                       <textarea className="input" style={{ height: "100px" }}></textarea>
                     </div>
                     <div className="list">
-                      <Link to="/StudentReservationComplete">
-                        <button className="login-btn" onClick={this.alterData}  >
-                          預約
-                        </button>
-                      </Link>
+                      <button className="login-btn" onClick={this.comp}>
+                        預約
+                      </button>
                     </div>
                   </form>
                 </div>
