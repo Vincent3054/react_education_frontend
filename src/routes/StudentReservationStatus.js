@@ -111,14 +111,14 @@ export default class StudentReservationStatus extends Component {
                   <form className="form">
                     <span className="title">
                       預約成功
-                </span>
+                    </span>
                     <div style={{ textAlign: "center", display: "block" }}>
                       <img src={Correctfrom} alt="錯誤" title="Error" style={{ width: "140px" }} />
                     </div>
                     <div style={{ marginTop: "30px", textAlign: "center" }}>
                       <span>
                         恭喜您預約成功!
-                  </span>
+                      </span>
                     </div>
                     <div className="list">
                       <button className="login-btn" onClick={this.comp}>
@@ -131,7 +131,6 @@ export default class StudentReservationStatus extends Component {
             </div>
           </div>
         </div>
-
         <div className="StudentReservation" >
           <div className={ac ? `limiter` : `limiter-mone`}>
             <div className="background"  >

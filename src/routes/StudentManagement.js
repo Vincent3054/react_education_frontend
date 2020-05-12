@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import Layout from '../layouts/Layout';
 import '../mixin/main.css';
 import './Studentdata.css';
-import indeximg from '../Assets/1926.jpg';
+import '../routes/StudentReservation.css';
+import Correctfrom from '../Assets/EmailValidate_check.png';
 export default class StudentManagement extends Component {
   state = {
+    ac: false,
+    comp: false,
     student: [
       {
         number: 1,
@@ -28,8 +31,28 @@ export default class StudentManagement extends Component {
       },
     ]
   }
-  render() {
 
+  alterData = () => {
+    const { ac } = this.state;
+    if (ac == false) {
+      this.setState({ ac: true });
+    }
+    else {
+      this.setState({ ac: false });
+    }
+  }
+  comp = () => {
+    const { comp, ac } = this.state;
+    if (comp == false) {
+      this.setState({ comp: true });
+      this.setState({ ac: false });
+    }
+    else {
+      this.setState({ comp: false });
+    }
+  }
+  render() {
+    const { ac, comp } = this.state;
     const { match } = this.props;
     const { params } = match;
     const { student } = this.state;
@@ -65,6 +88,7 @@ export default class StudentManagement extends Component {
             {item.class}
           </td>
           <td className="td-btn">
+            <button type="button" className="btn" onClick={this.alterData} style={{ width: "100px" }}>編輯</button>
             <button type="button" className="btn" style={{ width: "100px" }}>刪除</button>
           </td>
         </tr>
@@ -73,6 +97,76 @@ export default class StudentManagement extends Component {
 
     return (
       <Layout>
+        <div className="StudentReservation"  >
+          <div className={comp ? `limiter` : `limiter-mone`}>
+            <div className="background" >
+              <div className="container" >
+                <div className="wrap-comp">
+                  <form className="form">
+                    <span className="title">
+                      編輯成功
+                  </span>
+                    <div style={{ textAlign: "center", display: "block" }}>
+                      <img src={Correctfrom} alt="錯誤" title="Error" style={{ width: "140px" }} />
+                    </div>
+                    <div style={{ marginTop: "30px", textAlign: "center" }}>
+                      <span>
+                        恭喜您編輯成功!
+                      </span>
+                    </div>
+                    <div className="list">
+                      <button className="login-btn" onClick={this.comp}>
+                        回去查看
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="StudentReservation" >
+          <div className={ac ? `limiter` : `limiter-mone`}>
+            <div className="background"  >
+              <div className="container" >
+                <div className="wrap" >
+                  <form className="form"  >
+                    <span className="title">
+                      編輯
+                    </span>
+                    <div className="cancel">
+                      <button className="g-right" onClick={this.alterData}> </button>
+                    </div>
+                    <div className="list">
+                      <span className="list-text">姓名：</span>
+                    </div>
+                    <div className="list">
+                      <span className="list-text">電子信箱：</span>
+                    </div>
+                    <div className="list">
+                      <span className="list-text">電話：</span>
+                    </div>
+                    <div className="list">
+                      <span className="list-text">學年度：</span>
+                    </div>
+                    <div className="list">
+                      <span className="list-text">班級代號：</span>
+                    </div>
+                    <div className="list">
+                      <span className="list-text">班級：</span>
+                    </div>
+                    <div className="list">
+                      <button className="login-btn" onClick={this.comp}>
+                        編輯
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div className="Studentdata">
           <div className="title">
             <table className="table">
