@@ -1,8 +1,6 @@
 import React from "react";
 import { HashRouter, Switch, Route } from "react-router-dom";
 import Index from "./routes/Index";
-import StudentReservation from "./routes/StudentReservation";
-import StudentReservationComplete from "./routes/StudentReservationComplete";
 import ClassList from "./routes/ClassList";
 import Loging from "./routes/Loging";
 import StudentRegister from "./routes/StudentRegister";
@@ -49,8 +47,6 @@ export default (
       <Route path="/Loging/ResendiRegisterEmailValidate" exact component={ResendiRegisterEmailValidate} />
 
       <Route path="/ClassList" exact component={ClassList} />
-      <Route path="/StudentReservation" exact component={StudentReservation} />
-      <Route path="/StudentReservationComplete" exact component={StudentReservationComplete} />
       <Route path="/Studentdata/:id" exact component={Studentdata} />
       <Route path="/Studentdoc/:id" exact component={Studentdoc} />
       <Route path="/Personal" exact component={Personal} />

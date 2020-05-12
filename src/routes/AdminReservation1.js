@@ -2,9 +2,13 @@ import React, { Component } from 'react';
 import Layout from '../layouts/Layout';
 import '../mixin/main.css';
 import './Studentdata.css';
+import '../routes/StudentReservation.css';
 import { Link } from 'react-router-dom';
+import Correctfrom from '../Assets/EmailValidate_check.png';
 export default class AdminReservation1 extends Component {
   state = {
+    ac: false,
+    comp: false,
     student: [
       {
         number: 1,
@@ -32,8 +36,29 @@ export default class AdminReservation1 extends Component {
       },
     ]
   }
-  render() {
 
+  alterData = () => {
+    const { ac } = this.state;
+    if (ac == false) {
+      this.setState({ ac: true });
+    }
+    else {
+      this.setState({ ac: false });
+    }
+  }
+  comp = () => {
+    const { comp, ac } = this.state;
+    if (comp == false) {
+      this.setState({ comp: true });
+      this.setState({ ac: false });
+    }
+    else {
+      this.setState({ comp: false });
+    }
+  }
+
+  render() {
+    const { ac, comp } = this.state;
     const { match } = this.props;
     const { params } = match;
     const { student } = this.state;
@@ -77,15 +102,89 @@ export default class AdminReservation1 extends Component {
             </div>
           </td>
           <td className="td-btn">
-            <button type="button" className="btn" style={{ width: "100px" }}>修改</button>
+            <button type="button" className="btn" style={{ width: "100px" }} onClick={this.alterData} >修改</button>
             <button type="button" className="btn" style={{ width: "100px" }}>指派老師</button>
           </td>
         </tr>
       );
     })
 
+    const editstudent = data.map((item, index, array) => {
+      return (
+        <form className="form"  >
+          <span className="title">
+            編輯
+          </span>
+          <div className="cancel">
+            <button className="g-right" onClick={this.alterData}> </button>
+          </div>
+          <div className="list">
+            <span className="list-text">預約日期：</span>
+            <input className="input" type="date" value={item.date} ></input>
+          </div>
+          <div className="list">
+            <span className="list-text">預約時間：</span>
+            <input className="input" type="time" value={item.time} ></input>
+          </div>
+          <div className="list">
+            <span className="list-text">諮詢類別：</span>
+            <select className="input">
+              <option value={item.type}>{item.type}</option>
+              <option value="學業">學業</option><option value="家庭">家庭</option><option value="感情">感情</option><option value="其他">其他</option>
+            </select>
+          </div>
+          <div className="list">
+            <button className="login-btn" onClick={this.comp}>
+              送出
+            </button>
+          </div>
+        </form>
+      );
+    })
+
     return (
       <Layout>
+        <div className="StudentReservation"  >
+          <div className={comp ? `limiter` : `limiter-mone`}>
+            <div className="background" >
+              <div className="container" >
+                <div className="wrap-comp">
+                  <form className="form">
+                    <span className="title">
+                      編輯成功
+                    </span>
+                    <div style={{ textAlign: "center", display: "block" }}>
+                      <img src={Correctfrom} alt="錯誤" title="Error" style={{ width: "140px" }} />
+                    </div>
+                    <div style={{ marginTop: "30px", textAlign: "center" }}>
+                      <span>
+                        恭喜您編輯成功!
+                  </span>
+                    </div>
+                    <div className="list">
+                      <button className="login-btn" onClick={this.comp}>
+                        回去查看
+                  </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="StudentReservation" >
+          <div className={ac ? `limiter` : `limiter-mone`}>
+            <div className="background"  >
+              <div className="container" >
+                <div className="wrap" >
+                  {editstudent}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="Studentdata">
           <div className="title">
             <table className="table">
