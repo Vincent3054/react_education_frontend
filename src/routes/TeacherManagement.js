@@ -29,8 +29,9 @@ export default class TeacherManagement extends Component {
     ],
   };
 
-  showModal = () => {
+  showModal = (e) => {
     const { visible } = this.state;
+    console.log(e);
     if (visible === false) {
       this.setState({
         visible: true,
@@ -42,7 +43,7 @@ export default class TeacherManagement extends Component {
     }
   };
 
-  showNotification = () => {
+  showNotification = (event) => {
     const { notification } = this.state;
     if (notification === false) {
       this.setState({
@@ -71,7 +72,7 @@ export default class TeacherManagement extends Component {
 
     const textteacher = data.map((item, index) => {
       return (
-        <tr className="list" key={index}>
+        <tr className="list-body" key={index}>
           <td>{item.number}</td>
           <td>{item.account}</td>
           <td>{item.name}</td>
@@ -250,7 +251,10 @@ export default class TeacherManagement extends Component {
       <Layout>
         <div className="StudentReservation">
           <div className={notification ? `limiter` : `limiter-mone`}>
-            <div className="background" onClick={this.showNotification}>
+            <div
+              className="background"
+              onClick={(e) => this.showNotification(e)}
+            >
               <div className="container">
                 <div className="wrap-comp">
                   <form className="form">

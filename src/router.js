@@ -37,38 +37,114 @@ export default (
     <Switch>
       <Route path="/" exact component={Index} />
       <Route path="/Loging" exact component={Loging} />
-      <Route path="/Loging/Register/Student" exact component={StudentRegister} />
-      <Route path="/Loging/Register/ClassTeacher" exact component={ClassTeacherRegister} />
-      <Route path="/Loging/Register/CounselorTeacher" exact component={CounselorTeacherRegister} />
-      <Route path="/Loging/Register/Complete" exact component={RegisterComplete} />
+      <Route
+        path="/Loging/Register/Student"
+        exact
+        component={StudentRegister}
+      />
+      <Route
+        path="/Loging/Register/ClassTeacher"
+        exact
+        component={ClassTeacherRegister}
+      />
+      <Route
+        path="/Loging/Register/CounselorTeacher"
+        exact
+        component={CounselorTeacherRegister}
+      />
+      <Route
+        path="/Loging/Register/Complete"
+        exact
+        component={RegisterComplete}
+      />
       <Route path="/Loging/Getpassword" exact component={Getpassword} />
       <Route path="/Loging/ChangePassword" exact component={ChangePassword} />
-      <Route path="/Loging/ChangePasswordComplete" exact component={ChangePasswordComplete} />
+      <Route
+        path="/Loging/ChangePasswordComplete"
+        exact
+        component={ChangePasswordComplete}
+      />
       <Route path="/Loging/EmailValidate" exact component={EmailValidate} />
-      <Route path="/Loging/ResendiEmailValidate" exact component={ResendiEmailValidate} />
-      <Route path="/Loging/RegisterEmailValidate" exact component={RegisterEmailValidate} />
-      <Route path="/Loging/ResendiRegisterEmailValidate" exact component={ResendiRegisterEmailValidate} />
+      <Route
+        path="/Loging/ResendiEmailValidate"
+        exact
+        component={ResendiEmailValidate}
+      />
+      <Route
+        path="/Loging/RegisterEmailValidate"
+        exact
+        component={RegisterEmailValidate}
+      />
+      <Route
+        path="/Loging/ResendiRegisterEmailValidate"
+        exact
+        component={ResendiRegisterEmailValidate}
+      />
 
       <Route path="/ClassList" exact component={ClassList} />
       <Route path="/Studentdata/:id" exact component={Studentdata} />
       <Route path="/Studentdoc/:id" exact component={Studentdoc} />
       <Route path="/Personal" exact component={Personal} />
 
-      <Route path="/AdminReservation1/:id" exact component={AdminReservation1} />
-      <Route path="/AdminReservation2/:id" exact component={AdminReservation2} />
-      <Route path="/AdminReservation3/:id" exact component={AdminReservation3} />
-      <Route path="/ClassTeacherReservation1/:id" exact component={ClassTeacherReservation1} />
-      <Route path="/ClassTeacherReservation2/:id" exact component={ClassTeacherReservation2} />
-      <Route path="/ClassTeacherReservation3/:id" exact component={ClassTeacherReservation3} />
-      <Route path="/CounselorTeacherReservation2/:id" exact component={CounselorTeacherReservation2} />
-      <Route path="/CounselorTeacherReservation3/:id" exact component={CounselorTeacherReservation3} />
-      <Route path="/StudentReservationStatus/:id" exact component={StudentReservationStatus} />
-      <Route path="/TeacherManagement/:id" exact component={TeacherManagement} />
+      <Route
+        path="/AdminReservation1/:id"
+        exact
+        component={AdminReservation1}
+      />
+      <Route
+        path="/AdminReservation2/:id"
+        exact
+        component={AdminReservation2}
+      />
+      <Route
+        path="/AdminReservation3/:id"
+        exact
+        component={AdminReservation3}
+      />
+      <Route
+        path="/ClassTeacherReservation1/:id"
+        exact
+        component={ClassTeacherReservation1}
+      />
+      <Route
+        path="/ClassTeacherReservation2/:id"
+        exact
+        component={ClassTeacherReservation2}
+      />
+      <Route
+        path="/ClassTeacherReservation3/:id"
+        exact
+        component={ClassTeacherReservation3}
+      />
+      <Route
+        path="/CounselorTeacherReservation2/:id"
+        exact
+        component={CounselorTeacherReservation2}
+      />
+      <Route
+        path="/CounselorTeacherReservation3/:id"
+        exact
+        component={CounselorTeacherReservation3}
+      />
+      <Route
+        path="/StudentReservationStatus/:id"
+        exact
+        component={StudentReservationStatus}
+      />
+      <Route
+        path="/TeacherManagement/:id"
+        exact
+        component={TeacherManagement}
+      />
       <Route path="/TeacherAuthority/:id" exact component={TeacherAuthority} />
-      <Route path="/StudentManagement/:id" exact component={StudentManagement} />
-      <Route path="/Coachingrecord/:id" exact component={Coachingrecord}/>
-      <Route path="/Individual/:id" exact component={Individual}/>
-      <Route path="/IndividualTeach/:id" exact component={IndividualTeach}/>
+      <Route
+        path="/StudentManagement/:id"
+        exact
+        component={StudentManagement}
+      />
+      <Route path="/Coachingrecord/:id" exact component={Coachingrecord} />
+      <Route path="/Individual/:id" exact component={Individual} />
+      <Route path="/IndividualTeach/:id" exact component={IndividualTeach} />
     </Switch>
   </HashRouter>
-)
+);

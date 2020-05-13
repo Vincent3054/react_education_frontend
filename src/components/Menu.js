@@ -1,19 +1,17 @@
-import React, { Component } from 'react';
-import '../mixin/main.css';
-import './Menu.css';
-import user from '../Assets/user (1).png';
-import home from '../Assets/home.png';
-import edit from '../Assets/edit.png';
-import set from '../Assets/settings.png';
-import menu from '../Assets/open-menu (1).png';
-import { Link } from 'react-router-dom';
-
+import React, { Component } from "react";
+import "../mixin/main.css";
+import "./Menu.css";
+import user from "../Assets/user (1).png";
+import home from "../Assets/home.png";
+import edit from "../Assets/edit.png";
+import set from "../Assets/settings.png";
+import menu from "../Assets/open-menu (1).png";
+import { Link } from "react-router-dom";
 
 export default class Menu extends Component {
-
   state = {
-    ac: false
-  }
+    ac: false,
+  };
   handelActive = () => {
     const { ac } = this.state;
     if (ac == false) {
@@ -21,27 +19,69 @@ export default class Menu extends Component {
     } else {
       this.setState({ ac: false });
     }
-  }
+  };
   render() {
     const { ac } = this.state;
     return (
       <div className="Menu">
-
-        <button onClick={this.handelActive} className="buger" ><img src={menu} width="20px" className="buger-img" /></button>
+        <button onClick={this.handelActive} className="buger">
+          <img src={menu} width="20px" className="buger-img" />
+        </button>
 
         <div className={ac ? `Sidebar active` : `Sidebar`}>
-
           <ul className="ul">
-          <li className="list"><img src={home} className="img" />首頁-預約(管理者)</li>
-          <li className="list"><img src={home} className="img" />首頁-學生列(導師)</li>
-          <li className="list"><img src={home} className="img" />首頁-預約(輔導老師)</li>
-          <li className="list"><img src={home} className="img" />首頁-申請(學生)</li>
-          <li className="list"><img src={user} className="img" /><Link to="/Personal" className="linkstyle">基本資料(都一樣)</Link></li>
-            <li className="list"><img src={edit} className="img" /><Link to="/ClassList" className="linkstyle">班級列表(輔導老師)</Link></li>
-            <li className="list"><img src={edit} className="img" /><Link to="/Coachingrecord/202" className="linkstyle">輔導記錄(老師)</Link></li>
-            <li className="list"><img src={edit} className="img" /><Link to="/Coachingrecord/202" className="linkstyle">輔導記錄(輔導老師)</Link></li>
-            <li className="list"><img src={edit} className="img" /><Link to="/Coachingrecord/202" className="linkstyle">輔導紀錄(學生)</Link></li>
-            <li className="list"><img src={set} className="img" /><Link to="/SetAll/101" className="linkstyle">人員設定(管理者)</Link></li>
+            <li className="list">
+              <img src={home} className="img" />
+              首頁-預約(管理者)
+            </li>
+            <li className="list">
+              <img src={home} className="img" />
+              首頁-學生列(導師)
+            </li>
+            <li className="list">
+              <img src={home} className="img" />
+              首頁-預約(輔導老師)
+            </li>
+            <li className="list">
+              <img src={home} className="img" />
+              首頁-申請(學生)
+            </li>
+            <li className="list">
+              <img src={user} className="img" />
+              <Link to="/Personal" className="linkstyle">
+                基本資料(都一樣)
+              </Link>
+            </li>
+            <li className="list">
+              <img src={edit} className="img" />
+              <Link to="/ClassList" className="linkstyle">
+                班級列表(輔導老師)
+              </Link>
+            </li>
+            <li className="list">
+              <img src={edit} className="img" />
+              <Link to="/Coachingrecord/202" className="linkstyle">
+                輔導記錄(老師)
+              </Link>
+            </li>
+            <li className="list">
+              <img src={edit} className="img" />
+              <Link to="/Coachingrecord/202" className="linkstyle">
+                輔導記錄(輔導老師)
+              </Link>
+            </li>
+            <li className="list">
+              <img src={edit} className="img" />
+              <Link to="/Coachingrecord/202" className="linkstyle">
+                輔導紀錄(學生)
+              </Link>
+            </li>
+            <li className="list">
+              <img src={set} className="img" />
+              <Link to="/SetAll/101" className="linkstyle">
+                人員設定(管理者)
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

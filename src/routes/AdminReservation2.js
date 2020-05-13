@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import Layout from '../layouts/Layout';
-import '../mixin/main.css';
-import './Studentdata.css';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import Layout from "../layouts/Layout";
+import "../mixin/main.css";
+import "./Studentdata.css";
+import { Link } from "react-router-dom";
 export default class AdminReservation2 extends Component {
   state = {
     student: [
@@ -30,50 +30,31 @@ export default class AdminReservation2 extends Component {
         BeforePSY: "陳老師",
         NowPSY: "王老師",
       },
-    ]
-  }
+    ],
+  };
   render() {
-
     const { match } = this.props;
     const { params } = match;
     const { student } = this.state;
     const data = student.filter((item, index, array) => {
       return item.number === parseInt(params.id);
-    })
+    });
 
     const textstudent = data.map((item, index, array) => {
       return (
-        <tr className="list" key={index}>
-          <td>
-            {item.number}
-          </td>
-          <td>
-            {item.Class_Id}
-          </td>
-          <td>
-            {item.Name}
-          </td>
-          <td>
-            {item.date}
-          </td>
-          <td>
-            {item.Time}
-          </td>
-          <td>
-            {item.type}
-          </td>
-          <td>
-            {item.StudentRemasks}
-          </td>
-          <td>
-            {item.TeacherRemasks}
-          </td>
-          <td>
-            等待{item.NowPSY}指派中
-          </td>
+        <tr className="list-body" key={index}>
+          <td>{item.number}</td>
+          <td>{item.Class_Id}</td>
+          <td>{item.Name}</td>
+          <td>{item.date}</td>
+          <td>{item.Time}</td>
+          <td>{item.type}</td>
+          <td>{item.StudentRemasks}</td>
+          <td>{item.TeacherRemasks}</td>
+          <td>等待{item.NowPSY}指派中</td>
         </tr>
       );
-    })
+    });
 
     return (
       <Layout>
@@ -81,17 +62,27 @@ export default class AdminReservation2 extends Component {
           <div className="title">
             <table className="table">
               <thead>
-                <th className="tabletitle" colspan="7"><h2>管理者預約系統-正在指派</h2></th>
+                <th className="tabletitle" colspan="7">
+                  <h2>管理者預約系統-正在指派</h2>
+                </th>
                 <th className="tablecursor" colspan="2">
                   <div class="demo">
                     <span>搜尋：</span>
-                    <input className="text" type="text" placeholder="輸入文字" />
+                    <input
+                      className="text"
+                      type="text"
+                      placeholder="輸入文字"
+                    />
                   </div>
                 </th>
                 <tr>
-                  <th colspan="2"><Link to="/AdminReservation1/1">未指派</Link></th>
+                  <th colspan="2">
+                    <Link to="/AdminReservation1/1">未指派</Link>
+                  </th>
                   <th colspan="1">正在指派</th>
-                  <th><Link to="/AdminReservation3/1">指派完成</Link></th>
+                  <th>
+                    <Link to="/AdminReservation3/1">指派完成</Link>
+                  </th>
                 </tr>
                 <tr className="list">
                   <th>編號</th>
@@ -105,9 +96,7 @@ export default class AdminReservation2 extends Component {
                   <th>指派狀態</th>
                 </tr>
               </thead>
-              <tbody>
-                {textstudent}
-              </tbody>
+              <tbody>{textstudent}</tbody>
             </table>
           </div>
         </div>
