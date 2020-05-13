@@ -25,7 +25,10 @@
   justify-self : space-between;
   font-size    : 10pt;
 }
-
+.Individual .textbox{
+  width: 78vw;
+  height: 120px;
+}
 .Individual .boxone {
   border-bottom: solid 0.5px rgba(49, 41, 41, 0.548);
   width        : 70%;

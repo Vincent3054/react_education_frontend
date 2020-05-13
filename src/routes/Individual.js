@@ -136,8 +136,8 @@ export default class Individual extends Component {
     return (
       <Layout>
         <div className="Individual">
+        <span className="titlename">個人輔導紀錄</span>
           <div className="body">
-            <span>個人輔導紀錄</span>
             <div className="per">{textlab}</div>
             <div className="con">{textcontent}</div>
           </div>

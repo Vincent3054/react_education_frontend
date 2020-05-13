@@ -6,7 +6,7 @@ import user from '../Assets/user.png';
 
 // import Individual from '../components/Studenlist';
 
-export default class Individual extends Component {
+export default class IndividualTeach extends Component {
   state = {
     nane: "",
     lab: [
@@ -58,26 +58,26 @@ export default class Individual extends Component {
         <div className="tablecontent">
           <table >
             <tr>
-              <td>紀錄編號</td><td>{item.aid}</td>
-              <td>學生姓名</td><td>{item.account}</td>
-              <td>輔導時間</td><td>{item.crenteTime}</td>
+              <td>紀錄編號</td><td><input text="type" value={item.aid}/></td>
+              <td>學生姓名</td><td><input text="type" value={item.account}/></td>
+              <td>輔導時間</td><td><input text="type" value={item.crenteTime}/></td>
               <td>填寫人</td><td>{item.keyin}</td>
             </tr>
             <tr>
-              <td colSpan="2">標題</td><td colSpan="2">{item.title}</td>
-              <td colSpan="2">類別</td><td colSpan="2">{item.categody}</td>
+              <td colSpan="2">標題</td><td colSpan="2"><input text="type" value={item.crenteTime}/></td>
+              <td colSpan="2">類別</td><td colSpan="2"><input text="type" value={item.categody}/></td>
             </tr>
             <tr>
               <th colSpan="8">晤談內容</th>
             </tr>
             <tr>
-              <td colSpan="8">{item.content}</td>
+              <td colSpan="8"><input className="textbox" text="type" value={item.content}/></td>
             </tr>
             <tr>
               <th colSpan="8">摘要內容</th>
             </tr>
             <tr>
-              <td colSpan="8">{item.abstract}</td>
+              <td colSpan="8"><input text="type" value={item.abstract}/></td>
             </tr>
 
           </table>

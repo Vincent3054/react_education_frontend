@@ -1,4 +1,4 @@
-.Individual .body {
+.Individual  {
   margin-top      : 40px;
   padding         : 24px 12px;
   width           : 100%;
@@ -10,6 +10,9 @@
 
 }
 
+.Individual .titlename{
+  font-size: 24px;
+}
 .Individual .body span {
   font-size: 10pt;
 }

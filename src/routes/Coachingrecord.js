@@ -84,7 +84,8 @@ export default class Coachingrecord extends Component {
           <td> {item.gender}</td>
           <td> {item.remarks}</td>
           <td> {item.remarks}</td>
-          <td> <Link to="/Individual/1">查看</Link></td>
+          <td> <Link to="/Individual/1">查看</Link>｜<Link to="/IndividualTeach/1">編輯</Link></td>
+       
         </tr>
       );
     })
