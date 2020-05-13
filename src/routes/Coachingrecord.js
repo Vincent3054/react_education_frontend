@@ -4,7 +4,7 @@ import Layout from '../layouts/Layout';
 import './Studentdata.css';
 import indeximg from '../Assets/1926.jpg';
 
-export default class Studentdata extends Component {
+export default class Coachingrecord extends Component {
   state = {
     lab: [
       {
@@ -83,10 +83,8 @@ export default class Studentdata extends Component {
           <td> {item.name}</td>
           <td> {item.gender}</td>
           <td> {item.remarks}</td>
-          <td className="td-btn">
-            <button type="button" className="btn">編輯</button>
-            <button type="button" className="btn">刪除</button>
-          </td>
+          <td> {item.remarks}</td>
+          <td> <Link to="/Individual/1">查看</Link></td>
         </tr>
       );
     })
@@ -99,17 +97,19 @@ export default class Studentdata extends Component {
             <table className="table">
               <thead>
               <tr>
-              <td colSpan="6" className="theadstart">
+              <td colSpan="8" className="theadstart">
               <label>search：</label><input type="text" />
               </td>
               </tr>
                 <tr className="list">
-                  <th>序號</th>
-                  <th>班級</th>
-                  <th>姓名</th>
-                  <th>性別</th>
-                  <th>備註</th>
-                  <th className="td-btn">管理</th>
+                  <th>紀錄編號</th>
+                  <th>學生姓名</th>
+                  <th>輔導時間</th>
+                  <th>填寫人</th>
+                  <th>類別</th>
+                  <th>標題</th>
+                  <th>摘要</th>
+
                 </tr>
               </thead>
               <tbody>
@@ -117,7 +117,7 @@ export default class Studentdata extends Component {
               </tbody>
               <tfoot>
               <tr >
-              <td colspan="6" className="foot">
+              <td colspan="8" className="foot">
               <span  className="footmain">上一頁</span>
               <button type="button" className="btn footmain">1</button>
               <button type="button" className="btn footmain">2</button>

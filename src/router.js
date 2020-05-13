@@ -22,6 +22,8 @@ import Personal from "./routes/Personal";
 import TeacherManagement from "./routes/TeacherManagement";
 import TeacherAuthority from "./routes/TeacherAuthority";
 import StudentManagement from "./routes/StudentManagement";
+import Coachingrecord from "./routes/Coachingrecord";
+import Individual from "./routes/Individual";
 export default (
   <HashRouter>
     <Switch>
@@ -48,6 +50,8 @@ export default (
       <Route path="/TeacherManagement/:id" exact component={TeacherManagement} />
       <Route path="/TeacherAuthority/:id" exact component={TeacherAuthority} />
       <Route path="/StudentManagement/:id" exact component={StudentManagement} />
+      <Route path="/Coachingrecord/:id" exact component={Coachingrecord}/>
+      <Route path="/Individual/:id" exact component={Individual}/>
     </Switch>
   </HashRouter>
 )

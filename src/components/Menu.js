@@ -32,11 +32,16 @@ export default class Menu extends Component {
         <div className={ac ? `Sidebar active` : `Sidebar`}>
 
           <ul className="ul">
-            <li className="list"><img src={home} className="img" />首頁</li>
-            <li className="list"><img src={user} className="img" /><Link to="/Personal" className="linkstyle">基本資料</Link></li>
-            <li className="list"><img src={edit} className="img" /><Link to="/ClassList" className="linkstyle">班級列表</Link></li>
-            <li className="list"><img src={edit} className="img" /><Link to="/Studentdoc/101" className="linkstyle">輔導記錄</Link></li>
-            <li className="list"><img src={set} className="img" /><Link to="/SetAll/101" className="linkstyle">人員設定</Link></li>
+          <li className="list"><img src={home} className="img" />首頁-預約(管理者)</li>
+          <li className="list"><img src={home} className="img" />首頁-學生列(導師)</li>
+          <li className="list"><img src={home} className="img" />首頁-預約(輔導老師)</li>
+          <li className="list"><img src={home} className="img" />首頁-申請(學生)</li>
+          <li className="list"><img src={user} className="img" /><Link to="/Personal" className="linkstyle">基本資料(都一樣)</Link></li>
+            <li className="list"><img src={edit} className="img" /><Link to="/ClassList" className="linkstyle">班級列表(輔導老師)</Link></li>
+            <li className="list"><img src={edit} className="img" /><Link to="/Coachingrecord/202" className="linkstyle">輔導記錄(老師)</Link></li>
+            <li className="list"><img src={edit} className="img" /><Link to="/Coachingrecord/202" className="linkstyle">輔導記錄(輔導老師)</Link></li>
+            <li className="list"><img src={edit} className="img" /><Link to="/Coachingrecord/202" className="linkstyle">輔導紀錄(學生)</Link></li>
+            <li className="list"><img src={set} className="img" /><Link to="/SetAll/101" className="linkstyle">人員設定(管理者)</Link></li>
           </ul>
         </div>
       </div>
