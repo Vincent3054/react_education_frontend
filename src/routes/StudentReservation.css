@@ -1,125 +1,206 @@
 * {
-    margin: 0;
-    padding: 0;
+    margin    : 0;
+    padding   : 0;
     box-sizing: border-box;
 }
 
-.StudentReservation .limiter {
-    width: 100%;
-    margin: 0 auto;
+.StudentReservation .limiter-mone {
+    display: none;
+}
+
+.StudentReservation .background {
+    position        : absolute;
+    left            : 0px;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index         : 50;
+    width           : 100%;
+    height          : 100%;
 }
 
 .StudentReservation .container {
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    padding: 100px 15px 15px 15px;
-    background-color : #C5BBB9;
+    width     : 100%;
+    margin-top: 60px;
 }
 
 .StudentReservation .wrap {
-    top: 10%;
-    width: 1000px;
-    height: 100%;
-    background: #fff;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.3);
-    -moz-box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.3);
+    top               : 10%;
+    margin            : 0 auto;
+    width             : 70%;
+    height            : 100%;
+    background        : #fff;
+    border-radius     : 20px;
+    overflow          : hidden;
+    box-shadow        : 0 3px 20px 0 rgba(0, 0, 0, 0.3);
+    -moz-box-shadow   : 0 3px 20px 0 rgba(0, 0, 0, 0.3);
     -webkit-box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.3);
-    -o-box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.3);
-    -ms-box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.3);
+    -o-box-shadow     : 0 3px 20px 0 rgba(0, 0, 0, 0.3);
+    -ms-box-shadow    : 0 3px 20px 0 rgba(0, 0, 0, 0.3);
+}
+.StudentReservation .wrap-comp {
+    top               : 10%;
+    margin            : 0 auto;
+    width             : 70%;
+    height            : 100%;
+    background        : #fff;
+    border-radius     : 20px;
+    overflow          : hidden;
+    box-shadow        : 0 3px 20px 0 rgba(0, 0, 0, 0.3);
+    -moz-box-shadow   : 0 3px 20px 0 rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.3);
+    -o-box-shadow     : 0 3px 20px 0 rgba(0, 0, 0, 0.3);
+    -ms-box-shadow    : 0 3px 20px 0 rgba(0, 0, 0, 0.3);
 }
 
+
 .StudentReservation .form {
-    width: 100%;
-    position: relative;
+    width        : 100%;
+    position     : relative;
     padding-right: 55px;
-    padding-left: 55px;
-    padding-top: 135px; 
+    padding-left : 55px;
+    padding-top  : 135px;
 }
 
 .StudentReservation .title {
-    font-size: 30px;
-    color: #fff;
-    line-height: 1.2;
-    text-align: center;
-    display: block;
-    position: absolute;
-    width: 100%;
-    top: 0;
-    left: 0;
+    font-size       : 30px;
+    color           : #fff;
+    line-height     : 1.2;
+    text-align      : center;
+    display         : block;
+    position        : absolute;
+    width           : 100%;
+    top             : 0;
+    left            : 0;
     background-color: #6abe83;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top     : 30px;
+    padding-bottom  : 30px;
+}
+
+.StudentReservation .cancel {
+    position     : absolute;
+    top          : 0;
+    right        : 0;
+    padding-top  : 30px;
+    padding-right: 15px;
+}
+
+.StudentReservation .g-right {
+    display          : inline-block;
+    width            : 36px;
+    height           : 6px;
+    background       : #fff;
+    line-height      : 0;
+    font-size        : 0;
+    vertical-align   : middle;
+    -webkit-transform: rotate(45deg);
+}
+
+.StudentReservation .g-right:after {
+    content          : "/";
+    display          : block;
+    width            : 36px;
+    height           : 6px;
+    background       : #fff;
+    -webkit-transform: rotate(-90deg);
 }
 
 .StudentReservation .list {
-    width: 100%;
-    float: left;
+    width : 100%;
+    float : left;
     margin: 5px;
 }
 
 .StudentReservation .list-text {
-    display: block;
-    margin: 0px 10px;
-    height: 30px;
+    display    : block;
+    margin     : 0px 10px;
+    height     : 30px;
     line-height: 30px;
-    color: #6abe83;
-    float: left;
+    color      : #6abe83;
+    float      : left;
 }
 
 .StudentReservation .input {
-    border: 1px solid #c4c4c4;
-    width: 100%;
-    height: 40px;
-    line-height: 40px;
-    padding: 10px;
+    border            : 1px solid #c4c4c4;
+    width             : 100%;
+    height            : 40px;
+    line-height       : 40px;
+    padding           : 10px;
     -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
-    border-radius: 15px;
-    display: block;
-    overflow: hidden;
-    font-size: 15px;
-    letter-spacing: 1px;
-    background: #ffffff;
-    color: #999999;
+    box-shadow        : inset 0 1px 3px rgba(0, 0, 0, 0.3);
+    border-radius     : 15px;
+    display           : block;
+    overflow          : hidden;
+    font-size         : 15px;
+    letter-spacing    : 1px;
+    background        : #ffffff;
+    color             : #999999;
 }
+
 .StudentReservation input[type="radio"] {
     margin: 0 5px 0 10px;
 }
 
 .StudentReservation .login-btn {
-    justify-content: center;
-    align-items: center;
-    padding: 0 20px;
-    margin-top: 60px;
-    margin-bottom: 30px;
-    width: 100%;
-    height: 50px;
-    background-color: #6abe83;
-    border-radius: 25px;
-    font-size: 15px;
-    color: #fff;
-    line-height: 1.2;
+    justify-content   : center;
+    align-items       : center;
+    padding           : 0 20px;
+    margin-top        : 60px;
+    margin-bottom     : 30px;
+    width             : 100%;
+    height            : 50px;
+    background-color  : #6abe83;
+    border-radius     : 25px;
+    font-size         : 15px;
+    color             : #fff;
+    line-height       : 1.2;
     -webkit-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    transition: all 0.4s;
+    -o-transition     : all 0.4s;
+    -moz-transition   : all 0.4s;
+    transition        : all 0.4s;
 }
 
 .StudentReservation .login-btn:hover {
     background-color: #43995c;
-    cursor: pointer;
+    cursor          : pointer;
 }
 
 .input,
 button {
-    outline: none;
-    border: none;
+    outline : none;
+    border  : none;
     overflow: visible;
+}
+
+@media screen and (min-width: 1200px) {
+    .StudentReservation .wrap {
+        width: 50%;
+        transition: 0.8s;
+    }
+    .StudentReservation .wrap-comp {
+        width: 35%;
+        transition: 0.8s;
+    }
+}
+@media screen and (max-width: 1500px) {
+    .StudentReservation .wrap {
+        width: 50%;
+        transition: 0.8s;
+    }
+  
+}
+@media screen and (max-width: 1024px) {
+    .StudentReservation .wrap {
+        width: 80%;
+        transition: 0.8s;
+    }
+  
+}
+@media screen and (max-width: 768px) {
+    .StudentReservation .wrap {
+        width: 90%;
+        transition: 0.8s;
+    }
+    .StudentReservation .wrap-comp {
+        width: 90%;
+        transition: 0.8s;
+    }
 }

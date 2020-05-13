@@ -2,19 +2,57 @@ import React, { Component } from 'react';
 import '../mixin/main.css';
 import '../routes/Loging.css';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 export default class Loging extends Component {
+    state = {
+        Account: "",
+        Password: "",
+    }
+
+    handleSubmit = (e) => {
+        const { Account, Password } = this.state;
+        const payload = { Account, Password };
+        e.preventDefault();
+        axios.post(`http://studytutor_backend.hsc.nutc.edu.tw/api/Login`, payload)
+            .then(res => {
+                console.log(res.data);
+                alert(res.data.Message)
+                this.props.history.push('/Index')
+            }).catch((error) => {
+                const status = error.response.status;
+                //錯誤狀態碼
+                console.log(status);
+                const err = JSON.parse(error.request.response);
+                //錯誤訊息
+                alert(err.Message);
+            })
+    }
+
     render() {
+        const { Account, Password } = this.state;
         return (
             <div className="Loging">
                 <div className="limiter">
                     <div className="container">
                         <div className="wrap">
-                            <form className="form">
+                            <form className="form" onSubmit={this.handleSubmit}>
                                 <span className="title">
                                     登入
                                 </span>
-                                <input className="input" type="text" placeholder="帳號" />
-                                <input className="input" type="password" placeholder="密碼" />
+                                <input
+                                    className="input"
+                                    type="text"
+                                    placeholder="帳號"
+                                    onChange={(e) => { this.setState({ Account: e.target.value }) }}
+                                    value={Account}
+                                />
+                                <input
+                                    className="input"
+                                    type="password"
+                                    placeholder="密碼"
+                                    onChange={(e) => { this.setState({ Password: e.target.value }) }}
+                                    value={Password}
+                                />
                                 <div className="text-right">
                                     <span className="txt1">
                                         忘記
@@ -25,11 +63,9 @@ export default class Loging extends Component {
                                         </a>
                                     </Link>
                                 </div>
-                                <Link to="/">
-                                    <button className="btn">
-                                        登入
-                                    </button>
-                                </Link>
+                                <button className="btn">
+                                    登入
+                                </button>
                                 <div className="text-bottom">
                                     <span className="txt1">
                                         還沒有帳號嗎?

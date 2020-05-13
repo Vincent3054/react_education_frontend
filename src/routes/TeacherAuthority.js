@@ -37,14 +37,10 @@ export default class TeacherAuthority extends Component {
       return (
         <tr className="list" key={index}>
           <td>
-            <div className="list" style={{ lineHeight: "0px" }}>
-              <input className="input" type="text" value={item.number}></input>
-            </div>
+            {item.number}
           </td>
           <td>
-            <div className="list" style={{ lineHeight: "0px" }}>
-              <input className="input" type="text" value={item.account} ></input>
-            </div>
+            {item.account}
           </td>
           <td>
             <div className="list" style={{ lineHeight: "0px" }}>
@@ -81,7 +77,6 @@ export default class TeacherAuthority extends Component {
       <Layout>
         <div className="Studentdata">
           <div className="title">
-            <div className='index-img'><img src={indeximg} /></div>
             <table className="table">
               <thead>
                 <th className="tabletitle" colspan="3"><h2>修改角色</h2></th>
