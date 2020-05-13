@@ -16,8 +16,6 @@ namespace WebApplication5.Controllers
              "*"                      // HTTP methods   允許使用方法
                                       //,"bar",                  // Response headers
                                       //SupportsCredentials = true  // Allow credentials
-
-
         )]
         //引用CorsHandle.cs
         [CorsHandle]
