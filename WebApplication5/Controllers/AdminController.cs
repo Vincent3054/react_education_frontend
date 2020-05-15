@@ -17,7 +17,7 @@ namespace WebApplication5.Controllers
                                       //,"bar",                  // Response headers
                                       //SupportsCredentials = true  // Allow credentials
         )]
-
+         
         public static void Register(HttpConfiguration config)
         {
             var cors = new EnableCorsAttribute("http://studytutor_backend.hsc.nutc.edu.tw", "*", "*");
