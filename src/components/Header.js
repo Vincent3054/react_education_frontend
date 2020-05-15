@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
-import '../mixin/main.css';
-import './Header.css';
-import { Link } from 'react-router-dom';
-
+import React, { Component } from "react";
+import "../mixin/main.css";
+import "./Header.css";
+import { Link } from "react-router-dom";
 
 export default class Menu extends Component {
   render() {
@@ -13,9 +12,7 @@ export default class Menu extends Component {
             <span>logo</span>
           </div>
           <div className="Navbar-login">
-            <Link to="/Loging">
-              登入/註冊
-            </Link>
+            <Link to="/Loging">登入/註冊</Link>
           </div>
         </div>
       </div>
