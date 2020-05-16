@@ -22,7 +22,7 @@ namespace WebApplication5.Controllers
 
         //查詢自己班級裡的學生
         //給班導
-        [EnableCors(origins: "http://studytutor_backend.hsc.nutc.edu.tw", headers: "*", methods: "*")]
+
         [HttpGet]
         [Authorize(Roles = "P018")]
         [Route("api/Student")]
