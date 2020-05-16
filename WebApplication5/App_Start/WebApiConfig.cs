@@ -19,7 +19,7 @@ namespace WebApplication5
             控制器
             Global
             */
-            config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
+         
 
             config.Routes.MapHttpRoute(
                     name: "DefaultApi",
