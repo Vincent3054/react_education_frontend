@@ -25,7 +25,7 @@ namespace WebApplication5.Controllers
         private readonly ReservationDBService reservationService = new ReservationDBService();
         private readonly MemberDBService membersService = new MemberDBService();
 
-        [EnableCors(origins: "http://studytutor_backend.hsc.nutc.edu.tw", headers: "*", methods: "*")]
+
         //新增預約表單
         [HttpPost]
         [Route("api/Reservation")]
@@ -57,7 +57,7 @@ namespace WebApplication5.Controllers
             }
         }
         //管理者
-        [EnableCors(origins: "http://studytutor_backend.hsc.nutc.edu.tw", headers: "*", methods: "*")]
+
         [Authorize(Roles = "P017")]
         [HttpPut]
         [Route("api/Reservation")]
