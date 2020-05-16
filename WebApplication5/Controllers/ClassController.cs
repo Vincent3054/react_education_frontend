@@ -29,7 +29,7 @@ namespace WebApplication5.Controllers
         private readonly ClassDBService classService = new ClassDBService();
         //查詢班級內學生
         //管理者
-        [EnableCors(origins: "http://studytutor_backend.hsc.nutc.edu.tw", headers: "*", methods: "*")]
+
         [Authorize(Roles = "P014")]
         [HttpGet]
         [Route("api/Class")]
@@ -56,7 +56,7 @@ namespace WebApplication5.Controllers
         }
         //查有幾個班以及班導師
         //管理者
-        [EnableCors(origins: "http://studytutor_backend.hsc.nutc.edu.tw", headers: "*", methods: "*")]
+
         [Authorize(Roles = "P014")]
         [HttpGet]
         [Route("api/Class/All")]
@@ -83,7 +83,7 @@ namespace WebApplication5.Controllers
         //班導師登入查看自己班級
         //jerry1005管理C101班級
         //班級導師
-        [EnableCors(origins: "http://studytutor_backend.hsc.nutc.edu.tw", headers: "*", methods: "*")]
+
         [Authorize(Roles = "P018")]
         [HttpGet]
         [Route("api/Class/TeacherAll")]
@@ -110,7 +110,7 @@ namespace WebApplication5.Controllers
         }
         //新增班級
         //管理者
-        [EnableCors(origins: "http://studytutor_backend.hsc.nutc.edu.tw", headers: "*", methods: "*")]
+
         [Authorize(Roles ="P015")]
         [HttpPost]
         [Route("api/Class")]
@@ -128,7 +128,7 @@ namespace WebApplication5.Controllers
             }
         }
         //刪除班級
-        [EnableCors(origins: "http://studytutor_backend.hsc.nutc.edu.tw", headers: "*", methods: "*")]
+
         [Authorize(Roles = "P017")]
         [HttpDelete]
         [Route("api/Class")]
@@ -145,7 +145,7 @@ namespace WebApplication5.Controllers
             }
         }
         //修改班級
-        [EnableCors(origins: "http://studytutor_backend.hsc.nutc.edu.tw", headers: "*", methods: "*")]
+
         [Authorize(Roles = "P017")]
         [HttpPut]
         [Route("api/Class")]
