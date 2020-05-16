@@ -21,7 +21,6 @@ namespace WebApplication5.Controllers
         private readonly MemberDBService membersService = new MemberDBService();
 
         //重設密碼
-        [EnableCors(origins: "http://studytutor_backend.hsc.nutc.edu.tw", headers: "*", methods: "*")]
         [HttpPut]
         [Route("api/Password")]
         public ResultVM<ResetPasswordViewModel> PasswordPUT(string Account,string AuthCode,ResetPasswordViewModel Data)
