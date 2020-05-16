@@ -32,7 +32,7 @@ namespace WebApplication5.Controllers
         //完成填寫資料變成狀態4
 
 
-        [EnableCors(origins: "http://studytutor_backend.hsc.nutc.edu.tw", headers: "*", methods: "*")]
+
         [HttpGet]
         [Authorize(Roles = "P001,P002,P004,P005,P006,P007,P010,P011,P012,P014,P015,P016,P017,P018")]
         [Route("api/Record")]
@@ -47,7 +47,7 @@ namespace WebApplication5.Controllers
 
 
         //輔導老師填寫輔導紀錄
-        [EnableCors(origins: "http://studytutor_backend.hsc.nutc.edu.tw", headers: "*", methods: "*")]
+
         [HttpPost]
         [Route("api/Record")]
         [Authorize(Roles = "P015")]
@@ -99,7 +99,7 @@ namespace WebApplication5.Controllers
                 return new ResultVM<object>(false, e.Message.ToString(), null);
             }
         }
-        [EnableCors(origins: "http://studytutor_backend.hsc.nutc.edu.tw", headers: "*", methods: "*")]
+
         [Authorize(Roles = "P015")]
         [HttpPut]
         [Route("api/Record")]
@@ -147,7 +147,7 @@ namespace WebApplication5.Controllers
 
         //沒這功能
         //刪除輔導紀錄
-        [EnableCors(origins: "http://studytutor_backend.hsc.nutc.edu.tw", headers: "*", methods: "*")]
+
         [Authorize(Roles = "P017")]
         [HttpDelete]
         [Route("api/Record")]
