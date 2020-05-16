@@ -24,12 +24,6 @@ namespace WebApplication5.Controllers
     {
         private readonly MemberDBService memberservice = new MemberDBService();
 
-        public static void Register(HttpConfiguration config)
-        {
-            var cors = new EnableCorsAttribute("http://studytutor_backend.hsc.nutc.edu.tw", "*", "*");
-            config.EnableCors(cors);
-
-        }
         
         /*
          public JsonResult List() 回傳json格式
