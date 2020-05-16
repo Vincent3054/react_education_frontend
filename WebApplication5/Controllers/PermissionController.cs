@@ -23,7 +23,7 @@ namespace WebApplication5.Controllers
         private readonly PermissionDBService permissionService = new PermissionDBService();
 
 
-        [EnableCors(origins: "http://studytutor_backend.hsc.nutc.edu.tw", headers: "*", methods: "*")]
+
         [Authorize(Roles = "P017")]
         [HttpGet]
         [Route("api/Permission")]
@@ -40,7 +40,7 @@ namespace WebApplication5.Controllers
             return new ResultVM<PermissionIndexViewModel>(true, null, Data);
         }
 
-        [EnableCors(origins: "http://studytutor_backend.hsc.nutc.edu.tw", headers: "*", methods: "*")]
+
         [Authorize(Roles = "P017")]
         [HttpPost]
         [Route("api/Permission")]
@@ -58,7 +58,7 @@ namespace WebApplication5.Controllers
                 return new ResultVM<object>(false, e.Message.ToString(), null);
             }
         }
-        [EnableCors(origins: "http://studytutor_backend.hsc.nutc.edu.tw", headers: "*", methods: "*")]
+
         [Authorize(Roles = "P017")]
         [HttpPut]
         [Route("api/Permission")]
@@ -78,7 +78,7 @@ namespace WebApplication5.Controllers
         }
 
         //還原例外權限
-        [EnableCors(origins: "http://studytutor_backend.hsc.nutc.edu.tw", headers: "*", methods: "*")]
+
         [Authorize(Roles = "P017")]
         [HttpDelete]
         [Route("api/Permission")]
