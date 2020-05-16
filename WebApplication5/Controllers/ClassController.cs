@@ -17,8 +17,12 @@ namespace WebApplication5.Controllers
     //列出所有權限
     //學習輔導紀錄4
     //登入查詢學生
-
-    [EnableCors("*", "*", "*")]
+    [EnableCors("*",    // http://studytutor_backend.hsc.nutc.edu.twOrigin來源網域
+           "*",                     // Request headers 允許標頭
+           "*"                      // HTTP methods   允許使用方法
+                                    //,"bar",                  // Response headers
+                                    //SupportsCredentials = true  // Allow credentials
+      )]
     public class ClassController : ApiController
     {
         private readonly ClassDBService classService = new ClassDBService();

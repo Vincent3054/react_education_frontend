@@ -10,16 +10,18 @@ namespace WebApplication5
     {
         public static void Register(HttpConfiguration config)
         {
-            // New code
-            
-            config.MapHttpAttributeRoutes();
+
+            //config.MapHttpAttributeRoutes();
             //針對應用程式中的所有 Web API 控制器啟用 CORS
             /*優先順序的順序為：
             動作
             控制器
             Global
             */
-            config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
+            // var cors = new EnableCorsAttribute("*", "*", "*");
+            //config.EnableCors(cors);
+            //config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
+            config.EnableCors();
 
             config.Routes.MapHttpRoute(
                     name: "DefaultApi",
