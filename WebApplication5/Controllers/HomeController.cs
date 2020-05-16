@@ -16,7 +16,7 @@ namespace WebApplication5.Controllers
             )]
     public class HomeController : Controller
     {
-        [EnableCors(origins: "http://studytutor_backend.hsc.nutc.edu.tw", headers: "*", methods: "*")]
+
         public ActionResult Index()
         {
             ViewBag.Title = "輔導學習紀錄系統";
