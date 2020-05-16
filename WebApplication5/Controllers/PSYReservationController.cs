@@ -24,7 +24,7 @@ namespace WebApplication5.Controllers
 
 
         //輔導老師
-        [EnableCors(origins: "http://studytutor_backend.hsc.nutc.edu.tw", headers: "*", methods: "*")]
+
         [Authorize(Roles = "P015")]
         [HttpPut]
         [Route("api/PSYReservation")]
