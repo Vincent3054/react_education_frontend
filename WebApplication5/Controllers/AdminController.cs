@@ -16,12 +16,7 @@ namespace WebApplication5.Controllers
              )]
     public class AdminController : ApiController
     {
-        [EnableCors("http://studytutor_backend.hsc.nutc.edu.tw", // Origin來源網域
-             "*",                     // Request headers 允許標頭
-             "*"                      // HTTP methods   允許使用方法
-                                      //,"bar",                  // Response headers
-                                      //SupportsCredentials = true  // Allow credentials
-        )]
+
         //引用CorsHandle.cs
         [CorsHandle]
         public static void Register(HttpConfiguration config)
