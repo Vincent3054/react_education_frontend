@@ -17,7 +17,7 @@ namespace WebApplication5.Controllers
              )]
     public class StatusRecordController : ApiController
     {
-        [EnableCors(origins: "http://studytutor_backend.hsc.nutc.edu.tw", headers: "*", methods: "*")]
+
         //狀態測試
         public ResultVM<Object>SearchState(int Account)
         {
