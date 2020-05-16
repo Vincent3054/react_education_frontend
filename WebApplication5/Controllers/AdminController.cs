@@ -8,7 +8,12 @@ using System.Web.Http.Cors;
 
 namespace WebApplication5.Controllers
 {
-    [EnableCors("*", "*", "*")]
+    [EnableCors(origins: "*", // Origin來源網域
+                  headers: "*",                     // Request headers
+                  methods: "*"                      // HTTP methods   
+                                                    // Response headers
+                                                    //Allow credentials
+             )]
     public class AdminController : ApiController
     {
         [EnableCors("http://studytutor_backend.hsc.nutc.edu.tw", // Origin來源網域

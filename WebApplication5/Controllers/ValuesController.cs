@@ -15,7 +15,12 @@ using System.Web.Http.Cors;
 namespace WebApplication5.Controllers
 {
     //繼承原生Apicontroller
-    [EnableCors("*", "*", "*")]
+    [EnableCors(origins: "*", // Origin來源網域
+               headers: "*",                     // Request headers
+               methods: "*"                      // HTTP methods   
+                                                 // Response headers
+                                                 //Allow credentials
+          )]
     public class ValuesController : ApiController
     {
         private readonly MemberDBService memberservice = new MemberDBService();

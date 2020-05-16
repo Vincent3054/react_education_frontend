@@ -18,7 +18,12 @@ namespace WebApplication5.Controllers
     //學習輔導紀錄4
     //登入查詢學生
 
-    [EnableCors("*", "*", "*")]
+    [EnableCors(origins: "*", // Origin來源網域
+                 headers: "*",                     // Request headers
+                 methods: "*"                      // HTTP methods   
+                                                   // Response headers
+                                                   //Allow credentials
+            )]
     public class ClassController : ApiController
     {
         private readonly ClassDBService classService = new ClassDBService();

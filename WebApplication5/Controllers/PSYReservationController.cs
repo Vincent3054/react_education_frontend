@@ -11,7 +11,12 @@ using System.Web.Http.Cors;
 
 namespace WebApplication5.Controllers
 {
-    [EnableCors("*", "*", "*")]
+    [EnableCors(origins: "*", // Origin來源網域
+                  headers: "*",                     // Request headers
+                  methods: "*"                      // HTTP methods   
+                                                    // Response headers
+                                                    //Allow credentials
+             )]
     public class PSYReservationController : ApiController
     {
         private readonly ReservationDBService reservationService = new ReservationDBService();

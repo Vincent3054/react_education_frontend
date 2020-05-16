@@ -13,7 +13,12 @@ using System.Web.Http.Cors;
 
 namespace WebApplication5.Controllers
 {
-    [EnableCors("*", "*", "*")]
+    [EnableCors(origins: "*", // Origin來源網域
+                headers: "*",                     // Request headers
+                methods: "*"                      // HTTP methods   
+                                                  // Response headers
+                                                  //Allow credentials
+           )]
     //預約紀錄Controller
     public class ReservationController : ApiController
     {

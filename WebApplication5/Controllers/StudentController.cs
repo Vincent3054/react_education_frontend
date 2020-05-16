@@ -10,7 +10,12 @@ using System.Web.Http.Cors;
 
 namespace WebApplication5.Controllers
 {
-    [EnableCors("*", "*", "*")]
+    [EnableCors(origins: "*", // Origin來源網域
+               headers: "*",                     // Request headers
+               methods: "*"                      // HTTP methods   
+                                                 // Response headers
+                                                 //Allow credentials
+          )]
     public class StudentController : ApiController
     {
         private readonly StudentsDBService studentsService = new StudentsDBService();

@@ -12,7 +12,7 @@ namespace WebApplication5
         {
             // New code
             
-            config.MapHttpAttributeRoutes();
+            //config.MapHttpAttributeRoutes();
             //針對應用程式中的所有 Web API 控制器啟用 CORS
             /*優先順序的順序為：
             動作

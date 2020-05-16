@@ -10,7 +10,12 @@ using System.Web.Http.Cors;
 
 namespace WebApplication5.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
+    [EnableCors(origins: "*", // Origin來源網域
+               headers: "*",                     // Request headers
+               methods: "*"                      // HTTP methods   
+                                                 // Response headers
+                                                 //Allow credentials
+          )]
     public class PasswordController : ApiController
     {
         private readonly MemberDBService membersService = new MemberDBService();
