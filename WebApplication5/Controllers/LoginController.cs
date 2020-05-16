@@ -26,7 +26,7 @@ namespace WebApplication5.Controllers
         private readonly MailService mailService = new MailService();
 
         //登入
-        [EnableCors(origins: "http://studytutor_backend.hsc.nutc.edu.tw", headers: "*", methods: "*")]
+
         [HttpPost]
         [Route("api/Login")]
         public ResultVM<MemberLoginViewModel> LoginPost(MemberLoginViewModel LoginMember)
@@ -68,7 +68,6 @@ namespace WebApplication5.Controllers
         }
 
         //登出
-        [EnableCors(origins: "http://studytutor_backend.hsc.nutc.edu.tw", headers: "*", methods: "*")]
         [HttpDelete]
         [Route("api/Login")]
         [Authorize(Roles = "P001,P002,P003,P004,P005,P006,P007,P008,P009,P010,P011,P012,P013,P014,P015,P016,P017,P018")]
@@ -91,7 +90,6 @@ namespace WebApplication5.Controllers
             return new ResultVM<object>(true, "已經登出", null);
         }
         //忘記密碼
-        [EnableCors(origins: "http://studytutor_backend.hsc.nutc.edu.tw", headers: "*", methods: "*")]
         [HttpPut]
         [Route("api/Login")]
         public ResultVM<ForgetViewModel> FrogetPasswordPut([FromBody]ForgetViewModel Data)
