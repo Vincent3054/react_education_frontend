@@ -17,14 +17,7 @@ namespace WebApplication5.Controllers
     public class AdminController : ApiController
     {
 
-        //引用CorsHandle.cs
-        [CorsHandle]
-        public static void Register(HttpConfiguration config)
-        {
-            var cors = new EnableCorsAttribute("http://studytutor_backend.hsc.nutc.edu.tw", "*", "*");
-            config.EnableCors(cors);
 
-        }
         //管理者
         //進入修改權限頁面，傳入所有3個角色
     }
