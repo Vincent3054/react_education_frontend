@@ -21,7 +21,7 @@ namespace WebApplication5.Controllers
     {
         //
         private readonly RecordDBService recordService = new RecordDBService();
-        [EnableCors(origins: "http://studytutor_backend.hsc.nutc.edu.tw", headers: "*", methods: "*")]
+
         [HttpGet]
         [Authorize(Roles = "P001,P002,P004,P005,P006,P007,P010,P011,P012,P014,P015,P016,P017,P018")]
         [Route("api/StudentRecord")]
