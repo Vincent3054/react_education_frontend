@@ -26,7 +26,6 @@ namespace WebApplication5.Controllers
        private readonly MailService mailService = new MailService();
 
         //註冊
-        [EnableCors(origins: "http://studytutor_backend.hsc.nutc.edu.tw", headers: "*", methods: "*")]
         [HttpPost]
         [Route("api/Members")]
         public ResultVM<object> Register(Member RegisterData)
@@ -135,7 +134,6 @@ namespace WebApplication5.Controllers
 
 
         //接收驗證信
-        [EnableCors(origins: "http://studytutor_backend.hsc.nutc.edu.tw", headers: "*", methods: "*")]
         [HttpGet]
         [Route("api/Members")]
        
@@ -156,7 +154,6 @@ namespace WebApplication5.Controllers
          }
 
         //修改密碼
-        [EnableCors(origins: "http://studytutor_backend.hsc.nutc.edu.tw", headers: "*", methods: "*")]
         [HttpPut]
         [Route("api/Members")]
         [Authorize(Roles = "P003")]
