@@ -13,14 +13,15 @@ export default class Loging extends Component {
 
   handleSubmit = (e) => {
     const { Account, Password } = this.state;
-    const payload = { username: Account, password: Password };
+    const payload = { Account, Password };
     e.preventDefault();
     axios
-      .post(`http://211.75.191.19:3000/auth/login`, payload)
+      .post(`http://studytutor_backend.hsc.nutc.edu.tw/api/Login`, payload)
       .then((res) => {
         console.log(res.data);
         alert(res.data.Message);
-        this.props.history.push("/Index");
+        localStorage.setItem("Token", JSON.stringify(res.data.Data.Token));
+        this.props.history.push("/");
       })
       .catch((error) => {
         const status = error.response.status;
