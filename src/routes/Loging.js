@@ -62,7 +62,7 @@ export default class Loging extends Component {
                 />
                 <div className="text-right">
                   <span className="txt1">忘記</span>
-                  <Link to="/Loging/Getpassword">
+                  <Link to="/Getpassword">
                     <a href="#" className="txt2">
                       帳號 / 密碼?
                     </a>
@@ -71,7 +71,7 @@ export default class Loging extends Component {
                 <button className="btn">登入</button>
                 <div className="text-bottom">
                   <span className="txt1">還沒有帳號嗎?</span>
-                  <Link to="/Loging/Register/Student">
+                  <Link to="/Register/Student">
                     <a href="" className="txt2">
                       註冊
                     </a>

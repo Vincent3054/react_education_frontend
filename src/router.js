@@ -10,9 +10,11 @@ import RegisterComplete from "./routes/RegisterComplete";
 import Getpassword from "./routes/Getpassword";
 import ChangePassword from "./routes/ChangePassword";
 import ChangePasswordComplete from "./routes/ChangePasswordComplete";
-import EmailValidate from "./routes/EmailValidate";
+import EmailValidateComplete from "./routes/EmailValidateComplete";
+import EmailValidateFail from "./routes/EmailValidateFail";
 import ResendiEmailValidate from "./routes/ResendiEmailValidate";
-import RegisterEmailValidate from "./routes/RegisterEmailValidate";
+import RegisterEmailValidateComplete from "./routes/RegisterEmailValidateComplete";
+import RegisterEmailValidateFail from "./routes/RegisterEmailValidateFail";
 import ResendiRegisterEmailValidate from "./routes/ResendiRegisterEmailValidate";
 import Studentdata from "./routes/Studentdata";
 import Studentdoc from "./routes/Studentdoc";
@@ -37,46 +39,48 @@ export default (
     <Switch>
       <Route path="/" exact component={Index} />
       <Route path="/Loging" exact component={Loging} />
+      <Route path="/Register/Student" exact component={StudentRegister} />
       <Route
-        path="/Loging/Register/Student"
-        exact
-        component={StudentRegister}
-      />
-      <Route
-        path="/Loging/Register/ClassTeacher"
+        path="/Register/ClassTeacher"
         exact
         component={ClassTeacherRegister}
       />
       <Route
-        path="/Loging/Register/CounselorTeacher"
+        path="/Register/CounselorTeacher"
         exact
         component={CounselorTeacherRegister}
       />
+      <Route path="/Register/Complete" exact component={RegisterComplete} />
+      <Route path="/Getpassword" exact component={Getpassword} />
+      <Route path="/ChangePassword" exact component={ChangePassword} />
       <Route
-        path="/Loging/Register/Complete"
-        exact
-        component={RegisterComplete}
-      />
-      <Route path="/Loging/Getpassword" exact component={Getpassword} />
-      <Route path="/Loging/ChangePassword" exact component={ChangePassword} />
-      <Route
-        path="/Loging/ChangePasswordComplete"
+        path="/ChangePasswordComplete"
         exact
         component={ChangePasswordComplete}
       />
-      <Route path="/Loging/EmailValidate" exact component={EmailValidate} />
       <Route
-        path="/Loging/ResendiEmailValidate"
+        path="/EmailValidateComplete"
+        exact
+        component={EmailValidateComplete}
+      />
+      <Route path="/EmailValidateFail" exact component={EmailValidateFail} />
+      <Route
+        path="/ResendiEmailValidate"
         exact
         component={ResendiEmailValidate}
       />
       <Route
-        path="/Loging/RegisterEmailValidate"
+        path="/RegisterEmailValidateComplete"
         exact
-        component={RegisterEmailValidate}
+        component={RegisterEmailValidateComplete}
       />
       <Route
-        path="/Loging/ResendiRegisterEmailValidate"
+        path="/RegisterEmailValidateFail"
+        exact
+        component={RegisterEmailValidateFail}
+      />
+      <Route
+        path="/ResendiRegisterEmailValidate"
         exact
         component={ResendiRegisterEmailValidate}
       />

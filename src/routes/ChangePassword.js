@@ -22,7 +22,8 @@ export default class ChangePassword extends Component {
       .then((res) => {
         console.log(res.data);
         alert(res.data.Message);
-        // this.props.history.push("/Loging/RegisterEmailValidate");
+        localStorage.setItem("Token", JSON.stringify(res.data.Data.Token));
+        this.props.history.push("/ChangePasswordComplete");
       })
       .catch((error) => {
         const status = error.response.status;

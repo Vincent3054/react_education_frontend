@@ -88,7 +88,7 @@ export default class StudentRegister extends Component {
                   <input
                     type="radio"
                     name="gender"
-                    value="male"
+                    value="男"
                     id="male"
                     onChange={(e) => {
                       this.setState({ Sex: e.target.value });
@@ -98,7 +98,7 @@ export default class StudentRegister extends Component {
                   <input
                     type="radio"
                     name="gender"
-                    value="female"
+                    value="女"
                     id="female"
                     onChange={(e) => {
                       this.setState({ Sex: e.target.value });
