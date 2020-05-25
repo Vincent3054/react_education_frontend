@@ -17,7 +17,7 @@ export default class RegisterComplete extends Component {
                     src={Email}
                     alt="錯誤"
                     title="Error"
-                    stzyle={{ width: "140px" }}
+                    style={{ width: "140px" }}
                   />
                 </div>
                 <div style={{ marginTop: "30px", textAlign: "center" }}>

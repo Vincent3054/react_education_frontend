@@ -50,6 +50,7 @@ export default class StudentRegister extends Component {
       .then((res) => {
         console.log(res.data);
         alert(res.data.Message);
+        localStorage.setItem("Token", JSON.stringify(res.data.Data.Token));
         // this.props.history.push("/Loging/RegisterEmailValidate");
       })
       .catch((error) => {
@@ -62,7 +63,18 @@ export default class StudentRegister extends Component {
       });
   };
   render() {
-    const { Account, Name, Password, PasswordCheck, Email, Phone } = this.state;
+    const {
+      Account,
+      Password,
+      PasswordCheck,
+      Name,
+      Email,
+      Phone,
+      Grage,
+      Class_Id,
+      Class_Name,
+      Sex,
+    } = this.state;
     return (
       <div className="Register">
         <div className="limiter">
