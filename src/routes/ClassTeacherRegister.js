@@ -39,23 +39,38 @@ export default class ClassTeacherRegister extends Component {
       Class_Id,
       Role_Id,
     };
-    e.preventDefault();
-    axios
-      .post(`http://studytutor_backend.hsc.nutc.edu.tw/api/Members`, payload)
-      .then((res) => {
-        console.log(res.data);
-        alert(res.data.Message);
-        localStorage.setItem("Token", JSON.stringify(res.data.Data.Token));
-        // this.props.history.push("/Loging/RegisterEmailValidate");
-      })
-      .catch((error) => {
-        const status = error.response.status;
-        //錯誤狀態碼
-        console.log(status);
-        const err = JSON.parse(error.request.response);
-        //錯誤訊息
-        alert(err.Message);
-      });
+    if (
+      Account === "" ||
+      Password === "" ||
+      PasswordCheck === "" ||
+      Name === "" ||
+      Email === "" ||
+      Phone === "" ||
+      Class_Id === "" ||
+      Sex === ""
+    ) {
+      alert("欄位不可空白");
+    } else if (Password !== PasswordCheck) {
+      alert("確認密碼錯誤");
+    } else {
+      e.preventDefault();
+      axios
+        .post(`http://studytutor_backend.hsc.nutc.edu.tw/api/Members`, payload)
+        .then((res) => {
+          console.log(res.data);
+          alert(res.data.Message);
+          localStorage.setItem("Token", JSON.stringify(res.data.Data.Token));
+          // this.props.history.push("/Loging/RegisterEmailValidate");
+        })
+        .catch((error) => {
+          const status = error.response.status;
+          //錯誤狀態碼
+          console.log(status);
+          const err = JSON.parse(error.request.response);
+          //錯誤訊息
+          alert(err.Message);
+        });
+    }
   };
   render() {
     const { Account, Name, Password, PasswordCheck, Email, Phone } = this.state;

@@ -10,6 +10,8 @@ import RegisterComplete from "./routes/RegisterComplete";
 import Getpassword from "./routes/Getpassword";
 import ChangePassword from "./routes/ChangePassword";
 import ChangePasswordComplete from "./routes/ChangePasswordComplete";
+import ResetPassword from "./routes/ResetPassword";
+import ResetPasswordComplete from "./routes/ResetPasswordComplete";
 import EmailValidateComplete from "./routes/EmailValidateComplete";
 import EmailValidateFail from "./routes/EmailValidateFail";
 import ResendiEmailValidate from "./routes/ResendiEmailValidate";
@@ -52,6 +54,12 @@ export default (
       />
       <Route path="/Register/Complete" exact component={RegisterComplete} />
       <Route path="/Getpassword" exact component={Getpassword} />
+      <Route path="/ResetPassword" exact component={ResetPassword} />
+      <Route
+        path="/ResetPasswordComplete"
+        exact
+        component={ResetPasswordComplete}
+      />
       <Route path="/ChangePassword" exact component={ChangePassword} />
       <Route
         path="/ChangePasswordComplete"

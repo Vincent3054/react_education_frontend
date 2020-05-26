@@ -3,59 +3,55 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import "../mixin/main.css";
 import "../routes/Register.css";
-export default class ChangePassword extends Component {
+export default class ResetPassword extends Component {
   state = {
-    Password: "",
+    Account: "",
     NewPassword: "",
     PasswordCheck: "",
   };
   handleSubmit = (e) => {
-    const { Password, NewPassword, PasswordCheck } = this.state;
+    const { Account, NewPassword, PasswordCheck } = this.state;
     const payload = {
-      Password,
+      Account,
       NewPassword,
       PasswordCheck,
     };
-    if (Password === "" || NewPassword === "" || PasswordCheck === "") {
-      alert("欄位不可空白");
-    } else if (NewPassword !== PasswordCheck) {
-      alert("新密碼不一致");
-    } else {
-      e.preventDefault();
-      axios
-        .put(`http://studytutor_backend.hsc.nutc.edu.tw/api/Members`, payload, {
-          headers: {
-            Authorization: JSON.parse(localStorage.getItem("Token")),
-          },
-        })
-        .then((res) => {
-          console.log(res.data);
-          alert(res.data.Message);
-          localStorage.setItem("Token", JSON.stringify(res.data.Data.Token));
-          this.props.history.push("/ChangePasswordComplete");
-        })
-        .catch((error) => {});
-    }
+    e.preventDefault();
+    axios
+      .put(`http://studytutor_backend.hsc.nutc.edu.tw/api/Members`, payload)
+      .then((res) => {
+        console.log(res.data);
+        alert(res.data.Message);
+        this.props.history.push("/ResetPasswordComplete");
+      })
+      .catch((error) => {
+        const status = error.response.status;
+        //錯誤狀態碼
+        console.log(status);
+        const err = JSON.parse(error.request.response);
+        //錯誤訊息
+        alert(err.Message);
+      });
   };
   render() {
-    const { Password, NewPassword, PasswordCheck } = this.state;
+    const { Account, NewPassword, PasswordCheck } = this.state;
     return (
       <div className="Register">
         <div className="limiter">
           <div className="container">
             <div className="wrap" style={{ width: "600px" }}>
               <form className="form" onSubmit={this.handleSubmit}>
-                <span className="title">修改密碼</span>
+                <span className="title">重設密碼</span>
                 <span>請填寫你目前的密碼和驗證碼，以修改密碼：</span>
                 <div className="list">
-                  <span className="list-text">目前密碼</span>
+                  <span className="list-text">帳號</span>
                   <input
                     className="input"
-                    type="password"
+                    type="text"
                     onChange={(e) => {
-                      this.setState({ Password: e.target.value });
+                      this.setState({ Account: e.target.value });
                     }}
-                    value={Password}
+                    value={Account}
                   />
                 </div>
                 <div className="list">

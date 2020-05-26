@@ -14,22 +14,26 @@ export default class Getpassword extends Component {
       Account,
       Email,
     };
-    e.preventDefault();
-    axios
-      .put(`http://studytutor_backend.hsc.nutc.edu.tw/api/Login`, payload)
-      .then((res) => {
-        console.log(res.data);
-        alert(res.data.Message);
-        // this.props.history.push("/Loging/RegisterEmailValidate");
-      })
-      .catch((error) => {
-        const status = error.response.status;
-        //錯誤狀態碼
-        console.log(status);
-        const err = JSON.parse(error.request.response);
-        //錯誤訊息
-        alert(err.Message);
-      });
+    if (Account === "" || Email === "") {
+      alert("帳號或信箱不可空白");
+    } else {
+      e.preventDefault();
+      axios
+        .put(`http://studytutor_backend.hsc.nutc.edu.tw/api/Login`, payload)
+        .then((res) => {
+          console.log(res.data);
+          alert(res.data.Message);
+          // this.props.history.push("/Loging/RegisterEmailValidate");
+        })
+        .catch((error) => {
+          const status = error.response.status;
+          //錯誤狀態碼
+          console.log(status);
+          const err = JSON.parse(error.request.response);
+          //錯誤訊息
+          alert(err.Message);
+        });
+    }
   };
   render() {
     const { Account, Email } = this.state;

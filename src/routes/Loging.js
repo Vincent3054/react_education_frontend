@@ -14,23 +14,27 @@ export default class Loging extends Component {
   handleSubmit = (e) => {
     const { Account, Password } = this.state;
     const payload = { Account, Password };
-    e.preventDefault();
-    axios
-      .post(`http://studytutor_backend.hsc.nutc.edu.tw/api/Login`, payload)
-      .then((res) => {
-        console.log(res.data);
-        alert(res.data.Message);
-        localStorage.setItem("Token", JSON.stringify(res.data.Data.Token));
-        this.props.history.push("/");
-      })
-      .catch((error) => {
-        const status = error.response.status;
-        //錯誤狀態碼
-        console.log(status);
-        const err = JSON.parse(error.request.response);
-        //錯誤訊息
-        alert(err.Message);
-      });
+    if (Account === "" || Password === "") {
+      alert("帳號或密碼不可空白");
+    } else {
+      e.preventDefault();
+      axios
+        .post(`http://studytutor_backend.hsc.nutc.edu.tw/api/Login`, payload)
+        .then((res) => {
+          console.log(res.data);
+          alert(res.data.Message);
+          localStorage.setItem("Token", JSON.stringify(res.data.Data.Token));
+          // this.props.history.push("/");
+        })
+        .catch((error) => {
+          const status = error.response.status;
+          //錯誤狀態碼
+          console.log(status);
+          const err = JSON.parse(error.request.response);
+          //錯誤訊息
+          alert(err.Message);
+        });
+    }
   };
 
   render() {
