@@ -4,10 +4,10 @@ const Dotenv = require("dotenv-webpack");
 const dotenv = require("dotenv").config({ path: __dirname + "/.env" });
 
 module.exports = {
-  entry: './src/index.js',
+  entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "index.js"
+    filename: "index.js",
   },
   module: {
     rules: [
@@ -15,24 +15,24 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader"
-        }
+          loader: "babel-loader",
+        },
       },
       {
         test: /\.css$/,
         use: [
           {
-            loader: "style-loader"
+            loader: "style-loader",
           },
           {
-            loader: "css-loader"
+            loader: "css-loader",
           },
-        ]
+        ],
       },
       {
         test: /\.(png|jpg)$/,
         include: path.join(__dirname, "dist/assets"),
-        loader: "file-loader"
+        loader: "file-loader",
       },
       {
         test: /\.(js|jsx)$/,
@@ -40,19 +40,19 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["@babel/preset-env"]
-          }
-        }
+            presets: ["@babel/preset-env"],
+          },
+        },
       },
       {
         test: /\.(jpe?g|png|gif|svg|png|woff|woff2|eot|ttf|svg)$/,
-        loader: "url-loader?limit=100000"
+        loader: "url-loader?limit=100000",
       },
       {
         test: /\.(pdf|svg)$/,
-        use: 'file-loader?name=[path][name].[ext]',
-      }
-    ]
+        use: "file-loader?name=[path][name].[ext]",
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -66,6 +66,6 @@ module.exports = {
     port: dotenv.parsed.APP_PORT || 8000,
     host: dotenv.parsed.APP_HOST || "localhost",
     inline: true,
-    hot: false
-  }
-}
+    hot: false,
+  },
+};

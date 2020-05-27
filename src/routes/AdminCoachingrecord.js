@@ -1,84 +1,52 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Layout from "../layouts/Layout";
-import "./Coachingrecord.css";
+import "./AdminCoachingrecord.css";
+import axios from 'axios';
 
-export default class Coachingrecord extends Component {
+export default class AdminCoachingrecord extends Component {
   state = {
     lab: [
-      {
-        name: "AAA",
-        gender: "男",
-        phone: "0988295638",
-        class: 101,
-        remarks: "高關懷",
-      },
-      {
-        name: "AAA",
-        gender: "女",
-        phone: "0988295638",
-        class: 102,
-        remarks: "弱勢",
-      },
-      {
-        name: "ADA",
-        gender: "女",
-        phone: "0988295638",
-        class: 103,
-        remarks: "低收",
-      },
-      {
-        name: "EAA",
-        gender: "男",
-        phone: "0988295638",
-        class: 202,
-        remarks: "單親",
-      },
-      {
-        name: "AMA",
-        gender: "男",
-        phone: "0988295638",
-        class: 202,
-        remarks: "高關懷",
-      },
-      {
-        name: "AWA",
-        gender: "女",
-        phone: "0988295638",
-        class: 202,
-        remarks: "低收",
-      },
-      {
-        name: "BBA",
-        gender: "女",
-        phone: "0988295638",
-        class: 202,
-        remarks: "高關懷",
-      },
-      {
-        name: "CA",
-        gender: "男",
-        phone: "0988295638",
-        class: 202,
-        remarks: "",
-      },
+      
     ],
   };
-  render() {
+
+  componentDidMount() {
     const { match } = this.props;
     const { params } = match;
-    const { lab } = this.state;
-    const data = lab.filter((item, index, array) => {
-      return item.class === parseInt(params.id);
-    });
+    axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/Class?Class_Id=${params.id}`, {
+      headers: {
+        "Authorization": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJBY2NvdW50IjoicGVycnkxMDA1IiwiUm9sZSI6IlAwMDMsUDAwNCxQMDA4LFAwMDksUDAxMCxQMDExLFAwMTIsUDAxMyxQMDE0LFAwMTUsUDAxNixQMDE3LFAwMTgsIiwiRXhwaXJlIjoiMjAyMC81LzI4IOS4i-WNiCAwNjowODoyNSJ9.7FQZ80YSeL4Ub50aYhR9GAnaRO02wev7ruTRcOu0HC3Wt7t3KXhg26hJtmY8XTJD2iRhAtAFk5Q_ob3HicCVZA"
+      }
+    })
+      .then((res) => {
+        console.log(res.data.Data.DataList);
+        const datalist = res.data.Data.DataList;
+        this.setState({
+          lab: datalist
+        }, () => {
+          console.log(this.state.lab, 85)
+        })
+      }).catch((err) => {
+        console.error({ err }, 90);
+      })
 
-    const textlab = data.map((item, index, array) => {
+  }
+
+  render() {
+    const { lab } = this.state;
+    console.log(lab, 100)
+    // const data = lab.filter((item, index, array) => {
+    //   return item.class === parseInt(params.id);
+    // });
+
+    const textlab = lab.map((item, index, array) => {
       return (
         <tr className="list-body" key={index}>
-          <td> {item.name} </td>
-          <td> {item.name} </td>
-          <td> {item.gender}</td>
-          <td> {item.remarks}</td>
+          <td> {item.Name} </td>
+          <td> {item.Class_Id} </td>
+          <td> {item.Grade}</td>
+          <td> {item.ClassName}</td>
           <td>
             {" "}
             <Link to="/CoachingStudent/1">查看</Link>
@@ -89,7 +57,7 @@ export default class Coachingrecord extends Component {
 
     return (
       <Layout>
-        <div className="Coachingrecord">
+        <div className="AdminCoachingrecord">
           <div className="title">
             <span className="titlename">學生列表</span>
             <table className="table">

@@ -1,4 +1,4 @@
-.Coachingrecord .title {
+.AdminCoachingrecord .title {
   margin-top      : 40px;
   padding         : 24px 12px;
   width           : 100%;
@@ -9,54 +9,54 @@
   border          : none;
 }
 
-.Coachingrecord .titlename {
+.AdminCoachingrecord .titlename {
   font-size: 24px;
 }
 
-.Coachingrecord .table {
+.AdminCoachingrecord .table {
   width: 100%;
 
 }
 
-.Coachingrecord .table thead {
+.AdminCoachingrecord .table thead {
   color: #384661;
 }
 
-.Coachingrecord .theadstart {
+.AdminCoachingrecord .theadstart {
   text-align: start;
 }
 
-.Coachingrecord .table tbody tr {
+.AdminCoachingrecord .table tbody tr {
   transition: all 0.5s;
 }
 
-.Coachingrecord .table tbody tr:hover {
+.AdminCoachingrecord .table tbody tr:hover {
   background-color: #d1e4d7;
   cursor          : pointer;
 }
 
-.Coachingrecord .list {
+.AdminCoachingrecord .list {
   background-color: #74bd8a;
 
   line-height: 45px;
   height     : 45px;
 }
 
-.Coachingrecord .list-body {
+.AdminCoachingrecord .list-body {
   background-color: #ffffff;
   line-height     : 45px;
   height          : 45px;
 }
 
-.Coachingrecord thead th {
+.AdminCoachingrecord thead th {
   border: solid 1px #c4c4c4;
 }
 
-.Coachingrecord tbody td {
+.AdminCoachingrecord tbody td {
   border: solid 1px #c4c4c4;
 }
 
-.Coachingrecord .btn {
+.AdminCoachingrecord .btn {
   border             : none;
   width              : 50px;
   height             : 20px;
@@ -66,11 +66,11 @@
   outline            : none;
 }
 
-.Coachingrecord .td-btn {
+.AdminCoachingrecord .td-btn {
   width: 20%;
 }
 
-.Coachingrecord .btn {
+.AdminCoachingrecord .btn {
   width           : 50px;
   height          : 25px;
   border-radius   : 25px;
@@ -78,16 +78,16 @@
   color           : #fff;
 }
 
-.Coachingrecord .btn:hover {
+.AdminCoachingrecord .btn:hover {
   cursor: pointer;
 }
 
-.Coachingrecord .index-img {
+.AdminCoachingrecord .index-img {
   width : 100%;
   height: 350px;
 }
 
-.Coachingrecord img {
+.AdminCoachingrecord img {
   width     : 100%;
   height    : 100%;
   object-fit: cover;
@@ -95,7 +95,7 @@
 
 /*TeacherManagement*/
 
-.Coachingrecord .tabletitle {
+.AdminCoachingrecord .tabletitle {
   line-height     : 60px;
   height          : 60px;
   background-color: #fff;
@@ -104,7 +104,7 @@
   padding-left    : 2%;
 }
 
-.Coachingrecord .tablecursor {
+.AdminCoachingrecord .tablecursor {
   line-height     : 60px;
   height          : 60px;
   background-color: #fff;
@@ -113,7 +113,7 @@
   font-size       : 16px;
 }
 
-.Coachingrecord .submit {
+.AdminCoachingrecord .submit {
   padding              : 5px 15px;
   background           : #384661;
   color                : #fff;
@@ -123,7 +123,7 @@
   border-radius        : 5px;
 }
 
-.Coachingrecord .text {
+.AdminCoachingrecord .text {
   padding              : 5px 15px;
   border               : 2px #6abe83 solid;
   cursor               : pointer;
@@ -132,7 +132,7 @@
   margin-right         : 5px;
 }
 
-.Coachingrecord .input {
+.AdminCoachingrecord .input {
   border            : 1px solid #c4c4c4;
   width             : 100%;
   height            : 40px;
@@ -146,12 +146,12 @@
   color             : #999999;
 }
 
-.Coachingrecord .foot {
+.AdminCoachingrecord .foot {
   border-top: dashed 1pt #d1e4d7;
   text-align: center;
 
 }
 
-.Coachingrecord .footmain {
+.AdminCoachingrecord .footmain {
   margin: 30px 6px;
 }

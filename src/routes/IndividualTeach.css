@@ -1,4 +1,4 @@
-.Individual .body {
+.IndividualTeach .body {
   margin-top: 40px;
   padding: 24px 12px;
   width: 100%;
@@ -9,11 +9,9 @@
   border: none;
 }
 
-.Individual .body span {
-  font-size: 10pt;
-}
 
-.Individual .main {
+
+.IndividualTeach .main {
   position: absolute;
   border: solid 0.5px rgba(49, 41, 41, 0.342);
   width: 78.5vw;
@@ -24,51 +22,13 @@
   justify-self: space-between;
   font-size: 10pt;
 }
-.Individual .textbox {
-  width: 78vw;
-  height: 120px;
-}
-.Individual .boxone {
-  border-bottom: solid 0.5px rgba(49, 41, 41, 0.548);
-  width: 70%;
-  height: 15%;
-}
 
-.Individual .boxtwo {
-  border-bottom: solid 0.5px rgba(49, 41, 41, 0.548);
-  width: 70%;
-  height: 15%;
-}
-
-.Individual .boxthree {
-  border-bottom: solid 0.5px rgba(49, 41, 41, 0.548);
-  width: 70%;
-  height: 15%;
-}
-
-.Individual .boxfour {
-  border-bottom: solid 0.5px rgba(49, 41, 41, 0.548);
-  width: 70%;
-  height: 15%;
-}
-
-.Individual .boxfive {
-  border-bottom: solid 0.5px rgba(49, 41, 41, 0.548);
-  width: 70%;
-  height: 15%;
-}
-
-.Individual .boxsix {
-  width: 70%;
-  height: 15%;
-}
-
-.Individual .boxone:hover,
-.Individual .boxtwo:hover,
-.Individual .boxthree:hover,
-.Individual .boxfour:hover,
-.Individual .boxfive:hover,
-.Individual .boxsix:hover {
+.IndividualTeach .boxone:hover,
+.IndividualTeach .boxtwo:hover,
+.IndividualTeach .boxthree:hover,
+.IndividualTeach .boxfour:hover,
+.IndividualTeach .boxfive:hover,
+.IndividualTeach .boxsix:hover {
   left: 20%;
   background-color: rgba(0, 0, 0, 0.062);
   cursor: pointer;
@@ -76,30 +36,26 @@
   transition: 3ms;
 }
 
-.Individual .font {
+.IndividualTeach .font {
   height: 30px;
   text-align: center;
   line-height: 30px;
 }
 
-.Individual .radio {
+.IndividualTeach .radio {
   margin: auto 10px;
   border-radius: 100%;
   border: 1px solid darken(color1, 25%);
 }
 
-/* 
-.Individual button {
-  background-color: #384661; */
-/* Green */
-/* border          : none;
-  color           : white;
-  padding         : 15px 15px;
-  text-align      : center;
-  font-size       : 14px;
-  cursor          : pointer;
-  border-radius   : 5px;
-} */
+.IndividualTeach input{
+  width: 100%;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+}
+
+
 
 @media screen and (max-width: 768px) {
   .content {
@@ -107,64 +63,59 @@
     font-size: 15px;
   }
 
-  /* .Individual { */
+  /* .IndividualTeach { */
   /* font-size: 15px; */
   /* display: block;
   } */
 }
 
 @media screen and (max-width: 525px) {
-  .Individual .main {
+  .IndividualTeach .main {
     height: 90vh;
   }
 }
 
-.Individual .user {
+.IndividualTeach .user {
   width: 20vw;
   height: 24vh;
 }
 
-.Individual .userimg {
+.IndividualTeach .userimg {
   width: 12vw;
   height: 20vh;
   margin: 3vh 4vw;
 }
 
-.Individual .content {
-  height: 25vh;
-  padding-top: 2vh;
-}
 
-/* .Individual .rec-content {
-  position     : absolute;
-  top          : 30vh;
-  left         : 0vw;
-  border       : solid 0.5px rgba(49, 41, 41, 0.342);
-  width        : 70.5vw;
-  height       : 50vh;
-  border-radius: 5px;
-  display      : block;
-  display      : flex;
-  justify-self : space-between;
-  font-size    : 10pt;
-} */
-
-.Individual .tablecontent {
+.IndividualTeach .tablecontent {
   position: absolute;
   text-align: left;
-  margin-top: 28vh;
+  margin-top: 24px;
   width: 78.5vw;
   height: 60vh;
 }
 
-.Individual table {
+.IndividualTeach table {
   border: solid 0.5px rgba(49, 41, 41, 0.342);
   border-radius: 5px;
   width: 100%;
   height: 100%;
   text-align: center;
 }
+.IndividualTeach textarea{
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+}
+.IndividualTeach .titlename {
+  font-size: 24px;
+}
 /* 
-.Individual tr td,th {
+.IndividualTeach tr td,th {
   border-bottom         : solid 0.5px rgba(49, 41, 41, 0.342);
 } */

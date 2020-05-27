@@ -1,6 +1,6 @@
-.Coachingrecord .title {
+ .CoachingStudent .title {
   margin-top      : 40px;
-  padding         : 24px 12px;
+  padding         : 24px 0px;
   width           : 100%;
   height          : 400px;
   text-align      : center;
@@ -8,55 +8,54 @@
   color           : #384661;
   border          : none;
 }
-
-.Coachingrecord .titlename {
+/* 
+.CoachingStudent .titlename {
   font-size: 24px;
-}
+} */
 
-.Coachingrecord .table {
+.CoachingStudent .table {
   width: 100%;
 
 }
 
-.Coachingrecord .table thead {
+.CoachingStudent .table thead {
   color: #384661;
 }
 
-.Coachingrecord .theadstart {
+.CoachingStudent .theadstart {
   text-align: start;
 }
 
-.Coachingrecord .table tbody tr {
+.CoachingStudent .table tbody tr {
   transition: all 0.5s;
 }
 
-.Coachingrecord .table tbody tr:hover {
+.CoachingStudent .table tbody tr:hover {
   background-color: #d1e4d7;
   cursor          : pointer;
 }
 
-.Coachingrecord .list {
+.CoachingStudent .list {
   background-color: #74bd8a;
-
   line-height: 45px;
   height     : 45px;
 }
 
-.Coachingrecord .list-body {
+.CoachingStudent .list-body {
   background-color: #ffffff;
   line-height     : 45px;
   height          : 45px;
 }
 
-.Coachingrecord thead th {
+.CoachingStudent thead th {
   border: solid 1px #c4c4c4;
 }
 
-.Coachingrecord tbody td {
+.CoachingStudent tbody td {
   border: solid 1px #c4c4c4;
 }
 
-.Coachingrecord .btn {
+.CoachingStudent .btn {
   border             : none;
   width              : 50px;
   height             : 20px;
@@ -66,11 +65,11 @@
   outline            : none;
 }
 
-.Coachingrecord .td-btn {
+.CoachingStudent .td-btn {
   width: 20%;
 }
 
-.Coachingrecord .btn {
+.CoachingStudent .btn {
   width           : 50px;
   height          : 25px;
   border-radius   : 25px;
@@ -78,42 +77,42 @@
   color           : #fff;
 }
 
-.Coachingrecord .btn:hover {
+.CoachingStudent .btn:hover {
   cursor: pointer;
 }
 
-.Coachingrecord .index-img {
+.CoachingStudent .index-img {
   width : 100%;
   height: 350px;
 }
 
-.Coachingrecord img {
-  width     : 100%;
-  height    : 100%;
+.CoachingStudent img {
+  width     : 100px;
+  height    : 100%px;
   object-fit: cover;
 }
 
 /*TeacherManagement*/
 
-.Coachingrecord .tabletitle {
+.CoachingStudent .tabletitle {
   line-height     : 60px;
   height          : 60px;
   background-color: #fff;
   text-align      : left;
   letter-spacing  : 3px;
-  padding-left    : 2%;
+  /* padding-left    : 2%; */
 }
 
-.Coachingrecord .tablecursor {
+/* .CoachingStudent .tablecursor {
   line-height     : 60px;
   height          : 60px;
   background-color: #fff;
   text-align      : right;
   padding-right   : 2%;
   font-size       : 16px;
-}
+} */
 
-.Coachingrecord .submit {
+/* .CoachingStudent .submit {
   padding              : 5px 15px;
   background           : #384661;
   color                : #fff;
@@ -121,18 +120,18 @@
   cursor               : pointer;
   -webkit-border-radius: 5px;
   border-radius        : 5px;
-}
+} */
 
-.Coachingrecord .text {
-  padding              : 5px 15px;
+/* .CoachingStudent .text {
+  padding              : 5px 0px;
   border               : 2px #6abe83 solid;
   cursor               : pointer;
   -webkit-border-radius: 5px;
   border-radius        : 5px;
   margin-right         : 5px;
-}
+} */
 
-.Coachingrecord .input {
+.CoachingStudent .input {
   border            : 1px solid #c4c4c4;
   width             : 100%;
   height            : 40px;
@@ -146,12 +145,19 @@
   color             : #999999;
 }
 
-.Coachingrecord .foot {
+.CoachingStudent .foot {
   border-top: dashed 1pt #d1e4d7;
   text-align: center;
 
 }
 
-.Coachingrecord .footmain {
+.CoachingStudent .footmain {
   margin: 30px 6px;
 }
+
+.CoachingStudent .main{
+margin: 25px auto;
+} 
+.CoachingStudent .content{
+  margin: 0;
+  } 

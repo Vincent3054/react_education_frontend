@@ -3,5 +3,5 @@
   "extends": "react-app",
   "parser": "babel-eslint",
   "plugins": ["prettier"],
-  "rules": { "prettier/prettier": "error" }
+  // "rules": { "pretytier/prettier": "error" }
 }

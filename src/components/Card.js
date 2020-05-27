@@ -5,7 +5,7 @@ import ClassCard from '../Assets/1694.jpg';
 import { Link } from 'react-router-dom';
 export default class Card extends Component {
     render() {
-        const { data } = this.props;
+        const { data ,role} = this.props;
         return (
             <div className="Card">
                 <div className="row">
@@ -16,7 +16,7 @@ export default class Card extends Component {
                                 <h2 className="card__title">{data}</h2>
                                 <p className="card__text">班級代號<br />0/10人</p>
                                 <div className="card__action-bar">
-                                    <Link to={`/Studentdata/${data}`}>
+                                    <Link to={`/${role}/${data}`}>
                                         <a href='#' className='ph-button ph-btn-green'>進入</a>
                                     </Link>
                                 </div>

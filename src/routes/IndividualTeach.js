@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Layout from "../layouts/Layout";
-import "./Individual.css";
+import "./IndividualTeach.css";
 import user from "../Assets/user.png";
 
 // import Individual from '../components/Studenlist';
@@ -60,15 +60,15 @@ export default class IndividualTeach extends Component {
             <tr>
               <td>紀錄編號</td>
               <td>
-                <input text="type" value={item.aid} />
+                <input text="type" placeholder={item.aid}  />
               </td>
               <td>學生姓名</td>
               <td>
-                <input text="type" value={item.account} />
+                <input text="type" placeholder={item.account} />
               </td>
               <td>輔導時間</td>
               <td>
-                <input text="type" value={item.crenteTime} />
+                <input text="type" placeholder={item.crenteTime} />
               </td>
               <td>填寫人</td>
               <td>{item.keyin}</td>
@@ -76,11 +76,11 @@ export default class IndividualTeach extends Component {
             <tr>
               <td colSpan="2">標題</td>
               <td colSpan="2">
-                <input text="type" value={item.crenteTime} />
+                <input text="type" placeholder={item.crenteTime} />
               </td>
               <td colSpan="2">類別</td>
               <td colSpan="2">
-                <input text="type" value={item.categody} />
+                <input text="type" placeholder={item.categody} />
               </td>
             </tr>
             <tr>
@@ -88,7 +88,7 @@ export default class IndividualTeach extends Component {
             </tr>
             <tr>
               <td colSpan="8">
-                <input className="textbox" text="type" value={item.content} />
+              <textarea id="message" name="message" placeholder="Your Message to Us"></textarea>
               </td>
             </tr>
             <tr>
@@ -96,7 +96,7 @@ export default class IndividualTeach extends Component {
             </tr>
             <tr>
               <td colSpan="8">
-                <input text="type" value={item.abstract} />
+              <textarea id="message" name="message" placeholder="Your Message to Us"></textarea>
               </td>
             </tr>
           </table>
@@ -104,53 +104,14 @@ export default class IndividualTeach extends Component {
       );
     });
     console.log(textcontent, 85);
-    const textlab = data.map((item, index, array) => {
-      return (
-        <div className="main">
-          <div className="user">
-            <img src={user} className="userimg" />
-          </div>
-          <div className="content">
-            <div className="boxone">
-              <span className="font">姓名</span>
-              <span className="font">：</span>
-              <span className="font">{item.account}</span>
-            </div>
-            <div className="boxtwo">
-              <span className="font">聯絡電話</span>
-              <span className="font">：</span>
-              <span className="font">{item.phone}</span>
-            </div>
-            <div className="boxthree">
-              <span className="font">電子郵件</span>
-              <span className="font">：</span>
-              <span className="font">{item.email}</span>
-            </div>
-            <div className="boxfour">
-              <span className="font">班級</span>
-              <span className="font">：</span>
-              <span className="font">{item.classtype}</span>
-            </div>
-            <div className="boxfive">
-              <span className="font">班級代號</span>
-              <span className="font">：</span>
-              <span className="font">{item.class}</span>
-            </div>
-            <div className="boxsix">
-              <span className="font">性別</span>
-              <span className="font">：</span>
-              <span className="font">{item.gender}</span>
-            </div>
-          </div>
-        </div>
-      );
-    });
+    
     return (
       <Layout>
-        <div className="Individual">
+        <div className="IndividualTeach">
           <div className="body">
-            <span>個人輔導紀錄</span>
-            <div className="per">{textlab}</div>
+          <div className="title">
+            <span className="titlename">學生列表</span>
+            </div>
             <div className="con">{textcontent}</div>
           </div>
         </div>

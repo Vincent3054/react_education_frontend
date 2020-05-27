@@ -58,9 +58,9 @@ export default class Individual extends Component {
         <div className="tablecontent">
           <table>
             <tr>
-              <td>紀錄編號</td>
+              <th>紀錄編號</th>
               <td>{item.aid}</td>
-              <td>學生姓名</td>
+              <th>學生姓名</th>
               <td>{item.account}</td>
               <td>輔導時間</td>
               <td>{item.crenteTime}</td>

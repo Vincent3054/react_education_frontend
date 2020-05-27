@@ -11,26 +11,26 @@ export default class Loging extends Component {
     Password: "",
   };
 
-  handleSubmit = (e) => {
-    const { Account, Password } = this.state;
-    const payload = { username: Account, password: Password };
-    e.preventDefault();
-    axios
-      .post(`http://211.75.191.19:3000/auth/login`, payload)
-      .then((res) => {
-        console.log(res.data);
-        alert(res.data.Message);
-        this.props.history.push("/Index");
-      })
-      .catch((error) => {
-        const status = error.response.status;
-        //錯誤狀態碼
-        console.log(status);
-        const err = JSON.parse(error.request.response);
-        //錯誤訊息
-        alert(err.Message);
-      });
-  };
+  // handleSubmit = (e) => {
+  //   const { Account, Password } = this.state;
+  //   const payload = { username: Account, password: Password };
+  //   e.preventDefault();
+  //   axios
+  //     .post(`http://studytutor_backend.hsc.nutc.edu.tw/api/Login`, payload)
+  //     .then((res) => {
+  //       console.log(res.data);
+  //       alert(res.data.Message);
+  //       this.props.history.push("/Index");
+  //     })
+  //     .catch((error) => {
+  //       const status = error.response.status;
+  //錯誤狀態碼
+  //       console.log(status);
+  //       const err = JSON.parse(error.request.response);
+  //       //錯誤訊息
+  //       alert(err.Message);
+  //     });
+  // };
 
   render() {
     const { Account, Password } = this.state;
@@ -62,7 +62,7 @@ export default class Loging extends Component {
                 <div className="text-right">
                   <span className="txt1">忘記</span>
                   <Link to="/Loging/Getpassword">
-                    <a href="#" className="txt2">
+                    <a href="" className="txt2">
                       帳號 / 密碼?
                     </a>
                   </Link>
