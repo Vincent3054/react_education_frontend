@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import Layout from "../layouts/Layout";
 import "./Studentdata.css";
 import indeximg from "../Assets/1926.jpg";

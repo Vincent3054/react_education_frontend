@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import "../mixin/main.css";
 import "./Menu.css";
-import user from "../Assets/user (1).png";
+import user from "../Assets/users.png";
+import person from "../Assets/user (1).png";
 import home from "../Assets/home.png";
 import edit from "../Assets/edit.png";
 import set from "../Assets/settings.png";
@@ -29,58 +30,82 @@ export default class Menu extends Component {
         </button>
 
         <div className={ac ? `Sidebar active` : `Sidebar`}>
+          <span>管理者</span>
           <ul className="ul">
+            <Link to="/ClassList" className="linkstyle">
+              <li className="list">
+                <img src={home} className="img" />
+                首頁-預約(管理者)
+              </li>
+            </Link>
+            <Link to="/AdminClassList" className="linkstyle">
+              <li className="list">
+                <img src={user} className="img" />
+                班級列表(管理者)
+              </li>
+            </Link>
             <li className="list">
-              <img src={home} className="img" />
-              首頁-預約(管理者)
+              <img src={set} className="img" />
+              管理老師(管理者)
             </li>
             <li className="list">
-              <img src={home} className="img" />
-              首頁-學生列(導師)
+              <img src={set} className="img" />
+              管理學生(管理者)
             </li>
+          </ul>
+
+          <hr />
+          <span>輔導老師</span>
+          <ul className="ul">
             <li className="list">
               <img src={home} className="img" />
               首頁-預約(輔導老師)
             </li>
             <li className="list">
-              <img src={home} className="img" />
-              首頁-申請(學生)
+              <img src={user} className="img" />
+              班級列表(輔導老師)
             </li>
+            <li className="list">
+              <img src={edit} className="img" />
+              輔導紀錄(輔導老師)
+            </li>
+            <li className="list">
+              <img src={person} className="img" />
+              個人資料(輔導老師)
+            </li>
+          </ul>
+
+          <hr />
+          <span>導師</span>
+          <ul className="ul">
             <li className="list">
               <img src={user} className="img" />
-              <Link to="/Personal" className="linkstyle">
-                基本資料(都一樣)
-              </Link>
+              首頁-學生列表(導師)
+            </li>
+            <li className="list">
+              <img src={home} className="img" />
+              預約狀態(導師)
+            </li>
+            <li className="list">
+              <img src={person} className="img" />
+              個人資料(導師)
+            </li>
+          </ul>
+
+          <hr />
+          <span>學生</span>
+          <ul className="ul">
+            <li className="list">
+              <img src={home} className="img" />
+              首頁-預約-申請(學生)
             </li>
             <li className="list">
               <img src={edit} className="img" />
-              <Link to="/ClassList" className="linkstyle">
-                班級列表(輔導老師)
-              </Link>
+              輔導紀錄(學生)
             </li>
             <li className="list">
-              <img src={edit} className="img" />
-              <Link to="/Coachingrecord/202" className="linkstyle">
-                輔導記錄(老師)
-              </Link>
-            </li>
-            <li className="list">
-              <img src={edit} className="img" />
-              <Link to="/Coachingrecord/202" className="linkstyle">
-                輔導記錄(輔導老師)
-              </Link>
-            </li>
-            <li className="list">
-              <img src={edit} className="img" />
-              <Link to="/Coachingrecord/202" className="linkstyle">
-                輔導紀錄(學生)
-              </Link>
-            </li>
-            <li className="list">
-              <img src={set} className="img" />
-              <Link to="/SetAll/101" className="linkstyle">
-                人員設定(管理者)
-              </Link>
+              <img src={person} className="img" />
+              個人資料(學生)
             </li>
           </ul>
         </div>

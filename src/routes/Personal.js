@@ -1,10 +1,7 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import Layout from "../layouts/Layout";
 import "./Personal.css";
 import user from "../Assets/user.png";
-
-// import Personal from '../components/Studenlist';
 
 export default class Personal extends Component {
   static = {
@@ -59,6 +56,3 @@ export default class Personal extends Component {
     );
   }
 }
-//    <div className="btnsend">
-//                     <button className="button button5">儲存變更</button>
-//                     </div>

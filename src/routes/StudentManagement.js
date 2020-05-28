@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Layout from "../layouts/Layout";
 import "../mixin/main.css";
 import "./Studentdata.css";
-import "../routes/StudentReservation.css";
+import "./Reservation/StudentReservation.css";
 import Correctfrom from "../Assets/EmailValidate_check.png";
 export default class StudentManagement extends Component {
   state = {

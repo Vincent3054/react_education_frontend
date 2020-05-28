@@ -1,41 +1,43 @@
 import React from "react";
 import { HashRouter, Switch, Route } from "react-router-dom";
 import Index from "./routes/Index";
-import ClassList from "./routes/ClassList";
-import Loging from "./routes/Loging";
+import ClassList from "./routes/ClassList/ClassList";
+import Loging from "./routes/Login/Loging";
 import StudentRegister from "./routes/StudentRegister";
-import ClassTeacherRegister from "./routes/ClassTeacherRegister";
-import CounselorTeacherRegister from "./routes/CounselorTeacherRegister";
-import RegisterComplete from "./routes/RegisterComplete";
-import Getpassword from "./routes/Getpassword";
-import ChangePassword from "./routes/ChangePassword";
-import ChangePasswordComplete from "./routes/ChangePasswordComplete";
-import ResetPassword from "./routes/ResetPassword";
-import ResetPasswordComplete from "./routes/ResetPasswordComplete";
-import EmailValidateComplete from "./routes/EmailValidateComplete";
-import EmailValidateFail from "./routes/EmailValidateFail";
-import ResendiEmailValidate from "./routes/ResendiEmailValidate";
-import RegisterEmailValidateComplete from "./routes/RegisterEmailValidateComplete";
-import RegisterEmailValidateFail from "./routes/RegisterEmailValidateFail";
-import ResendiRegisterEmailValidate from "./routes/ResendiRegisterEmailValidate";
+import ClassTeacherRegister from "./routes/Login/ClassTeacherRegister";
+import CounselorTeacherRegister from "./routes/Login/CounselorTeacherRegister";
+import RegisterComplete from "./routes/Login/RegisterComplete";
+import Getpassword from "./routes/Login/Getpassword";
+import ChangePassword from "./routes/Login/ChangePassword";
+import ChangePasswordComplete from "./routes/Login/ChangePasswordComplete";
+import ResetPassword from "./routes/Login/ResetPassword";
+import ResetPasswordComplete from "./routes/Login/ResetPasswordComplete";
+import EmailValidateComplete from "./routes/Login/EmailValidateComplete";
+import EmailValidateFail from "./routes/Login/EmailValidateFail";
+import ResendiEmailValidate from "./routes/Login/ResendiEmailValidate";
+import RegisterEmailValidateComplete from "./routes/Login/RegisterEmailValidateComplete";
+import RegisterEmailValidateFail from "./routes/Login/RegisterEmailValidateFail";
+import ResendiRegisterEmailValidate from "./routes/Login/ResendiRegisterEmailValidate";
 import Studentdata from "./routes/Studentdata";
 import Studentdoc from "./routes/Studentdoc";
 import Personal from "./routes/Personal";
-import AdminReservation1 from "./routes/AdminReservation1";
-import AdminReservation2 from "./routes/AdminReservation2";
-import AdminReservation3 from "./routes/AdminReservation3";
-import ClassTeacherReservation1 from "./routes/ClassTeacherReservation1";
-import ClassTeacherReservation2 from "./routes/ClassTeacherReservation2";
-import ClassTeacherReservation3 from "./routes/ClassTeacherReservation3";
-import CounselorTeacherReservation2 from "./routes/CounselorTeacherReservation2";
-import CounselorTeacherReservation3 from "./routes/CounselorTeacherReservation3";
-import StudentReservationStatus from "./routes/StudentReservationStatus";
+import AdminReservation1 from "./routes/Reservation/AdminReservation1";
+import AdminReservation2 from "./routes/Reservation/AdminReservation2";
+import AdminReservation3 from "./routes/Reservation/AdminReservation3";
+import ClassTeacherReservation1 from "./routes/Reservation/ClassTeacherReservation1";
+import ClassTeacherReservation2 from "./routes/Reservation/ClassTeacherReservation2";
+import ClassTeacherReservation3 from "./routes/Reservation/ClassTeacherReservation3";
+import CounselorTeacherReservation2 from "./routes/Login/CounselorTeacherReservation2";
+import CounselorTeacherReservation3 from "./routes/Login/CounselorTeacherReservation3";
+import StudentReservationStatus from "./routes/Reservation/StudentReservationStatus";
 import TeacherManagement from "./routes/TeacherManagement";
-import TeacherAuthority from "./routes/TeacherAuthority";
 import StudentManagement from "./routes/StudentManagement";
-import Coachingrecord from "./routes/Coachingrecord";
-import Individual from "./routes/Individual";
-import IndividualTeach from "./routes/IndividualTeach";
+import Coachingrecord from "./routes/ClassList/Coachingrecord";
+import CoachingStudent from "./routes/ClassList/CoachingStudent";
+import Individual from "./routes/ClassList/Individual";
+import IndividualTeach from "./routes/ClassList/IndividualTeach";
+import AdminClassList from "./routes/ClassList/AdminClassList";
+import AdminCoachingrecord from "./routes/ClassList/AdminCoachingrecord";
 export default (
   <HashRouter>
     <Switch>
@@ -53,7 +55,7 @@ export default (
         component={CounselorTeacherRegister}
       />
       <Route path="/Register/Complete" exact component={RegisterComplete} />
-      <Route path="/Getpassword" exact component={Getpassword} />
+      <Route path="/Loging/Getpassword" exact component={Getpassword} />
       <Route path="/ResetPassword" exact component={ResetPassword} />
       <Route
         path="/ResetPasswordComplete"
@@ -148,15 +150,21 @@ export default (
         exact
         component={TeacherManagement}
       />
-      <Route path="/TeacherAuthority/:id" exact component={TeacherAuthority} />
       <Route
         path="/StudentManagement/:id"
         exact
         component={StudentManagement}
       />
       <Route path="/Coachingrecord/:id" exact component={Coachingrecord} />
+      <Route path="/CoachingStudent/:id" exact component={CoachingStudent} />
       <Route path="/Individual/:id" exact component={Individual} />
       <Route path="/IndividualTeach/:id" exact component={IndividualTeach} />
+      <Route path="/AdminClassList" exact component={AdminClassList} />
+      <Route
+        path="/AdminCoachingrecord/:id"
+        exact
+        component={AdminCoachingrecord}
+      />
     </Switch>
   </HashRouter>
 );

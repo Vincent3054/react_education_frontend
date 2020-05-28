@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import Layout from "../layouts/Layout";
-import "./Studentdoc.css";
-import indeximg from "../Assets/1926.jpg";
+import { Link } from "react-router-dom";
+import Layout from "../../layouts/Layout";
+import "./Coachingrecord.css";
 
-export default class Studentdoc extends Component {
+export default class Coachingrecord extends Component {
   state = {
     lab: [
       {
@@ -74,19 +74,14 @@ export default class Studentdoc extends Component {
 
     const textlab = data.map((item, index, array) => {
       return (
-        <tr className="list" key={index}>
-          <td> {index} </td>
-          <td> {item.class} </td>
-          <td> {item.name}</td>
+        <tr className="list-body" key={index}>
+          <td> {item.name} </td>
+          <td> {item.name} </td>
           <td> {item.gender}</td>
           <td> {item.remarks}</td>
-          <td className="td-btn">
-            <button type="button" className="btn">
-              編輯
-            </button>
-            <button type="button" className="btn">
-              刪除
-            </button>
+          <td>
+            {" "}
+            <Link to="/CoachingStudent/1">查看</Link>
           </td>
         </tr>
       );
@@ -94,23 +89,43 @@ export default class Studentdoc extends Component {
 
     return (
       <Layout>
-        <div className="Studentdoc">
+        <div className="Coachingrecord">
           <div className="title">
-            <div className="index-img">
-              <img src={indeximg} />
-            </div>
+            <span className="titlename">學生列表</span>
             <table className="table">
               <thead>
+                <tr>
+                  <td colSpan="8" className="theadstart">
+                    <label>search：</label>
+                    <input type="text" />
+                  </td>
+                </tr>
                 <tr className="list">
-                  <th>序號</th>
+                  <th>學生姓名</th>
+                  <th>電話</th>
                   <th>班級</th>
-                  <th>姓名</th>
-                  <th>性別</th>
-                  <th>備註</th>
-                  <th className="td-btn">管理</th>
+                  <th>導師</th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>{textlab}</tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="8" className="foot">
+                    <span className="footmain">上一頁</span>
+                    <button type="button" className="btn footmain">
+                      1
+                    </button>
+                    <button type="button" className="btn footmain">
+                      2
+                    </button>
+                    <button type="button" className="btn footmain">
+                      3
+                    </button>
+                    <span className="footmain">下一頁</span>
+                  </td>
+                </tr>
+              </tfoot>
             </table>
           </div>
         </div>
