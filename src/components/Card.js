@@ -37,19 +37,6 @@ export default class Card extends Component {
             </div>
           </div>
         </div>
-        <h2 className="card__title">{data}</h2>
-        <p className="card__text">
-          班級代號
-          <br />
-          0/10人
-        </p>
-        <div className="card__action-bar">
-          <Link to={`/Studentdata/${data}`}>
-            <a href="#" className="ph-button ph-btn-green">
-              進入
-            </a>
-          </Link>
-        </div>
       </div>
     );
   }

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import Layout from "../../layouts/Layout";
 import "../../mixin/main.css";
 import "../Studentdata.css";
@@ -10,6 +11,11 @@ export default class StudentReservationStatus extends Component {
   state = {
     ac: false,
     comp: false,
+    Period:"",
+	  Time:"",
+	  Date:"",
+    StudentsRemarks:"",
+    Category:"",
     student: [
       {
         number: 1,
@@ -58,7 +64,56 @@ export default class StudentReservationStatus extends Component {
   stopPropagation(e) {
     e.nativeEvent.stopImmediatePropagation();
   }
+  handleSubmit = (e) => {
+    const {
+      Period,
+	    Time,
+	    Date,
+      StudentsRemarks,
+      Category
+    } = this.state;
+    const payload = {
+      Period,
+	    Time,
+	    Date,
+      StudentsRemarks,
+      Category
+    };
+    if (
+      Period=== "" || Time=== "" ||Date=== "" || Category=== ""
+    ) 
+    {
+      alert("欄位不可空白");
+    }
+    else {
+      e.preventDefault();
+      axios
+        .post(`http://studytutor_backend.hsc.nutc.edu.tw/api/Reservation `, payload, {
+          headers: {
+            Authorization: JSON.parse(localStorage.getItem("Token")),
+          },
+        })
+        .then((res) => {
+          console.log(res.data);
+          alert(res.data.Message);
+          //呼叫Comp
+        })
+        .catch((error) => {
+          const status = error.response.status;
+          //錯誤狀態碼
+          console.log(status);
+          const err = JSON.parse(error.request.response);
+          //錯誤訊息
+          alert(err.Message);
+        });
+    }
+  };
   render() {
+    const{ Period,
+	    Time,
+	    Date,
+      StudentsRemarks,
+      Category}=this.state;
     const { ac, comp } = this.state;
     const { match } = this.props;
     const { params } = match;
@@ -118,20 +173,25 @@ export default class StudentReservationStatus extends Component {
             <div className="background">
               <div className="container">
                 <div className="wrap">
-                  <form className="form">
+                  <form className="form" onSubmit={this.handleSubmit}>
                     <span className="title">預約</span>
                     <div className="cancel">
                       <button className="g-right" onClick={this.alterData}>
-                        {" "}
                       </button>
                     </div>
                     <div className="list">
                       <span className="list-text">預約日期：</span>
-                      <input className="input" type="date"></input>
+                      <input className="input" type="date"  onChange={(e) => {
+                        this.setState({ Date: e.target.value });
+                      }}
+                      value={Date}></input>
                     </div>
                     <div className="list">
                       <span className="list-text">預約時段：</span>
-                      <select className="input">
+                      <select className="input"  onChange={(e) => {
+                        this.setState({ Period: e.target.value });
+                      }}
+                      value={Period}>
                         <option></option>
                         <option value="早上">早上</option>
                         <option value="中午">中午</option>
@@ -141,11 +201,17 @@ export default class StudentReservationStatus extends Component {
                     </div>
                     <div className="list">
                       <span className="list-text">預約時間：</span>
-                      <input className="input" type="time"></input>
+                      <input className="input" type="time" onChange={(e) => {
+                        this.setState({ Time: e.target.value });
+                      }}
+                      value={Time}></input>
                     </div>
                     <div className="list">
                       <span className="list-text">諮詢類別</span>
-                      <select className="input">
+                      <select className="input" onChange={(e) => {
+                        this.setState({ Category: e.target.value });
+                      }}
+                      value={Category}>
                         <option></option>
                         <option value="學業">學業</option>
                         <option value="家庭">家庭</option>
@@ -158,10 +224,13 @@ export default class StudentReservationStatus extends Component {
                       <textarea
                         className="input"
                         style={{ height: "100px" }}
-                      ></textarea>
+                        onChange={(e) => {
+                          this.setState({ StudentsRemarks: e.target.value });
+                        }}
+                        value={StudentsRemarks}></textarea>
                     </div>
                     <div className="list">
-                      <button className="login-btn" onClick={this.comp}>
+                      <button className="login-btn" >
                         預約
                       </button>
                     </div>

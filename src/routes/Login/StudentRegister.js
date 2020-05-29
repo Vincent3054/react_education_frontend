@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import "../mixin/main.css";
-import "./Login/Register.css";
+import "../../mixin/main.css";
+import "./Register.css";
 export default class StudentRegister extends Component {
   state = {
     Account: "",
@@ -66,7 +66,7 @@ export default class StudentRegister extends Component {
           console.log(res.data);
           alert(res.data.Message);
           localStorage.setItem("Token", JSON.stringify(res.data.Data.Token));
-          // this.props.history.push("/Loging/RegisterEmailValidate");
+          this.props.history.push("/Register/Complete");
         })
         .catch((error) => {
           const status = error.response.status;

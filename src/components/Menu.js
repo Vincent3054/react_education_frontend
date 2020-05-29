@@ -32,7 +32,7 @@ export default class Menu extends Component {
         <div className={ac ? `Sidebar active` : `Sidebar`}>
           <span>管理者</span>
           <ul className="ul">
-            <Link to="/ClassList" className="linkstyle">
+            <Link to="/AdminReservation1/1" className="linkstyle">
               <li className="list">
                 <img src={home} className="img" />
                 首頁-預約(管理者)
@@ -44,69 +44,91 @@ export default class Menu extends Component {
                 班級列表(管理者)
               </li>
             </Link>
+            <Link to="/TeacherManagement/1" className="linkstyle">
             <li className="list">
               <img src={set} className="img" />
               管理老師(管理者)
             </li>
+            </Link>
+            <Link to="/StudentManagement/1" className="linkstyle">
             <li className="list">
               <img src={set} className="img" />
               管理學生(管理者)
             </li>
+            </Link>
           </ul>
 
           <hr />
           <span>輔導老師</span>
           <ul className="ul">
+          <Link to="/CounselorTeacherReservation2/1" className="linkstyle">
             <li className="list">
               <img src={home} className="img" />
               首頁-預約(輔導老師)
             </li>
+          </Link>
+          <Link to="/AdminClassList" className="linkstyle">
             <li className="list">
               <img src={user} className="img" />
               班級列表(輔導老師)
             </li>
+          </Link>
             <li className="list">
               <img src={edit} className="img" />
               輔導紀錄(輔導老師)
             </li>
+          <Link to="/Personal" className="linkstyle">
             <li className="list">
               <img src={person} className="img" />
               個人資料(輔導老師)
             </li>
+          </Link>
           </ul>
 
           <hr />
           <span>導師</span>
           <ul className="ul">
+          <Link to="/AdminCoachingrecord/C101" className="linkstyle">
             <li className="list">
               <img src={user} className="img" />
               首頁-學生列表(導師)
             </li>
+          </Link>
+          <Link to="/ClassTeacherReservation1/1" className="linkstyle">
             <li className="list">
               <img src={home} className="img" />
               預約狀態(導師)
             </li>
+          </Link>
+          <Link to="/Personal" className="linkstyle">
             <li className="list">
               <img src={person} className="img" />
               個人資料(導師)
             </li>
+          </Link>
           </ul>
 
           <hr />
           <span>學生</span>
           <ul className="ul">
+          <Link to="/StudentReservationStatus/1" className="linkstyle">
             <li className="list">
               <img src={home} className="img" />
               首頁-預約-申請(學生)
             </li>
+          </Link>
+          <Link to="/CoachingStudent/1" className="linkstyle">
             <li className="list">
               <img src={edit} className="img" />
               輔導紀錄(學生)
             </li>
+          </Link>
+          <Link to="/Personal" className="linkstyle">
             <li className="list">
               <img src={person} className="img" />
               個人資料(學生)
             </li>
+          </Link>
           </ul>
         </div>
       </div>

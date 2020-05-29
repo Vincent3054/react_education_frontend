@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import Layout from "../../layouts/Layout";
 import "../../mixin/main.css";
+import "../../components/Card.css";
 import Card from "../../components/Card";
+import classAdd from "../../Assets/classAdd.png";
 export default class AdminClassList extends Component {
   constructor(props) {
     super(props);
@@ -43,7 +45,21 @@ export default class AdminClassList extends Component {
     console.log(Cardlist);
     return (
       <Layout>
-        <div className="AdminClassList">{Cardlist}</div>
+      <div className="Card">
+        <div className="row">
+          <div className="column">
+            <div className="cards">
+              <div className="card card--big">
+                <div className="addClass">
+                  <span>+ &nbsp;</span>
+                  <span>新增班級</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="AdminClassList">{Cardlist}</div>
       </Layout>
     );
   }

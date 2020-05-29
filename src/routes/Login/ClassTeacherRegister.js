@@ -59,7 +59,7 @@ export default class ClassTeacherRegister extends Component {
           console.log(res.data);
           alert(res.data.Message);
           localStorage.setItem("Token", JSON.stringify(res.data.Data.Token));
-          // this.props.history.push("/Loging/RegisterEmailValidate");
+          this.props.history.push("/Register/Complete");
         })
         .catch((error) => {
           const status = error.response.status;

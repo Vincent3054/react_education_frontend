@@ -3,7 +3,7 @@ import { HashRouter, Switch, Route } from "react-router-dom";
 import Index from "./routes/Index";
 import ClassList from "./routes/ClassList/ClassList";
 import Loging from "./routes/Login/Loging";
-import StudentRegister from "./routes/StudentRegister";
+import StudentRegister from "./routes/Login/StudentRegister";
 import ClassTeacherRegister from "./routes/Login/ClassTeacherRegister";
 import CounselorTeacherRegister from "./routes/Login/CounselorTeacherRegister";
 import RegisterComplete from "./routes/Login/RegisterComplete";

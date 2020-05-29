@@ -12,7 +12,7 @@ export default class Menu extends Component {
             <span>logo</span>
           </div>
           <div className="Navbar-login">
-            <Link to="/Loging">登入/註冊</Link>
+            <Link to="/Loging">登出</Link>
           </div>
         </div>
       </div>
