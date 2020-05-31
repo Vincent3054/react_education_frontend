@@ -15,19 +15,21 @@ export default class Card extends Component {
                 <div className="card__image">
                   <img
                     src={ClassCard}
-                    alt="錯誤"
-                    title="Error"
+                    alt="班級照片"
+                    title="ClassCard"
                     style={{ width: "100%", height: "100%" }}
                   />
                 </div>
-                <h2 className="card__title">{data}</h2>
+                <h2 className="card__title">{data.ClassName}</h2>
                 <p className="card__text">
-                  班級代號
-                  <br />
-                  0/10人
+                  班級代號：{data.Class_Id}
+                  <br/>
+                  入學年度：{data.Grade}
+                  <br/>
+                  班級老師：{data.Teacher}
                 </p>
                 <div className="card__action-bar">
-                  <Link to={`./${role}/${data}`}>
+                  <Link to={`./${role}/${data.Class_Id}`}>
                     <a href="#" className="ph-button ph-btn-green">
                       進入
                     </a>

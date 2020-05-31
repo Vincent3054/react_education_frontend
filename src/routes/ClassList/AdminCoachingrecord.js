@@ -16,7 +16,7 @@ export default class AdminCoachingrecord extends Component {
     const { params } = match;
     axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/Class?Class_Id=${params.id}`, {
       headers: {
-        "Authorization": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJBY2NvdW50IjoicGVycnkxMDA1IiwiUm9sZSI6IlAwMDMsUDAwNCxQMDA4LFAwMDksUDAxMCxQMDExLFAwMTIsUDAxMyxQMDE0LFAwMTUsUDAxNixQMDE3LFAwMTgsIiwiRXhwaXJlIjoiMjAyMC81LzI4IOS4i-WNiCAwNjowODoyNSJ9.7FQZ80YSeL4Ub50aYhR9GAnaRO02wev7ruTRcOu0HC3Wt7t3KXhg26hJtmY8XTJD2iRhAtAFk5Q_ob3HicCVZA"
+        "Authorization":"eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJBY2NvdW50IjoicGVycnkxMDA1IiwiUm9sZSI6IlAwMDMsUDAwNCxQMDA4LFAwMDksUDAxMCxQMDExLFAwMTIsUDAxMyxQMDE0LFAwMTUsUDAxNixQMDE3LFAwMTgsIiwiRXhwaXJlIjoiMjAyMC82LzEg5LiL5Y2IIDA3OjM2OjM0In0.m8ZhcsFl6gIieytyLs229Os1WDl5Or9xgM_wvp2s-gsbXnhiolreo-UjQotj3fA6-o-ZHIFSeHId5bxGrgYcZw"
       }
     })
       .then((res) => {
