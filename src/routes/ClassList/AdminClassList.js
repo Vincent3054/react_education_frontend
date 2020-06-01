@@ -5,6 +5,7 @@ import "../../mixin/main.css";
 import "../../components/Card.css";
 import"../Reservation/StudentReservation.css";
 import Card from "../../components/Card";
+import Correctfrom from "../../Assets/EmailValidate_check.png";
 export default class AdminClassList extends Component {
   constructor(props) {
     super(props);
@@ -15,53 +16,44 @@ export default class AdminClassList extends Component {
       Grade:"",
       ClassName:"",
       Teacher:"",
-      data: [
-        "C202",
-        "C101",
-        "C101",
-        "C202",
-        "C101",
-        "C202",
-        "C101",
-        "C202",
-        "C101",
-        "C202",
-      ],
-      classlist: [
-      
-      ],
+      classlist: [],
     };
   }
   componentDidMount() {
-    axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/ClassStudent`, {
-      headers: {
-        Authorization: JSON.parse(localStorage.getItem("Token")),
-      }
-    })
-      .then((res) => {
-        // console.log(res.data.Data.DataList);
-        const datalist = res.data.Data.DataList;
-        this.setState({
-          classlist: datalist
-        }, () => {
-          // console.log(this.state.classlist)
-        })
-      }).catch((err) => {
-        // console.error({ err }, 90);
-      })
-
+    this.gitclass();
   }
+  // componentDidUpdate(){
+  // this.gitclass();
+  // }
+ gitclass=()=>{
+  axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/ClassStudent`, {
+    headers: {
+      Authorization: JSON.parse(localStorage.getItem("Token")),
+    }
+    })
+    .then((res) => {
+      // console.log(res.data.Data.DataList);
+      const datalist = res.data.Data.DataList;
+      this.setState({
+        classlist: datalist
+      }, () => {
+        // console.log(this.state.classlist)
+      })
+    }).catch((err) => {
+      console.error({ err }, 90);
+    })
+ }
   alterData = () => {
     const { ac } = this.state;
-    if (ac == false) {
+    if (ac === false) {
       this.setState({ ac: true });
     } else {
       this.setState({ ac: false });
     }
   };
   comp = () => {
-    const { comp, ac } = this.state;
-    if (comp == false) {
+    const { comp } = this.state;
+    if (comp === false) {
       this.setState({ comp: true });
       this.setState({ ac: false });
     } else {
@@ -96,14 +88,14 @@ export default class AdminClassList extends Component {
           },
         })
         .then((res) => {
-          // console.log(res.data);
-          alert(res.data.Message);
-          //呼叫Comp
+          console.log(res.data);
+          // alert(res.data.Message);
+          this.comp();
         })
         .catch((error) => {
           const status = error.response.status;
           //錯誤狀態碼
-          // console.log(status);
+          console.log(status);
           const err = JSON.parse(error.request.response);
           //錯誤訊息
           alert(err.Message);
@@ -113,14 +105,13 @@ export default class AdminClassList extends Component {
   render() {
     const{Class_Id,Grade,ClassName,Teacher}=this.state;
     const { ac, comp } = this.state;
-    const { data,classlist } = this.state;
+    const { classlist } = this.state;
     // console.log(classlist);
-    const Cardlist = classlist.map(
-      (item, index) => {
+    const Cardlist = classlist.map((item, index) => {
         console.log(item,index );
         return (
           <div key={index}>
-            <Card data={item} role="AdminCoachingrecord" />
+            <Card data={item}  role="AdminCoachingrecord" />
           </div>
         );
       }
@@ -129,16 +120,42 @@ export default class AdminClassList extends Component {
     return (
       <Layout>
       <div className="StudentReservation">
+          <div className={comp ? `limiter` : `limiter-mone`}>
+            <div className="background">
+              <div className="container">
+                <div className="wrap-comp">
+                  <form className="form">
+                    <span className="title">預約成功</span>
+                    <div style={{ textAlign: "center", display: "block" }}>
+                      <img
+                        src={Correctfrom}
+                        alt="成功"
+                        title="ocmp"
+                        style={{ width: "140px" }}
+                      />
+                    </div>
+                    <div style={{ marginTop: "30px", textAlign: "center" }}>
+                      <span>恭喜您預約成功!</span>
+                    </div>
+                    <div className="list">
+                        <button className="login-btn" onClick={this.comp}>
+                          回去查看
+                        </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <div className="StudentReservation">
           <div className={ac ? `limiter` : `limiter-mone`}>
             <div className="background">
               <div className="container">
                 <div className="wrap">
                   <form className="form" onSubmit={this.handleSubmit}>
                     <span className="title">新增班級</span>
-                    <div className="cancel">
-                      <button className="g-right" onClick={this.alterData}>
-                      </button>
-                    </div>
+                    <div class="close"  type="button" onClick={this.alterData}></div>
                     <div className="list">
                       <span className="list-text">班級編號：</span>
                       <input className="input" type="text"  onChange={(e) => {

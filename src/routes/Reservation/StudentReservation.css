@@ -36,6 +36,7 @@
     -o-box-shadow     : 0 3px 20px 0 rgba(0, 0, 0, 0.3);
     -ms-box-shadow    : 0 3px 20px 0 rgba(0, 0, 0, 0.3);
 }
+
 .StudentReservation .wrap-comp {
     top               : 10%;
     margin            : 0 auto;
@@ -75,33 +76,45 @@
     padding-bottom  : 30px;
 }
 
-.StudentReservation .cancel {
-    position     : absolute;
-    top          : 0;
-    right        : 0;
-    padding-top  : 30px;
-    padding-right: 15px;
+.StudentReservation .close {
+    position           : absolute;
+    right              : 0px;
+    top                : 0px;
+    width              : 50px;
+    height             : 50px;
+    /* background      : silver; */
+    border-radius      : 25px;
+    /* box-shadow      : 2px 2px 5px 0px black; */
+    cursor             : pointer;
 }
 
-.StudentReservation .g-right {
-    display          : inline-block;
-    width            : 36px;
-    height           : 6px;
-    background       : #fff;
-    line-height      : 0;
-    font-size        : 0;
-    vertical-align   : middle;
-    -webkit-transform: rotate(45deg);
+.StudentReservation .close:hover::before,
+.StudentReservation .close:hover::after {
+    background: silver;
 }
 
-.StudentReservation .g-right:after {
-    content          : "/";
-    display          : block;
-    width            : 36px;
-    height           : 6px;
-    background       : #fff;
-    -webkit-transform: rotate(-90deg);
+.StudentReservation .close:before {
+    position  : absolute;
+    content   : '';
+    width     : 30px;
+    height    : 10px;
+    background: white;
+    transform : rotate(45deg);
+    top       : 20px;
+    left      : 10px;
 }
+
+.StudentReservation .close:after {
+    content   : '';
+    position  : absolute;
+    width     : 30px;
+    height    : 10px;
+    background: white;
+    transform : rotate(-45deg);
+    top       : 20px;
+    left      : 10px;
+}
+
 
 .StudentReservation .list {
     width : 100%;
@@ -172,35 +185,40 @@ button {
 
 @media screen and (min-width: 1200px) {
     .StudentReservation .wrap {
-        width: 50%;
+        width     : 50%;
         transition: 0.8s;
     }
+
     .StudentReservation .wrap-comp {
-        width: 35%;
+        width     : 35%;
         transition: 0.8s;
     }
 }
+
 @media screen and (max-width: 1500px) {
     .StudentReservation .wrap {
-        width: 50%;
+        width     : 50%;
         transition: 0.8s;
     }
-  
+
 }
+
 @media screen and (max-width: 1024px) {
     .StudentReservation .wrap {
-        width: 80%;
+        width     : 80%;
         transition: 0.8s;
     }
-  
+
 }
+
 @media screen and (max-width: 768px) {
     .StudentReservation .wrap {
-        width: 90%;
+        width     : 90%;
         transition: 0.8s;
     }
+
     .StudentReservation .wrap-comp {
-        width: 90%;
+        width     : 90%;
         transition: 0.8s;
     }
 }

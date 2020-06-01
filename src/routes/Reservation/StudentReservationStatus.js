@@ -45,15 +45,15 @@ export default class StudentReservationStatus extends Component {
   };
   alterData = () => {
     const { ac } = this.state;
-    if (ac == false) {
+    if (ac === false) {
       this.setState({ ac: true });
     } else {
       this.setState({ ac: false });
     }
   };
   comp = () => {
-    const { comp, ac } = this.state;
-    if (comp == false) {
+    const { comp } = this.state;
+    if (comp === false) {
       this.setState({ comp: true });
       this.setState({ ac: false });
     } else {
@@ -95,8 +95,8 @@ export default class StudentReservationStatus extends Component {
         })
         .then((res) => {
           console.log(res.data);
-          alert(res.data.Message);
-          //呼叫Comp
+          // alert(res.data.Message);
+          this.comp();
         })
         .catch((error) => {
           const status = error.response.status;
@@ -149,8 +149,8 @@ export default class StudentReservationStatus extends Component {
                     <div style={{ textAlign: "center", display: "block" }}>
                       <img
                         src={Correctfrom}
-                        alt="錯誤"
-                        title="Error"
+                        alt="成功"
+                        title="ocmp"
                         style={{ width: "140px" }}
                       />
                     </div>
@@ -175,10 +175,7 @@ export default class StudentReservationStatus extends Component {
                 <div className="wrap">
                   <form className="form" onSubmit={this.handleSubmit}>
                     <span className="title">預約</span>
-                    <div className="cancel">
-                      <button className="g-right" onClick={this.alterData}>
-                      </button>
-                    </div>
+                    <div class="close"  type="button" onClick={this.alterData}></div>
                     <div className="list">
                       <span className="list-text">預約日期：</span>
                       <input className="input" type="date"  onChange={(e) => {
