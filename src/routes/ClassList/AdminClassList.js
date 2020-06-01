@@ -15,20 +15,7 @@ export default class AdminClassList extends Component {
       Grade:"",
       ClassName:"",
       Teacher:"",
-      data: [
-        "C202",
-        "C101",
-        "C101",
-        "C202",
-        "C101",
-        "C202",
-        "C101",
-        "C202",
-        "C101",
-        "C202",
-      ],
       classlist: [
-      
       ],
     };
   }
@@ -49,7 +36,6 @@ export default class AdminClassList extends Component {
       }).catch((err) => {
         // console.error({ err }, 90);
       })
-
   }
   alterData = () => {
     const { ac } = this.state;
@@ -96,14 +82,14 @@ export default class AdminClassList extends Component {
           },
         })
         .then((res) => {
-          // console.log(res.data);
+          console.log(res.data);
           alert(res.data.Message);
           //呼叫Comp
         })
         .catch((error) => {
           const status = error.response.status;
           //錯誤狀態碼
-          // console.log(status);
+          console.log(status);
           const err = JSON.parse(error.request.response);
           //錯誤訊息
           alert(err.Message);
@@ -113,7 +99,7 @@ export default class AdminClassList extends Component {
   render() {
     const{Class_Id,Grade,ClassName,Teacher}=this.state;
     const { ac, comp } = this.state;
-    const { data,classlist } = this.state;
+    const {classlist } = this.state;
     // console.log(classlist);
     const Cardlist = classlist.map(
       (item, index) => {
@@ -169,7 +155,7 @@ export default class AdminClassList extends Component {
                     </div>
                     <div className="list">
                       <button className="login-btn" >
-                        預約
+                        送出
                       </button>
                     </div>
                   </form>
