@@ -67,7 +67,7 @@ export default class Menu extends Component {
               首頁-預約(輔導老師)
             </li>
           </Link>
-          <Link to="/AdminClassList" className="linkstyle">
+          <Link to="/CounselorTeacherClassList" className="linkstyle">
             <li className="list">
               <img src={user} className="img" />
               班級列表(輔導老師)
