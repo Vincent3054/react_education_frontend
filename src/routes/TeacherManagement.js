@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import Layout from "../layouts/Layout";
 import "../mixin/main.css";
 import "./Studentdata.css";
@@ -27,8 +28,26 @@ export default class TeacherManagement extends Component {
         phone: "0912345678",
       },
     ],
+    TeacherAll:[],
   };
-
+  componentDidMount() {
+    axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/AdminTeacher?Role_Id=R002`, {
+    headers: {
+      Authorization: JSON.parse(localStorage.getItem("Token")),
+    }
+    })
+    .then((res) => {
+      console.log(res.data.Data.DataList);
+      const datalist = res.data.Data.DataList;
+      this.setState({
+        TeacherAll: datalist
+      }, () => {
+        // console.log(this.state.classlist)
+      })
+    }).catch((err) => {
+      console.error({ err }, 90);
+    })
+  }
   showModal = (e) => {
     const { visible } = this.state;
     console.log(e);
@@ -62,23 +81,16 @@ export default class TeacherManagement extends Component {
   };
 
   render() {
-    const { visible, notification } = this.state;
-    const { match } = this.props;
-    const { params } = match;
-    const { teacher } = this.state;
-    const data = teacher.filter((item) => {
-      return item.number === parseInt(params.id);
-    });
-
-    const textteacher = data.map((item, index) => {
+    const { visible, notification,TeacherAll } = this.state;
+    const textteacher = TeacherAll.map((item, index) => {
       return (
         <tr className="list-body" key={index}>
-          <td>{item.number}</td>
-          <td>{item.account}</td>
-          <td>{item.name}</td>
-          <td>{item.email}</td>
-          <td>{item.phone}</td>
-          <td>{item.Roles}</td>
+          <td>{index}</td>
+          <td>{item.Account}</td>
+          <td>{item.Name}</td>
+          <td>{item.Email}</td>
+          <td>{item.Phone}</td>
+          <td>{item.Mark}</td>
           <td className="td-btn">
             <button
               type="button"
@@ -93,157 +105,6 @@ export default class TeacherManagement extends Component {
             </button>
           </td>
         </tr>
-      );
-    });
-
-    const editstudent = data.map((item) => {
-      return (
-        <form className="form" onSubmit={this.handleSubmit}>
-          <span className="title">修改權限</span>
-          <div className="cancel">
-            <button className="g-right" onClick={this.showModal}></button>
-          </div>
-          <div className="list">
-            <span className="list-text">角色</span>
-            <select className="input">
-              <option value={item.Roles}>目前角色：{item.Roles}</option>
-              <option value="最高管理員">最高管理員</option>
-              <option value="輔導老師">輔導老師</option>
-              <option value="班級老師">班級老師</option>
-              <option value="學生">學生</option>
-            </select>
-          </div>
-
-          <div className="list">
-            <span className="list-text">權限設定</span>
-            <select className="input">
-              <option value="Member">Member</option>
-              <option value="Login">Login</option>
-              <option value="Record">Record</option>
-              <option value="Article">Article</option>
-              <option value="class">class</option>
-              <option value="classAll">classAll</option>
-            </select>
-          </div>
-          <tr className="list" style={{ marginTop: "20px" }}>
-            <th style={{ width: "100%" }}>
-              <span className="list-text">驗證信</span>
-            </th>
-            <th>
-              <div class="onoffswitch">
-                <input
-                  type="checkbox"
-                  name="onoffswitch"
-                  class="onoffswitch-checkbox"
-                  id="myonoffswitch"
-                ></input>
-                <label class="onoffswitch-label" for="myonoffswitch">
-                  <span class="onoffswitch-inner"></span>
-                  <span class="onoffswitch-switch"></span>
-                </label>
-              </div>
-            </th>
-          </tr>
-          <tr className="list">
-            <th style={{ width: "100%" }}>
-              <span className="list-text">登入</span>
-            </th>
-            <th>
-              <div class="onoffswitch">
-                <input
-                  type="checkbox"
-                  name="onoffswitch"
-                  class="onoffswitch-checkbox"
-                  id="1"
-                ></input>
-                <label class="onoffswitch-label" for="1">
-                  <span class="onoffswitch-inner"></span>
-                  <span class="onoffswitch-switch"></span>
-                </label>
-              </div>
-            </th>
-          </tr>
-          <tr className="list">
-            <th style={{ width: "100%" }}>
-              <span className="list-text">瀏覽文章列表</span>
-            </th>
-            <th>
-              <div class="onoffswitch">
-                <input
-                  type="checkbox"
-                  name="onoffswitch"
-                  class="onoffswitch-checkbox"
-                  id="2"
-                ></input>
-                <label class="onoffswitch-label" for="2">
-                  <span class="onoffswitch-inner"></span>
-                  <span class="onoffswitch-switch"></span>
-                </label>
-              </div>
-            </th>
-          </tr>
-          <tr className="list">
-            <th style={{ width: "100%" }}>
-              <span className="list-text"> 文章頁面</span>
-            </th>
-            <th>
-              <div class="onoffswitch">
-                <input
-                  type="checkbox"
-                  name="onoffswitch"
-                  class="onoffswitch-checkbox"
-                  id="3"
-                ></input>
-                <label class="onoffswitch-label" for="3">
-                  <span class="onoffswitch-inner"></span>
-                  <span class="onoffswitch-switch"></span>
-                </label>
-              </div>
-            </th>
-          </tr>
-          <tr className="list">
-            <th style={{ width: "100%" }}>
-              <span className="list-text">瀏覽文章列表</span>
-            </th>
-            <th>
-              <div class="onoffswitch">
-                <input
-                  type="checkbox"
-                  name="onoffswitch"
-                  class="onoffswitch-checkbox"
-                  id="4"
-                ></input>
-                <label class="onoffswitch-label" for="4">
-                  <span class="onoffswitch-inner"></span>
-                  <span class="onoffswitch-switch"></span>
-                </label>
-              </div>
-            </th>
-          </tr>
-          <tr className="list">
-            <th style={{ width: "100%" }}>
-              <span className="list-text">班級列表</span>
-            </th>
-            <th>
-              <div class="onoffswitch">
-                <input
-                  type="checkbox"
-                  name="onoffswitch"
-                  class="onoffswitch-checkbox"
-                  id="5"
-                ></input>
-                <label class="onoffswitch-label" for="5">
-                  <span class="onoffswitch-inner"></span>
-                  <span class="onoffswitch-switch"></span>
-                </label>
-              </div>
-            </th>
-          </tr>
-
-          <div className="list">
-            <button className="login-btn">送出</button>
-          </div>
-        </form>
       );
     });
 
@@ -289,7 +150,153 @@ export default class TeacherManagement extends Component {
           <div className={visible ? `limiter` : `limiter-mone`}>
             <div className="background" onClick={this.showModal}>
               <div className="container">
-                <div className="wrap">{editstudent}</div>
+                <div className="wrap">
+                <form className="form" onSubmit={this.handleSubmit}>
+                    <span className="title">修改權限</span>
+                    <div className="cancel">
+                      <button className="g-right" onClick={this.showModal}></button>
+                    </div>
+                    <div className="list">
+                      <span className="list-text">角色</span>
+                      <select className="input">
+                        <option value={TeacherAll.Roles}>目前角色：{TeacherAll.Roles}</option>
+                        <option value="最高管理員">最高管理員</option>
+                        <option value="輔導老師">輔導老師</option>
+                        <option value="班級老師">班級老師</option>
+                        <option value="學生">學生</option>
+                      </select>
+                    </div>
+          
+                    <div className="list">
+                      <span className="list-text">權限設定</span>
+                      <select className="input">
+                        <option value="Member">Member</option>
+                        <option value="Login">Login</option>
+                        <option value="Record">Record</option>
+                        <option value="Article">Article</option>
+                        <option value="class">class</option>
+                        <option value="classAll">classAll</option>
+                      </select>
+                    </div>
+                    <tr className="list" style={{ marginTop: "20px" }}>
+                      <th style={{ width: "100%" }}>
+                        <span className="list-text">驗證信</span>
+                      </th>
+                      <th>
+                        <div class="onoffswitch">
+                          <input
+                            type="checkbox"
+                            name="onoffswitch"
+                            class="onoffswitch-checkbox"
+                            id="myonoffswitch"
+                          ></input>
+                          <label class="onoffswitch-label" for="myonoffswitch">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                          </label>
+                        </div>
+                      </th>
+                    </tr>
+                    <tr className="list">
+                      <th style={{ width: "100%" }}>
+                        <span className="list-text">登入</span>
+                      </th>
+                      <th>
+                        <div class="onoffswitch">
+                          <input
+                            type="checkbox"
+                            name="onoffswitch"
+                            class="onoffswitch-checkbox"
+                            id="1"
+                          ></input>
+                          <label class="onoffswitch-label" for="1">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                          </label>
+                        </div>
+                      </th>
+                    </tr>
+                    <tr className="list">
+                      <th style={{ width: "100%" }}>
+                        <span className="list-text">瀏覽文章列表</span>
+                      </th>
+                      <th>
+                        <div class="onoffswitch">
+                          <input
+                            type="checkbox"
+                            name="onoffswitch"
+                            class="onoffswitch-checkbox"
+                            id="2"
+                          ></input>
+                          <label class="onoffswitch-label" for="2">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                          </label>
+                        </div>
+                      </th>
+                    </tr>
+                    <tr className="list">
+                      <th style={{ width: "100%" }}>
+                        <span className="list-text"> 文章頁面</span>
+                      </th>
+                      <th>
+                        <div class="onoffswitch">
+                          <input
+                            type="checkbox"
+                            name="onoffswitch"
+                            class="onoffswitch-checkbox"
+                            id="3"
+                          ></input>
+                          <label class="onoffswitch-label" for="3">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                          </label>
+                        </div>
+                      </th>
+                    </tr>
+                    <tr className="list">
+                      <th style={{ width: "100%" }}>
+                        <span className="list-text">瀏覽文章列表</span>
+                      </th>
+                      <th>
+                        <div class="onoffswitch">
+                          <input
+                            type="checkbox"
+                            name="onoffswitch"
+                            class="onoffswitch-checkbox"
+                            id="4"
+                          ></input>
+                          <label class="onoffswitch-label" for="4">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                          </label>
+                        </div>
+                      </th>
+                    </tr>
+                    <tr className="list">
+                      <th style={{ width: "100%" }}>
+                        <span className="list-text">班級列表</span>
+                      </th>
+                      <th>
+                        <div class="onoffswitch">
+                          <input
+                            type="checkbox"
+                            name="onoffswitch"
+                            class="onoffswitch-checkbox"
+                            id="5"
+                          ></input>
+                          <label class="onoffswitch-label" for="5">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                          </label>
+                        </div>
+                      </th>
+                    </tr>
+                    <div className="list">
+                      <button className="login-btn">送出</button>
+                    </div>
+                  </form>
+                </div>
               </div>
             </div>
           </div>

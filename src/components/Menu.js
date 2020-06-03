@@ -50,7 +50,7 @@ export default class Menu extends Component {
               管理老師(管理者)
             </li>
             </Link>
-            <Link to="/StudentManagement/1" className="linkstyle">
+            <Link to="/StudentManagement" className="linkstyle">
             <li className="list">
               <img src={set} className="img" />
               管理學生(管理者)

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import Layout from "../layouts/Layout";
 import "../mixin/main.css";
 import "./Studentdata.css";
@@ -8,30 +9,35 @@ export default class StudentManagement extends Component {
   state = {
     ac: false,
     comp: false,
-    student: [
-      {
-        number: 1,
-        account: "aaa123",
-        name: "AAA",
-        email: "a1234@gmail.com",
-        phone: "0912345678",
-        year: "2020",
-        classnumber: "C101",
-        class: "資訊班",
-      },
-      {
-        number: 2,
-        account: "bbb123",
-        name: "BBB",
-        email: "b1234@gmail.com",
-        phone: "0912345678",
-        year: "1998",
-        classnumber: "C102",
-        class: "才藝班",
-      },
-    ],
+    Account:"",
+    Name: "",
+    Email: "",
+    Phone: "",
+    Sex: "",
+    Class_Id: "",
+    Grade: "",
+    ClassName: "",
+    Teacher: "",
+    studentAll:[],
   };
-
+  componentDidMount() {
+    axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/AdminAll`, {
+    headers: {
+      Authorization: JSON.parse(localStorage.getItem("Token")),
+    }
+    })
+    .then((res) => {
+      console.log(res.data.Data.All);
+      const datalist = res.data.Data.All;
+      this.setState({
+        studentAll: datalist
+      }, () => {
+        // console.log(this.state.classlist)
+      })
+    }).catch((err) => {
+      console.error({ err }, 90);
+    })
+  }
   alterData = () => {
     const { ac } = this.state;
     if (ac == false) {
@@ -50,25 +56,19 @@ export default class StudentManagement extends Component {
     }
   };
   render() {
-    const { ac, comp } = this.state;
-    const { match } = this.props;
-    const { params } = match;
-    const { student } = this.state;
-    const data = student.filter((item, index, array) => {
-      return item.number === parseInt(params.id);
-    });
-
-    const textstudent = data.map((item, index, array) => {
+    const { ac, comp, studentAll } = this.state;
+    const textstudent = studentAll.map((item, index, array) => {
       return (
         <tr className="list-body" key={index}>
-          <td>{item.number}</td>
-          <td>{item.account}</td>
-          <td>{item.name}</td>
-          <td>{item.email}</td>
-          <td>{item.phone}</td>
-          <td>{item.year}</td>
-          <td>{item.classnumber}</td>
-          <td>{item.class}</td>
+          <td>{item.Account}</td>
+          <td>{item.Name}</td>
+          <td>{item.Email}</td>
+          <td>{item.Phone}</td>
+          <td>{item.Sex}</td>
+          <td>{item.Class_Id}</td>
+          <td>{item.ClassName}</td>
+          <td>{item.Grade}</td>
+          <td>{item.Teacher}</td>
           <td className="td-btn">
             <button
               type="button"
@@ -86,7 +86,7 @@ export default class StudentManagement extends Component {
       );
     });
 
-    const editstudent = data.map((item, index, array) => {
+    const editstudent = studentAll.map((item, index, array) => {
       return (
         <form className="form">
           <span className="title">編輯</span>
@@ -238,7 +238,115 @@ export default class StudentManagement extends Component {
           <div className={ac ? `limiter` : `limiter-mone`}>
             <div className="background">
               <div className="container">
-                <div className="wrap">{editstudent}</div>
+                <div className="wrap">
+                  <form className="form">
+                    <span className="title">編輯</span>
+                    <div class="close"  type="button" onClick={this.alterData}></div>
+                    <div className="list">
+                      <span className="list-text">姓名：</span>
+                      <input className="input" type="text"  />
+                    </div>
+                    <div className="list">
+                      <span className="list-text">電子信箱：</span>
+                      <input className="input" type="text" />
+                    </div>
+                    <div className="list">
+                      <span className="list-text">電話：</span>
+                      <input className="input" type="text"  />
+                    </div>
+                    <div className="list">
+                      <span className="list-text">學年度：</span>
+                      <select className="input">
+                        <option></option>
+                        <option value="2040">2040</option>
+                        <option value="2039">2039</option>
+                        <option value="2038">2038</option>
+                        <option value="2037">2037</option>
+                        <option value="2036">2036</option>
+                        <option value="2035">2035</option>
+                        <option value="2034">2034</option>
+                        <option value="2033">2033</option>
+                        <option value="2032">2032</option>
+                        <option value="2031">2031</option>
+                        <option value="2030">2030</option>
+                        <option value="2029">2029</option>
+                        <option value="2028">2028</option>
+                        <option value="2027">2027</option>
+                        <option value="2026">2026</option>
+                        <option value="2025">2025</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                        <option value="2020">2020</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                        <option value="2015">2015</option>
+                        <option value="2014">2014</option>
+                        <option value="2013">2013</option>
+                        <option value="2012">2012</option>
+                        <option value="2011">2011</option>
+                        <option value="2010">2010</option>
+                        <option value="2009">2009</option>
+                        <option value="2008">2008</option>
+                        <option value="2007">2007</option>
+                        <option value="2006">2006</option>
+                        <option value="2005">2005</option>
+                        <option value="2004">2004</option>
+                        <option value="2003">2003</option>
+                        <option value="2002">2002</option>
+                        <option value="2001">2001</option>
+                        <option value="2000">2000</option>
+                        <option value="1999">1999</option>
+                        <option value="1998">1998</option>
+                        <option value="1997">1997</option>
+                        <option value="1996">1996</option>
+                        <option value="1995">1995</option>
+                        <option value="1994">1994</option>
+                        <option value="1993">1993</option>
+                        <option value="1992">1992</option>
+                        <option value="1991">1991</option>
+                        <option value="1990">1990</option>
+                      </select>
+                    </div>
+                    <div className="list">
+                      <span className="list-text">班級代號：</span>
+                      <select className="input">
+                        <option ></option>
+                        <option value="C101">C101</option>
+                        <option value="C102">C102</option>
+                        <option value="C103">C103</option>
+                        <option value="C104">C104</option>
+                        <option value="C105">C105</option>
+                        <option value="C106">C106</option>
+                        <option value="C107">C107</option>
+                        <option value="C108">C108</option>
+                        <option value="C109">C109</option>
+                        <option value="C110">C110</option>
+                      </select>
+                    </div>
+                    <div className="list">
+                      <span className="list-text">班級：</span>
+                      <select className="input">
+                        <option></option>
+                        <option value="資訊班">資訊班</option>
+                        <option value="藝術班">資訊班</option>
+                        <option value="普通班">普通班</option>
+                        <option value="A班">A班</option>
+                        <option value="B班">B班</option>
+                        <option value="C班">C班</option>
+                        <option value="D班">D班</option>
+                      </select>
+                    </div>
+                    <div className="list">
+                      <button className="login-btn" onClick={this.comp}>
+                        送出
+                      </button>
+                    </div>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
@@ -251,7 +359,7 @@ export default class StudentManagement extends Component {
                 <th className="tabletitle" colspan="7">
                   <h2>學生管理系統</h2>
                 </th>
-                <th className="tablecursor" colspan="2">
+                <th className="tablecursor" colspan="4">
                   <div class="demo">
                     <span>搜尋：</span>
                     <input
@@ -262,14 +370,15 @@ export default class StudentManagement extends Component {
                   </div>
                 </th>
                 <tr className="list">
-                  <th>序號</th>
                   <th>帳號</th>
                   <th>姓名</th>
                   <th>電子信箱</th>
                   <th>電話</th>
-                  <th>學年度</th>
+                  <th>性別</th>
                   <th>班級代號</th>
                   <th>班級</th>
+                  <th>學年度</th>
+                  <th>老師</th>
                   <th>管理</th>
                 </tr>
               </thead>

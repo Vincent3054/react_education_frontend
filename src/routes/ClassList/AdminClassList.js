@@ -22,9 +22,6 @@ export default class AdminClassList extends Component {
   componentDidMount() {
     this.gitclass();
   }
-  // componentDidUpdate(){
-  // this.gitclass();
-  // }
  gitclass=()=>{
   axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/ClassStudent`, {
     headers: {
@@ -91,6 +88,7 @@ export default class AdminClassList extends Component {
           console.log(res.data);
           // alert(res.data.Message);
           this.comp();
+          this.gitclass();
         })
         .catch((error) => {
           const status = error.response.status;
@@ -111,7 +109,7 @@ export default class AdminClassList extends Component {
         console.log(item,index );
         return (
           <div key={index}>
-            <Card data={item}  role="AdminCoachingrecord" />
+            <Card data={item}  role="AdminCoachingrecord" git={this.gitclass}/>
           </div>
         );
       }
