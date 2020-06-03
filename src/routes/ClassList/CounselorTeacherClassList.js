@@ -20,7 +20,14 @@ export default class CounselorTeacherClassList extends Component {
       ],
     };
   }
+  
   componentDidMount() {
+     // 获取localstorage
+    // let userInfo = localStorage.getItem("userInfo");
+    // // 判断用户是否登录/登录信息是否过期
+    // if(userInfo && Date.now() - JSON.parse(userInfo).date < 2 * 60 * 60 * 1000) {
+    //   this.setState({userInfo: JSON.parse(userInfo)});
+    // }
     axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/ClassStudent`, {
       headers: {
         Authorization: JSON.parse(localStorage.getItem("Token")),
