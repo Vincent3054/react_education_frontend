@@ -5,7 +5,7 @@
 }
 
 .header .Navbar {
-  position: static;
+  position: fixed;
   top: 0px;
   left: 0px;
   width: 100vw;
@@ -42,4 +42,8 @@
 .header .Navbar .Navbar-login a:hover {
   color: #fff;
   cursor: pointer;
+}
+.btnout{
+  color: #fff;
+  background:none;
 }

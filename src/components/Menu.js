@@ -67,7 +67,7 @@ export default class Menu extends Component {
               首頁-預約(輔導老師)
             </li>
           </Link>
-          <Link to="/AdminClassList" className="linkstyle">
+          <Link to="/CounselorTeacherClassList" className="linkstyle">
             <li className="list">
               <img src={user} className="img" />
               班級列表(輔導老師)
@@ -88,7 +88,7 @@ export default class Menu extends Component {
           <hr />
           <span>導師</span>
           <ul className="ul">
-          <Link to="/AdminCoachingrecord/C101" className="linkstyle">
+          <Link to="/ClassTeacherCoachingrecord" className="linkstyle">
             <li className="list">
               <img src={user} className="img" />
               首頁-學生列表(導師)
@@ -117,7 +117,7 @@ export default class Menu extends Component {
               首頁-預約-申請(學生)
             </li>
           </Link>
-          <Link to="/CoachingStudent/1" className="linkstyle">
+          <Link to="/CoachingStudent/101" className="linkstyle">
             <li className="list">
               <img src={edit} className="img" />
               輔導紀錄(學生)

@@ -1,0 +1,171 @@
+.Card .column {
+    float  : left;
+    width  : 25%;
+    padding: 10px 10px;
+}
+
+.Card .row {
+    margin: 50px 20px 20px 20px;
+}
+
+.Card .cards {
+    will-change     : transform;
+    margin          : 8px;
+    position        : relative;
+    border-radius   : 2px;
+    overflow        : hidden;
+    background-color: #fafafa;
+    box-shadow      : 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+}
+
+.Card .addClass {
+    height     : 300px;
+    line-height: 300px;
+    text-align : center;
+    font-size  : 14pt;
+    color      : #333;
+}
+
+.Card .addClass:hover {
+    color: #3ac162;
+}
+
+
+.card--big {
+    height    : 300px;
+    min-height: 300px;
+}
+
+.card--big .card__image {
+    border-radius: 1px 1px 0 0;
+    opacity      : 1;
+    max-height   : 170px;
+}
+
+.card__image {
+    position           : absolute;
+    background-size    : cover;
+    background-position: center bottom;
+    background-repeat  : no-repat;
+    width              : 100%;
+    height             : 100%;
+    overflow           : hidden;
+    display            : block;
+    opacity            : 0;
+}
+
+.card__image:after {
+    content         : "";
+    display         : block;
+    position        : absolute;
+    background-color: rgba(0, 0, 0, 0.1);
+    top             : 0;
+    left            : 0;
+    right           : 0;
+    bottom          : 0;
+}
+
+.card__title {
+    -webkit-user-select: none;
+    -moz-user-select   : none;
+    -ms-user-select    : none;
+    user-select        : none;
+    font-size          : 24px;
+    color              : #000;
+    margin             : 0;
+    position           : absolute;
+    left               : 0;
+    right              : 0;
+    padding            : 0 16px;
+    overflow           : hidden;
+}
+
+
+.card--big .card__title {
+    top: 180px;
+}
+
+.card--big .card__text {
+    top: 200px;
+}
+
+.card__text {
+    -webkit-user-select: none;
+    -moz-user-select   : none;
+    -ms-user-select    : none;
+    user-select        : none;
+    font-size          : 14px;
+    display            : block;
+    left               : 0;
+    right              : 0;
+    padding            : 17px;
+    line-height        : 1.6;
+    position           : absolute;
+    color              : #000;
+    overflow           : hidden;
+}
+
+.card__action-bar {
+    -webkit-user-select: none;
+    -moz-user-select   : none;
+    -ms-user-select    : none;
+    user-select        : none;
+    position           : absolute;
+    top                : auto;
+    bottom             : 0;
+    /* left            : 0; */
+    right              : 0;
+    padding            : 0 8px;
+    height             : 52px;
+}
+
+.ph-button {
+    border-style   : solid;
+    border-width   : 0px 0px 3px;
+    box-shadow     : 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+    color          : #ffffff;
+    border-radius  : 6px;
+    cursor         : pointer;
+    display        : inline-block;
+    text-align     : center;
+    text-decoration: none;
+    transition     : all 200ms ease-in-out 0s;
+    padding        : 5px 20px;
+    font-size      : 15px;
+}
+
+.ph-btn-green {
+    border-color    : #3ac162;
+    background-color: #5fcf80;
+}
+
+.ph-btn-green:hover,
+.ph-btn-green:focus,
+.ph-btn-green:active {
+    background-color: #4bc970;
+    border-color    : #3ac162;
+}
+
+@media screen and (max-width: 1024px) {
+    .Card .column {
+        width        : 33%;
+        display      : block;
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .Card .column {
+        width        : 50%;
+        display      : block;
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .Card .column {
+        width        : 100%;
+        display      : block;
+        margin-bottom: 20px;
+    }
+}

@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Layout from "../../layouts/Layout";
 import "./CoachingStudent.css";
+import axios from 'axios';
 
 export default class CoachingStudent extends Component {
+
   state = {
     lab: [
       {
@@ -89,119 +91,145 @@ export default class CoachingStudent extends Component {
       },
     ],
   };
-  render() {
+
+  componentDidMount() {
     const { match } = this.props;
     const { params } = match;
-    const { lab } = this.state;
-    const data = lab.filter((item, index, array) => {
-      return item.aid === parseInt(params.id);
-    });
-    const person = lab.filter((item, index, array) => {
-      return index === 0;
-    });
+    // axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/Class?Class_Id=${params.id}`, {
+    //   headers: {
+    //     Authorization: JSON.parse(localStorage.getItem("Token")),
+    //   }
+    // })
+    //   .then((res) => {
+    //     console.log(res.data.Data.DataList);
+    //     const dataone = res.data.Data.DataList;
+    //     this.setState({
+    //       lab: dataone
+    //     }, () => {
+    //       console.log(this.state.lab,109)
+    //     })
+    //   }).catch((err) => {
+    //     console.error({ err }, 112;
+    //   })
+    //////
+    axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/Basic`, {
+      headers: {
+        Authorization: JSON.parse(localStorage.getItem("Token")),
+      }
 
-    const textlab = data.map((item, index, array) => {
-      return (
-        <tr className="list-body" key={index}>
-          <td> {index} </td>
-          <td> {item.class} </td>
-          <td> {item.account}</td>
-          <td> {item.gender}</td>
-          <td> {item.remarks}</td>
-          <td> {item.remarks}</td>
-          <td>
-            {" "}
-            <Link to="/Individual/1">查看</Link>｜
-            <Link to="/IndividualTeach/1">編輯</Link>
-          </td>
-        </tr>
-      );
-    });
-    const textperson = person.map((item, index, array) => {
+    })
+      .then((res) => {
+        console.log(res.data.Data.DataList);
+        const datatwo = res.data.Data.DataList;
+        this.setState({
+          person: datatwo
+        }, () => {
+          console.log(this.state.person, 127)
+        })
+      }).catch((err) => {
+        console.error({ err }, 130);
+      })
+
+  }
+
+  render() {
+
+    // const { dataone } = this.state;
+    const { datatwo } = this.state;
+    
+    // const textlab = dataone.map((item, index, array) => {
+    //   return (
+    //     <tr className="list-body" key={index}>
+    //       <td> {index} </td>
+    //       <td> {item.class} </td>
+    //       <td> {item.account}</td>
+    //       <td> {item.gender}</td>
+    //       <td> {item.remarks}</td>
+    //       <td> {item.remarks}</td>
+    //       <td>
+    //         {" "}
+    //         <Link to="/Individual/1">查看</Link>｜
+    //         <Link to="/IndividualTeach/1">編輯</Link>
+    //       </td>
+    //     </tr>
+    //   );
+    // });
+    const textperson = datatwo.map((item, index, array) => {
       return (
         <div className="content">
           <div className="boxone">
             <span className="font">姓名</span>
             <span className="font">：</span>
-            <span className="font">{item.account}</span>
+            <span className="font">{item.Name}</span>
           </div>
           <div className="boxtwo">
             <span className="font">聯絡電話</span>
             <span className="font">：</span>
-            <span className="font">{item.phone}</span>
+            <span className="font">{item.Phone}</span>
           </div>
           <div className="boxthree">
             <span className="font">電子郵件</span>
             <span className="font">：</span>
-            <span className="font">{item.email}</span>
+            <span className="font">{item.Email}</span>
           </div>
           <div className="boxfour">
-            <span className="font">班級</span>
-            <span className="font">：</span>
-            <span className="font">{item.classtype}</span>
-          </div>
-          <div className="boxfive">
-            <span className="font">班級代號</span>
-            <span className="font">：</span>
-            <span className="font">{item.class}</span>
-          </div>
-          <div className="boxsix">
             <span className="font">性別</span>
             <span className="font">：</span>
-            <span className="font">{item.gender}</span>
+            <span className="font">{item.Sex}</span>
           </div>
         </div>
       );
     });
+
     return (
       <Layout>
 
         <div className="CoachingStudent">
           <span className="titlename">學生列表</span>
           <div className="main">
-         
+
             {textperson}
           </div>
-            <table className="table">
-              <thead>
-                <tr>
-                  <td colSpan="8" className="theadstart">
-                    <label>search：</label>
-                    <input type="text" />
-                  </td>
-                </tr>
-                <tr className="list">
-                  <th>編號</th>
-                  <th>學生姓名</th>
-                  <th>輔導時間</th>
-                  <th>填寫人</th>
-                  <th>類別</th>
-                  <th>標題</th>
-                  <th>摘要</th>
-                </tr>
-              </thead>
-              <tbody>{textlab}</tbody>
-              <tfoot>
-                <tr>
-                  <td colspan="8" className="foot">
-                    <span className="footmain">上一頁</span>
-                    <button type="button" className="btn footmain">
-                      1
+          <table className="table">
+            <thead>
+              <tr>
+                <td colSpan="8" className="theadstart">
+                  <label>search：</label>
+                  <input type="text" />
+                </td>
+              </tr>
+              <tr className="list">
+                <th>編號</th>
+                <th>學生姓名</th>
+                <th>輔導時間</th>
+                <th>填寫人</th>
+                <th>類別</th>
+                <th>標題</th>
+                <th>摘要</th>
+              </tr>
+            </thead>
+            <tbody>{textlab}</tbody>
+            <tfoot>
+              <tr>
+                <td colspan="8" className="foot">
+                  <span className="footmain">上一頁</span>
+                  <button type="button" className="btn footmain">
+                    1
                 </button>
-                    <button type="button" className="btn footmain">
-                      2
+                  <button type="button" className="btn footmain">
+                    2
                 </button>
-                    <button type="button" className="btn footmain">
-                      3
+                  <button type="button" className="btn footmain">
+                    3
                 </button>
-                    <span className="footmain">下一頁</span>
-                  </td>
-                </tr>
-              </tfoot>
-            </table>
-            </div>
-            </Layout>
-      
+                  <span className="footmain">下一頁</span>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </Layout>
+
     );
   }
 }
