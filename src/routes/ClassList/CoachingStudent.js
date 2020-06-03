@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import axios from 'axios';
 import { Link } from "react-router-dom";
 import Layout from "../../layouts/Layout";
 import "./CoachingStudent.css";
-import axios from 'axios';
+
 
 export default class CoachingStudent extends Component {
 
@@ -90,11 +91,12 @@ export default class CoachingStudent extends Component {
         abstract: "目前心理狀態並不佳，有待觀察。",
       },
     ],
+    person:[],
   };
 
   componentDidMount() {
-    const { match } = this.props;
-    const { params } = match;
+    // const { match } = this.props;
+    // const { params } = match;
     // axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/Class?Class_Id=${params.id}`, {
     //   headers: {
     //     Authorization: JSON.parse(localStorage.getItem("Token")),
@@ -119,8 +121,8 @@ export default class CoachingStudent extends Component {
 
     })
       .then((res) => {
-        console.log(res.data.Data.DataList);
-        const datatwo = res.data.Data.DataList;
+        console.log(res);
+        const datatwo = res.data;
         this.setState({
           person: datatwo
         }, () => {
@@ -135,7 +137,7 @@ export default class CoachingStudent extends Component {
   render() {
 
     // const { dataone } = this.state;
-    const { datatwo } = this.state;
+    const { person } = this.state;
     
     // const textlab = dataone.map((item, index, array) => {
     //   return (
@@ -154,41 +156,38 @@ export default class CoachingStudent extends Component {
     //     </tr>
     //   );
     // });
-    const textperson = datatwo.map((item, index, array) => {
-      return (
-        <div className="content">
-          <div className="boxone">
-            <span className="font">姓名</span>
-            <span className="font">：</span>
-            <span className="font">{item.Name}</span>
-          </div>
-          <div className="boxtwo">
-            <span className="font">聯絡電話</span>
-            <span className="font">：</span>
-            <span className="font">{item.Phone}</span>
-          </div>
-          <div className="boxthree">
-            <span className="font">電子郵件</span>
-            <span className="font">：</span>
-            <span className="font">{item.Email}</span>
-          </div>
-          <div className="boxfour">
-            <span className="font">性別</span>
-            <span className="font">：</span>
-            <span className="font">{item.Sex}</span>
-          </div>
-        </div>
-      );
-    });
+    // const textperson = person.map((item, index, array) => {
+    //   return (
+        
+    // });
 
     return (
       <Layout>
-
         <div className="CoachingStudent">
           <span className="titlename">學生列表</span>
           <div className="main">
-
-            {textperson}
+            <div className="content">
+            <div className="boxone">
+              <span className="font">姓名</span>
+              <span className="font">：</span>
+              <span className="font">{person.Name}</span>
+            </div>
+            <div className="boxtwo">
+              <span className="font">聯絡電話</span>
+              <span className="font">：</span>
+              <span className="font">{person.Phone}</span>
+            </div>
+            <div className="boxthree">
+              <span className="font">電子郵件</span>
+              <span className="font">：</span>
+              <span className="font">{person.Email}</span>
+            </div>
+            <div className="boxfour">
+              <span className="font">性別</span>
+              <span className="font">：</span>
+              <span className="font">{person.Sex}</span>
+            </div>
+          </div>
           </div>
           <table className="table">
             <thead>
@@ -208,7 +207,7 @@ export default class CoachingStudent extends Component {
                 <th>摘要</th>
               </tr>
             </thead>
-            <tbody>{textlab}</tbody>
+            <tbody></tbody>
             <tfoot>
               <tr>
                 <td colspan="8" className="foot">

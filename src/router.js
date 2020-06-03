@@ -154,7 +154,7 @@ export default (
         component={TeacherManagement}
       />
       <Route
-        path="/StudentManagement/:id"
+        path="/StudentManagement"
         exact
         component={StudentManagement}
       />

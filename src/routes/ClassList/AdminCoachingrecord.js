@@ -16,7 +16,7 @@ export default class AdminCoachingrecord extends Component {
     const { params } = match;
     axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/Class?Class_Id=${params.id}`, {
       headers: {
-        "Authorization":"eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJBY2NvdW50IjoicGVycnkxMDA1IiwiUm9sZSI6IlAwMDMsUDAwNCxQMDA4LFAwMDksUDAxMCxQMDExLFAwMTIsUDAxMyxQMDE0LFAwMTUsUDAxNixQMDE3LFAwMTgsIiwiRXhwaXJlIjoiMjAyMC82LzEg5LiL5Y2IIDA3OjM2OjM0In0.m8ZhcsFl6gIieytyLs229Os1WDl5Or9xgM_wvp2s-gsbXnhiolreo-UjQotj3fA6-o-ZHIFSeHId5bxGrgYcZw"
+        Authorization: JSON.parse(localStorage.getItem("Token")),      
       }
     })
       .then((res) => {
@@ -44,11 +44,10 @@ export default class AdminCoachingrecord extends Component {
       return (
         <tr className="list-body" key={index}>
           <td> {item.Name} </td>
-          <td> {item.Class_Id} </td>
-          <td> {item.Grade}</td>
+          <td> {item.Phone} </td>
           <td> {item.ClassName}</td>
+          <td> {item.Teacher}</td>
           <td>
-            {" "}
             <Link to="/CoachingStudent/1">查看</Link>
           </td>
         </tr>

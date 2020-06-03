@@ -16,7 +16,7 @@ export default class ClassTeacherCoachingrecord extends Component {
     //const { params } = match;
     axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/ClassTeacher`, {
       headers: {
-        "Authorization":"eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJBY2NvdW50IjoicGVycnkxMDA1IiwiUm9sZSI6IlAwMDMsUDAwNCxQMDA4LFAwMDksUDAxMCxQMDExLFAwMTIsUDAxMyxQMDE0LFAwMTUsUDAxNixQMDE3LFAwMTgsIiwiRXhwaXJlIjoiMjAyMC82LzIg5LiL5Y2IIDEwOjMyOjQ4In0.jTOAgLiRI1wxLzG9ItDTDh2Yaqu0gB6G0C8Px3FdjgufYOaPPYX9RgTY9sCdzE0iLtV1fHm_alZgJLjyR-R8GQ"
+        Authorization: JSON.parse(localStorage.getItem("Token")),
       }
     })
       .then((res) => {

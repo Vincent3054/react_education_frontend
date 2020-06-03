@@ -99,11 +99,7 @@ export default class CounselorTeacherReservation2 extends Component {
       return (
         <form className="form">
           <span className="title">編輯</span>
-          <div className="cancel">
-            <button className="g-right" onClick={this.alterData}>
-              {" "}
-            </button>
-          </div>
+          <div class="close"  type="button" onClick={this.alterData}></div>
           <div className="list">
             <span className="list-text">預約日期：</span>
             <input className="input" type="date" value={item.date}></input>
