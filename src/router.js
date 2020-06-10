@@ -41,6 +41,8 @@ import AdminCoachingrecord from "./routes/ClassList/AdminCoachingrecord";
 import CounselorTeacherClassList from "./routes/ClassList/CounselorTeacherClassList";
 import CounselorTeacherCoachingrecord from "./routes/ClassList/CounselorTeacherCoachingrecord";
 import ClassTeacherCoachingrecord from "./routes/ClassList/ClassTeacherCoachingrecord";
+import TutorCoachingrecord from "./routes/ClassList/TutorCoachingrecord";
+import AddIndividualTeach from "./routes/ClassList/AddIndividualTeach";
 export default (
   <HashRouter>
     <Switch>
@@ -166,6 +168,8 @@ export default (
       <Route path="/CounselorTeacherCoachingrecord" exact component={CounselorTeacherCoachingrecord} />
       <Route path="/CounselorTeacherClassList" exact component={CounselorTeacherClassList} />
       <Route path="/ClassTeacherCoachingrecord" exact component={ClassTeacherCoachingrecord} />
+      <Route path="/TutorCoachingrecord" exact component={TutorCoachingrecord} />
+      <Route path="/AddIndividualTeach/:id" exact component={AddIndividualTeach} />
       <Route
         path="/AdminCoachingrecord/:id"
         exact

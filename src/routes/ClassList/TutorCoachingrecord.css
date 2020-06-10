@@ -1,20 +1,6 @@
-.CoachingStudent{
-margin-top: 15vh;
-
-}
-.CoachingStudent .user {
-  float: left;
-  width: 50%;
-  height: 24vh;
-}
-
-
-.CoachingStudent .content{
-width: 75vw;
-}
-.CoachingStudent .title {
+.TutorCoachingrecord .title {
   margin-top      : 40px;
-  padding         : 24px 0px;
+  padding         : 24px 12px;
   width           : 100%;
   height          : 400px;
   text-align      : center;
@@ -22,53 +8,55 @@ width: 75vw;
   color           : #384661;
   border          : none;
 }
-/* 
-.CoachingStudent .titlename {
-  font-size: 24px;
-} */
 
-.CoachingStudent .table {
-  width: 100%;
+.TutorCoachingrecord .titlename {
+  font-size: 24px;
 }
 
-.CoachingStudent .table thead {
+.TutorCoachingrecord .table {
+  width: 100%;
+
+}
+
+.TutorCoachingrecord .table thead {
   color: #384661;
 }
 
-.CoachingStudent .theadstart {
+.TutorCoachingrecord .theadstart {
   text-align: start;
 }
 
-.CoachingStudent .table tbody tr {
+.TutorCoachingrecord .table tbody tr {
   transition: all 0.5s;
 }
 
-.CoachingStudent .table tbody tr:hover {
+.TutorCoachingrecord .table tbody tr:hover {
   background-color: #d1e4d7;
   cursor          : pointer;
 }
 
-.CoachingStudent .list {
+.TutorCoachingrecord .list {
   background-color: #74bd8a;
+
   line-height: 45px;
   height     : 45px;
 }
 
-.CoachingStudent .list-body {
+.TutorCoachingrecord .list-body {
   background-color: #ffffff;
   line-height     : 45px;
   height          : 45px;
 }
 
-.CoachingStudent thead th {
+.TutorCoachingrecord thead th {
   border: solid 1px #c4c4c4;
 }
 
-.CoachingStudent tbody td {
+.TutorCoachingrecord tbody td {
   border: solid 1px #c4c4c4;
 }
 
-.CoachingStudent .btn {
+.TutorCoachingrecord .btn {
   border             : none;
   width              : 50px;
   height             : 20px;
@@ -78,11 +66,11 @@ width: 75vw;
   outline            : none;
 }
 
-.CoachingStudent .td-btn {
+.TutorCoachingrecord .td-btn {
   width: 20%;
 }
 
-.CoachingStudent .btn {
+.TutorCoachingrecord .btn {
   width           : 50px;
   height          : 25px;
   border-radius   : 25px;
@@ -90,42 +78,42 @@ width: 75vw;
   color           : #fff;
 }
 
-.CoachingStudent .btn:hover {
+.TutorCoachingrecord .btn:hover {
   cursor: pointer;
 }
 
-.CoachingStudent .index-img {
+.TutorCoachingrecord .index-img {
   width : 100%;
   height: 350px;
 }
 
-.CoachingStudent img {
-  width     : 100px;
-  height    : 100%px;
+.TutorCoachingrecord img {
+  width     : 100%;
+  height    : 100%;
   object-fit: cover;
 }
 
 /*TeacherManagement*/
 
-.CoachingStudent .tabletitle {
+.TutorCoachingrecord .tabletitle {
   line-height     : 60px;
   height          : 60px;
   background-color: #fff;
   text-align      : left;
   letter-spacing  : 3px;
-  /* padding-left    : 2%; */
+  padding-left    : 2%;
 }
 
-/* .CoachingStudent .tablecursor {
+.TutorCoachingrecord .tablecursor {
   line-height     : 60px;
   height          : 60px;
   background-color: #fff;
   text-align      : right;
   padding-right   : 2%;
   font-size       : 16px;
-} */
+}
 
-/* .CoachingStudent .submit {
+.TutorCoachingrecord .submit {
   padding              : 5px 15px;
   background           : #384661;
   color                : #fff;
@@ -133,18 +121,18 @@ width: 75vw;
   cursor               : pointer;
   -webkit-border-radius: 5px;
   border-radius        : 5px;
-} */
+}
 
-/* .CoachingStudent .text {
-  padding              : 5px 0px;
+.TutorCoachingrecord .text {
+  padding              : 5px 15px;
   border               : 2px #6abe83 solid;
   cursor               : pointer;
   -webkit-border-radius: 5px;
   border-radius        : 5px;
   margin-right         : 5px;
-} */
+}
 
-.CoachingStudent .input {
+.TutorCoachingrecord .input {
   border            : 1px solid #c4c4c4;
   width             : 100%;
   height            : 40px;
@@ -158,17 +146,12 @@ width: 75vw;
   color             : #999999;
 }
 
-.CoachingStudent .foot {
+.TutorCoachingrecord .foot {
   border-top: dashed 1pt #d1e4d7;
   text-align: center;
 
 }
 
-.CoachingStudent .footmain {
+.TutorCoachingrecord .footmain {
   margin: 30px 6px;
 }
-
-.CoachingStudent .main{
-  float: left;
-  width: 50%;
-} 

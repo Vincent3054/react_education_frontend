@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { Component } from "react";
 import "../mixin/main.css";
 import "./Menu.css";
@@ -21,6 +22,9 @@ export default class Menu extends Component {
       this.setState({ ac: false });
     }
   };
+
+
+  
   render() {
     const { ac } = this.state;
     return (
@@ -73,10 +77,12 @@ export default class Menu extends Component {
               班級列表(輔導老師)
             </li>
           </Link>
+          <Link to="/TutorCoachingrecord" className="linkstyle">
             <li className="list">
               <img src={edit} className="img" />
               輔導紀錄(輔導老師)
             </li>
+            </Link>
           <Link to="/Personal" className="linkstyle">
             <li className="list">
               <img src={person} className="img" />

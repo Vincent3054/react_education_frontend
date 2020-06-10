@@ -89,53 +89,12 @@ export default class Individual extends Component {
       );
     });
     console.log(textcontent, 85);
-    const textlab = data.map((item, index, array) => {
-      return (
-        <div className="main">
-          <div className="user">
-            <img src={user} className="userimg" />
-          </div>
-          <div className="content">
-            <div className="boxone">
-              <span className="font">姓名</span>
-              <span className="font">：</span>
-              <span className="font">{item.account}</span>
-            </div>
-            <div className="boxtwo">
-              <span className="font">聯絡電話</span>
-              <span className="font">：</span>
-              <span className="font">{item.phone}</span>
-            </div>
-            <div className="boxthree">
-              <span className="font">電子郵件</span>
-              <span className="font">：</span>
-              <span className="font">{item.email}</span>
-            </div>
-            <div className="boxfour">
-              <span className="font">班級</span>
-              <span className="font">：</span>
-              <span className="font">{item.classtype}</span>
-            </div>
-            <div className="boxfive">
-              <span className="font">班級代號</span>
-              <span className="font">：</span>
-              <span className="font">{item.class}</span>
-            </div>
-            <div className="boxsix">
-              <span className="font">性別</span>
-              <span className="font">：</span>
-              <span className="font">{item.gender}</span>
-            </div>
-          </div>
-        </div>
-      );
-    });
+    
     return (
       <Layout>
         <div className="Individual">
           <span className="titlename">個人輔導紀錄</span>
           <div className="body">
-            <div className="per">{textlab}</div>
             <div className="con">{textcontent}</div>
           </div>
         </div>

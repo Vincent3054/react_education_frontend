@@ -3,116 +3,35 @@ import axios from 'axios';
 import { Link } from "react-router-dom";
 import Layout from "../../layouts/Layout";
 import "./CoachingStudent.css";
+import user from "../../Assets/user.png";
 
 
 export default class CoachingStudent extends Component {
 
   state = {
-    lab: [
-      {
-        account: "歐俞均",
-        gender: "女",
-        phone: "0988295638",
-        email: "ouyujyun@gmail.com",
-        classtype: "資管三Ａ",
-        class: 101,
-        remarks: "高關懷",
-        aid: 1,
-        crenteTime: "2020/04/24",
-        keyin: "姜琇森",
-        categody: "心理衛生",
-        title: "第一次輔導 歐俞均",
-        content: "歐俞均學生家庭狀況，輔導了解狀況後xxxxxxxxxxxxxxxx。",
-        abstract: "目前心理狀態並不佳，有待觀察。",
-
-      },
-      {
-        account: "李四",
-        gender: "女",
-        phone: "0988295638",
-        email: "ouyujyun@gmail.com",
-        classtype: "資管三Ａ",
-        class: 101,
-        remarks: "高關懷",
-        aid: 2,
-        crenteTime: "2020/04/24",
-        keyin: "姜琇森",
-        categody: "心理衛生",
-        title: "第一次輔導 歐俞均",
-        content: "歐俞均學生家庭狀況，輔導了解狀況後xxxxxxxxxxxxxxxx。",
-        abstract: "目前心理狀態並不佳，有待觀察。",
-      },
-      {
-        account: "李四",
-        gender: "女",
-        phone: "0988295638",
-        email: "ouyujyun@gmail.com",
-        classtype: "資管三Ａ",
-        class: 101,
-        remarks: "高關懷",
-        aid: 3,
-        crenteTime: "2020/04/24",
-        keyin: "姜琇森",
-        categody: "心理衛生",
-        title: "第一次輔導 歐俞均",
-        content: "歐俞均學生家庭狀況，輔導了解狀況後xxxxxxxxxxxxxxxx。",
-        abstract: "目前心理狀態並不佳，有待觀察。",
-      },
-      {
-        account: "歐於均",
-        gender: "女",
-        phone: "0988295638",
-        email: "ouyujyun@gmail.com",
-        classtype: "資管三Ａ",
-        class: 101,
-        remarks: "高關懷",
-        aid: 1,
-        crenteTime: "2020/04/24",
-        keyin: "姜琇森",
-        categody: "心理衛生",
-        title: "第二次輔導 歐俞均",
-        content: "歐俞均學生家庭狀況，輔導了解狀況後xxxxxxxxxxxxxxxx。",
-        abstract: "目前心理狀態並不佳，有待觀察。",
-      },
-      {
-        account: "歐俞均",
-        gender: "女",
-        phone: "0988295638",
-        email: "ouyujyun@gmail.com",
-        classtype: "資管三Ａ",
-        class: 101,
-        remarks: "高關懷",
-        aid: 1,
-        crenteTime: "2020/04/24",
-        keyin: "姜琇森",
-        categody: "心理衛生",
-        title: "第三次輔導 歐俞均",
-        content: "歐俞均學生家庭狀況，輔導了解狀況後xxxxxxxxxxxxxxxx。",
-        abstract: "目前心理狀態並不佳，有待觀察。",
-      },
-    ],
-    person:[],
+    person: [],
+    lab:[],
   };
 
   componentDidMount() {
     // const { match } = this.props;
     // const { params } = match;
-    // axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/Class?Class_Id=${params.id}`, {
-    //   headers: {
-    //     Authorization: JSON.parse(localStorage.getItem("Token")),
-    //   }
-    // })
-    //   .then((res) => {
-    //     console.log(res.data.Data.DataList);
-    //     const dataone = res.data.Data.DataList;
-    //     this.setState({
-    //       lab: dataone
-    //     }, () => {
-    //       console.log(this.state.lab,109)
-    //     })
-    //   }).catch((err) => {
-    //     console.error({ err }, 112;
-    //   })
+     axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/Student `, {
+       headers: {
+         Authorization: JSON.parse(localStorage.getItem("Token")),
+       }
+     })
+       .then((res) => {
+         console.log(res.data.Data.DataList,25);
+         const dataone = res.data.Data.DataList;
+         this.setState({
+           lab: dataone
+         }, () => {
+           console.log(this.state.lab,29)
+         })
+       }).catch((err) => {
+         console.error({ err }, 33);
+       })
     //////
     axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/Basic`, {
       headers: {
@@ -138,35 +57,35 @@ export default class CoachingStudent extends Component {
 
     // const { dataone } = this.state;
     const { person } = this.state;
-    
-    // const textlab = dataone.map((item, index, array) => {
-    //   return (
-    //     <tr className="list-body" key={index}>
-    //       <td> {index} </td>
-    //       <td> {item.class} </td>
-    //       <td> {item.account}</td>
-    //       <td> {item.gender}</td>
-    //       <td> {item.remarks}</td>
-    //       <td> {item.remarks}</td>
-    //       <td>
-    //         {" "}
-    //         <Link to="/Individual/1">查看</Link>｜
-    //         <Link to="/IndividualTeach/1">編輯</Link>
-    //       </td>
-    //     </tr>
-    //   );
-    // });
-    // const textperson = person.map((item, index, array) => {
-    //   return (
-        
-    // });
+    const { lab } = this.state;
+
+     const textlab = lab.map((item, index, array) => {
+       return (
+         <tr className="list-body" key={index}>
+           <td> {index} </td>
+           <td> {item.class} </td>
+           <td> {item.gender}</td>
+           <td> {item.remarks}</td>
+           <td> {item.remarks}</td>
+           <td>
+             {" "}
+             <Link to="/Individual/1">查看</Link>｜
+             <Link to="/IndividualTeach/1">編輯</Link>
+           </td>
+         </tr>
+       );
+     });
+ 
 
     return (
       <Layout>
         <div className="CoachingStudent">
+        <div className="content">
+          <div className="user">
+            <img src={user} className="userimg" />
+          </div>
           <span className="titlename">學生列表</span>
           <div className="main">
-            <div className="content">
             <div className="boxone">
               <span className="font">姓名</span>
               <span className="font">：</span>
@@ -199,18 +118,17 @@ export default class CoachingStudent extends Component {
               </tr>
               <tr className="list">
                 <th>編號</th>
-                <th>學生姓名</th>
-                <th>輔導時間</th>
+                <th>班級</th>
                 <th>填寫人</th>
                 <th>類別</th>
                 <th>標題</th>
                 <th>摘要</th>
               </tr>
             </thead>
-            <tbody></tbody>
+            <tbody>{textlab}</tbody>
             <tfoot>
               <tr>
-                <td colspan="8" className="foot">
+                <td colSpan="8" className="foot">
                   <span className="footmain">上一頁</span>
                   <button type="button" className="btn footmain">
                     1

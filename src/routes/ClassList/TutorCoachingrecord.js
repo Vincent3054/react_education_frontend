@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Layout from "../../layouts/Layout";
-import "./ClassTeacherCoachingrecord.css";
+import "./TutorCoachingrecord.css";
 import axios from 'axios';
 
-export default class ClassTeacherCoachingrecord extends Component {
+export default class TutorCoachingrecord extends Component {
   state = {
     lab: [
       
@@ -14,7 +14,7 @@ export default class ClassTeacherCoachingrecord extends Component {
   componentDidMount() {
     //const { match } = this.props;
     //const { params } = match;
-    axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/ClassTeacher`, {
+    axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/api/PSYStatusTeacher?Fettle=4`, {
       headers: {
         Authorization: JSON.parse(localStorage.getItem("Token")),
       }
@@ -56,7 +56,7 @@ export default class ClassTeacherCoachingrecord extends Component {
 
     return (
       <Layout>
-        <div className="ClassTeacherCoachingrecord">
+        <div className="TutorCoachingrecord">
           <div className="title">
             <span className="titlename">學生列表</span>
             <table className="table">
