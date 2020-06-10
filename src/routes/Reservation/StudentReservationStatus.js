@@ -70,17 +70,15 @@ export default class StudentReservationStatus extends Component {
 	    Time,
 	    Date,
       StudentsRemarks,
-      Category
     } = this.state;
     const payload = {
       Period,
 	    Time,
 	    Date,
       StudentsRemarks,
-      Category
     };
     if (
-      Period=== "" || Time=== "" ||Date=== "" || Category=== ""
+      Period=== "" || Time=== "" ||Date=== "" 
     ) 
     {
       alert("欄位不可空白");
@@ -109,11 +107,12 @@ export default class StudentReservationStatus extends Component {
     }
   };
   render() {
-    const{ Period,
+    const{ 
+      Period,
 	    Time,
 	    Date,
       StudentsRemarks,
-      Category}=this.state;
+    }=this.state;
     const { ac, comp } = this.state;
     const { match } = this.props;
     const { params } = match;
@@ -130,7 +129,6 @@ export default class StudentReservationStatus extends Component {
           <td>{item.Name}</td>
           <td>{item.date}</td>
           <td>{item.Time}</td>
-          <td>{item.type}</td>
           <td>{item.StudentRemasks}</td>
           <td>預約成功</td>
         </tr>
@@ -204,19 +202,6 @@ export default class StudentReservationStatus extends Component {
                       value={Time}></input>
                     </div>
                     <div className="list">
-                      <span className="list-text">諮詢類別</span>
-                      <select className="input" onChange={(e) => {
-                        this.setState({ Category: e.target.value });
-                      }}
-                      value={Category}>
-                        <option></option>
-                        <option value="學業">學業</option>
-                        <option value="家庭">家庭</option>
-                        <option value="感情">感情</option>
-                        <option value="其他">其他</option>
-                      </select>
-                    </div>
-                    <div className="list">
                       <span className="list-text">諮詢內容：</span>
                       <textarea
                         className="input"
@@ -241,7 +226,7 @@ export default class StudentReservationStatus extends Component {
           <div className="title">
             <table className="table">
               <thead>
-                <th className="tabletitle" colspan="7">
+                <th className="tabletitle" colspan="5">
                   <h2>學生預約系統</h2>
                 </th>
                 <th className="tablecursor" colspan="2">
@@ -260,7 +245,6 @@ export default class StudentReservationStatus extends Component {
                   <th>學生姓名</th>
                   <th>預約日期</th>
                   <th>預約時間</th>
-                  <th>諮詢類別</th>
                   <th>學生備註</th>
                   <th>預約狀態</th>
                 </tr>

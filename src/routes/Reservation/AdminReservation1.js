@@ -8,77 +8,125 @@ import { Link } from "react-router-dom";
 import Correctfrom from "../../Assets/EmailValidate_check.png";
 export default class AdminReservation1 extends Component {
   state = {
+    //控制
     ac: false,
     comp: false,
-    Reservation_Id: "",
-    Class_Id: "",
-    Account: "",
-    Period: "",
-    Time: "",
-    Date:"",
-    NowPSY: "",
-    BeforePSY: "",
-    Fettle:"",
-    TeacherRemarks: "",
-    StudentsRemarks: "",
-    number:1,
+    //資料列表
     Reservation:[],
+    //老師列表
+    CounselorTeacher:[],
+    //指派老師
+    NowPSY:"",
+    
   };
   componentDidMount() {
-    axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/StatusRecord?Fettle=1`, {
+    this.git();
+    axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/AdminTeacher?Role_Id=R003`, {
     headers: {
       Authorization: JSON.parse(localStorage.getItem("Token")),
     }
     })
     .then((res) => {
-      console.log(res.data.Data.DataList);
+      console.log(res.data.Data.DataList,12);
       const datalist = res.data.Data.DataList;
       this.setState({
-        Reservation: datalist
-      }, () => {
-        // console.log(this.state.Reservation)
+        CounselorTeacher: datalist
       })
     }).catch((err) => {
-      console.error({ err }, 90);
+      console.error({ err }, 91);
     })
+  }
+  git(){
+    axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/StatusRecord?Fettle=1`, {
+      headers: {
+        Authorization: JSON.parse(localStorage.getItem("Token")),
+      }
+      })
+      .then((res) => {
+        console.log(res);
+        const datalist = res.data.Data.DataList;
+        this.setState({
+          Reservation: datalist
+        })
+      }).catch((err) => {
+        console.error({ err }, 90);
+      })
   }
   alterData = () => {
     const { ac } = this.state;
-    if (ac == false) {
+    if (ac === false) {
       this.setState({ ac: true });
     } else {
       this.setState({ ac: false });
     }
   };
   comp = () => {
-    const { comp, ac } = this.state;
-    if (comp == false) {
+    const { comp } = this.state;
+    if (comp === false) {
       this.setState({ comp: true });
       this.setState({ ac: false });
     } else {
       this.setState({ comp: false });
     }
   };
-
+  handleSubmit = (e,Reservation_Id) => {
+    const {
+      NowPSY
+    } = this.state;
+    const payload = {
+      NowPSY
+    };
+      e.preventDefault();
+      axios
+        .put(`http://studytutor_backend.hsc.nutc.edu.tw/api/Reservation/?Reservation_Id=${Reservation_Id}`, payload, {
+          headers: {
+            Authorization: JSON.parse(localStorage.getItem("Token")),
+          },
+        })
+        .then((res) => {
+          console.log(res);
+          alert(res.data.Message);
+          this.git();
+        })
+        .catch((error) => {
+          const status = error.response.status;
+          //錯誤狀態碼
+          console.log(status);
+          const err = JSON.parse(error.request.response);
+          //錯誤訊息
+          alert(err.Message);
+        });
+  };
+    
   render() {
-    const { ac, comp,Reservation} = this.state;
+    const { ac, comp,Reservation,CounselorTeacher,NowPSY} = this.state;
+    const CounselorTeacherList = CounselorTeacher.map((item, index, array) => {
+      return (
+          <option key={index} value={item.Account}>{item.Name}</option>
+      );
+    });
+   
     const textstudent = Reservation.map((item, index, array) => {
       return (
         <tr className="list-body" key={index}>
-          <td>{index}</td>
-          <td>{item.Class_Id}</td>
-          <td>{item.Account}</td>
+          <td>{index+1}</td>
+          <td>{item.Class_Name}</td>
+          <td>{item.Name}</td>
           <td>{item.Date}</td>
           <td>{item.Time}</td>
-          <td>{item.type}</td>
-          <td>{item.TeacherRemarks}</td>
           <td>{item.StudentsRemarks}</td>
+          <td>{item.TeacherRemarks}</td>
           <td>{item.BeforePSY}</td>
           <td>
-            <select className="input">
-              <option value="老師1">老師1</option>
-              <option value="老師2">老師2</option>
-              <option value="老師3">老師3</option>
+            <select 
+              className="input" 
+              onChange={(e) => {
+              this.setState({NowPSY: e.target.value },
+                (e)=>{console.log(this.state.NowPSY)});
+              }}
+              value={NowPSY}
+            >
+              {CounselorTeacherList}
             </select>
           </td>
           <td className="td-btn">
@@ -90,7 +138,7 @@ export default class AdminReservation1 extends Component {
             >
               修改
             </button>
-            <button type="button" className="btn" style={{ width: "100px" }}>
+            <button type="button" className="btn" onClick={e=>{this.handleSubmit(e,item.Reservation_Id)}} style={{ width: "100px" }}>
               指派老師
             </button>
           </td>
@@ -98,39 +146,7 @@ export default class AdminReservation1 extends Component {
       );
     });
 
-    const editstudent = Reservation.map((item, index, array) => {
-      return (
-        <form className="form">
-          <span className="title">編輯</span>
-          <div class="close"  type="button" onClick={this.alterData}></div>
-
-          <div className="list">
-            <span className="list-text">預約日期：</span>
-            <input className="input" type="date" value={item.date}></input>
-          </div>
-          <div className="list">
-            <span className="list-text">預約時間：</span>
-            <input className="input" type="time" value={item.time}></input>
-          </div>
-          <div className="list">
-            <span className="list-text">諮詢類別：</span>
-            <select className="input">
-              <option value={item.type}>{item.type}</option>
-              <option value="學業">學業</option>
-              <option value="家庭">家庭</option>
-              <option value="感情">感情</option>
-              <option value="其他">其他</option>
-            </select>
-          </div>
-          <div className="list">
-            <button className="login-btn" onClick={this.comp}>
-              送出
-            </button>
-          </div>
-        </form>
-      );
-    });
-
+    
     return (
       <Layout>
         <div className="StudentReservation">
@@ -167,7 +183,35 @@ export default class AdminReservation1 extends Component {
           <div className={ac ? `limiter` : `limiter-mone`}>
             <div className="background">
               <div className="container">
-                <div className="wrap">{editstudent}</div>
+                <div className="wrap">
+                  <form className="form">
+                    <span className="title">編輯</span>
+                    <div class="close"  type="button" onClick={this.alterData}></div>
+          
+                    <div className="list">
+                      <span className="list-text">預約日期：</span>
+                      <input className="input" type="date"  />
+                    </div>
+                    <div className="list">
+                      <span className="list-text">預約時間：</span>
+                      <input className="input" type="time"></input>
+                    </div>
+                    <div className="list">
+                      <span className="list-text">諮詢類別：</span>
+                      <select className="input">
+                        <option value="學業">學業</option>
+                        <option value="家庭">家庭</option>
+                        <option value="感情">感情</option>
+                        <option value="其他">其他</option>
+                      </select>
+                    </div>
+                    <div className="list">
+                      <button className="login-btn" onClick={this.comp}>
+                        送出
+                      </button>
+                    </div>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
@@ -205,7 +249,6 @@ export default class AdminReservation1 extends Component {
                   <th>學生姓名</th>
                   <th>預約日期</th>
                   <th>預約時間</th>
-                  <th>諮詢類別</th>
                   <th>學生備註</th>
                   <th>老師備註</th>
                   <th>上次指派</th>

@@ -38,9 +38,49 @@ export default class StudentManagement extends Component {
       console.error({ err }, 90);
     })
   }
+  handleSubmit = (e) => {
+    // const { data,git} = this.props;
+    const {
+    Name,
+	  Email,
+	  Phone,
+	  Sex,
+	  Class_Id
+    } = this.state;
+    const payload = {
+      Name,
+	    Email,
+	    Phone,
+	    Sex,
+	    Class_Id
+    };
+    //Account 帶Account 近來api
+      e.preventDefault();
+      axios
+        .put(`http://studytutor_backend.hsc.nutc.edu.tw/api/Student?Account={uerry1005}`, payload, {
+          headers: {
+            Authorization: JSON.parse(localStorage.getItem("Token")),
+          },
+        })
+        .then((res) => {
+          console.log(res);
+          // alert(res.data.Message);
+          this.comp();
+          // git();
+        })
+        .catch((error) => {
+          const status = error.response.status;
+          //錯誤狀態碼
+          console.log(status);
+          const err = JSON.parse(error.request.response);
+          //錯誤訊息
+          alert(err.Message);
+        });
+  };
   alterData = () => {
     const { ac } = this.state;
-    if (ac == false) {
+   
+    if (ac === false) {
       this.setState({ ac: true });
     } else {
       this.setState({ ac: false });
@@ -56,6 +96,7 @@ export default class StudentManagement extends Component {
     }
   };
   render() {
+    const {Name,Email,Phone,Class_Id}=this.state;
     const { ac, comp, studentAll } = this.state;
     const textstudent = studentAll.map((item, index, array) => {
       return (
@@ -86,121 +127,7 @@ export default class StudentManagement extends Component {
       );
     });
 
-    const editstudent = studentAll.map((item, index, array) => {
-      return (
-        <form className="form">
-          <span className="title">編輯</span>
-          <div className="cancel">
-            <button className="g-right" onClick={this.alterData}>
-              {" "}
-            </button>
-          </div>
-          <div className="list">
-            <span className="list-text">姓名：</span>
-            <input className="input" type="text" value={item.name} />
-          </div>
-          <div className="list">
-            <span className="list-text">電子信箱：</span>
-            <input className="input" type="text" value={item.email} />
-          </div>
-          <div className="list">
-            <span className="list-text">電話：</span>
-            <input className="input" type="text" value={item.phone} />
-          </div>
-          <div className="list">
-            <span className="list-text">學年度：</span>
-            <select className="input">
-              <option value={item.year}>{item.year}年</option>
-              <option value="2040">2040</option>
-              <option value="2039">2039</option>
-              <option value="2038">2038</option>{" "}
-              <option value="2037">2037</option>
-              <option value="2036">2036</option>
-              <option value="2035">2035</option>
-              <option value="2034">2034</option>
-              <option value="2033">2033</option>
-              <option value="2032">2032</option>
-              <option value="2031">2031</option>
-              <option value="2030">2030</option>
-              <option value="2029">2029</option>
-              <option value="2028">2028</option>
-              <option value="2027">2027</option>
-              <option value="2026">2026</option>
-              <option value="2025">2025</option>
-              <option value="2024">2024</option>
-              <option value="2023">2023</option>
-              <option value="2022">2022</option>
-              <option value="2021">2021</option>
-              <option value="2020">2020</option>
-              <option value="2019">2019</option>
-              <option value="2018">2018</option>
-              <option value="2017">2017</option>
-              <option value="2016">2016</option>
-              <option value="2015">2015</option>
-              <option value="2014">2014</option>
-              <option value="2013">2013</option>
-              <option value="2012">2012</option>
-              <option value="2011">2011</option>
-              <option value="2010">2010</option>
-              <option value="2009">2009</option>
-              <option value="2008">2008</option>
-              <option value="2007">2007</option>
-              <option value="2006">2006</option>
-              <option value="2005">2005</option>
-              <option value="2004">2004</option>
-              <option value="2003">2003</option>
-              <option value="2002">2002</option>
-              <option value="2001">2001</option>
-              <option value="2000">2000</option>
-              <option value="1999">1999</option>
-              <option value="1998">1998</option>
-              <option value="1997">1997</option>
-              <option value="1996">1996</option>
-              <option value="1995">1995</option>
-              <option value="1994">1994</option>
-              <option value="1993">1993</option>
-              <option value="1992">1992</option>
-              <option value="1991">1991</option>
-              <option value="1990">1990</option>
-            </select>
-          </div>
-          <div className="list">
-            <span className="list-text">班級代號：</span>
-            <select className="input">
-              <option value={item.classnumber}>{item.classnumber}</option>
-              <option value="C101">C101</option>
-              <option value="C102">C102</option>
-              <option value="C103">C103</option>
-              <option value="C104">C104</option>
-              <option value="C105">C105</option>
-              <option value="C106">C106</option>
-              <option value="C107">C107</option>
-              <option value="C108">C108</option>
-              <option value="C109">C109</option>
-              <option value="C110">C110</option>
-            </select>
-          </div>
-          <div className="list">
-            <span className="list-text">班級：</span>
-            <select className="input">
-              <option value={item.class}>{item.class}</option>
-              <option value="資訊班">資訊班</option>
-              <option value="藝術班">資訊班</option>
-              <option value="普通班">普通班</option>
-              <option value="A班">A班</option>
-              <option value="B班">B班</option>
-              <option value="C班">C班</option>
-              <option value="D班">D班</option>
-            </select>
-          </div>
-          <div className="list">
-            <button className="login-btn" onClick={this.comp}>
-              送出
-            </button>
-          </div>
-        </form>
-      );
-    });
+   
 
     return (
       <Layout>
@@ -233,87 +160,64 @@ export default class StudentManagement extends Component {
             </div>
           </div>
         </div>
-
         <div className="StudentReservation">
           <div className={ac ? `limiter` : `limiter-mone`}>
             <div className="background">
               <div className="container">
                 <div className="wrap">
-                  <form className="form">
+                  <form className="form" onSubmit={this.handleSubmit}>
                     <span className="title">編輯</span>
                     <div class="close"  type="button" onClick={this.alterData}></div>
                     <div className="list">
+                    <span className="list-text">性別</span>
+                    <input
+                      type="radio"
+                      name="gender"
+                      value="男"
+                      id="male"
+                      onChange={(e) => {
+                        this.setState({ Sex: e.target.value });
+                      }}
+                    />
+                    <label for="male">男</label>
+                    <input
+                      type="radio"
+                      name="gender"
+                      value="女"
+                      id="female"
+                      onChange={(e) => {
+                        this.setState({ Sex: e.target.value });
+                      }}
+                    />
+                    <label for="female">女</label>
+                  </div>
+                    <div className="list">
                       <span className="list-text">姓名：</span>
-                      <input className="input" type="text"  />
+                      <input className="input" type="text"  onChange={(e) => {
+                        this.setState({ Name: e.target.value });
+                      }}
+                      value={Name}></input>
                     </div>
                     <div className="list">
                       <span className="list-text">電子信箱：</span>
-                      <input className="input" type="text" />
+                      <input className="input" type="email"  onChange={(e) => {
+                        this.setState({ Email: e.target.value });
+                      }}
+                      value={Email}></input>
                     </div>
                     <div className="list">
                       <span className="list-text">電話：</span>
-                      <input className="input" type="text"  />
-                    </div>
-                    <div className="list">
-                      <span className="list-text">學年度：</span>
-                      <select className="input">
-                        <option></option>
-                        <option value="2040">2040</option>
-                        <option value="2039">2039</option>
-                        <option value="2038">2038</option>
-                        <option value="2037">2037</option>
-                        <option value="2036">2036</option>
-                        <option value="2035">2035</option>
-                        <option value="2034">2034</option>
-                        <option value="2033">2033</option>
-                        <option value="2032">2032</option>
-                        <option value="2031">2031</option>
-                        <option value="2030">2030</option>
-                        <option value="2029">2029</option>
-                        <option value="2028">2028</option>
-                        <option value="2027">2027</option>
-                        <option value="2026">2026</option>
-                        <option value="2025">2025</option>
-                        <option value="2024">2024</option>
-                        <option value="2023">2023</option>
-                        <option value="2022">2022</option>
-                        <option value="2021">2021</option>
-                        <option value="2020">2020</option>
-                        <option value="2019">2019</option>
-                        <option value="2018">2018</option>
-                        <option value="2017">2017</option>
-                        <option value="2016">2016</option>
-                        <option value="2015">2015</option>
-                        <option value="2014">2014</option>
-                        <option value="2013">2013</option>
-                        <option value="2012">2012</option>
-                        <option value="2011">2011</option>
-                        <option value="2010">2010</option>
-                        <option value="2009">2009</option>
-                        <option value="2008">2008</option>
-                        <option value="2007">2007</option>
-                        <option value="2006">2006</option>
-                        <option value="2005">2005</option>
-                        <option value="2004">2004</option>
-                        <option value="2003">2003</option>
-                        <option value="2002">2002</option>
-                        <option value="2001">2001</option>
-                        <option value="2000">2000</option>
-                        <option value="1999">1999</option>
-                        <option value="1998">1998</option>
-                        <option value="1997">1997</option>
-                        <option value="1996">1996</option>
-                        <option value="1995">1995</option>
-                        <option value="1994">1994</option>
-                        <option value="1993">1993</option>
-                        <option value="1992">1992</option>
-                        <option value="1991">1991</option>
-                        <option value="1990">1990</option>
-                      </select>
+                      <input className="input" type="tel"  onChange={(e) => {
+                        this.setState({ Phone: e.target.value });
+                      }}
+                      value={Phone}></input>
                     </div>
                     <div className="list">
                       <span className="list-text">班級代號：</span>
-                      <select className="input">
+                      <select className="input" onChange={(e) => {
+                        this.setState({ Class_Id: e.target.value });
+                      }}
+                      value={Class_Id}>
                         <option ></option>
                         <option value="C101">C101</option>
                         <option value="C102">C102</option>
@@ -325,19 +229,6 @@ export default class StudentManagement extends Component {
                         <option value="C108">C108</option>
                         <option value="C109">C109</option>
                         <option value="C110">C110</option>
-                      </select>
-                    </div>
-                    <div className="list">
-                      <span className="list-text">班級：</span>
-                      <select className="input">
-                        <option></option>
-                        <option value="資訊班">資訊班</option>
-                        <option value="藝術班">資訊班</option>
-                        <option value="普通班">普通班</option>
-                        <option value="A班">A班</option>
-                        <option value="B班">B班</option>
-                        <option value="C班">C班</option>
-                        <option value="D班">D班</option>
                       </select>
                     </div>
                     <div className="list">

@@ -31,7 +31,7 @@ export default class TeacherManagement extends Component {
     TeacherAll:[],
   };
   componentDidMount() {
-    axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/AdminTeacher?Role_Id=R002`, {
+    axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/AdminTeacherAll`, {
     headers: {
       Authorization: JSON.parse(localStorage.getItem("Token")),
     }
@@ -85,7 +85,7 @@ export default class TeacherManagement extends Component {
     const textteacher = TeacherAll.map((item, index) => {
       return (
         <tr className="list-body" key={index}>
-          <td>{index}</td>
+          <td>{index+1}</td>
           <td>{item.Account}</td>
           <td>{item.Name}</td>
           <td>{item.Email}</td>
