@@ -117,6 +117,7 @@ export default class StudentReservationStatus extends Component {
     const { match } = this.props;
     const { params } = match;
     const { student } = this.state;
+    console.log(match);
     const data = student.filter((item, index, array) => {
       return item.number === parseInt(params.id);
     });

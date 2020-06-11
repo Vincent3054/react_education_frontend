@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Layout from "../../layouts/Layout";
+import axios from "axios";
 import "../../mixin/main.css";
 import "../Studentdata.css";
 import { Link } from "react-router-dom";
@@ -31,26 +32,39 @@ export default class CounselorTeacherReservation3 extends Component {
         NowPSY: "王老師",
       },
     ],
+    Reservation:[],
+  };
+  componentDidMount() {
+    axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/PSYStatusRecord?Fettle=3`, {
+      headers: {
+        Authorization: JSON.parse(localStorage.getItem("Token")),
+      }
+      })
+      .then((res) => {
+        console.log(res);
+        const datalist = res.data.Data.DataList;
+        this.setState({
+          Reservation: datalist
+        })
+      }).catch((err) => {
+        console.error({ err }, 90);
+      })
   };
   render() {
-    const { match } = this.props;
-    const { params } = match;
-    const { student } = this.state;
-    const data = student.filter((item, index, array) => {
-      return item.number === parseInt(params.id);
-    });
-
-    const textstudent = data.map((item, index, array) => {
+    const { Reservation } = this.state;
+    // const data = student.filter((item, index, array) => {
+    //   return item.number === parseInt(params.id);
+    // });
+    const textstudent = Reservation.map((item, index, array) => {
       return (
         <tr className="list-body" key={index}>
-          <td>{item.number}</td>
-          <td>{item.Class_Id}</td>
+          <td>{index+1}</td>
+          <td>{item.Class_Name}</td>
           <td>{item.Name}</td>
-          <td>{item.date}</td>
+          <td>{item.Date}</td>
           <td>{item.Time}</td>
-          <td>{item.type}</td>
-          <td>{item.StudentRemasks}</td>
-          <td>{item.TeacherRemasks}</td>
+          <td>{item.StudentsRemarks}</td>
+          <td>{item.TeacherRemarks}</td>
           <td className="td-btn">
             <button type="button" className="btn" style={{ width: "150px" }}>
               填寫輔導紀錄
@@ -91,7 +105,6 @@ export default class CounselorTeacherReservation3 extends Component {
                   <th>學生姓名</th>
                   <th>預約日期</th>
                   <th>預約時間</th>
-                  <th>諮詢類別</th>
                   <th>學生備註</th>
                   <th>老師備註</th>
                   <th>管理</th>

@@ -40,8 +40,8 @@ export default class AdminReservation3 extends Component {
       return (
         <tr className="list-body" key={index}>
           <td>{index+1}</td>
-          <td>{item.Class_Id}</td>
-          <td>{item.Account}</td>
+          <td>{item.Class_Name}</td>
+          <td>{item.Name}</td>
           <td>{item.Date}</td>
           <td>{item.Time}</td>
           <td>{item.StudentsRemarks}</td>

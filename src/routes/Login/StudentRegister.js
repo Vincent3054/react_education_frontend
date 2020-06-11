@@ -64,7 +64,7 @@ export default class StudentRegister extends Component {
         .post(`http://studytutor_backend.hsc.nutc.edu.tw/api/Members`, payload)
         .then((res) => {
           console.log(res.data);
-          alert(res.data.Message);
+          // alert(res.data.Message);
           // localStorage.setItem("Token", JSON.stringify(res.data.Data.Token));
           this.props.history.push("/Register/Complete");
         })

@@ -1,11 +1,29 @@
 import React, { Component } from "react";
 import Layout from "../layouts/Layout";
+import axios from "axios";
 import "./Personal.css";
 import user from "../Assets/user.png";
 
 export default class Personal extends Component {
   static = {
     nane: "",
+    personaldata:[],
+  };
+  componentDidMount() {
+    axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/Basic `, {
+      headers: {
+        Authorization: JSON.parse(localStorage.getItem("Token")),
+      }
+      })
+      .then((res) => {
+        console.log(res);
+        const datalist = res.data;
+        this.setState({
+          personaldata: datalist
+        })
+      }).catch((err) => {
+        console.error({ err }, 90);
+      })
   };
   render() {
     return (
@@ -22,7 +40,7 @@ export default class Personal extends Component {
               <div className="boxone">
                 <span className="font">姓名</span>
                 <span className="font">：</span>
-                <span className="font">歐俞均</span>
+                <span className="font"></span>
               </div>
               <div className="boxtwo">
                 <span className="font">聯絡電話</span>

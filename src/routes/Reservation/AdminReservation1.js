@@ -138,7 +138,7 @@ export default class AdminReservation1 extends Component {
             >
               修改
             </button>
-            <button type="button" className="btn" onClick={e=>{this.handleSubmit(e,item.Reservation_Id)}} style={{ width: "100px" }}>
+            <button type="button" className="btn" style={{ width: "100px" }} onClick={e=>{this.handleSubmit(e,item.Reservation_Id)}} >
               指派老師
             </button>
           </td>

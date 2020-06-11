@@ -16,7 +16,6 @@ export default class AdminReservation2 extends Component {
     BeforePSY: "",//
     TeacherRemarks: "",//
     StudentsRemarks: "",//
-    //少type欄位
   };
   componentDidMount() {
     axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/StatusRecord?Fettle=2`, {
