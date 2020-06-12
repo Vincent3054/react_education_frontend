@@ -1,40 +1,52 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import "../../mixin/main.css";
 import "./Register.css";
 export default class ResetPassword extends Component {
   state = {
-    Account: "",
     NewPassword: "",
     PasswordCheck: "",
   };
   handleSubmit = (e) => {
-    const { Account, NewPassword, PasswordCheck } = this.state;
+    const {NewPassword, PasswordCheck } = this.state;
+    const data=this.props.location.search;
+    const group = data.split('&');
+    const AccountGroup=group[0].split('=');
+    const AuthCodeGroup=group[1].split('=');
+    const Account=AccountGroup[1];
+    const AuthCode=AuthCodeGroup[1];
     const payload = {
-      Account,
       NewPassword,
       PasswordCheck,
+      Account,
+      AuthCode,
     };
-    e.preventDefault();
-    axios
-      .put(`http://studytutor_backend.hsc.nutc.edu.tw/api/Members`, payload)
-      .then((res) => {
-        console.log(res.data);
-        alert(res.data.Message);
-        this.props.history.push("/ResetPasswordComplete");
-      })
-      .catch((error) => {
-        const status = error.response.status;
-        //錯誤狀態碼
-        console.log(status);
-        const err = JSON.parse(error.request.response);
-        //錯誤訊息
-        alert(err.Message);
-      });
+    if(NewPassword===""||PasswordCheck==="")
+    {
+      alert("欄位不可空白");
+    } else if ( NewPassword !== PasswordCheck){
+      alert("確認新密碼錯誤");
+    } else {
+      e.preventDefault();
+      axios
+        .put(`http://studytutor_backend.hsc.nutc.edu.tw/api/Email `, payload)
+        .then((res) => {
+          console.log(res.data);
+          alert(res.data.Message);
+          this.props.history.push("/EmailValidateComplete");
+        })
+        .catch((error) => {
+          const status = error.response.status;
+          //錯誤狀態碼
+          console.log(status);
+          // const err = JSON.parse(error.request.response);
+          //錯誤訊息
+          this.props.history.push("/EmailValidateFail");
+        });
+    }
   };
   render() {
-    const { Account, NewPassword, PasswordCheck } = this.state;
+    const {  NewPassword, PasswordCheck } = this.state;
     return (
       <div className="Register">
         <div className="limiter">
@@ -42,18 +54,7 @@ export default class ResetPassword extends Component {
             <div className="wrap" style={{ width: "600px" }}>
               <form className="form" onSubmit={this.handleSubmit}>
                 <span className="title">重設密碼</span>
-                <span>請填寫你目前的密碼和驗證碼，以修改密碼：</span>
-                <div className="list">
-                  <span className="list-text">帳號</span>
-                  <input
-                    className="input"
-                    type="text"
-                    onChange={(e) => {
-                      this.setState({ Account: e.target.value });
-                    }}
-                    value={Account}
-                  />
-                </div>
+                <span>請填寫你新的密碼，已修改密碼：</span>
                 <div className="list">
                   <span className="list-text">新密碼</span>
                   <input

@@ -36,7 +36,7 @@ export default class ClassTeacherReservation2 extends Component {
           <td>{item.Time}</td>
           <td>{item.StudentsRemarks}</td>
           <td>{item.TeacherRemarks}</td>
-          <td>等待{item.NowPSY}指派中</td>
+          <td>等待{item.NowPSY}老師接受指派</td>
         </tr>
       );
     });
@@ -75,7 +75,6 @@ export default class ClassTeacherReservation2 extends Component {
                   <th>學生姓名</th>
                   <th>預約日期</th>
                   <th>預約時間</th>
-                  <th>諮詢類別</th>
                   <th>學生備註</th>
                   <th>老師備註</th>
                   <th>指派狀態</th>

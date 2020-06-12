@@ -117,7 +117,7 @@ export default class StudentReservationStatus extends Component {
           <td>{item.Date}</td>
           <td>{item.Time}</td>
           <td>{item.StudentRemasks}</td>
-          <td>預約成功</td>
+          <td>{item.NowPSY===""?"等待預約中":"預約成功"}</td>
         </tr>
       );
     });

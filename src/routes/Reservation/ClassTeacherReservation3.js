@@ -75,7 +75,6 @@ export default class ClassTeacherReservation3 extends Component {
                   <th>學生姓名</th>
                   <th>預約日期</th>
                   <th>預約時間</th>
-                  <th>諮詢類別</th>
                   <th>學生備註</th>
                   <th>老師備註</th>
                   <th>指派狀態</th>
