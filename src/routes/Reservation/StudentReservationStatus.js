@@ -9,6 +9,7 @@ import Correctfrom from "../../Assets/EmailValidate_check.png";
 
 export default class StudentReservationStatus extends Component {
   state = {
+    //控制
     ac: false,
     comp: false,
     Period:"",
@@ -16,32 +17,24 @@ export default class StudentReservationStatus extends Component {
 	  Date:"",
     StudentsRemarks:"",
     Category:"",
-    student: [
-      {
-        number: 1,
-        Class_Id: "才藝班",
-        Name: "陳同學",
-        date: "2020/05/20",
-        Time: "14:20",
-        type: "感情",
-        StudentRemasks: "想換xxx老師",
-        TeacherRemasks: "xxx老師沒空",
-        BeforePSY: "王老師",
-        NowPSY: "陳老師",
-      },
-      {
-        number: 2,
-        Class: "才藝班",
-        name: "王同學",
-        date: "2020/06/10",
-        Time: "13:15",
-        type: "學業",
-        StudentRemasks: "想換xxx老師",
-        TeacherRemasks: "xxx老師沒空",
-        BeforePSY: "陳老師",
-        NowPSY: "王老師",
-      },
-    ],
+    //資料列表
+    Reservation:[],
+  };
+  componentDidMount() {
+    axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/StatusRecord?Fettle=1`, {
+      headers: {
+        Authorization: JSON.parse(localStorage.getItem("Token")),
+      }
+      })
+      .then((res) => {
+        console.log(res.data.Data.DataList);
+        const datalist = res.data.Data.DataList;
+        this.setState({
+          Reservation: datalist
+        })
+      }).catch((err) => {
+        console.error({ err }, 90);
+      })
   };
   alterData = () => {
     const { ac } = this.state;
@@ -114,21 +107,14 @@ export default class StudentReservationStatus extends Component {
       StudentsRemarks,
     }=this.state;
     const { ac, comp } = this.state;
-    const { match } = this.props;
-    const { params } = match;
-    const { student } = this.state;
-    console.log(match);
-    const data = student.filter((item, index, array) => {
-      return item.number === parseInt(params.id);
-    });
-
-    const textstudent = data.map((item, index, array) => {
+    const { Reservation } = this.state;
+    const textstudent = Reservation.map((item, index, array) => {
       return (
         <tr className="list-body" key={index}>
-          <td>{item.number}</td>
-          <td>{item.Class_Id}</td>
+          <td>{index+1}</td>
+          <td>{item.Class_Name}</td>
           <td>{item.Name}</td>
-          <td>{item.date}</td>
+          <td>{item.Date}</td>
           <td>{item.Time}</td>
           <td>{item.StudentRemasks}</td>
           <td>預約成功</td>

@@ -10,39 +10,36 @@ export default class EmailValidateloading extends Component {
     AuthCode:"",
   };
   componentDidMount() {
-    
-   };
-  handleSubmit = (e) => {
-    
-    const {
-      Account,
-      AuthCode,
-    } = this.state;
+    const data=this.props.location.search;
+    const group = data.split('&');
+    const AccountGroup=group[0].split('=');
+    const AuthCodeGroup=group[1].split('=');
+    const Account=AccountGroup[1];
+    const AuthCode=AuthCodeGroup[1];
     const payload = {
       Account,
       AuthCode,
     };
-      e.preventDefault();
+      // e.preventDefault();
       axios
         .post(`http://studytutor_backend.hsc.nutc.edu.tw/api/Email`, payload)
         .then((res) => {
           console.log(res);
-          this.props.history.push("/Register/Complete");
+          this.props.history.push("/RegisterEmailValidateComplete");
         })
         .catch((error) => {
           const status = error.response.status;
           //錯誤狀態碼
           console.log(status);
-          const err = JSON.parse(error.request.response);
+          // const err = JSON.parse(error.request.response);
           //錯誤訊息
-          alert(err.Message);
+          this.props.history.push("/RegisterEmailValidateFail");
         });
-  };
-  render() {
-    const { match } = this.props;
-    const { params } = match;
+   };
+  // handleSubmit = (e) => {
     
-    console.log(this.props.location.search,20);
+  // };
+  render() {
     return (
       <div className="Register">
         <div className="limiter">
@@ -69,4 +66,3 @@ export default class EmailValidateloading extends Component {
     );
   }
 }
-//分二個

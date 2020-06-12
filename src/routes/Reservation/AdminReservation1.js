@@ -20,7 +20,7 @@ export default class AdminReservation1 extends Component {
     
   };
   componentDidMount() {
-    this.git();
+    this.get();
     axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/AdminTeacher?Role_Id=R003`, {
     headers: {
       Authorization: JSON.parse(localStorage.getItem("Token")),
@@ -36,7 +36,7 @@ export default class AdminReservation1 extends Component {
       console.error({ err }, 91);
     })
   }
-  git(){
+  get(){
     axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/StatusRecord?Fettle=1`, {
       headers: {
         Authorization: JSON.parse(localStorage.getItem("Token")),
@@ -86,7 +86,7 @@ export default class AdminReservation1 extends Component {
         .then((res) => {
           console.log(res);
           alert(res.data.Message);
-          this.git();
+          this.get();
         })
         .catch((error) => {
           const status = error.response.status;

@@ -1,56 +1,41 @@
 import React, { Component } from "react";
 import Layout from "../../layouts/Layout";
+import axios from "axios";
 import "../../mixin/main.css";
 import "../Studentdata.css";
 import { Link } from "react-router-dom";
 export default class ClassTeacherReservation3 extends Component {
   state = {
-    student: [
-      {
-        number: 1,
-        Class_Id: "才藝班",
-        Name: "陳同學",
-        date: "2020/05/20",
-        Time: "14:20",
-        type: "感情",
-        StudentRemasks: "想換xxx老師",
-        TeacherRemasks: "xxx老師沒空",
-        BeforePSY: "王老師",
-        NowPSY: "陳老師",
-      },
-      {
-        number: 2,
-        Class: "才藝班",
-        name: "王同學",
-        date: "2020/06/10",
-        Time: "13:15",
-        type: "學業",
-        StudentRemasks: "想換xxx老師",
-        TeacherRemasks: "xxx老師沒空",
-        BeforePSY: "陳老師",
-        NowPSY: "王老師",
-      },
-    ],
+    Reservation:[],
+  };
+  componentDidMount() {
+    axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/StatusRecord?Fettle=3`, {
+      headers: {
+        Authorization: JSON.parse(localStorage.getItem("Token")),
+      }
+      })
+      .then((res) => {
+        console.log(res);
+        const datalist = res.data.Data.DataList;
+        this.setState({
+          Reservation: datalist
+        })
+      }).catch((err) => {
+        console.error({ err }, 90);
+      })
   };
   render() {
-    const { match } = this.props;
-    const { params } = match;
-    const { student } = this.state;
-    const data = student.filter((item, index, array) => {
-      return item.number === parseInt(params.id);
-    });
-
-    const textstudent = data.map((item, index, array) => {
+    const { Reservation } = this.state;
+    const textstudent = Reservation.map((item, index, array) => {
       return (
         <tr className="list-body" key={index}>
-          <td>{item.number}</td>
-          <td>{item.Class_Id}</td>
+          <td>{index+1}</td>
+          <td>{item.Class_Name}</td>
           <td>{item.Name}</td>
-          <td>{item.date}</td>
+          <td>{item.Date}</td>
           <td>{item.Time}</td>
-          <td>{item.type}</td>
-          <td>{item.StudentRemasks}</td>
-          <td>{item.TeacherRemasks}</td>
+          <td>{item.StudentsRemarks}</td>
+          <td>{item.TeacherRemarks}</td>
           <td>{item.NowPSY}指派完成</td>
         </tr>
       );

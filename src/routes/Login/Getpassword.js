@@ -21,8 +21,8 @@ export default class Getpassword extends Component {
         .put(`http://studytutor_backend.hsc.nutc.edu.tw/api/Login`, payload)
         .then((res) => {
           console.log(res.data);
-          alert(res.data.Message);
-          // this.props.history.push("/Loging/RegisterEmailValidate");
+          // alert(res.data.Message);
+          this.props.history.push("/Register/Complete");
         })
         .catch((error) => {
           const status = error.response.status;
