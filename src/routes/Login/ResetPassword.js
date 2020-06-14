@@ -32,15 +32,15 @@ export default class ResetPassword extends Component {
         .put(`http://studytutor_backend.hsc.nutc.edu.tw/api/Email `, payload)
         .then((res) => {
           console.log(res.data);
-          alert(res.data.Message);
           this.props.history.push("/EmailValidateComplete");
         })
         .catch((error) => {
           const status = error.response.status;
           //錯誤狀態碼
           console.log(status);
-          // const err = JSON.parse(error.request.response);
+          const err = JSON.parse(error.request.response);
           //錯誤訊息
+          console.log(err);
           this.props.history.push("/EmailValidateFail");
         });
     }

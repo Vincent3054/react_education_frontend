@@ -21,6 +21,9 @@ export default class StudentManagement extends Component {
     studentAll:[],
   };
   componentDidMount() {
+    this.get();
+  }
+  get(){
     axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/AdminAll`, {
     headers: {
       Authorization: JSON.parse(localStorage.getItem("Token")),
@@ -39,7 +42,7 @@ export default class StudentManagement extends Component {
     })
   }
   handleSubmit = (e) => {
-    // const { data,git} = this.props;
+    const { Account} = this.state;
     const {
     Name,
 	  Email,
@@ -54,19 +57,16 @@ export default class StudentManagement extends Component {
 	    Sex,
 	    Class_Id
     };
-    //Account 帶Account 近來api
       e.preventDefault();
       axios
-        .put(`http://studytutor_backend.hsc.nutc.edu.tw/api/Student?Account={uerry1005}`, payload, {
+        .put(`http://studytutor_backend.hsc.nutc.edu.tw/api/Student?Account=${Account}`, payload, {
           headers: {
             Authorization: JSON.parse(localStorage.getItem("Token")),
           },
         })
         .then((res) => {
           console.log(res);
-          // alert(res.data.Message);
-          this.comp();
-          // git();
+          this.get();
         })
         .catch((error) => {
           const status = error.response.status;
@@ -77,9 +77,43 @@ export default class StudentManagement extends Component {
           alert(err.Message);
         });
   };
-  alterData = () => {
-    const { ac } = this.state;
-   
+  handleDelete = (Account) => {
+      axios
+        .delete(`http://studytutor_backend.hsc.nutc.edu.tw/api/Student?Account=${Account}`,  {
+          headers: {
+            Authorization: JSON.parse(localStorage.getItem("Token")),
+          },
+        })
+        .then((res) => {
+          console.log(res);
+          this.get();
+        })
+        .catch((error) => {
+          const status = error.response.status;
+          //錯誤狀態碼
+          console.log(status);
+          const err = JSON.parse(error.request.response);
+          //錯誤訊息
+          alert(err.Message);
+        });
+  };
+  alterData = (number) => {
+    const { ac ,studentAll} = this.state;
+    const  studentdata = studentAll.filter(function(item, index, array){
+      return index  === number;    
+    });
+    studentdata.map((item, index, array) => {
+      return (
+        this.setState({
+          Account:item.Account,
+          Name:item.Name,
+          Email:item.Email,
+          Phone:item.Phone,
+          Sex:item.Sex,
+          Class_Id:item.Class_Id,
+        })
+      );
+    })
     if (ac === false) {
       this.setState({ ac: true });
     } else {
@@ -87,8 +121,8 @@ export default class StudentManagement extends Component {
     }
   };
   comp = () => {
-    const { comp, ac } = this.state;
-    if (comp == false) {
+    const { comp} = this.state;
+    if (comp === false) {
       this.setState({ comp: true });
       this.setState({ ac: false });
     } else {
@@ -114,20 +148,22 @@ export default class StudentManagement extends Component {
             <button
               type="button"
               className="btn"
-              onClick={this.alterData}
+              onClick={e=>{this.alterData(index)}}
               style={{ width: "100px" }}
             >
               編輯
             </button>
-            <button type="button" className="btn" style={{ width: "100px" }}>
+            <button 
+              type="button" 
+              className="btn" 
+              onClick={e=>{this.handleDelete(item.Account)}}
+              style={{ width: "100px" }}>
               刪除
             </button>
           </td>
         </tr>
       );
     });
-
-   
 
     return (
       <Layout>

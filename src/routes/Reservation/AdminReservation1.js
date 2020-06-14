@@ -17,7 +17,10 @@ export default class AdminReservation1 extends Component {
     CounselorTeacher:[],
     //指派老師
     NowPSY:"",
-    
+    //修改預約
+    Date:"",
+    Time:"",
+    Reservation_Id:"",
   };
   componentDidMount() {
     this.get();
@@ -52,13 +55,16 @@ export default class AdminReservation1 extends Component {
         console.error({ err }, 90);
       })
   }
-  alterData = () => {
+  alterData = (Id) => {
     const { ac } = this.state;
     if (ac === false) {
       this.setState({ ac: true });
     } else {
       this.setState({ ac: false });
     }
+    this.setState({
+      Reservation_Id:Id,
+    })
   };
   comp = () => {
     const { comp } = this.state;
@@ -97,9 +103,34 @@ export default class AdminReservation1 extends Component {
           alert(err.Message);
         });
   };
-    
+  handleEdit = (e) => {
+    const {Reservation_Id,Date,Time} = this.state;
+    const payload = { Reservation_Id,Date,Time};
+      e.preventDefault();
+      axios
+        .put(`http://studytutor_backend.hsc.nutc.edu.tw/api/StatusRecord`, payload, {
+          headers: {
+            Authorization: JSON.parse(localStorage.getItem("Token")),
+          },
+        })
+        .then((res) => {
+          console.log(res);
+          // alert(res.data.Message);
+          this.comp();
+          this.get();
+        })
+        .catch((error) => {
+          const status = error.response.status;
+          //錯誤狀態碼
+          console.log(status);
+          const err = JSON.parse(error.request.response);
+          //錯誤訊息
+          alert(err.Message);
+        });
+  };
   render() {
     const { ac, comp,Reservation,CounselorTeacher,NowPSY} = this.state;
+    const{Date,Time}=this.state;
     const CounselorTeacherList = CounselorTeacher.map((item, index, array) => {
       return (
           <option key={index} value={item.Account}>{item.Name}</option>
@@ -134,7 +165,7 @@ export default class AdminReservation1 extends Component {
               type="button"
               className="btn"
               style={{ width: "100px" }}
-              onClick={this.alterData}
+              onClick={e=>{this.alterData(item.Reservation_Id)}}
             >
               修改
             </button>
@@ -184,29 +215,29 @@ export default class AdminReservation1 extends Component {
             <div className="background">
               <div className="container">
                 <div className="wrap">
-                  <form className="form">
+                  <form className="form" onSubmit={this.handleEdit}>
                     <span className="title">編輯</span>
                     <div class="close"  type="button" onClick={this.alterData}></div>
           
                     <div className="list">
                       <span className="list-text">預約日期：</span>
-                      <input className="input" type="date"  />
+                      <input className="input" type="date"  onChange={(e) => {
+                        this.setState({ Date: e.target.value });
+                      }}
+                      value={Date}></input>
                     </div>
                     <div className="list">
                       <span className="list-text">預約時間：</span>
-                      <input className="input" type="time"></input>
+                      <input className="input"
+                        type="time"
+                        onChange={(e) => {
+                        this.setState({ Time: e.target.value });
+                         }}
+                        value={Time}                    
+                      />
                     </div>
                     <div className="list">
-                      <span className="list-text">諮詢類別：</span>
-                      <select className="input">
-                        <option value="學業">學業</option>
-                        <option value="家庭">家庭</option>
-                        <option value="感情">感情</option>
-                        <option value="其他">其他</option>
-                      </select>
-                    </div>
-                    <div className="list">
-                      <button className="login-btn" onClick={this.comp}>
+                      <button className="login-btn">
                         送出
                       </button>
                     </div>

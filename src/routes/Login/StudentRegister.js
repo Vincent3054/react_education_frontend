@@ -13,9 +13,22 @@ export default class StudentRegister extends Component {
     Sex: "",
     Class_Id: "",
     Grage: "",
-    Class_Name: "",
     Role_Id: "R004",
+    //班級資料
+    classlist:[],
   };
+  componentDidMount(){
+    axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/ClassStudent`)
+    .then((res) => {
+      // console.log(res.data.Data.DataList);
+      const datalist = res.data.Data.DataList;
+      this.setState({
+        classlist: datalist
+      })
+    }).catch((err) => {
+      console.error({ err }, 90);
+    })
+  }
   handleSubmit = (e) => {
     const {
       Account,
@@ -27,7 +40,6 @@ export default class StudentRegister extends Component {
       Sex,
       Class_Id,
       Grage,
-      Class_Name,
       Role_Id,
     } = this.state;
     const payload = {
@@ -39,7 +51,6 @@ export default class StudentRegister extends Component {
       Phone,
       Grage,
       Class_Id,
-      Class_Name,
       Sex,
       Role_Id,
     };
@@ -52,7 +63,6 @@ export default class StudentRegister extends Component {
       Phone === "" ||
       Grage === "" ||
       Class_Id === "" ||
-      Class_Name === "" ||
       Sex === ""
     ) {
       alert("欄位不可空白");
@@ -80,6 +90,13 @@ export default class StudentRegister extends Component {
   };
   render() {
     const { Account, Password, PasswordCheck, Name, Email, Phone } = this.state;
+    const {classlist}=this.state;
+    const classlistData = classlist.map((item, index, array) => {
+      return (
+          <option key={index} value={item.Class_Id}>{item.ClassName}</option>
+      );
+    });
+   
     return (
       <div className="Register">
         <div className="limiter">
@@ -249,7 +266,7 @@ export default class StudentRegister extends Component {
                 </div>
                 <div className="list">
                   <span className="red-dot">*</span>
-                  <span className="list-text">班級代號</span>
+                  <span className="list-text">班級</span>
                   <select
                     className="input"
                     onChange={(e) => {
@@ -258,36 +275,7 @@ export default class StudentRegister extends Component {
                     value={this.state.Class_Id}
                   >
                     <option></option>
-                    <option value="C101">C101</option>
-                    <option value="C102">C102</option>
-                    <option value="C103">C103</option>
-                    <option value="C104">C104</option>
-                    <option value="C105">C105</option>
-                    <option value="C106">C106</option>
-                    <option value="C107">C107</option>
-                    <option value="C108">C108</option>
-                    <option value="C109">C109</option>
-                    <option value="C110">C110</option>
-                  </select>
-                </div>
-                <div className="list">
-                  <span className="red-dot">*</span>
-                  <span className="list-text">班級</span>
-                  <select
-                    className="input"
-                    onChange={(e) => {
-                      this.setState({ Class_Name: e.target.value });
-                    }}
-                    value={this.state.Class_Name}
-                  >
-                    <option></option>
-                    <option value="資訊班">資訊班</option>
-                    <option value="藝術班">資訊班</option>
-                    <option value="普通班">普通班</option>
-                    <option value="A班">A班</option>
-                    <option value="B班">B班</option>
-                    <option value="C班">C班</option>
-                    <option value="D班">D班</option>
+                    {classlistData}
                   </select>
                 </div>
                 <div className="list">

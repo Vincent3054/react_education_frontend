@@ -64,11 +64,9 @@ export default class ResendiEmailValidate extends Component {
                   }}
                   value={Email}/>
                 </div>
-                <Link to="/Loging/EmailValidate">
                   <div className="list">
                     <button className="login-btn">送出</button>
                   </div>
-                </Link>
               </form>
             </div>
           </div>

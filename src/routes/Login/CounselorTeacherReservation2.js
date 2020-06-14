@@ -13,8 +13,10 @@ export default class CounselorTeacherReservation2 extends Component {
     comp: false,
     //資料列表
     Reservation:[],
-    //接受指派狀態
-    // CheckCancel:"",
+    //修改預約
+    Date:"",
+    Time:"",
+    TeacherRemarks:"",
   };
   componentDidMount() {
    this.get();
@@ -59,18 +61,46 @@ export default class CounselorTeacherReservation2 extends Component {
           alert(err.Message);
         });
   };
-  
-  alterData = () => {
+  handleEdit = (e) => {
+    const {Reservation_Id,Date,Time,TeacherRemarks} = this.state;
+    const payload = { Reservation_Id,Date,Time,TeacherRemarks};
+    console.log(TeacherRemarks);
+      e.preventDefault();
+      axios
+        .post(`http://studytutor_backend.hsc.nutc.edu.tw/api/StatusRecord`, payload, {
+          headers: {
+            Authorization: JSON.parse(localStorage.getItem("Token")),
+          },
+        })
+        .then((res) => {
+          console.log(res);
+          // alert(res.data.Message);
+          this.comp();
+          this.get();
+        })
+        .catch((error) => {
+          const status = error.response.status;
+          //錯誤狀態碼
+          console.log(status);
+          const err = JSON.parse(error.request.response);
+          //錯誤訊息
+          alert(err.Message);
+        });
+  };
+  alterData = (Id) => {
     const { ac } = this.state;
-    if (ac == false) {
+    if (ac === false) {
       this.setState({ ac: true });
     } else {
       this.setState({ ac: false });
     }
+    this.setState({
+      Reservation_Id:Id,
+    })
   };
   comp = () => {
-    const { comp, ac } = this.state;
-    if (comp == false) {
+    const { comp} = this.state;
+    if (comp === false) {
       this.setState({ comp: true });
       this.setState({ ac: false });
     } else {
@@ -81,7 +111,7 @@ export default class CounselorTeacherReservation2 extends Component {
   render() {
     const { ac, comp } = this.state;
     const{Reservation}=this.state;
-
+    const {Date,Time,TeacherRemarks}=this.state;
     const textstudent = Reservation.map((item, index, array) => {
       return (
         <tr className="list-body" key={index}>
@@ -97,7 +127,7 @@ export default class CounselorTeacherReservation2 extends Component {
               type="button"
               className="btn"
               style={{ width: "80px" }}
-              onClick={this.alterData}
+              onClick={e=>{this.alterData(item.Reservation_Id)}}
             >
               修改
             </button>
@@ -149,35 +179,39 @@ export default class CounselorTeacherReservation2 extends Component {
             <div className="background">
               <div className="container">
                 <div className="wrap">
-                  <form className="form">
+                  <form className="form" onSubmit={this.handleEdit}>
                     <span className="title">編輯</span>
                     <div class="close"  type="button" onClick={this.alterData}></div>
                     <div className="list">
                       <span className="list-text">預約日期：</span>
-                      <input className="input" type="date" ></input>
+                      <input className="input" type="date"  onChange={(e) => {
+                        this.setState({ Date: e.target.value });
+                      }}
+                      value={Date}/>
                     </div>
                     <div className="list">
                       <span className="list-text">預約時間：</span>
-                      <input className="input" type="time"></input>
-                    </div>
-                    <div className="list">
-                      <span className="list-text">諮詢類別：</span>
-                      <select className="input">
-                        <option value="學業">學業</option>
-                        <option value="家庭">家庭</option>
-                        <option value="感情">感情</option>
-                        <option value="其他">其他</option>
-                      </select>
+                      <input className="input"
+                        type="time"
+                        onChange={(e) => {
+                        this.setState({ Time: e.target.value });
+                         }}
+                        value={Time}                    
+                      />
                     </div>
                     <div className="list">
                       <span className="list-text">老師備註：</span>
                       <textarea
                         className="input"
                         style={{ height: "100px" }}
+                        onChange={(e) => {
+                          this.setState({ TeacherRemarks: e.target.value });
+                           }}
+                        value={TeacherRemarks} 
                       ></textarea>
                     </div>
                     <div className="list">
-                      <button className="login-btn" onClick={this.comp}>
+                      <button className="login-btn">
                         送出
                       </button>
                     </div>

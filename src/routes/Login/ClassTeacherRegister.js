@@ -14,7 +14,21 @@ export default class ClassTeacherRegister extends Component {
     Sex: "",
     Class_Id: "",
     Role_Id: "R002",
+    //班級資料
+    classlist:[],
   };
+  componentDidMount(){
+    axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/ClassStudent`)
+    .then((res) => {
+      // console.log(res.data.Data.DataList);
+      const datalist = res.data.Data.DataList;
+      this.setState({
+        classlist: datalist
+      })
+    }).catch((err) => {
+      console.error({ err }, 90);
+    })
+  }
   handleSubmit = (e) => {
     const {
       Account,
@@ -57,8 +71,6 @@ export default class ClassTeacherRegister extends Component {
         .post(`http://studytutor_backend.hsc.nutc.edu.tw/api/Members`, payload)
         .then((res) => {
           console.log(res.data);
-          alert(res.data.Message);
-          localStorage.setItem("Token", JSON.stringify(res.data.Data.Token));
           this.props.history.push("/Register/Complete");
         })
         .catch((error) => {
@@ -72,7 +84,13 @@ export default class ClassTeacherRegister extends Component {
     }
   };
   render() {
-    const { Account, Name, Password, PasswordCheck, Email, Phone } = this.state;
+    const { Account, Name, Password, PasswordCheck, Email, Phone,Class_Id } = this.state;
+    const {classlist}=this.state;
+    const classlistData = classlist.map((item, index, array) => {
+      return (
+          <option key={index} value={item.Class_Id}>{item.ClassName}</option>
+      );
+    });
     return (
       <div className="Register">
         <div className="limiter">
@@ -86,7 +104,7 @@ export default class ClassTeacherRegister extends Component {
                   <input
                     type="radio"
                     name="gender"
-                    value="male"
+                    value="男"
                     id="male"
                     onChange={(e) => {
                       this.setState({ Sex: e.target.value });
@@ -96,7 +114,7 @@ export default class ClassTeacherRegister extends Component {
                   <input
                     type="radio"
                     name="gender"
-                    value="female"
+                    value="女"
                     id="female"
                     onChange={(e) => {
                       this.setState({ Sex: e.target.value });
@@ -182,21 +200,12 @@ export default class ClassTeacherRegister extends Component {
                   <select
                     className="input"
                     onChange={(e) => {
-                      this.setState({ Class_Id: e.target.value });
+                      this.setState({ Class_Id: e.target.value});
                     }}
-                    value={this.state.Class_Id}
+                    value={Class_Id}
                   >
                     <option></option>
-                    <option value="C101">C101</option>
-                    <option value="C102">C102</option>
-                    <option value="C103">C103</option>
-                    <option value="C104">C104</option>
-                    <option value="C105">C105</option>
-                    <option value="C106">C106</option>
-                    <option value="C107">C107</option>
-                    <option value="C108">C108</option>
-                    <option value="C109">C109</option>
-                    <option value="C110">C110</option>
+                    {classlistData}
                   </select>
                 </div>
                 <div className="list">
