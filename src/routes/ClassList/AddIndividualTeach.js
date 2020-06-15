@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Layout from "../../layouts/Layout";
 import "./AddIndividualTeach.css";
 
-// import AddIndividualTeach from '../components/Studenlist';
 
 export default class AddIndividualTeach extends Component {
   state = {
