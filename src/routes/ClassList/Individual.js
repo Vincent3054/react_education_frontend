@@ -54,54 +54,91 @@ export default class Individual extends Component {
     console.log(data, 55);
     const textcontent = data.map((item, index, array) => {
       return (
-        <div className="tablecontent">
-          <table>
-            <tr>
-              <th>紀錄編號</th>
-              <td>{item.aid}</td>
-              <th>學生姓名</th>
-              <td>{item.account}</td>
-              <td>輔導時間</td>
-              <td>{item.crenteTime}</td>
-              <td>填寫人</td>
-              <td>{item.keyin}</td>
-            </tr>
-            <tr>
-              <td colSpan="2">標題</td>
-              <td colSpan="2">{item.title}</td>
-              <td colSpan="2">類別</td>
-              <td colSpan="2">{item.categody}</td>
-            </tr>
-            <tr>
-              <th colSpan="8">晤談內容</th>
-            </tr>
-            <tr>
-              <td colSpan="8">{item.content}</td>
-            </tr>
-            <tr>
-              <th colSpan="8">摘要內容</th>
-            </tr>
-            <tr>
-              <td colSpan="8">{item.abstract}</td>
-            </tr>
-          </table>
+        <div className="content">
+          <div className="m">
+            <div className="level">
+              <div className="tit">
+                姓名
+            </div>
+              <div className="mycontent">
+                {item.account}
+              </div>
+              <div className="tit">
+                電話
+            </div>
+              <div className="mycontent">
+                {item.phone}
+              </div>
+            </div>
+
+
+            <div className="level">
+              <div className="tit">
+                類別
+              </div>
+              <div className="mycontent">
+                {item.categody}
+              </div>
+
+              <div className="tit">
+                輔導日期
+              </div>
+              <div className="mycontent">
+                {item.crenteTime}
+              </div>
+            </div>
+          </div>
+
+
+          <div className="n">
+            <div className="level">
+              <div className="titbig">
+                標題
+              </div>
+              <div className="mycontentbig">
+                {item.title}
+              </div>
+            </div>
+
+            <div className="level">
+              <div className="titbig">
+                填寫人
+              </div>
+              <div className="mycontentbig">
+                {item.keyin}
+              </div>
+            </div>
+
+            <div className="level">
+              <div className="titbig">
+                晤談內容
+              </div>
+              <div className="mycontentbig">
+                {item.content}
+              </div>
+            </div>
+
+            <div className="level">
+              <div className="titbig">
+                摘要內容
+              </div>
+              <div className="mycontentbig">
+                {item.abstract}
+              </div>
+            </div>
+          </div>
         </div>
       );
     });
     console.log(textcontent, 85);
-    
+
     return (
       <Layout>
         <div className="Individual">
-          <span className="titlename">個人輔導紀錄</span>
-          <div className="body">
-            <div className="con">{textcontent}</div>
-          </div>
+          <div className="titlename"> <span>個人輔導紀錄</span></div>
+          {textcontent}
         </div>
       </Layout>
     );
   }
 }
-//    <div className="btnsend">
-//                     <button className="button button5">儲存變更</button>
-//                     </div>

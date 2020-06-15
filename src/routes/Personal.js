@@ -30,39 +30,39 @@ export default class Personal extends Component {
       <Layout>
         <div className="personal">
           <div className="body">
-            <h1>個人資訊</h1>
+          <div className="titlename"><span>個人輔導紀錄</span></div>
           </div>
           <div className="main">
             <div className="user">
               <img src={user} className="userimg" />
             </div>
             <div className="content">
-              <div className="boxone">
+              <div className="box">
                 <span className="font">姓名</span>
                 <span className="font">：</span>
                 <span className="font">{personaldata.Name}</span>
               </div>
-              <div className="boxtwo">
+              <div className="box">
                 <span className="font">聯絡電話</span>
                 <span className="font">：</span>
                 <span className="font">{personaldata.Phone}</span>
               </div>
-              <div className="boxthree">
+              <div className="box">
                 <span className="font">電子郵件</span>
                 <span className="font">：</span>
                 <span className="font">{personaldata.Email}</span>
               </div>
-              <div className="boxfour">
+              <div className="box">
                 <span className="font">班級</span>
                 <span className="font">：</span>
                 <span className="font">{personaldata.ClassName}</span>
               </div>
-              <div className="boxfive">
+              <div className="box">
                 <span className="font">班級代號</span>
                 <span className="font">：</span>
                 <span className="font">{personaldata.Class_Id}</span>
               </div>
-              <div className="boxsix">
+              <div className="box">
                 <span className="font">性別</span>
                 <span className="font">：</span>
                 <span className="font">{personaldata.Sex}</span>

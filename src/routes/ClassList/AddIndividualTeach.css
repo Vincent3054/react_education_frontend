@@ -27,5 +27,27 @@ border-radius:0px 27px 27px 27px;
 .AddIndividualTeach  input{
   border: none;
   border-radius: 10px;
-  height: ;
+  
+}
+.AddIndividualTeach  textarea{
+  border: none;
+  border-radius: 10px;
+  resize: none;
+}
+.AddIndividualTeach select{
+  border: none;
+  border-radius: 10px;
+}
+.AddIndividualTeach .level{
+  float: left;
+  padding: 5px 5px;
+  width: 100%;
+  height: 10%;
+}
+.level span{
+  margin-right: 10px;
+}
+.AddIndividualTeach .titname{
+  text-align: center;
+  line-height: 50px;
 }

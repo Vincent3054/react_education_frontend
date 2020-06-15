@@ -1,96 +1,37 @@
 .personal .body {
-    position  : absolute;
-    top       : 60px;
-    left      : 25%;
-    text-align: center;
+    margin          : 15vh 5vw;
+    float           : left;
+    width           : 70vw;
+    height          : 80vh;
+    background-color: rgb(233, 247, 225);
+    border-radius   : 0px 27px 27px 27px;
+}
+
+.personal .titlename {
+    margin-top      : -50px;
+    padding-top     : 5px;
+    border-radius   : 10px 10px 0px 0px;
+    text-align      : center;
+    line-height     : 40px;
+    width           : 150px;
+    height          : 50px;
+    color           : #fff;
+    background-color: #3f8f588c;
 }
 
 .personal .main {
     position     : absolute;
     top          : 120px;
     left         : 25%;
-    border       : solid 0.5px rgba(49, 41, 41, 0.342);
     width        : 70.5vw;
     height       : 75vh;
-    border-radius: 5px;
-    display: block;
-    display      : flex;
-    justify-self : space-between;
-    font-size: 10pt;
 }
 
-.personal .boxone {
-    border-bottom: solid 0.5px rgba(49, 41, 41, 0.548);
-    width        : 70%;
-    height       : 15%;
+.personal .box {
+    width    : 85%;
+    font-size: 14pt;
 }
 
-.personal .boxtwo {
-    border-bottom: solid 0.5px rgba(49, 41, 41, 0.548);
-    width        : 70%;
-    height       : 15%;
-}
-
-.personal .boxthree {
-    border-bottom: solid 0.5px rgba(49, 41, 41, 0.548);
-    width        : 70%;
-    height       : 15%;
-}
-
-.personal .boxfour {
-    border-bottom: solid 0.5px rgba(49, 41, 41, 0.548);
-    width        : 70%;
-    height       : 15%;
-}
-
-.personal .boxfive {
-    border-bottom: solid 0.5px rgba(49, 41, 41, 0.548);
-    width        : 70%;
-    height       : 15%;
-}
-
-.personal .boxsix {
-    width   : 70%;
-    height  : 15%;
-}
-
-.personal .boxone:hover,
-.personal .boxtwo:hover,
-.personal .boxthree:hover,
-.personal .boxfour:hover,
-.personal .boxfive:hover,
-.personal .boxsix:hover {
-    left            : 20%;
-    background-color: rgba(0, 0, 0, 0.062);
-    cursor          : pointer;
-    padding-left    : 5%;
-    background-color: #00000025;
-
-}
-
-.personal .font {
-    height     : 30px;
-    text-align : center;
-    line-height: 30px;
-}
-
-.personal .radio {
-    margin       : auto 10px;
-    border-radius: 100%;
-    border       : 1px solid darken(color1, 25%);
-}
-
-.personal button {
-    background-color: #384661;
-    /* Green */
-    border          : none;
-    color           : white;
-    padding         : 15px 15px;
-    text-align      : center;
-    font-size       : 14px;
-    cursor          : pointer;
-    border-radius   : 5px;
-}
 
 @media screen and (max-width: 768px) {
     .content {
@@ -112,22 +53,23 @@
 
 .personal .user {
     position: absolute;
-    top:5vh;
-    left:5vw;
-    width:100%;
-    height: 25vh;
+    top     : 5vh;
+    left    : 5vw;
+    width   : 100%;
+    height  : 25vh;
 
 }
-.personal .userimg{
-    width: 125px;
+
+.personal .userimg {
+    width : 125px;
     height: 125px;
 }
 
 .personal .content {
     position: absolute;
-    top:30vh;
-    left:5vw;
-    height: 25vh;
-    width: 100%;
-    float: left;
+    top     : 30vh;
+    left    : 5vw;
+    height  : 25vh;
+    width   : 100%;
+    float   : left;
 }
