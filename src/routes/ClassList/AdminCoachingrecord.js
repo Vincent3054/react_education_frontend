@@ -1,16 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Layout from "../../layouts/Layout";
-import "./AdminCoachingrecord.css";
+// import "./AdminCoachingrecord.css";拿掉了
+import "../Studentdata.css";
 import axios from 'axios';
 
 export default class AdminCoachingrecord extends Component {
   state = {
-    lab: [
-      
-    ],
+    lab: [],
   };
-
   componentDidMount() {
     const { match } = this.props;
     const { params } = match;
@@ -34,45 +32,40 @@ export default class AdminCoachingrecord extends Component {
   }
 
   render() {
+    const { role } = this.props;
+    console.log(role,12);
     const { lab } = this.state;
     console.log(lab, 100)
-    // const data = lab.filter((item, index, array) => {
-    //   return item.class === parseInt(params.id);
-    // });
-
     const textlab = lab.map((item, index, array) => {
       return (
         <tr className="list-body" key={index}>
+          <td> {index+1}</td>
           <td> {item.Name} </td>
           <td> {item.Phone} </td>
           <td> {item.ClassName}</td>
           <td> {item.Teacher}</td>
           <td>
-            <Link to="/CoachingStudent/1">查看</Link>
+            <Link to={`/CoachingStudent/${item.Account}`}>查看</Link>
           </td>
         </tr>
       );
     });
-
     return (
       <Layout>
-        <div className="AdminCoachingrecord">
+        <div className="Studentdata">
           <div className="title">
-            <span className="titlename">學生列表</span>
             <table className="table">
               <thead>
-                <tr>
-                  <td colSpan="8" className="theadstart">
-                    <label>search：</label>
-                    <input type="text" />
-                  </td>
-                </tr>
+                <th className="tabletitle"  >
+                  <h2>學生列表</h2>
+                </th>
                 <tr className="list">
+                  <th>編號</th>
                   <th>學生姓名</th>
                   <th>電話</th>
                   <th>班級</th>
                   <th>導師</th>
-                  <th></th>
+                  <th>管理</th>
                 </tr>
               </thead>
               <tbody>{textlab}</tbody>

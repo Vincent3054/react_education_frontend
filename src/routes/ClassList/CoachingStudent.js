@@ -7,76 +7,64 @@ import user from "../../Assets/user.png";
 
 
 export default class CoachingStudent extends Component {
-
   state = {
     person: [],
     lab:[],
   };
-
+  //接api 23 帶StudentAccount近來
   componentDidMount() {
-    // const { match } = this.props;
-    // const { params } = match;
-     axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/Student `, {
+    const { match } = this.props;
+    const { params } = match;
+    //api23
+     axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/Record?StudentAccount=${params.id} `, {
        headers: {
          Authorization: JSON.parse(localStorage.getItem("Token")),
        }
      })
        .then((res) => {
-         console.log(res.data.Data.DataList,25);
+         console.log(res,25);
          const dataone = res.data.Data.DataList;
          this.setState({
            lab: dataone
-         }, () => {
-           console.log(this.state.lab,29)
          })
        }).catch((err) => {
-         console.error({ err }, 33);
+         console.error(err);
        })
-    //////
-    axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/Basic`, {
+    //api34
+    axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/BasicAll?Account=${params.id}`, {
       headers: {
         Authorization: JSON.parse(localStorage.getItem("Token")),
       }
-
     })
       .then((res) => {
-        console.log(res);
         const datatwo = res.data;
         this.setState({
           person: datatwo
-        }, () => {
-          console.log(this.state.person, 127)
         })
       }).catch((err) => {
-        console.error({ err }, 130);
+        console.error({ err });
       })
-
   }
 
   render() {
-
-    // const { dataone } = this.state;
     const { person } = this.state;
     const { lab } = this.state;
-
      const textlab = lab.map((item, index, array) => {
        return (
          <tr className="list-body" key={index}>
-           <td> {index} </td>
-           <td> {item.class} </td>
-           <td> {item.gender}</td>
-           <td> {item.remarks}</td>
-           <td> {item.remarks}</td>
+           <td>{item.A_Id}</td>
+           <td>{item.KeyinTeacher} </td>
+           <td>{item.Category}</td>
+           <td>{item.Title}</td>
+           <td>{item.Content}</td>
            <td>
-             {" "}
-             <Link to="/Individual/1">查看</Link>｜
-             <Link to="/IndividualTeach/1">編輯</Link>
+             <Link to="/IndividualTeach/1">編輯</Link>｜
+             <Link to={`/Individual/${item.A_Id}`}>查看</Link>
            </td>
          </tr>
        );
      });
  
-
     return (
       <Layout>
         <div className="CoachingStudent">
@@ -110,19 +98,13 @@ export default class CoachingStudent extends Component {
           </div>
           <table className="table">
             <thead>
-              <tr>
-                <td colSpan="8" className="theadstart">
-                  <label>search：</label>
-                  <input type="text" />
-                </td>
-              </tr>
               <tr className="list">
                 <th>編號</th>
-                <th>班級</th>
                 <th>填寫人</th>
                 <th>類別</th>
                 <th>標題</th>
                 <th>摘要</th>
+                <th>管理</th>
               </tr>
             </thead>
             <tbody>{textlab}</tbody>

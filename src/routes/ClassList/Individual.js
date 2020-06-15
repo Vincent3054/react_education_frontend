@@ -1,73 +1,51 @@
 import React, { Component } from "react";
+import axios from 'axios';
 import Layout from "../../layouts/Layout";
 import "./Individual.css";
-import user from "../../Assets/user.png";
-
 // import Individual from '../components/Studenlist';
 
 export default class Individual extends Component {
   state = {
-    nane: "",
-    lab: [
-      {
-        account: "歐俞均",
-        gender: "女",
-        phone: "0988295638",
-        email: "ouyujyun@gmail.com",
-        classtype: "資管三Ａ",
-        class: 101,
-        remarks: "高關懷",
-        aid: 1,
-        crenteTime: "2020/04/24",
-        keyin: "姜琇森",
-        categody: "心理衛生",
-        title: "第一次輔導 歐俞均",
-        content: "歐俞均學生家庭狀況，輔導了解狀況後xxxxxxxxxxxxxxxx。",
-        abstract: "目前心理狀態並不佳，有待觀察。",
-      },
-      {
-        account: "歐俞均",
-        gender: "女",
-        phone: "0988295638",
-        email: "ouyujyun@gmail.com",
-        classtype: "資管三Ａ",
-        class: 101,
-        remarks: "高關懷",
-        aid: 2,
-        crenteTime: "2020/04/24",
-        keyin: "姜琇森",
-        categody: "心理衛生",
-        title: "第一次輔導 歐俞均",
-        content: "歐俞均學生家庭狀況，輔導了解狀況後xxxxxxxxxxxxxxxx。",
-        abstract: "目前心理狀態並不佳，有待觀察。",
-      },
-    ],
+    lab: [],
   };
-  render() {
+  componentDidMount(){
     const { match } = this.props;
     const { params } = match;
+    axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/ReccordList?A_Id=${params.id} `, {
+      headers: {
+        Authorization: JSON.parse(localStorage.getItem("Token")),
+      }
+    })
+      .then((res) => {
+        console.log(res,25);
+        const dataone = res.data.Data;
+        this.setState({
+          lab: dataone
+        })
+      }).catch((err) => {
+        console.error(err);
+      })
+  }
+  render() {
     const { lab } = this.state;
-    console.log(params.id, 35);
-    const data = lab.filter((item, index, array) => {
-      return item.aid === parseInt(params.id);
-    });
-    console.log(data, 55);
-    const textcontent = data.map((item, index, array) => {
-      return (
-        <div className="content">
+    return (
+      <Layout>
+        <div className="Individual">
+          <div className="titlename"> <span>個人輔導紀錄</span></div>
+          <div className="content">
           <div className="m">
             <div className="level">
               <div className="tit">
                 姓名
             </div>
               <div className="mycontent">
-                {item.account}
+                {lab.Name}
               </div>
               <div className="tit">
                 電話
             </div>
               <div className="mycontent">
-                {item.phone}
+                {lab.phone}
               </div>
             </div>
 
@@ -77,14 +55,14 @@ export default class Individual extends Component {
                 類別
               </div>
               <div className="mycontent">
-                {item.categody}
+                {lab.Category}
               </div>
 
               <div className="tit">
                 輔導日期
               </div>
               <div className="mycontent">
-                {item.crenteTime}
+                {lab.CreateTime}
               </div>
             </div>
           </div>
@@ -96,7 +74,7 @@ export default class Individual extends Component {
                 標題
               </div>
               <div className="mycontentbig">
-                {item.title}
+                {lab.Title}
               </div>
             </div>
 
@@ -105,7 +83,7 @@ export default class Individual extends Component {
                 填寫人
               </div>
               <div className="mycontentbig">
-                {item.keyin}
+                {lab.KeyinTeacher}
               </div>
             </div>
 
@@ -114,7 +92,7 @@ export default class Individual extends Component {
                 晤談內容
               </div>
               <div className="mycontentbig">
-                {item.content}
+                {lab.Content}
               </div>
             </div>
 
@@ -123,20 +101,11 @@ export default class Individual extends Component {
                 摘要內容
               </div>
               <div className="mycontentbig">
-                {item.abstract}
+                {lab.Content}
               </div>
             </div>
           </div>
         </div>
-      );
-    });
-    console.log(textcontent, 85);
-
-    return (
-      <Layout>
-        <div className="Individual">
-          <div className="titlename"> <span>個人輔導紀錄</span></div>
-          {textcontent}
         </div>
       </Layout>
     );
