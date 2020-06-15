@@ -34,7 +34,6 @@ export default class AdminClassList extends Component {
       this.setState({
         classlist: datalist
       }, () => {
-        // console.log(this.state.classlist)
       })
     }).catch((err) => {
       console.error({ err }, 90);
