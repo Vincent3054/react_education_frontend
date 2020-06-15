@@ -1,19 +1,13 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Layout from "../../layouts/Layout";
-import "./ClassTeacherCoachingrecord.css";
+// import "./ClassTeacherCoachingrecord.css";拿掉了
 import axios from 'axios';
-
 export default class ClassTeacherCoachingrecord extends Component {
   state = {
-    lab: [
-      
-    ],
+    lab: [],
   };
-
   componentDidMount() {
-    //const { match } = this.props;
-    //const { params } = match;
     axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/ClassTeacher`, {
       headers: {
         Authorization: JSON.parse(localStorage.getItem("Token")),
@@ -25,7 +19,7 @@ export default class ClassTeacherCoachingrecord extends Component {
         this.setState({
           lab: datalist
         }, () => {
-          console.log(this.state.lab, 85)
+          console.log(this.state.lab, 8500)
         })
       }).catch((err) => {
         console.error({ err }, 90);
@@ -35,19 +29,15 @@ export default class ClassTeacherCoachingrecord extends Component {
   render() {
     const { lab } = this.state;
     console.log(lab, 100)
-    // const data = lab.filter((item, index, array) => {
-    //   return item.class === parseInt(params.id);
-    // });
-
     const textlab = lab.map((item, index, array) => {
       return (
         <tr className="list-body" key={index}>
+          <td>{index+1}</td>
           <td> {item.Name} </td>
           <td> {item.Phone} </td>
           <td> {item.ClassName}</td>
           <td> {item.Teacher}</td>
           <td>
-            {" "}
             <Link to="/CoachingStudent/1">查看</Link>
           </td>
         </tr>
@@ -56,29 +46,26 @@ export default class ClassTeacherCoachingrecord extends Component {
 
     return (
       <Layout>
-        <div className="ClassTeacherCoachingrecord">
+        <div className="Studentdata">
           <div className="title">
-            <span className="titlename">學生列表</span>
             <table className="table">
               <thead>
-                <tr>
-                  <td colSpan="8" className="theadstart">
-                    <label>search：</label>
-                    <input type="text" />
-                  </td>
-                </tr>
+                <th className="tabletitle"  >
+                  <h2>學生列表</h2>
+                </th>
                 <tr className="list">
+                  <th>編號</th>
                   <th>學生姓名</th>
                   <th>電話</th>
                   <th>班級</th>
                   <th>導師</th>
-                  <th></th>
+                  <th>管理</th>
                 </tr>
               </thead>
               <tbody>{textlab}</tbody>
               <tfoot>
                 <tr>
-                  <td colSpan="8" className="foot">
+                  <td colspan="8" className="foot">
                     <span className="footmain">上一頁</span>
                     <button type="button" className="btn footmain">
                       1
