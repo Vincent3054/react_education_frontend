@@ -12,6 +12,7 @@ import ChangePassword from "./routes/Login/ChangePassword";
 import ChangePasswordComplete from "./routes/Login/ChangePasswordComplete";
 import ResetPassword from "./routes/Login/ResetPassword";
 import ResetPasswordComplete from "./routes/Login/ResetPasswordComplete";
+import EmailValidateloading from "./routes/Login/EmailValidateloading";
 import EmailValidateComplete from "./routes/Login/EmailValidateComplete";
 import EmailValidateFail from "./routes/Login/EmailValidateFail";
 import ResendiEmailValidate from "./routes/Login/ResendiEmailValidate";
@@ -73,6 +74,10 @@ export default (
         exact
         component={ChangePasswordComplete}
       />
+      <Route 
+      path="/EmailValidateloading"
+      exact
+      component={EmailValidateloading}/>
       <Route
         path="/EmailValidateComplete"
         exact

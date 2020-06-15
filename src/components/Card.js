@@ -79,7 +79,12 @@ export default class Card extends Component {
   };
   alterData = () => {
     const { ac } = this.state;
-    console.log(this.props.data)
+    // console.log(this.props.data,82)
+    this.setState({
+      Grade:this.props.data.Grade,
+      ClassName:this.props.data.ClassName,
+      Teacher:this.props.data.Teacher,
+    })
     //setstate
     if (ac === false) {
       this.setState({ ac: true });

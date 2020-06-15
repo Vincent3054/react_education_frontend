@@ -21,7 +21,7 @@ export default class EmailValidateFail extends Component {
                   />
                 </div>
                 <div style={{ marginTop: "30px", textAlign: "center" }}>
-                  <span>驗證失敗，請重新確認或再註冊!</span>
+                  <span>驗證失敗，請重寄驗證信!</span>
                 </div>
                 <Link to={"/ResendiEmailValidate"}>
                   <div className="list">

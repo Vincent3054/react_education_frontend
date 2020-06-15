@@ -8,77 +8,156 @@ import { Link } from "react-router-dom";
 import Correctfrom from "../../Assets/EmailValidate_check.png";
 export default class AdminReservation1 extends Component {
   state = {
+    //控制
     ac: false,
     comp: false,
-    Reservation_Id: "",
-    Class_Id: "",
-    Account: "",
-    Period: "",
-    Time: "",
-    Date:"",
-    NowPSY: "",
-    BeforePSY: "",
-    Fettle:"",
-    TeacherRemarks: "",
-    StudentsRemarks: "",
-    number:1,
+    //資料列表
     Reservation:[],
+    //老師列表
+    CounselorTeacher:[],
+    //指派老師
+    NowPSY:"",
+    //修改預約
+    Date:"",
+    Time:"",
+    Reservation_Id:"",
   };
   componentDidMount() {
-    axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/StatusRecord?Fettle=1`, {
+    this.get();
+    axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/AdminTeacher?Role_Id=R003`, {
     headers: {
       Authorization: JSON.parse(localStorage.getItem("Token")),
     }
     })
     .then((res) => {
-      console.log(res.data.Data.DataList);
+      console.log(res.data.Data.DataList,12);
       const datalist = res.data.Data.DataList;
       this.setState({
-        Reservation: datalist
-      }, () => {
-        // console.log(this.state.Reservation)
+        CounselorTeacher: datalist
       })
     }).catch((err) => {
-      console.error({ err }, 90);
+      console.error({ err }, 91);
     })
   }
-  alterData = () => {
+  get(){
+    axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/StatusRecord?Fettle=1`, {
+      headers: {
+        Authorization: JSON.parse(localStorage.getItem("Token")),
+      }
+      })
+      .then((res) => {
+        console.log(res);
+        const datalist = res.data.Data.DataList;
+        this.setState({
+          Reservation: datalist
+        })
+      }).catch((err) => {
+        console.error({ err }, 90);
+      })
+  }
+  alterData = (Id) => {
     const { ac } = this.state;
-    if (ac == false) {
+    if (ac === false) {
       this.setState({ ac: true });
     } else {
       this.setState({ ac: false });
     }
+    this.setState({
+      Reservation_Id:Id,
+    })
   };
   comp = () => {
-    const { comp, ac } = this.state;
-    if (comp == false) {
+    const { comp } = this.state;
+    if (comp === false) {
       this.setState({ comp: true });
       this.setState({ ac: false });
     } else {
       this.setState({ comp: false });
     }
   };
-
+  handleSubmit = (e,Reservation_Id) => {
+    const {
+      NowPSY
+    } = this.state;
+    const payload = {
+      NowPSY
+    };
+      e.preventDefault();
+      axios
+        .put(`http://studytutor_backend.hsc.nutc.edu.tw/api/Reservation/?Reservation_Id=${Reservation_Id}`, payload, {
+          headers: {
+            Authorization: JSON.parse(localStorage.getItem("Token")),
+          },
+        })
+        .then((res) => {
+          console.log(res);
+          alert(res.data.Message);
+          this.get();
+        })
+        .catch((error) => {
+          const status = error.response.status;
+          //錯誤狀態碼
+          console.log(status);
+          const err = JSON.parse(error.request.response);
+          //錯誤訊息
+          alert(err.Message);
+        });
+  };
+  handleEdit = (e) => {
+    const {Reservation_Id,Date,Time} = this.state;
+    const payload = { Reservation_Id,Date,Time};
+      e.preventDefault();
+      axios
+        .put(`http://studytutor_backend.hsc.nutc.edu.tw/api/StatusRecord`, payload, {
+          headers: {
+            Authorization: JSON.parse(localStorage.getItem("Token")),
+          },
+        })
+        .then((res) => {
+          console.log(res);
+          // alert(res.data.Message);
+          this.comp();
+          this.get();
+        })
+        .catch((error) => {
+          const status = error.response.status;
+          //錯誤狀態碼
+          console.log(status);
+          const err = JSON.parse(error.request.response);
+          //錯誤訊息
+          alert(err.Message);
+        });
+  };
   render() {
-    const { ac, comp,Reservation} = this.state;
+    const { ac, comp,Reservation,CounselorTeacher,NowPSY} = this.state;
+    const{Date,Time}=this.state;
+    const CounselorTeacherList = CounselorTeacher.map((item, index, array) => {
+      return (
+          <option key={index} value={item.Account}>{item.Name}</option>
+      );
+    });
+   
     const textstudent = Reservation.map((item, index, array) => {
       return (
         <tr className="list-body" key={index}>
-          <td>{index}</td>
-          <td>{item.Class_Id}</td>
-          <td>{item.Account}</td>
+          <td>{index+1}</td>
+          <td>{item.Class_Name}</td>
+          <td>{item.Name}</td>
           <td>{item.Date}</td>
           <td>{item.Time}</td>
-          <td>{item.type}</td>
-          <td>{item.TeacherRemarks}</td>
           <td>{item.StudentsRemarks}</td>
+          <td>{item.TeacherRemarks}</td>
           <td>{item.BeforePSY}</td>
           <td>
-            <select className="input">
-              <option value="老師1">老師1</option>
-              <option value="老師2">老師2</option>
-              <option value="老師3">老師3</option>
+            <select 
+              className="input" 
+              onChange={(e) => {
+              this.setState({NowPSY: e.target.value },
+                (e)=>{console.log(this.state.NowPSY)});
+              }}
+              value={NowPSY}
+            >
+              {CounselorTeacherList}
             </select>
           </td>
           <td className="td-btn">
@@ -86,11 +165,11 @@ export default class AdminReservation1 extends Component {
               type="button"
               className="btn"
               style={{ width: "100px" }}
-              onClick={this.alterData}
+              onClick={e=>{this.alterData(item.Reservation_Id)}}
             >
               修改
             </button>
-            <button type="button" className="btn" style={{ width: "100px" }}>
+            <button type="button" className="btn" style={{ width: "100px" }} onClick={e=>{this.handleSubmit(e,item.Reservation_Id)}} >
               指派老師
             </button>
           </td>
@@ -98,39 +177,7 @@ export default class AdminReservation1 extends Component {
       );
     });
 
-    const editstudent = Reservation.map((item, index, array) => {
-      return (
-        <form className="form">
-          <span className="title">編輯</span>
-          <div class="close"  type="button" onClick={this.alterData}></div>
-
-          <div className="list">
-            <span className="list-text">預約日期：</span>
-            <input className="input" type="date" value={item.date}></input>
-          </div>
-          <div className="list">
-            <span className="list-text">預約時間：</span>
-            <input className="input" type="time" value={item.time}></input>
-          </div>
-          <div className="list">
-            <span className="list-text">諮詢類別：</span>
-            <select className="input">
-              <option value={item.type}>{item.type}</option>
-              <option value="學業">學業</option>
-              <option value="家庭">家庭</option>
-              <option value="感情">感情</option>
-              <option value="其他">其他</option>
-            </select>
-          </div>
-          <div className="list">
-            <button className="login-btn" onClick={this.comp}>
-              送出
-            </button>
-          </div>
-        </form>
-      );
-    });
-
+    
     return (
       <Layout>
         <div className="StudentReservation">
@@ -167,7 +214,35 @@ export default class AdminReservation1 extends Component {
           <div className={ac ? `limiter` : `limiter-mone`}>
             <div className="background">
               <div className="container">
-                <div className="wrap">{editstudent}</div>
+                <div className="wrap">
+                  <form className="form" onSubmit={this.handleEdit}>
+                    <span className="title">編輯</span>
+                    <div class="close"  type="button" onClick={this.alterData}></div>
+          
+                    <div className="list">
+                      <span className="list-text">預約日期：</span>
+                      <input className="input" type="date"  onChange={(e) => {
+                        this.setState({ Date: e.target.value });
+                      }}
+                      value={Date}></input>
+                    </div>
+                    <div className="list">
+                      <span className="list-text">預約時間：</span>
+                      <input className="input"
+                        type="time"
+                        onChange={(e) => {
+                        this.setState({ Time: e.target.value });
+                         }}
+                        value={Time}                    
+                      />
+                    </div>
+                    <div className="list">
+                      <button className="login-btn">
+                        送出
+                      </button>
+                    </div>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
@@ -205,7 +280,6 @@ export default class AdminReservation1 extends Component {
                   <th>學生姓名</th>
                   <th>預約日期</th>
                   <th>預約時間</th>
-                  <th>諮詢類別</th>
                   <th>學生備註</th>
                   <th>老師備註</th>
                   <th>上次指派</th>

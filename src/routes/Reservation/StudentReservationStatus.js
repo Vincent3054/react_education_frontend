@@ -9,6 +9,7 @@ import Correctfrom from "../../Assets/EmailValidate_check.png";
 
 export default class StudentReservationStatus extends Component {
   state = {
+    //控制
     ac: false,
     comp: false,
     Period:"",
@@ -16,32 +17,24 @@ export default class StudentReservationStatus extends Component {
 	  Date:"",
     StudentsRemarks:"",
     Category:"",
-    student: [
-      {
-        number: 1,
-        Class_Id: "才藝班",
-        Name: "陳同學",
-        date: "2020/05/20",
-        Time: "14:20",
-        type: "感情",
-        StudentRemasks: "想換xxx老師",
-        TeacherRemasks: "xxx老師沒空",
-        BeforePSY: "王老師",
-        NowPSY: "陳老師",
-      },
-      {
-        number: 2,
-        Class: "才藝班",
-        name: "王同學",
-        date: "2020/06/10",
-        Time: "13:15",
-        type: "學業",
-        StudentRemasks: "想換xxx老師",
-        TeacherRemasks: "xxx老師沒空",
-        BeforePSY: "陳老師",
-        NowPSY: "王老師",
-      },
-    ],
+    //資料列表
+    Reservation:[],
+  };
+  componentDidMount() {
+    axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/StatusRecord?Fettle=1`, {
+      headers: {
+        Authorization: JSON.parse(localStorage.getItem("Token")),
+      }
+      })
+      .then((res) => {
+        console.log(res.data.Data.DataList);
+        const datalist = res.data.Data.DataList;
+        this.setState({
+          Reservation: datalist
+        })
+      }).catch((err) => {
+        console.error({ err }, 90);
+      })
   };
   alterData = () => {
     const { ac } = this.state;
@@ -70,17 +63,15 @@ export default class StudentReservationStatus extends Component {
 	    Time,
 	    Date,
       StudentsRemarks,
-      Category
     } = this.state;
     const payload = {
       Period,
 	    Time,
 	    Date,
       StudentsRemarks,
-      Category
     };
     if (
-      Period=== "" || Time=== "" ||Date=== "" || Category=== ""
+      Period=== "" || Time=== "" ||Date=== "" 
     ) 
     {
       alert("欄位不可空白");
@@ -109,30 +100,24 @@ export default class StudentReservationStatus extends Component {
     }
   };
   render() {
-    const{ Period,
+    const{ 
+      Period,
 	    Time,
 	    Date,
       StudentsRemarks,
-      Category}=this.state;
+    }=this.state;
     const { ac, comp } = this.state;
-    const { match } = this.props;
-    const { params } = match;
-    const { student } = this.state;
-    const data = student.filter((item, index, array) => {
-      return item.number === parseInt(params.id);
-    });
-
-    const textstudent = data.map((item, index, array) => {
+    const { Reservation } = this.state;
+    const textstudent = Reservation.map((item, index, array) => {
       return (
         <tr className="list-body" key={index}>
-          <td>{item.number}</td>
-          <td>{item.Class_Id}</td>
+          <td>{index+1}</td>
+          <td>{item.Class_Name}</td>
           <td>{item.Name}</td>
-          <td>{item.date}</td>
+          <td>{item.Date}</td>
           <td>{item.Time}</td>
-          <td>{item.type}</td>
           <td>{item.StudentRemasks}</td>
-          <td>預約成功</td>
+          <td>{item.NowPSY===""?"等待預約中":"預約成功"}</td>
         </tr>
       );
     });
@@ -204,19 +189,6 @@ export default class StudentReservationStatus extends Component {
                       value={Time}></input>
                     </div>
                     <div className="list">
-                      <span className="list-text">諮詢類別</span>
-                      <select className="input" onChange={(e) => {
-                        this.setState({ Category: e.target.value });
-                      }}
-                      value={Category}>
-                        <option></option>
-                        <option value="學業">學業</option>
-                        <option value="家庭">家庭</option>
-                        <option value="感情">感情</option>
-                        <option value="其他">其他</option>
-                      </select>
-                    </div>
-                    <div className="list">
                       <span className="list-text">諮詢內容：</span>
                       <textarea
                         className="input"
@@ -241,18 +213,8 @@ export default class StudentReservationStatus extends Component {
           <div className="title">
             <table className="table">
               <thead>
-                <th className="tabletitle" colspan="7">
+                <th className="tabletitle" colspan="5">
                   <h2>學生預約系統</h2>
-                </th>
-                <th className="tablecursor" colspan="2">
-                  <div class="demo">
-                    <span>搜尋：</span>
-                    <input
-                      className="text"
-                      type="text"
-                      placeholder="輸入文字"
-                    />
-                  </div>
                 </th>
                 <tr className="list">
                   <th>編號</th>
@@ -260,22 +222,17 @@ export default class StudentReservationStatus extends Component {
                   <th>學生姓名</th>
                   <th>預約日期</th>
                   <th>預約時間</th>
-                  <th>諮詢類別</th>
                   <th>學生備註</th>
                   <th>預約狀態</th>
                 </tr>
               </thead>
-              <tbody>{textstudent}</tbody>
+              <tbody>
+                {textstudent}
+                <tr className="list-body"> 
+                  <th colSpan="7"  style={{ borderStyle:"dotted"}} onClick={this.alterData}>立即預約</th>
+                </tr>  
+              </tbody>
             </table>
-            <div>
-              <button
-                onClick={this.alterData}
-                className="btn"
-                style={{ width: "100px" }}
-              >
-                預約
-              </button>
-            </div>
           </div>
         </div>
       </Layout>

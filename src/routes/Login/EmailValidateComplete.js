@@ -11,7 +11,7 @@ export default class EmailValidateComplete extends Component {
           <div className="container">
             <div className="wrap" style={{ width: "600px" }}>
               <form className="form">
-                <span className="title">驗證成功</span>
+                <span className="title">重設密碼成功</span>
                 <div style={{ textAlign: "center", display: "block" }}>
                   <img
                     src={Correctfrom}
@@ -21,11 +21,11 @@ export default class EmailValidateComplete extends Component {
                   />
                 </div>
                 <div style={{ marginTop: "30px", textAlign: "center" }}>
-                  <span>恭喜您驗證成功!</span>
+                  <span>恭喜您重設密碼成功!</span>
                 </div>
-                <Link to="/ChangePassword">
+                <Link to="/Loging">
                   <div className="list">
-                    <button className="login-btn">去修改密碼 </button>
+                    <button className="login-btn">回去登入 </button>
                   </div>
                 </Link>
               </form>
@@ -36,4 +36,3 @@ export default class EmailValidateComplete extends Component {
     );
   }
 }
-//分二個
