@@ -216,16 +216,6 @@ export default class StudentReservationStatus extends Component {
                 <th className="tabletitle" colspan="5">
                   <h2>學生預約系統</h2>
                 </th>
-                <th className="tablecursor" colspan="2">
-                  <div class="demo">
-                    <span>搜尋：</span>
-                    <input
-                      className="text"
-                      type="text"
-                      placeholder="輸入文字"
-                    />
-                  </div>
-                </th>
                 <tr className="list">
                   <th>編號</th>
                   <th>班級</th>
@@ -236,17 +226,13 @@ export default class StudentReservationStatus extends Component {
                   <th>預約狀態</th>
                 </tr>
               </thead>
-              <tbody>{textstudent}</tbody>
+              <tbody>
+                {textstudent}
+                <tr className="list-body"> 
+                  <th colSpan="7"  style={{ borderStyle:"dotted"}} onClick={this.alterData}>立即預約</th>
+                </tr>  
+              </tbody>
             </table>
-            <div>
-              <button
-                onClick={this.alterData}
-                className="btn"
-                style={{ width: "100px" }}
-              >
-                預約
-              </button>
-            </div>
           </div>
         </div>
       </Layout>

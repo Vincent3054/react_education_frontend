@@ -100,9 +100,6 @@ export default class TeacherManagement extends Component {
             >
               修改權限
             </button>
-            <button type="button" className="btn" style={{ width: "100px" }}>
-              刪除
-            </button>
           </td>
         </tr>
       );
