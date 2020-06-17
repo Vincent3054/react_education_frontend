@@ -22,9 +22,6 @@ export default class Menu extends Component {
       this.setState({ ac: false });
     }
   };
-
-
-  
   render() {
     const { ac } = this.state;
     return (
@@ -77,12 +74,6 @@ export default class Menu extends Component {
               班級列表(輔導老師)
             </li>
           </Link>
-          <Link to="/TutorCoachingrecord" className="linkstyle">
-            <li className="list">
-              <img src={edit} className="img" />
-              輔導紀錄(輔導老師)
-            </li>
-            </Link>
           <Link to="/Personal" className="linkstyle">
             <li className="list">
               <img src={person} className="img" />
@@ -123,7 +114,7 @@ export default class Menu extends Component {
               首頁-預約-申請(學生)
             </li>
           </Link>
-          <Link to="/CoachingStudent/101" className="linkstyle">
+          <Link to="/CoachingStudent/ok12345" className="linkstyle">
             <li className="list">
               <img src={edit} className="img" />
               輔導紀錄(學生)

@@ -58,7 +58,7 @@ export default class CoachingStudent extends Component {
            <td>{item.Title}</td>
            <td>{item.Content}</td>
            <td>
-             <Link to="/IndividualTeach/1">編輯</Link>｜
+             <Link to={`/IndividualTeach/${item.A_Id}`}>編輯</Link>｜
              <Link to={`/Individual/${item.A_Id}`}>查看</Link>
            </td>
          </tr>

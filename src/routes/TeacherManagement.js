@@ -109,10 +109,7 @@ export default class TeacherManagement extends Component {
       <Layout>
         <div className="StudentReservation">
           <div className={notification ? `limiter` : `limiter-mone`}>
-            <div
-              className="background"
-              onClick={(e) => this.showNotification(e)}
-            >
+            <div className="background" >
               <div className="container">
                 <div className="wrap-comp">
                   <form className="form">
@@ -145,7 +142,7 @@ export default class TeacherManagement extends Component {
 
         <div className="StudentReservation">
           <div className={visible ? `limiter` : `limiter-mone`}>
-            <div className="background" onClick={this.showModal}>
+            <div className="background">
               <div className="container">
                 <div className="wrap">
                 <form className="form" onSubmit={this.handleSubmit}>
@@ -289,7 +286,7 @@ export default class TeacherManagement extends Component {
                         </div>
                       </th>
                     </tr>
-                    <div className="list">
+                    <div className="list"  onClick={this.showModal}>
                       <button className="login-btn">送出</button>
                     </div>
                   </form>

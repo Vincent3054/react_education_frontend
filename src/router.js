@@ -170,7 +170,7 @@ export default (
       <Route path="/Individual/:id" exact component={Individual} />
       <Route path="/IndividualTeach/:id" exact component={IndividualTeach} />
       <Route path="/AdminClassList" exact component={AdminClassList} />
-      <Route path="/CounselorTeacherCoachingrecord" exact component={CounselorTeacherCoachingrecord} />
+      <Route path="/CounselorTeacherCoachingrecord/:id" exact component={CounselorTeacherCoachingrecord} />
       <Route path="/CounselorTeacherClassList" exact component={CounselorTeacherClassList} />
       <Route path="/ClassTeacherCoachingrecord" exact component={ClassTeacherCoachingrecord} />
       <Route path="/TutorCoachingrecord" exact component={TutorCoachingrecord} />

@@ -19,7 +19,7 @@ export default class Card extends Component {
     };
   }
   handleSubmit = (e) => {
-    const { data,git} = this.props;
+    const { data} = this.props;
       e.preventDefault();
       axios
         .delete(`http://studytutor_backend.hsc.nutc.edu.tw/api/Class?Class_Id=${data.Class_Id}`,{
@@ -30,7 +30,7 @@ export default class Card extends Component {
         .then((res) => {
           console.log(res.data);
           alert(res.data.Message);
-          git();
+          this.git();
         })
         .catch((error) => {
           const status = error.response.status;
@@ -42,7 +42,7 @@ export default class Card extends Component {
         });
   };
   handleSubmit2 = (e) => {
-    const { data,git} = this.props;
+    const { data} = this.props;
     const {
       Class_Id,
       Grade,
@@ -66,7 +66,7 @@ export default class Card extends Component {
           console.log(res.data);
           // alert(res.data.Message);
           this.comp();
-          git();
+          this.git();
         })
         .catch((error) => {
           const status = error.response.status;

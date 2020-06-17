@@ -63,12 +63,12 @@ export default class ClassTeacherReservation1 extends Component {
                   </div>
                 </th>
                 <tr>
-                  <th colspan="2">未指派</th>
+                  <th className="title_Linking" colspan="2">未指派</th>
                   <th colspan="1">
-                    <Link to="/ClassTeacherReservation2/1">正在指派</Link>
+                    <Link className="title_Link" to="/ClassTeacherReservation2/1">正在指派</Link>
                   </th>
                   <th>
-                    <Link to="/ClassTeacherReservation3/1">指派完成</Link>
+                    <Link className="title_Link" to="/ClassTeacherReservation3/1">指派完成</Link>
                   </th>
                 </tr>
                 <tr className="list">

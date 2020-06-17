@@ -21,6 +21,9 @@ export default class StudentReservationStatus extends Component {
     Reservation:[],
   };
   componentDidMount() {
+    this.get();
+  };
+  get(){
     axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/StatusRecord?Fettle=1`, {
       headers: {
         Authorization: JSON.parse(localStorage.getItem("Token")),
@@ -35,7 +38,7 @@ export default class StudentReservationStatus extends Component {
       }).catch((err) => {
         console.error({ err }, 90);
       })
-  };
+  }
   alterData = () => {
     const { ac } = this.state;
     if (ac === false) {
@@ -87,6 +90,7 @@ export default class StudentReservationStatus extends Component {
         .then((res) => {
           console.log(res.data);
           // alert(res.data.Message);
+          this.get();
           this.comp();
         })
         .catch((error) => {
@@ -116,7 +120,7 @@ export default class StudentReservationStatus extends Component {
           <td>{item.Name}</td>
           <td>{item.Date}</td>
           <td>{item.Time}</td>
-          <td>{item.StudentRemasks}</td>
+          <td>{item.StudentsRemarks}</td>
           <td>{item.NowPSY===""?"等待預約中":"預約成功"}</td>
         </tr>
       );

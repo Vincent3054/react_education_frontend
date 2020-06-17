@@ -226,23 +226,13 @@ export default class CounselorTeacherReservation2 extends Component {
           <div className="title">
             <table className="table">
               <thead>
-                <th className="tabletitle" colspan="7">
+                <th className="tabletitle" colspan="8">
                   <h2>輔導老師預約系統-接受預約</h2>
                 </th>
-                <th className="tablecursor" colspan="2">
-                  <div class="demo">
-                    <span>搜尋：</span>
-                    <input
-                      className="text"
-                      type="text"
-                      placeholder="輸入文字"
-                    />
-                  </div>
-                </th>
                 <tr>
-                  <th colspan="1">接受預約</th>
+                  <th colspan="1" className="title_Linking">接受預約</th>
                   <th>
-                    <Link to="/CounselorTeacherReservation3/1">預約完成</Link>
+                    <Link className="title_Link" to="/CounselorTeacherReservation3/1">預約完成</Link>
                   </th>
                 </tr>
                 <tr className="list">

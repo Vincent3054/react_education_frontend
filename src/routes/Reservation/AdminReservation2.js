@@ -60,23 +60,14 @@ export default class AdminReservation2 extends Component {
                 <th className="tabletitle" colspan="7">
                   <h2>管理者預約系統-正在指派</h2>
                 </th>
-                <th className="tablecursor" colspan="2">
-                  <div class="demo">
-                    <span>搜尋：</span>
-                    <input
-                      className="text"
-                      type="text"
-                      placeholder="輸入文字"
-                    />
-                  </div>
-                </th>
+                
                 <tr>
                   <th colspan="2">
-                    <Link to="/AdminReservation1/1">未指派</Link>
+                    <Link className="title_Link" to="/AdminReservation1/1" >未指派</Link>
                   </th>
-                  <th colspan="1">正在指派</th>
+                  <th colspan="1"  className="title_Linking">正在指派</th>
                   <th>
-                    <Link to="/AdminReservation3/1">指派完成</Link>
+                    <Link className="title_Link" to="/AdminReservation3/1">指派完成</Link>
                   </th>
                 </tr>
                 <tr className="list">

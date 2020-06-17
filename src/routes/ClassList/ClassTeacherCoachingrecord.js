@@ -14,7 +14,7 @@ export default class ClassTeacherCoachingrecord extends Component {
       }
     })
       .then((res) => {
-        console.log(res.data.Data.DataList);
+        console.log(res,123);
         const datalist = res.data.Data.DataList;
         this.setState({
           lab: datalist
@@ -38,7 +38,9 @@ export default class ClassTeacherCoachingrecord extends Component {
           <td> {item.ClassName}</td>
           <td> {item.Teacher}</td>
           <td>
-            <Link to="/CoachingStudent/1">查看</Link>
+            <button  className="btn" style={{ width: "100px"}}>
+              <Link style={{color:"#FFF",textDecoration:"none"}} to={`/CoachingStudent/${item.Account}`}>查看</Link>
+            </button>
           </td>
         </tr>
       );

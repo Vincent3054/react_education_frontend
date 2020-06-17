@@ -45,7 +45,9 @@ export default class AdminCoachingrecord extends Component {
           <td> {item.ClassName}</td>
           <td> {item.Teacher}</td>
           <td>
-            <Link to={`/CoachingStudent/${item.Account}`}>查看</Link>
+          <button  className="btn" style={{ width: "100px"}}>
+            <Link style={{color:"#FFF",textDecoration:"none"}} to={`/CoachingStudent/${item.Account}`}>查看</Link>
+          </button>
           </td>
         </tr>
       );

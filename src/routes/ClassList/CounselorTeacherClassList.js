@@ -4,7 +4,7 @@ import Layout from "../../layouts/Layout";
 import "../../mixin/main.css";
 import "../../components/Card.css";
 import"../Reservation/StudentReservation.css";
-import Card from "../../components/Card";
+import CounselorTeacherCard from "../../components/CounselorTeacherCard";
 export default class CounselorTeacherClassList extends Component {
   constructor(props) {
     super(props);
@@ -16,11 +16,9 @@ export default class CounselorTeacherClassList extends Component {
       ClassName:"",
       Teacher:"",
       classlist: [
-      
       ],
     };
   }
-  
   componentDidMount() {
      // 获取localstorage
     // let userInfo = localStorage.getItem("userInfo");
@@ -28,7 +26,7 @@ export default class CounselorTeacherClassList extends Component {
     // if(userInfo && Date.now() - JSON.parse(userInfo).date < 2 * 60 * 60 * 1000) {
     //   this.setState({userInfo: JSON.parse(userInfo)});
     // }
-    axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/ClassStudent`, {
+    axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/PSYClassTeacher`, {
       headers: {
         Authorization: JSON.parse(localStorage.getItem("Token")),
       }
@@ -49,15 +47,13 @@ export default class CounselorTeacherClassList extends Component {
  
   
   render() {
-    
     const { classlist } = this.state;
     // console.log(classlist);
-    const Cardlist = classlist.map(
-      (item, index) => {
+    const Cardlist = classlist.map((item, index) => {
         console.log(item,index );
         return (
           <div key={index}>
-            <Card data={item} role="AdminCoachingrecord" />
+            <CounselorTeacherCard data={item} role="CounselorTeacherCoachingrecord"/>
           </div>
         );
       }
@@ -65,8 +61,7 @@ export default class CounselorTeacherClassList extends Component {
     // console.log(Cardlist);
     return (
       <Layout>
-
-      <div className="CounselorTeacherClassList">{Cardlist}</div>
+        <div className="CounselorTeacherClassList">{Cardlist}</div>
       </Layout>
     );
   }
