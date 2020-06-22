@@ -19,10 +19,28 @@ export default class StudentManagement extends Component {
     ClassName: "",
     Teacher: "",
     studentAll:[],
+    classId:[],
   };
   componentDidMount() {
     this.get();
+    this.getclassid();
   }
+  getclassid(){
+    axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/ClassStudent`, {
+      headers: {
+        Authorization: JSON.parse(localStorage.getItem("Token")),
+      }
+      })
+      .then((res) => {
+        console.log(res,12);
+        const datalist = res.data.Data.DataList;
+        this.setState({
+          classId: datalist
+        })
+      }).catch((err) => {
+        console.error({ err }, 91);
+      })
+    }
   get(){
     axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/AdminAll`, {
     headers: {
@@ -87,6 +105,7 @@ export default class StudentManagement extends Component {
         .then((res) => {
           console.log(res);
           this.get();
+          alert("刪除成功");
         })
         .catch((error) => {
           const status = error.response.status;
@@ -131,7 +150,12 @@ export default class StudentManagement extends Component {
   };
   render() {
     const {Name,Email,Phone,Class_Id}=this.state;
-    const { ac, comp, studentAll } = this.state;
+    const { ac, comp, studentAll,classId } = this.state;
+    const classIdList = classId.map((item, index, array) => {
+      return (
+          <option key={index} value={item.Class_Id}>{item.Class_Id}</option>
+      );
+    });
     const textstudent = studentAll.map((item, index, array) => {
       return (
         <tr className="list-body" key={index}>
@@ -164,7 +188,7 @@ export default class StudentManagement extends Component {
         </tr>
       );
     });
-
+   
     return (
       <Layout>
         <div className="StudentReservation">
@@ -255,16 +279,7 @@ export default class StudentManagement extends Component {
                       }}
                       value={Class_Id}>
                         <option ></option>
-                        <option value="C101">C101</option>
-                        <option value="C102">C102</option>
-                        <option value="C103">C103</option>
-                        <option value="C104">C104</option>
-                        <option value="C105">C105</option>
-                        <option value="C106">C106</option>
-                        <option value="C107">C107</option>
-                        <option value="C108">C108</option>
-                        <option value="C109">C109</option>
-                        <option value="C110">C110</option>
+                        {classIdList}
                       </select>
                     </div>
                     <div className="list">

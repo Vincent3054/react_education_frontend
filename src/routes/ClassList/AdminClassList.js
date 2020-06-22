@@ -17,11 +17,30 @@ export default class AdminClassList extends Component {
       ClassName:"",
       Teacher:"",
       classlist: [],
+      ClassTeacher:[],
     };
   }
   componentDidMount() {
     this.gitclass();
+    this.gitClassTeacher();
   }
+  gitClassTeacher(){
+    axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/AdminTeacher?Role_Id=R002`, {
+      headers: {
+        Authorization: JSON.parse(localStorage.getItem("Token")),
+      }
+      })
+      .then((res) => {
+        // console.log(res.data.Data.DataList);
+        const datalist = res.data.Data.DataList;
+        this.setState({
+          ClassTeacher: datalist
+        })
+      }).catch((err) => {
+        console.error({ err }, 90);
+      })
+  }
+
  gitclass=()=>{
   axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/ClassStudent`, {
     headers: {
@@ -102,8 +121,7 @@ export default class AdminClassList extends Component {
   render() {
     const{Class_Id,Grade,ClassName,Teacher}=this.state;
     const { ac, comp } = this.state;
-    const { classlist } = this.state;
-    // console.log(classlist);
+    const { classlist ,ClassTeacher} = this.state;
     const Cardlist = classlist.map((item, index) => {
         console.log(item,index );
         return (
@@ -113,7 +131,11 @@ export default class AdminClassList extends Component {
         );
       }
     );
-    // console.log(Cardlist);
+    const ClassTeacherList = ClassTeacher.map((item, index, array) => {
+      return (
+          <option key={index} value={item.Name}>{item.Name}</option>
+      );
+    });
     return (
       <Layout>
       <div className="StudentReservation">
@@ -176,10 +198,13 @@ export default class AdminClassList extends Component {
                     </div>
                     <div className="list">
                       <span className="list-text">班級老師：</span>
-                      <input className="input" type="text" onChange={(e) => {
+                      <select className="input" onChange={(e) => {
                         this.setState({ Teacher: e.target.value });
                       }}
-                      value={Teacher}></input>
+                      value={Teacher}>
+                        <option ></option>
+                        {ClassTeacherList}
+                      </select>
                     </div>
                     <div className="list">
                       <button className="login-btn" >
