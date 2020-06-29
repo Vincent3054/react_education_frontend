@@ -126,7 +126,7 @@ export default class AdminClassList extends Component {
         console.log(item,index );
         return (
           <div key={index}>
-            <Card data={item}  role="AdminCoachingrecord" git={this.gitclass}/>
+            <Card data={item}  role="AdminCoachingrecord" git={this.gitclass} />
           </div>
         );
       }

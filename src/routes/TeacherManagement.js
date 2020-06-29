@@ -8,29 +8,33 @@ import "./switch.css";
 import Correctfrom from "../Assets/EmailValidate_check.png";
 export default class TeacherManagement extends Component {
   state = {
-    visible: false, //控制Modal顯示
-    notification: false, //控制送出表單後的視窗顯示
-    teacher: [
-      {
-        number: 1,
-        account: "aaa123",
-        name: "AAA",
-        email: "a1234@gmail.com",
-        Roles: "輔導老師",
-        phone: "0912345678",
-      },
-      {
-        number: 2,
-        account: "bbb123",
-        name: "BBB",
-        email: "b1234@gmail.com",
-        Roles: "班級老師",
-        phone: "0912345678",
-      },
-    ],
+    //控制
+    ac: false,
+    comp: false,
+    //查詢所有老師列表
     TeacherAll:[],
+    //角色列表
+    Roledata:[],
+    //修改角色
+    Role:"",
   };
   componentDidMount() {
+    this.get();
+    axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/Admin`, {
+    headers: {
+      Authorization: JSON.parse(localStorage.getItem("Token")),
+    }
+    })
+    .then((res) => {
+      const datalist = res.data.Data.DataList;
+      this.setState({
+        Roledata: datalist
+      })
+    }).catch((err) => {
+      console.error({ err }, 91);
+    })
+  }
+  get(){
     axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/AdminTeacherAll`, {
     headers: {
       Authorization: JSON.parse(localStorage.getItem("Token")),
@@ -48,40 +52,60 @@ export default class TeacherManagement extends Component {
       console.error({ err }, 90);
     })
   }
-  showModal = (e) => {
-    const { visible } = this.state;
-    console.log(e);
-    if (visible === false) {
+  alterData = (e) => {
+    const { ac } = this.state;
+    if (ac === false) {
       this.setState({
-        visible: true,
+        ac: true,
       });
     } else {
       this.setState({
-        visible: false,
+        ac: false,
       });
     }
   };
-
-  showNotification = (event) => {
-    const { notification } = this.state;
-    if (notification === false) {
+  comp = (e) => {
+    const { comp } = this.state;
+    if (comp === false) {
       this.setState({
-        notification: true,
+        comp: true,
+        ac: false ,
       });
     } else {
       this.setState({
-        notification: false,
+        comp: false,
       });
     }
   };
-  handleSubmit = (e) => {
-    const { notification } = this.state;
-    e.preventDefault();
-    this.setState({ notification: true });
-  };
-
+  changeRole=(e,Account,Role_Id)=>{
+    const payload = {Account,Role_Id};
+      e.preventDefault();
+      axios
+        .put(`http://studytutor_backend.hsc.nutc.edu.tw/api/Permission`, payload, {
+          headers: {
+            Authorization: JSON.parse(localStorage.getItem("Token")),
+          },
+        })
+        .then((res) => {
+          alert(res.data);
+          this.get();
+        })
+        .catch((error) => {
+          const status = error.response.status;
+          //錯誤狀態碼
+          console.log(status);
+          const err = JSON.parse(error.request.response);
+          //錯誤訊息
+          alert(err.Message);
+        });
+  }
   render() {
-    const { visible, notification,TeacherAll } = this.state;
+    const { ac, comp,TeacherAll,Roledata,Role } = this.state;
+    const RoleList = Roledata.map((item, index, array) => {
+      return (
+          <option key={index} value={item.Role}>{item.Role}</option>
+      );
+    });
     const textteacher = TeacherAll.map((item, index) => {
       return (
         <tr className="list-body" key={index}>
@@ -90,13 +114,28 @@ export default class TeacherManagement extends Component {
           <td>{item.Name}</td>
           <td>{item.Email}</td>
           <td>{item.Phone}</td>
-          <td>{item.Mark}</td>
+          <td>{item.Role_Id}{item.Mark}</td>
+          <td>
+            <select 
+              className="input" 
+              onChange={(e) => {
+              this.setState({Role: e.target.value },
+                (e)=>{console.log(this.state.Role)});
+              }}
+              value={Role}
+            >
+              {RoleList}
+            </select>
+          </td>
           <td className="td-btn">
+            <button type="button" className="btn" style={{ width: "100px" }} onClick={e=>{this.changeRole(e,item.Account,Role)}} >
+              修改角色
+            </button>
             <button
               type="button"
               className="btn"
               style={{ width: "100px" }}
-              onClick={this.showModal}
+              onClick={this.alterData}
             >
               修改權限
             </button>
@@ -108,7 +147,7 @@ export default class TeacherManagement extends Component {
     return (
       <Layout>
         <div className="StudentReservation">
-          <div className={notification ? `limiter` : `limiter-mone`}>
+          <div className={comp ? `limiter` : `limiter-mone`}>
             <div className="background" >
               <div className="container">
                 <div className="wrap-comp">
@@ -128,7 +167,7 @@ export default class TeacherManagement extends Component {
                     <div className="list">
                       <button
                         className="login-btn"
-                        onClick={this.showNotification}
+                        onClick={this.comp}
                       >
                         回去查看
                       </button>
@@ -141,11 +180,11 @@ export default class TeacherManagement extends Component {
         </div>
 
         <div className="StudentReservation">
-          <div className={visible ? `limiter` : `limiter-mone`}>
+          <div className={ac ? `limiter` : `limiter-mone`}>
             <div className="background">
               <div className="container">
                 <div className="wrap">
-                <form className="form" onSubmit={this.handleSubmit}>
+                <form className="form" >
                     <span className="title">修改權限</span>
                     <div className="cancel">
                       <button className="g-right" onClick={this.showModal}></button>
@@ -286,7 +325,7 @@ export default class TeacherManagement extends Component {
                         </div>
                       </th>
                     </tr>
-                    <div className="list"  onClick={this.showModal}>
+                    <div className="list"  onClick={this.comp}>
                       <button className="login-btn">送出</button>
                     </div>
                   </form>
@@ -300,7 +339,7 @@ export default class TeacherManagement extends Component {
           <div className="title">
             <table className="table">
               <thead>
-                <th className="tabletitle" colspan="4">
+                <th className="tabletitle" colspan="5">
                   <h2>老師管理系統</h2>
                 </th>
                 <th className="tablecursor" colspan="3">
@@ -319,7 +358,8 @@ export default class TeacherManagement extends Component {
                   <th>姓名</th>
                   <th>電子信箱</th>
                   <th>電話</th>
-                  <th>角色</th>
+                  <th>目前角色</th>
+                  <th>修改角色</th>
                   <th>管理</th>
                 </tr>
               </thead>

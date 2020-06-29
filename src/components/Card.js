@@ -16,7 +16,26 @@ export default class Card extends Component {
       ClassName:"",
       Teacher:"",
       classlist: [],
+      ClassTeacher:[],
     };
+  }
+  componentDidMount() {
+    this.gitClassTeacher();
+  }
+  gitClassTeacher(){
+    axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/AdminTeacher?Role_Id=R002`, {
+      headers: {
+        Authorization: JSON.parse(localStorage.getItem("Token")),
+      }
+      })
+      .then((res) => {
+        const datalist = res.data.Data.DataList;
+        this.setState({
+          ClassTeacher: datalist
+        })
+      }).catch((err) => {
+        console.error({ err }, 90);
+      })
   }
   handleSubmit = (e) => {
     const { data} = this.props;
@@ -102,9 +121,14 @@ export default class Card extends Component {
     }
   };
   render() {
-    const{Grade,ClassName,Teacher}=this.state;
+    const{Grade,ClassName,Teacher,ClassTeacher}=this.state;
     const { ac, comp } = this.state;
     const { data, role } = this.props;
+    const ClassTeacherList = ClassTeacher.map((item, index, array) => {
+      return (
+          <option key={index} value={item.Name}>{item.Name}</option>
+      );
+    });
     return (
       <div>
       <div className="StudentReservation">
@@ -163,10 +187,13 @@ export default class Card extends Component {
                     </div>
                     <div className="list">
                       <span className="list-text">班級老師：</span>
-                      <input className="input" type="text" onChange={(e) => {
+                      <select className="input" onChange={(e) => {
                         this.setState({ Teacher: e.target.value });
                       }}
-                      value={Teacher}></input>
+                      value={Teacher}>
+                        <option></option>
+                        {ClassTeacherList}
+                      </select>
                     </div>
                     <div className="list">
                       <button className="login-btn" >
