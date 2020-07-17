@@ -13,23 +13,21 @@ export default class TeacherManagement extends Component {
     comp: false,
     //查詢所有老師列表
     TeacherAll: [],
-    //角色修改系列
+    //角色修改系列表
     Roledata: [],//角色列表
     Role: "",//修改角色
     //權限修改系列
     Role_title: "",//列表選單要帶的值ex.CL
-    Role_list: [],//列出權限名稱
-    Role_list_personal: [],//列出個人權限
-    Account: "",
-    //權限預設讀取系列
+    //及時權限按鈕系列
+    // Role_list_personal: [],//列出個人權限
     Role_list_personal_state: [],
-    dta: [],
-    //帳號
-    Account_Role: "",
+    //修改權縣post參數
+    data: [],//修改權限封包
+    Account_Role: "",//帳號
   }
   componentDidMount() {
-    this.get();//查看所有老師資料
-    //查看所有角色權限列表
+    this.get();//get所有老師資料
+    //#region get所有角色權限列表
     axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/Admin`, {
       headers: {
         Authorization: JSON.parse(localStorage.getItem("Token")),
@@ -43,26 +41,9 @@ export default class TeacherManagement extends Component {
       }).catch((err) => {
         console.error({ err }, 91);
       })
-    //查看所有權限列表
-    //   axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/AdminPermission?Type=Permission`, {
-    //   headers: {
-    //     Authorization: JSON.parse(localStorage.getItem("Token")),
-    //   }
-    //   })
-    //   .then((res) => {
-    //     console.log(res,49);
-    //     const datalist = res.data.Data.PermissionList;
-    //     console.log(datalist,51);
-
-    //     this.setState({
-    //       Role_list: datalist
-    //     })
-    //   }).catch((err) => {
-    //     console.error({ err }, 49);
-    //   })
-
+    //#endregion
   }
-
+  //#region get 所有老師列表
   get() {
     axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/AdminTeacherAll`, {
       headers: {
@@ -81,17 +62,18 @@ export default class TeacherManagement extends Component {
         console.error({ err }, 90);
       })
   }
+  //#endregion
+  //#region 根據帳號get所有權縣表資料
   getRole(Account) {
-    //根據帳號查詢所有權縣資料
     axios.get(`http://studytutor_backend.hsc.nutc.edu.tw/api/Permission?Account=${Account}`, {
       headers: {
         Authorization: JSON.parse(localStorage.getItem("Token")),
       }
     })
       .then((res) => {
-        console.log(res, 85);
+        // console.log(res, 85);
         const datalist = res.data.Data.Permission;
-        console.log(datalist, 87)
+        // console.log(datalist, 87)
         this.setState({
           Role_list_personal: datalist,
           Role_list_personal_state: datalist,
@@ -102,25 +84,27 @@ export default class TeacherManagement extends Component {
         console.error({ err }, 92);
       })
   }
+  //#endregion
+  //#region 開啟子視窗1 (修改權限) 
   alterData = (e, ItemAccount) => {
     const { ac } = this.state;
-    this.getRole(ItemAccount);
-
     if (ac === false) {
+      this.getRole(ItemAccount); //呼叫根據帳號get所有權縣表資料
       this.setState({
         ac: true,
         Account_Role: ItemAccount,
-      }, () => {
-        console.log(this.state.Account_Role, 111)
       });
     } else {
       this.setState({
         ac: false,
-        Account_Role: "",
+        Account_Role: "", //關閉後清空帳號
+        data: [], //關閉後清空要修改權限封包
       });
     }
   };
-  comp = (e) => {
+  //#endregion
+  //#region 開啟子視窗2 (修改權限完成)  
+  comp = () => {
     const { comp } = this.state;
     if (comp === false) {
       this.setState({
@@ -133,6 +117,8 @@ export default class TeacherManagement extends Component {
       });
     }
   };
+  //#endregion
+  //#region put修改角色權限
   changeRole = (e, Account, Role_Id) => {
     const payload = { Account, Role_Id };
     e.preventDefault();
@@ -155,71 +141,111 @@ export default class TeacherManagement extends Component {
         alert(err.Message);
       });
   }
-  //index傳錯
-  chkChecked = (Key) => {
-    const { dta } = this.state;
-    console.log(Key, 151)
-    //修改時先將this.state.lists指定給一個變數
-    let arrLists = this.state.Role_list_personal_state
-    console.log(arrLists, 154);
-    //確認清單中的該事項目前狀態是不是已完成
-    if (arrLists[Key].Switch === true)
-      //原本是true的話這時候會變false
-      arrLists[Key].Switch = false
-    else if (arrLists[Key].Switch === false)
-      //原本是false的話這時候會變true
-      arrLists[Key].Switch = true
-    let Id = arrLists[Key].Permission_Id;
-    console.log(arrLists[Key])
-    let Permission_Id = { Permission_Id: Id };;
-    dta.push(Permission_Id);
-    //改完後用setState將lists重新設定為arrLists
-    this.setState({
-      Role_list_personal_state: arrLists,
-    }, () => {
-      console.log(this.state.Role_list_personal_state, 166)
-      console.log(this.state.dta, 167)
-    });
-    // this.getRole("cot003");
-  }
-  handleSubmit() {
-    const { Account_Role, dta } = this.state;
-    const payload = {
-      dta
-    };
-    axios
-      .post(`http://studytutor_backend.hsc.nutc.edu.tw/api/AdminPermission?Account=${Account_Role}`, payload, {
-        headers: {
-          Authorization: JSON.parse(localStorage.getItem("Token")),
-        },
-      })
-      .then((res) => {
-        console.log(res, 196);
-        alert(res.data.Message);
+  //#endregion
+  //#region 修改權限列表系列  
+    //#region 功能一：按鈕開關及時顯示　功能二：將點選按鈕的Id儲存到封包裡
+    chkChecked = (Key) => {
+      const { data } = this.state;
+      console.log(Key, 151)
+      //修改時先將this.state.lists指定給一個變數
+      let arrLists = this.state.Role_list_personal_state
+      console.log(arrLists, 154);
+      //確認清單中的該事項目前狀態是不是已完成
+      if (arrLists[Key].Switch === true)
+        //原本是true的話這時候會變false
+        arrLists[Key].Switch = false
+      else if (arrLists[Key].Switch === false)
+        //原本是false的話這時候會變true
+        arrLists[Key].Switch = true
+      let Id = arrLists[Key].Permission_Id;
+      console.log(arrLists[Key])
+      let Permission_Id = { Permission_Id: Id };;      
+      //#region 防呆功能 如果以選取不寫入封包
+        // var result = data.map( function(item, index) {
+        //   return item.Permission_Id;
+        // }).indexOf(Permission_Id);
+        // console.log(data.indexOf(Permission_Id),171)
+        // console.log(result)
+        // if (result===-1) 
+        //data.push(Permission_Id);
 
-      })
-      .catch((error) => {
-        const status = error.response.status;
-        //錯誤狀態碼
-        console.log(status, 201);
-        const err = JSON.parse(error.request.response);
-        //錯誤訊息
-        alert(err.Message);
+        // let longWords = data.filter(item => 
+        //   data.Permission_Id === Permission_Id
+          
+        //   );
+        //   return item.Permission_Id.indexOf(Permission_Id !== -1)
+        // const result = data.filter(function (item, index, array) {
+        //   if (item.Permission_Id.indexOf(Permission_Id)!==-1)
+          
+        //   return Permission_Id; 
+        // });
+        // data.push(result);
+        // if (data===[]){
+        //   data.push(Permission_Id);
+        // }
+        // else{
+        //   data.forEach(function (item, index, array) {
+        //     if(item.Permission_Id.indexOf(Permission_Id)!==-1){
+        //     data.push(Permission_Id);
+        //   }
+        //   });
+        // }
+        //  if (data===[]){
+        //   const{data}=this.props
+        //  data.push(Permission_Id);
+        //  }
+        data.push(Permission_Id);
+      //#endregion
+
+      //改完後用setState將lists重新設定為arrLists
+      this.setState({
+        Role_list_personal_state: arrLists,
+      }, () => {
+        console.log(this.state.Role_list_personal_state, 166)
+        console.log(this.state.data, 167)
       });
-  }
+    }
+  //#endregion
+    //#region post修改權限封包
+    handleSubmit = (e) => {
+      const { Account_Role, data } = this.state; //獲取帳號和權限封包
+      const payload = { data };
+      e.preventDefault();
+      axios
+        .post(`http://studytutor_backend.hsc.nutc.edu.tw/api/AdminPermission?Account=${Account_Role}`, payload, {
+          headers: {
+            Authorization: JSON.parse(localStorage.getItem("Token")),
+          },
+        })
+        .then((res) => {
+          console.log(res, 196);
+          // alert(res.data.Message);
+          this.comp();//修改成功後開啟子視窗2 (修改權限完成)
+        })
+        .catch((error) => {
+          const status = error.response.status;
+          //錯誤狀態碼
+          console.log(status,192);
+          const err = JSON.parse(error.request.response);
+          //錯誤訊息
+          alert(err.Message);
+        });
+    }
+    //#endregion
+  //#endregion
   render() {
-    const { ac, comp, TeacherAll, Roledata, Role } = this.state;
-    const { Role_title, Role_list_personal, Role_list_personal_state } = this.state;
-    //根據選單查詢權限
+    const { ac, comp, TeacherAll } = this.state; //開關和列表
+    const { Roledata, Role } = this.state;//修改角色系列
+    const { Role_title, Role_list_personal_state } = this.state; //修改權縣系列
+    //#region map修改權限表
+    //#region 根據選單filter權限表
     const Role_titledata = Role_list_personal_state.filter(function (item, index, array) {
-      // console.log(item.Permission,136)
       const data = item.Permission_Id;
       const data1 = data.substring(0, 2);
-      //  console.log(data,136)
-      return data1 === Role_title;
+      return data1 === Role_title; //把Id前二個字母抓出來比對
     });
-
-    // console.log(Role_titledata,139);
+    //#endregion
+    //#region  map權限表
     const Role_datalist = Role_titledata.map((item, index, array) => {
       return (
         <tr className="list" key={index} >
@@ -245,11 +271,16 @@ export default class TeacherManagement extends Component {
         </tr>
       );
     });
+    //#endregion
+    //#endregion
+    //#region map角色列表
     const RoleList = Roledata.map((item, index, array) => {
       return (
         <option key={index} value={item.Role}>{item.Role}</option>
       );
     });
+    //#endregion
+    //#region mqp每列修改角色、修改權限按鈕
     const textteacher = TeacherAll.map((item, index) => {
       return (
         <tr className="list-body" key={index}>
@@ -260,11 +291,10 @@ export default class TeacherManagement extends Component {
           <td>{item.Phone}</td>
           <td>{item.Role_Id}{item.Mark}</td>
           <td>
-            <select
+            <select //Change角色列表
               className="input"
               onChange={(e) => {
-                this.setState({ Role: e.target.value },
-                  (e) => { console.log(this.state.Role) });
+                this.setState({ Role: e.target.value })
               }}
               value={Role}
             >
@@ -287,7 +317,7 @@ export default class TeacherManagement extends Component {
         </tr>
       );
     });
-
+    //#endregion
     return (
       <Layout>
         <div className="StudentReservation">
@@ -308,11 +338,8 @@ export default class TeacherManagement extends Component {
                     <div style={{ marginTop: "30px", textAlign: "center" }}>
                       <span>恭喜您編輯成功!</span>
                     </div>
-                    <div className="list">
-                      <button
-                        className="login-btn"
-                        onClick={this.comp}
-                      >
+                    <div className="list" onClick={this.comp}>
+                      <button className="login-btn">
                         回去查看
                       </button>
                     </div>
@@ -328,7 +355,7 @@ export default class TeacherManagement extends Component {
             <div className="background">
               <div className="container">
                 <div className="wrap">
-                  <form className="form">
+                  <form className="form" onSubmit={this.handleSubmit}>
                     <span className="title">修改權限</span>
                     <div className="cancel">
                       <div class="close" type="button" onClick={this.alterData}></div>
@@ -337,8 +364,7 @@ export default class TeacherManagement extends Component {
                       <span className="list-text">權限設定</span>
                       <select className="input"
                         onChange={(e) => {
-                          this.setState({ Role_title: e.target.value },
-                            (e) => { console.log(this.state.Role_title) });
+                          this.setState({ Role_title: e.target.value });
                         }}
                         value={Role_title}>
                         <option>請選擇功能分類</option>
@@ -349,7 +375,7 @@ export default class TeacherManagement extends Component {
                       </select>
                     </div>
                     {Role_datalist}
-                    <div className="list" onClick={this.handleSubmit} >
+                    <div className="list">
                       <button className="login-btn">送出</button>
                     </div>
                   </form>
