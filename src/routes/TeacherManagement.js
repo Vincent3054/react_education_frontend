@@ -23,6 +23,7 @@ export default class TeacherManagement extends Component {
     Role_list_personal_state: [],
     //修改權縣post參數
     data: [],//修改權限封包
+    lockdata:[],//修改權限封包防呆功能用
     Account_Role: "",//帳號
   }
   componentDidMount() {
@@ -99,6 +100,7 @@ export default class TeacherManagement extends Component {
         ac: false,
         Account_Role: "", //關閉後清空帳號
         data: [], //關閉後清空要修改權限封包
+        lockdata:[],//關閉後清空要修改權限封包(防呆功能)
       });
     }
   };
@@ -145,7 +147,7 @@ export default class TeacherManagement extends Component {
   //#region 修改權限列表系列  
     //#region 功能一：按鈕開關及時顯示　功能二：將點選按鈕的Id儲存到封包裡
     chkChecked = (Key) => {
-      const { data } = this.state;
+      const { data ,lockdata} = this.state;
       console.log(Key, 151)
       //修改時先將this.state.lists指定給一個變數
       let arrLists = this.state.Role_list_personal_state
@@ -161,48 +163,19 @@ export default class TeacherManagement extends Component {
       console.log(arrLists[Key])
       let Permission_Id = { Permission_Id: Id };;      
       //#region 防呆功能 如果以選取不寫入封包
-        // var result = data.map( function(item, index) {
-        //   return item.Permission_Id;
-        // }).indexOf(Permission_Id);
-        // console.log(data.indexOf(Permission_Id),171)
-        // console.log(result)
-        // if (result===-1) 
-        //data.push(Permission_Id);
-
-        // let longWords = data.filter(item => 
-        //   data.Permission_Id === Permission_Id
-          
-        //   );
-        //   return item.Permission_Id.indexOf(Permission_Id !== -1)
-        // const result = data.filter(function (item, index, array) {
-        //   if (item.Permission_Id.indexOf(Permission_Id)!==-1)
-          
-        //   return Permission_Id; 
-        // });
-        // data.push(result);
-        // if (data===[]){
-        //   data.push(Permission_Id);
-        // }
-        // else{
-        //   data.forEach(function (item, index, array) {
-        //     if(item.Permission_Id.indexOf(Permission_Id)!==-1){
-        //     data.push(Permission_Id);
-        //   }
-        //   });
-        // }
-        //  if (data===[]){
-        //   const{data}=this.props
-        //  data.push(Permission_Id);
-        //  }
-        data.push(Permission_Id);
+        if(lockdata.indexOf(Id)===-1){
+          lockdata.push(Id);
+          data.push(Permission_Id);  
+        }
       //#endregion
 
       //改完後用setState將lists重新設定為arrLists
       this.setState({
         Role_list_personal_state: arrLists,
       }, () => {
-        console.log(this.state.Role_list_personal_state, 166)
-        console.log(this.state.data, 167)
+        console.log(this.state.Role_list_personal_state, 166);
+        console.log(this.state.lockdata, 217);
+        console.log(this.state.data, 218);
       });
     }
   //#endregion
@@ -238,14 +211,14 @@ export default class TeacherManagement extends Component {
     const { Roledata, Role } = this.state;//修改角色系列
     const { Role_title, Role_list_personal_state } = this.state; //修改權縣系列
     //#region map修改權限表
-    //#region 根據選單filter權限表
-    const Role_titledata = Role_list_personal_state.filter(function (item, index, array) {
-      const data = item.Permission_Id;
-      const data1 = data.substring(0, 2);
-      return data1 === Role_title; //把Id前二個字母抓出來比對
-    });
-    //#endregion
-    //#region  map權限表
+      //#region 根據選單filter權限表
+      const Role_titledata = Role_list_personal_state.filter(function (item, index, array) {
+        const data = item.Permission_Id;
+        const data1 = data.substring(0, 2);
+        return data1 === Role_title; //把Id前二個字母抓出來比對
+      });
+      //#endregion
+      //#region  map權限表
     const Role_datalist = Role_titledata.map((item, index, array) => {
       return (
         <tr className="list" key={index} >
